@@ -829,11 +829,11 @@ if($od['od_pg'] == 'lg') {
                         <input type="text" name="od_addr1" value="<?php echo $od['od_addr1']; ?>" id="od_addr1" required class="frm_input required" size="35">
                         <label for="od_addr1">기본주소</label><br>
                         <input type="text" name="od_addr2" value="<?php echo $od['od_addr2']; ?>" id="od_addr2" class="frm_input" size="35">
-                        <label for="od_addr2">상세주소</label><br>
+                        <label for="od_addr2">상세주소</label>
+                        <br>
                         <input type="text" name="od_addr3" value="<?php echo $od['od_addr3']; ?>" id="od_addr3" class="frm_input" size="35">
                         <label for="od_addr3">참고항목</label>
                         <input type="hidden" name="od_addr_jibeon" value="<?php echo $od['od_addr_jibeon']; ?>"><br>
-                        <span id="od_addr_jibeon">지번주소 : <?php echo $od['od_addr_jibeon']; ?></span>
                 </tr>
                 <tr>
                     <th scope="row"><label for="od_email"><span class="sound_only">주문하신 분 </span>E-mail</label></th>
@@ -887,7 +887,6 @@ if($od['od_pg'] == 'lg') {
                         <input type="text" name="od_b_addr3" value="<?php echo $od['od_b_addr3']; ?>" id="od_b_addr3" class="frm_input" size="35">
                         <label for="od_b_addr3">참고항목</label>
                         <input type="hidden" name="od_b_addr_jibeon" value="<?php echo $od['od_b_addr_jibeon']; ?>"><br>
-                        <span id="od_b_addr_jibeon">지번주소 : <?php echo $od['od_b_addr_jibeon']; ?></span>
                     </td>
                 </tr>
 
@@ -895,7 +894,7 @@ if($od['od_pg'] == 'lg') {
                 <tr>
                     <th scope="row"><label for="od_hope_date">희망배송일</label></th>
                     <td>
-                        <input type="text" name="od_hope_date" value="<?php echo $od['od_hope_date']; ?>" id="od_hopedate" required class="frm_input required minlength=10" maxlength="10" minlength="10"> (<?php echo get_yoil($od['od_hope_date']); ?>)
+                        <input type="text" name="od_hope_date" value="<?php echo $od['od_hope_date']; ?>" id="od_hopedate" required class="frm_input required" maxlength="10" minlength="10"> (<?php echo get_yoil($od['od_hope_date']); ?>)
                     </td>
                 </tr>
                 <?php } ?>
