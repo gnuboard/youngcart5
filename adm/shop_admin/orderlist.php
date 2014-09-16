@@ -108,7 +108,7 @@ $sql  = " select *,
            limit $from_record, $rows ";
 $result = sql_query($sql);
 
-$qstr1 = "od_status=$od_status&amp;sel_field=$sel_field&amp;search=$search&amp;save_search=$search";
+$qstr1 = "od_status=".urlencode($od_status)."&amp;od_settle_case=".urlencode($od_settle_case)."&amp;od_misu=$od_misu&amp;od_cancel_price=$od_cancel_price&amp;od_refund_price=$od_refund_price&amp;od_receipt_point=$od_receipt_point&amp;od_coupon=$od_coupon&amp;fr_date=$fr_date&amp;to_date=$to_date&amp;sel_field=$sel_field&amp;search=$search&amp;save_search=$search";
 $qstr = "$qstr1&amp;sort1=$sort1&amp;sort2=$sort2&amp;page=$page";
 
 $listall = '<a href="'.$_SERVER['PHP_SELF'].'" class="ov_listall">전체목록</a>';
@@ -386,34 +386,25 @@ if(!sql_query(" select mb_id from {$g5['g5_shop_order_delete_table']} limit 1 ",
         <td headers="th_delino" class="td_delino">
             <?php if ($od_status == '준비') { ?>
                 <input type="text" name="od_invoice[<?php echo $i; ?>]" value="<?php echo $row['od_invoice']; ?>" class="frm_input" size="10">
-            <?php } else if ($od_status == '배송' || $od_status ==  '완료') { ?>
-                <?php echo $row['od_invoice']; ?>
-            <?php } else { ?>
-                -
-            <?php } ?>
+            <?php } else {
+                echo ($row['od_invoice'] ? $row['od_invoice'] : '-');
+            } ?>
         </td>
         <td headers="th_delicom">
             <?php if ($od_status == '준비') { ?>
                 <select name="od_delivery_company[<?php echo $i; ?>]">
                     <?php echo get_delivery_company($delivery_company); ?>
                 </select>
-                <?php
-                /*<input type="text" name="od_delivery_company[<?php echo $i; ?>]" value="<?php echo $delivery_company; ?>" class="frm_input" size="10"> */
-                ?>
-            <?php } else if ($od_status == '배송' || $od_status ==  '완료') { ?>
-                <?php echo $delivery_company; ?>
-            <?php } else { ?>
-                -
-            <?php } ?>
+            <?php } else {
+                echo ($row['od_delivery_company'] ? $row['od_delivery_company'] : '-');
+            } ?>
         </td>
         <td headers="th_delidate">
             <?php if ($od_status == '준비') { ?>
                 <input type="text" name="od_invoice_time[<?php echo $i; ?>]" value="<?php echo $invoice_time; ?>" class="frm_input" size="10" maxlength="19">
-            <?php } else if ($od_status == '배송' || $od_status ==  '완료') { ?>
-                <?php echo substr($row['od_invoice_time'],2,14); ?>
-            <?php } else { ?>
-                -
-            <?php } ?>
+            <?php } else {
+                echo (is_null_time($row['od_invoice_time']) ? '-' : substr($row['od_invoice_time'],2,14));
+            } ?>
         </td>
     </tr>
     <?php
