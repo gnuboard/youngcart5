@@ -57,6 +57,12 @@ $goods = $pp['pp_name'].'님 개인결제';
         <div class="tbl_frm01 tbl_wrap">
             <table>
             <tbody>
+            <?php if(trim($pp['pp_content'])) { ?>
+            <tr>
+                <th>상세내용</th>
+                <td><?php echo conv_content($pp['pp_content'], 0); ?></td>
+            </tr>
+            <?php } ?>
             <tr>
                 <th>결제금액</th>
                 <td><?php echo display_price($pp['pp_price']); ?></td>
@@ -126,9 +132,6 @@ $goods = $pp['pp_name'].'님 개인결제';
         ?>
 
         <?php
-        if (!$default['de_card_point'])
-            echo '<p><strong>무통장입금</strong> 이외의 결제 수단으로 결제하시는 경우 포인트를 적립해드리지 않습니다.</p>';
-
         if ($multi_settle == 0)
             echo '<p>결제할 방법이 없습니다.<br>운영자에게 알려주시면 감사하겠습니다.</p>';
         ?>
