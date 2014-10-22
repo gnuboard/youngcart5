@@ -12,7 +12,7 @@ $sql = " select *
 $iq = sql_fetch($sql);
 if (!$iq['iq_id']) alert('등록된 자료가 없습니다.');
 
-$name = get_sideview($is['mb_id'], $iq['iq_name'], $is['mb_email'], $is['mb_homepage']);
+$name = get_sideview($is['mb_id'], get_text($iq['iq_name']), $is['mb_email'], $is['mb_homepage']);
 
 $g5['title'] = '상품문의';
 include_once (G5_ADMIN_PATH.'/admin.head.php');
@@ -68,11 +68,11 @@ $qstr = 'page='.$page.'&amp;sort1='.$sort1.'&amp;sort2='.$sort2;
     </tr>
     <tr>
         <th scope="row"><label for="iq_question">질문</label></th>
-        <td><?php echo editor_html('iq_question', $iq['iq_question']); ?></td>
+        <td><?php echo editor_html('iq_question', get_text($iq['iq_question'], 0)); ?></td>
     </tr>
     <tr>
         <th scope="row"><label for="iq_answer">답변</label></th>
-        <td><?php echo editor_html('iq_answer', $iq['iq_answer']); ?></td>
+        <td><?php echo editor_html('iq_answer', get_text($iq['iq_answer'], 0)); ?></td>
         <!-- <td><textarea name="iq_answer" id="iq_answer" rows="7"><?php echo get_text($iq['iq_answer']); ?></textarea></td> -->
     </tr>
     </tbody>
