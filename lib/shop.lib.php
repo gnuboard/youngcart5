@@ -336,10 +336,6 @@ function get_cart_count($cart_id)
     global $g5, $default;
 
     $sql = " select count(ct_id) as cnt from {$g5['g5_shop_cart_table']} where od_id = '$cart_id' ";
-    if($default['de_cart_keep_term']) {
-        $ctime = date('Y-m-d', G5_SERVER_TIME - ($default['de_cart_keep_term'] * 86400));
-        $sql .= " and substring(ct_time, 1, 10) >= '$ctime' ";
-    }
     $row = sql_fetch($sql);
     $cnt = (int)$row['cnt'];
     return $cnt;
@@ -1342,11 +1338,6 @@ function set_cart_id($direct)
                         where mb_id = '{$member['mb_id']}'
                           and ct_direct = '0'
                           and ct_status = '쇼핑' ";
-            if($default['de_cart_keep_term']) {
-                $ctime = date('Y-m-d', G5_SERVER_TIME - ($default['de_cart_keep_term'] * 86400));
-                $sql .= " and substring(ct_time, 1, 10) >= '$ctime' ";
-            }
-
             sql_query($sql);
         }
     }
@@ -2140,6 +2131,45 @@ function get_itemuselist_thumbnail($it_id, $contents, $thumb_width, $thumb_heigh
         $img = get_it_image($it_id, $thumb_width, $thumb_height);
 
     return $img;
+}
+
+// 장바구니 상품삭제
+function cart_item_clean()
+{
+    global $g5, $default;
+
+    // 장바구니 보관일
+    $keep_term = $default['de_cart_keep_term'];
+    if(!$keep_term)
+        $keep_term = 15; // 기본값 15일
+
+    // ct_select_time이 기준시간 이상 경과된 경우 변경
+    if(defined('G5_CART_STOCK_LIMIT'))
+        $cart_stock_limit = G5_CART_STOCK_LIMIT;
+    else
+        $cart_stock_limit = 3;
+
+    $stocktime = 0;
+    if($cart_stock_limit > 0) {
+        if($cart_stock_limit > $keep_term * 24)
+            $cart_stock_limit = $keep_term * 24;
+
+        $stocktime = G5_SERVER_TIME - (3600 * $cart_stock_limit);
+        $sql = " update {$g5['g5_shop_cart_table']}
+                    set ct_select = '0'
+                    where ct_select = '1'
+                      and ct_status = '쇼핑'
+                      and UNIX_TIMESTAMP(ct_select_time) < '$stocktime' ";
+        sql_query($sql);
+    }
+
+    // 설정 시간이상 경과된 상품 삭제
+    $statustime = G5_SERVER_TIME - (86400 * $keep_term);
+
+    $sql = " delete from {$g5['g5_shop_cart_table']}
+                where ct_status = '쇼핑'
+                  and UNIX_TIMESTAMP(ct_time) < '$statustime' ";
+    sql_query($sql);
 }
 
 //==============================================================================
