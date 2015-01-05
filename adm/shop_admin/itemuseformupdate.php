@@ -9,8 +9,6 @@ if ($w == 'd')
 else
     auth_check($auth[$sub_menu], "w");
 
-$qstr = "page=$page&amp;sort1=$sort1&amp;sort2=$sort2";
-
 if ($w == "u")
 {
     $sql = "update {$g5['g5_shop_item_use_table']}
@@ -22,7 +20,7 @@ if ($w == "u")
 
     update_use_cnt($_POST['it_id']);
 
-    goto_url("./itemuseform.php?w=$w&amp;is_id=$is_id&amp;$qstr");
+    goto_url("./itemuseform.php?w=$w&amp;is_id=$is_id&amp;sca=$sca&amp;$qstr");
 }
 else
 {
