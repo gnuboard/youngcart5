@@ -14,6 +14,9 @@ define('G5_SHOP_URL',   G5_URL.'/'.G5_SHOP_DIR);
 define('G5_MSHOP_PATH', G5_MOBILE_PATH.'/'.G5_SHOP_DIR);
 define('G5_MSHOP_URL',  G5_MOBILE_URL.'/'.G5_SHOP_DIR);
 
+define('G5_SHOP_IMG_URL',  G5_SHOP_URL.'/'.G5_IMG_DIR);
+define('G5_MSHOP_IMG_URL', G5_MSHOP_URL.'/'.G5_IMG_DIR);
+
 // 보안서버주소 설정
 if (G5_HTTPS_DOMAIN) {
     define('G5_HTTPS_SHOP_URL', G5_HTTPS_DOMAIN.'/'.G5_SHOP_DIR);
@@ -130,6 +133,10 @@ if($default['de_card_test']) {
     define('G5_BILL_RECEIPT_URL', 'https://admin8.kcp.co.kr/assist/bill.BillActionNew.do?cmd=');
     define('G5_CASH_RECEIPT_URL', 'https://admin.kcp.co.kr/Modules/Service/Cash/Cash_Bill_Common_View.jsp?term_id=PGNW');
 }
+
+// 상품상세 페이지에서 재고체크 실행 여부 선택
+// 상품의 옵션이 많아 로딩 속도가 느린 경우 false 로 설정
+define('G5_SOLDOUT_CHECK', true);
 
 // 주문폼의 상품이 재고 차감에 포함되는 기준 시간설정
 // 0 이면 재고 차감에 계속 포함됨
