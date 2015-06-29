@@ -8,9 +8,9 @@ add_stylesheet('<link rel="stylesheet" href="'.G5_MSHOP_SKIN_URL.'/style.css">',
 <script src="<?php echo G5_JS_URL; ?>/viewimageresize.js"></script>
 
 <!-- 전체 상품 사용후기 목록 시작 { -->
-<form method="get" action="<?php echo $_SERVER['PHP_SELF']; ?>">
+<form method="get" action="<?php echo $_SERVER['SCRIPT_NAME']; ?>">
 <div id="sps_sch">
-    <a href="<?php echo $_SERVER['PHP_SELF']; ?>">전체보기</a>
+    <a href="<?php echo $_SERVER['SCRIPT_NAME']; ?>">전체보기</a>
     <label for="sfl" class="sound_only">검색항목</label>
     <select name="sfl" id="sfl" required>
         <option value="">선택</option>
@@ -56,11 +56,11 @@ add_stylesheet('<link rel="stylesheet" href="'.G5_MSHOP_SKIN_URL.'/style.css">',
         </div>
 
         <section class="sps_section">
-            <h2><?php echo $row['is_subject']; ?></h2>
+            <h2><?php echo get_text($row['is_subject']); ?></h2>
 
             <dl class="sps_dl">
                 <dt>작성자</dt>
-                <dd><?php echo $row['is_name']; ?></dd>
+                <dd><?php echo get_text($row['is_name']); ?></dd>
                 <dt>작성일</dt>
                 <dd><?php echo substr($row['is_time'],0,10); ?></dd>
                 <dt>평가점수</dt>
@@ -81,7 +81,7 @@ add_stylesheet('<link rel="stylesheet" href="'.G5_MSHOP_SKIN_URL.'/style.css">',
     ?>
 </div>
 
-<?php echo get_paging($config['cf_mobile_pages'], $page, $total_page, "{$_SERVER['PHP_SELF']}?$qstr&amp;page="); ?>
+<?php echo get_paging($config['cf_mobile_pages'], $page, $total_page, "{$_SERVER['SCRIPT_NAME']}?$qstr&amp;page="); ?>
 
 <script>
 $(function(){
