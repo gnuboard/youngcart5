@@ -297,6 +297,23 @@ add_javascript(G5_POSTCODE_JS, 0);    //다음 주소 js
     // 결제방법
     $s_receipt_way = $od['od_settle_case'];
 
+    if($od['od_settle_case'] == '간편결제') {
+        switch($od['od_pg']) {
+            case 'lg':
+                $s_receipt_way = 'PAYNOW';
+                break;
+            case 'inicis':
+                $s_receipt_way = 'KPAY';
+                break;
+            case 'kcp':
+                $s_receipt_way = 'PAYCO';
+                break;
+            default:
+                $s_receipt_way = $row['od_settle_case'];
+                break;
+        }
+    }
+
     if ($od['od_receipt_point'] > 0)
         $s_receipt_way .= "+포인트";
     ?>
@@ -427,6 +444,44 @@ add_javascript(G5_POSTCODE_JS, 0);    //다음 주소 js
                 </tr>
                 <?php } ?>
 
+                <?php if ($od['od_settle_case'] == 'KAKAOPAY') { ?>
+                <tr>
+                    <th scope="row" class="sodr_sppay">KAKOPAY 결제금액</th>
+                    <td>
+                        <?php if ($od['od_receipt_time'] == "0000-00-00 00:00:00") {?>0원
+                        <?php } else { ?><?php echo display_price($od['od_receipt_price']); ?>
+                        <?php } ?>
+                    </td>
+                </tr>
+                <tr>
+                    <th scope="row" class="sodr_sppay">KAKAOPAY 승인일시</th>
+                    <td>
+                        <?php if ($od['od_receipt_time'] == "0000-00-00 00:00:00") {?>신용카드 결제 일시 정보가 없습니다.
+                        <?php } else { ?><?php echo substr($od['od_receipt_time'], 0, 20); ?>
+                        <?php } ?>
+                    </td>
+                </tr>
+                <?php } ?>
+
+                <?php if ($od['od_settle_case'] == '간편결제') { ?>
+                <tr>
+                    <th scope="row" class="sodr_sppay"><?php echo $s_receipt_way; ?> 결제금액</th>
+                    <td>
+                        <?php if ($od['od_receipt_time'] == "0000-00-00 00:00:00") {?>0원
+                        <?php } else { ?><?php echo display_price($od['od_receipt_price']); ?>
+                        <?php } ?>
+                    </td>
+                </tr>
+                <tr>
+                    <th scope="row" class="sodr_sppay"><?php echo $s_receipt_way; ?> 승인일시</th>
+                    <td>
+                        <?php if ($od['od_receipt_time'] == "0000-00-00 00:00:00") { echo $s_receipt_way; ?> 결제 일시 정보가 없습니다.
+                        <?php } else { ?><?php echo substr($od['od_receipt_time'], 0, 20); ?>
+                        <?php } ?>
+                    </td>
+                </tr>
+                <?php } ?>
+
                 <?php if ($od['od_settle_case'] != '무통장') { ?>
                 <tr>
                     <th scope="row">결제대행사 링크</th>
@@ -445,6 +500,10 @@ add_javascript(G5_POSTCODE_JS, 0);    //다음 주소 js
                                 case 'inicis':
                                     $pg_url  = 'https://iniweb.inicis.com/';
                                     $pg_test = 'KG이니시스';
+                                    break;
+                                case 'KAKAOPAY':
+                                    $pg_url  = 'https://mms.cnspay.co.kr';
+                                    $pg_test = 'KAKAOPAY';
                                     break;
                                 default:
                                     $pg_url  = 'http://admin8.kcp.co.kr';
@@ -677,6 +736,42 @@ add_javascript(G5_POSTCODE_JS, 0);    //다음 주소 js
                 </tr>
                 <?php } ?>
 
+                <?php if ($od['od_settle_case'] == 'KAKAOPAY') { ?>
+                <tr>
+                    <th scope="row" class="sodr_sppay"><label for="od_receipt_price">KAKAOPAY 결제금액</label></th>
+                    <td>
+                        <?php echo $html_receipt_chk; ?>
+                        <input type="text" name="od_receipt_price" id="od_receipt_price" value="<?php echo $od['od_receipt_price']; ?>" class="frm_input" size="10"> 원
+                    </td>
+                </tr>
+                <tr>
+                    <th scope="row" class="sodr_sppay"><label for="od_receipt_time">KAKAOPAY 승인일시</label></th>
+                    <td>
+                        <input type="checkbox" name="od_card_chk" id="od_card_chk" value="<?php echo date("Y-m-d H:i:s", G5_SERVER_TIME); ?>" onclick="if (this.checked == true) this.form.od_receipt_time.value=this.form.od_card_chk.value; else this.form.od_receipt_time.value = this.form.od_receipt_time.defaultValue;">
+                        <label for="od_card_chk">현재 시간으로 설정</label><br>
+                        <input type="text" name="od_receipt_time" value="<?php echo is_null_time($od['od_receipt_time']) ? "" : $od['od_receipt_time']; ?>" id="od_receipt_time" class="frm_input" size="19" maxlength="19">
+                    </td>
+                </tr>
+                <?php } ?>
+
+                <?php if ($od['od_settle_case'] == '간편결제') { ?>
+                <tr>
+                    <th scope="row" class="sodr_sppay"><label for="od_receipt_price"><?php echo $s_receipt_way; ?> 결제금액</label></th>
+                    <td>
+                        <?php echo $html_receipt_chk; ?>
+                        <input type="text" name="od_receipt_price" id="od_receipt_price" value="<?php echo $od['od_receipt_price']; ?>" class="frm_input" size="10"> 원
+                    </td>
+                </tr>
+                <tr>
+                    <th scope="row" class="sodr_sppay"><label for="od_receipt_time"><?php echo $s_receipt_way; ?> 승인일시</label></th>
+                    <td>
+                        <input type="checkbox" name="od_card_chk" id="od_card_chk" value="<?php echo date("Y-m-d H:i:s", G5_SERVER_TIME); ?>" onclick="if (this.checked == true) this.form.od_receipt_time.value=this.form.od_card_chk.value; else this.form.od_receipt_time.value = this.form.od_receipt_time.defaultValue;">
+                        <label for="od_card_chk">현재 시간으로 설정</label><br>
+                        <input type="text" name="od_receipt_time" value="<?php echo is_null_time($od['od_receipt_time']) ? "" : $od['od_receipt_time']; ?>" id="od_receipt_time" class="frm_input" size="19" maxlength="19">
+                    </td>
+                </tr>
+                <?php } ?>
+
                 <tr>
                     <th scope="row"><label for="od_receipt_point">포인트 결제액</label></th>
                     <td><input type="text" name="od_receipt_point" value="<?php echo $od['od_receipt_point']; ?>" id="od_receipt_point" class="frm_input" size="10"> 점</td>
@@ -737,7 +832,7 @@ add_javascript(G5_POSTCODE_JS, 0);    //다음 주소 js
         <?php if($od['od_status'] == '주문' && $od['od_misu'] > 0) { ?>
         <a href="./personalpayform.php?popup=yes&amp;od_id=<?php echo $od_id; ?>" id="personalpay_add">개인결제추가</a>
         <?php } ?>
-        <?php if($od['od_misu'] < 0 && ($od['od_receipt_price'] - $od['od_refund_price']) > 0 && ($od['od_settle_case'] == '신용카드' || $od['od_settle_case'] == '계좌이체')) { ?>
+        <?php if($od['od_misu'] < 0 && ($od['od_receipt_price'] - $od['od_refund_price']) > 0 && ($od['od_settle_case'] == '신용카드' || $od['od_settle_case'] == '계좌이체' || $od['od_settle_case'] == 'KAKAOPAY')) { ?>
         <a href="./orderpartcancel.php?od_id=<?php echo $od_id; ?>" id="orderpartcancel"><?php echo $od['od_settle_case']; ?> 부분취소</a>
         <?php } ?>
         <a href="./orderlist.php?<?php echo $qstr; ?>">목록</a>
@@ -804,15 +899,15 @@ add_javascript(G5_POSTCODE_JS, 0);    //다음 주소 js
                 <tbody>
                 <tr>
                     <th scope="row"><label for="od_name"><span class="sound_only">주문하신 분 </span>이름</label></th>
-                    <td><input type="text" name="od_name" value="<?php echo $od['od_name']; ?>" id="od_name" required class="frm_input required"></td>
+                    <td><input type="text" name="od_name" value="<?php echo get_text($od['od_name']); ?>" id="od_name" required class="frm_input required"></td>
                 </tr>
                 <tr>
                     <th scope="row"><label for="od_tel"><span class="sound_only">주문하신 분 </span>전화번호</label></th>
-                    <td><input type="text" name="od_tel" value="<?php echo $od['od_tel']; ?>" id="od_tel" required class="frm_input required"></td>
+                    <td><input type="text" name="od_tel" value="<?php echo get_text($od['od_tel']); ?>" id="od_tel" required class="frm_input required"></td>
                 </tr>
                 <tr>
                     <th scope="row"><label for="od_hp"><span class="sound_only">주문하신 분 </span>핸드폰</label></th>
-                    <td><input type="text" name="od_hp" value="<?php echo $od['od_hp']; ?>" id="od_hp" class="frm_input"></td>
+                    <td><input type="text" name="od_hp" value="<?php echo get_text($od['od_hp']); ?>" id="od_hp" class="frm_input"></td>
                 </tr>
                 <tr>
                     <th scope="row"><span class="sound_only">주문하시는 분 </span>주소</th>
@@ -821,14 +916,14 @@ add_javascript(G5_POSTCODE_JS, 0);    //다음 주소 js
                         <input type="text" name="od_zip" value="<?php echo $od['od_zip1'].$od['od_zip2']; ?>" id="od_zip" required class="frm_input required" size="5">
                         <button type="button" class="btn_frmline" onclick="win_zip('frmorderform3', 'od_zip', 'od_addr1', 'od_addr2', 'od_addr3', 'od_addr_jibeon');">주소 검색</button><br>
                         <span id="od_win_zip" style="display:block"></span>
-                        <input type="text" name="od_addr1" value="<?php echo $od['od_addr1']; ?>" id="od_addr1" required class="frm_input required" size="35">
+                        <input type="text" name="od_addr1" value="<?php echo get_text($od['od_addr1']); ?>" id="od_addr1" required class="frm_input required" size="35">
                         <label for="od_addr1">기본주소</label><br>
-                        <input type="text" name="od_addr2" value="<?php echo $od['od_addr2']; ?>" id="od_addr2" class="frm_input" size="35">
+                        <input type="text" name="od_addr2" value="<?php echo get_text($od['od_addr2']); ?>" id="od_addr2" class="frm_input" size="35">
                         <label for="od_addr2">상세주소</label>
                         <br>
-                        <input type="text" name="od_addr3" value="<?php echo $od['od_addr3']; ?>" id="od_addr3" class="frm_input" size="35">
+                        <input type="text" name="od_addr3" value="<?php echo get_text($od['od_addr3']); ?>" id="od_addr3" class="frm_input" size="35">
                         <label for="od_addr3">참고항목</label>
-                        <input type="hidden" name="od_addr_jibeon" value="<?php echo $od['od_addr_jibeon']; ?>"><br>
+                        <input type="hidden" name="od_addr_jibeon" value="<?php echo get_text($od['od_addr_jibeon']); ?>"><br>
                 </tr>
                 <tr>
                     <th scope="row"><label for="od_email"><span class="sound_only">주문하신 분 </span>E-mail</label></th>
@@ -856,15 +951,15 @@ add_javascript(G5_POSTCODE_JS, 0);    //다음 주소 js
                 <tbody>
                 <tr>
                     <th scope="row"><label for="od_b_name"><span class="sound_only">받으시는 분 </span>이름</label></th>
-                    <td><input type="text" name="od_b_name" value="<?php echo $od['od_b_name']; ?>" id="od_b_name" required class="frm_input required"></td>
+                    <td><input type="text" name="od_b_name" value="<?php echo get_text($od['od_b_name']); ?>" id="od_b_name" required class="frm_input required"></td>
                 </tr>
                 <tr>
                     <th scope="row"><label for="od_b_tel"><span class="sound_only">받으시는 분 </span>전화번호</label></th>
-                    <td><input type="text" name="od_b_tel" value="<?php echo $od['od_b_tel']; ?>" id="od_b_tel" required class="frm_input required"></td>
+                    <td><input type="text" name="od_b_tel" value="<?php echo get_text($od['od_b_tel']); ?>" id="od_b_tel" required class="frm_input required"></td>
                 </tr>
                 <tr>
                     <th scope="row"><label for="od_b_hp"><span class="sound_only">받으시는 분 </span>핸드폰</label></th>
-                    <td><input type="text" name="od_b_hp" value="<?php echo $od['od_b_hp']; ?>" id="od_b_hp" class="frm_input required"></td>
+                    <td><input type="text" name="od_b_hp" value="<?php echo get_text($od['od_b_hp']); ?>" id="od_b_hp" class="frm_input required"></td>
                 </tr>
                 <tr>
                     <th scope="row"><span class="sound_only">받으시는 분 </span>주소</th>
@@ -872,13 +967,13 @@ add_javascript(G5_POSTCODE_JS, 0);    //다음 주소 js
                         <label for="od_b_zip" class="sound_only">우편번호</label>
                         <input type="text" name="od_b_zip" value="<?php echo $od['od_b_zip1'].$od['od_b_zip2']; ?>" id="od_b_zip" required class="frm_input required" size="5">
                         <button type="button" class="btn_frmline" onclick="win_zip('frmorderform3', 'od_b_zip', 'od_b_addr1', 'od_b_addr2', 'od_b_addr3', 'od_b_addr_jibeon');">주소 검색</button><br>
-                        <input type="text" name="od_b_addr1" value="<?php echo $od['od_b_addr1']; ?>" id="od_b_addr1" required class="frm_input required" size="35">
+                        <input type="text" name="od_b_addr1" value="<?php echo get_text($od['od_b_addr1']); ?>" id="od_b_addr1" required class="frm_input required" size="35">
                         <label for="od_b_addr1">기본주소</label>
-                        <input type="text" name="od_b_addr2" value="<?php echo $od['od_b_addr2']; ?>" id="od_b_addr2" class="frm_input" size="35">
+                        <input type="text" name="od_b_addr2" value="<?php echo get_text($od['od_b_addr2']); ?>" id="od_b_addr2" class="frm_input" size="35">
                         <label for="od_b_addr2">상세주소</label>
-                        <input type="text" name="od_b_addr3" value="<?php echo $od['od_b_addr3']; ?>" id="od_b_addr3" class="frm_input" size="35">
+                        <input type="text" name="od_b_addr3" value="<?php echo get_text($od['od_b_addr3']); ?>" id="od_b_addr3" class="frm_input" size="35">
                         <label for="od_b_addr3">참고항목</label>
-                        <input type="hidden" name="od_b_addr_jibeon" value="<?php echo $od['od_b_addr_jibeon']; ?>"><br>
+                        <input type="hidden" name="od_b_addr_jibeon" value="<?php echo get_text($od['od_b_addr_jibeon']); ?>"><br>
                     </td>
                 </tr>
 
@@ -965,16 +1060,21 @@ function form_submit(f)
 
     var msg = "";
 
-    <?php if($od['od_settle_case'] == '신용카드') { ?>
+    <?php if($od['od_settle_case'] == '신용카드' || $od['od_settle_case'] == 'KAKAOPAY' || $od['od_settle_case'] == '간편결제') { ?>
     if(status == "취소" || status == "반품" || status == "품절") {
         var $ct_chk = $("input[name^=ct_chk]");
         var chk_cnt = $ct_chk.size();
         var chked_cnt = $ct_chk.filter(":checked").size();
+        <?php if($od['od_pg'] == 'KAKAOPAY') { ?>
+        var cancel_pg = "카카오페이";
+        <?php } else { ?>
+        var cancel_pg = "PG사의 <?php echo $od['od_settle_case']; ?>";
+        <?php } ?>
 
         if(chk_cnt == chked_cnt) {
-            if(confirm("PG사의 신용카드 결제를 함께 취소하시겠습니까?\n\n한번 취소한 결제는 다시 복구할 수 없습니다.")) {
+            if(confirm(cancel_pg+" 결제를 함께 취소하시겠습니까?\n\n한번 취소한 결제는 다시 복구할 수 없습니다.")) {
                 f.pg_cancel.value = 1;
-                msg = "PG사의 신용카드 결제 취소와 함께 ";
+                msg = cancel_pg+" 결제 취소와 함께 ";
             } else {
                 f.pg_cancel.value = 0;
                 msg = "";

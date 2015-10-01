@@ -1,11 +1,6 @@
 <?php
 include_once('./_common.php');
 
-if (G5_IS_MOBILE) {
-    include_once(G5_MSHOP_PATH.'/orderinquiryview.php');
-    return;
-}
-
 // 불법접속을 할 수 없도록 세션에 아무값이나 저장하여 hidden 으로 넘겨서 다음 페이지에서 비교함
 $token = md5(uniqid(rand(), true));
 set_session("ss_token", $token);
@@ -25,6 +20,21 @@ if (!$od['od_id'] || (!$is_member && md5($od['od_id'].$od['od_time'].$od['od_ip'
 
 // 결제방법
 $settle_case = $od['od_settle_case'];
+
+if (G5_IS_MOBILE) {
+    include_once(G5_MSHOP_PATH.'/orderinquiryview.php');
+    return;
+}
+
+// 테마에 orderinquiryview.php 있으면 include
+if(defined('G5_THEME_SHOP_PATH')) {
+    $theme_inquiryview_file = G5_THEME_SHOP_PATH.'/orderinquiryview.php';
+    if(is_file($theme_inquiryview_file)) {
+        include_once($theme_inquiryview_file);
+        return;
+        unset($theme_inquiryview_file);
+    }
+}
 
 $g5['title'] = '주문상세내역';
 include_once('./_head.php');
@@ -257,11 +267,28 @@ if($od['od_pg'] == 'lg') {
         $app_no_subj = '';
         $disp_bank = true;
         $disp_receipt = false;
-        if($od['od_settle_case'] == '신용카드') {
+        if($od['od_settle_case'] == '신용카드' || $od['od_settle_case'] == 'KAKAOPAY') {
             $app_no_subj = '승인번호';
             $app_no = $od['od_app_no'];
             $disp_bank = false;
             $disp_receipt = true;
+        } else if($od['od_settle_case'] == '간편결제') {
+            $app_no_subj = '승인번호';
+            $app_no = $od['od_app_no'];
+            $disp_bank = false;
+            switch($od['od_pg']) {
+                case 'lg':
+                    $easy_pay_name = 'PAYNOW';
+                    break;
+                case 'inicis':
+                    $easy_pay_name = 'KPAY';
+                    break;
+                case 'kcp':
+                    $easy_pay_name = 'PAYCO';
+                    break;
+                default:
+                    break;
+            }
         } else if($od['od_settle_case'] == '휴대폰') {
             $app_no_subj = '휴대폰번호';
             $app_no = $od['od_bank_account'];
@@ -293,7 +320,7 @@ if($od['od_pg'] == 'lg') {
                 </tr>
                 <tr>
                     <th scope="row">결제방식</th>
-                    <td><?php echo $od['od_settle_case']; ?></td>
+                    <td><?php echo ($easy_pay_name ? $easy_pay_name.'('.$od['od_settle_case'].')' : $od['od_settle_case']); ?></td>
                 </tr>
                 <tr>
                     <th scope="row">결제금액</th>
@@ -375,6 +402,14 @@ if($od['od_pg'] == 'lg') {
                             } else {
                                 $card_receipt_script = 'window.open(\''.G5_BILL_RECEIPT_URL.'card_bill&tno='.$od['od_tno'].'&order_no='.$od['od_id'].'&trade_mony='.$od['od_receipt_price'].'\', \'winreceipt\', \'width=470,height=815,scrollbars=yes,resizable=yes\');';
                             }
+                        ?>
+                        <a href="javascript:;" onclick="<?php echo $card_receipt_script; ?>">영수증 출력</a>
+                        <?php
+                        }
+
+                        if($od['od_settle_case'] == 'KAKAOPAY')
+                        {
+                            $card_receipt_script = 'window.open(\'https://mms.cnspay.co.kr/trans/retrieveIssueLoader.do?TID='.$od['od_tno'].'&type=0\', \'popupIssue\', \'toolbar=no,location=no,directories=no,status=yes,menubar=no,scrollbars=yes,resizable=yes,width=420,height=540\');';
                         ?>
                         <a href="javascript:;" onclick="<?php echo $card_receipt_script; ?>">영수증 출력</a>
                         <?php

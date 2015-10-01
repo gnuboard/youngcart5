@@ -8,7 +8,7 @@ if (!defined("_GNUBOARD_")) exit; // 개별 페이지 접근 불가
 /* = -------------------------------------------------------------------------- = */
 
 // kcp 전자결제를 사용할 때만 실행
-if($default['de_iche_use'] || $default['de_vbank_use'] || $default['de_hp_use'] || $default['de_card_use']) {
+if($default['de_iche_use'] || $default['de_vbank_use'] || $default['de_hp_use'] || $default['de_card_use'] || $default['de_easy_pay_use']) {
 ?>
 <script src="<?php echo $g_conf_js_url; ?>"></script>
 <?php
@@ -17,20 +17,11 @@ if($default['de_iche_use'] || $default['de_vbank_use'] || $default['de_hp_use'] 
 /* ============================================================================== */
 ?>
 <script>
+StartSmartUpdate();
+
 function CheckPayplusInstall()
 {
-    if(ChkBrowser())
-    {
-        if(document.Payplus.object != null) {
-            document.getElementById("display_setup_message_top").style.display = "none" ;
-            document.getElementById("display_setup_message").style.display = "none" ;
-            document.getElementById("display_pay_button").style.display = "" ;
-        }
-    }
-    else
-    {
-        setTimeout("init_pay_button();",300);
-    }
+    setTimeout("init_pay_button();",300);
 }
 
 /* Payplus Plug-in 실행 */
@@ -65,7 +56,7 @@ function  jsf__pay( form )
 
 function init_pay_button()
 {
-    if (navigator.userAgent.indexOf('MSIE') > 0)
+    if ((navigator.userAgent.indexOf('MSIE') > 0) || (navigator.userAgent.indexOf('Trident/7.0') > 0))
     {
         try
         {
@@ -74,7 +65,7 @@ function init_pay_button()
                 document.getElementById("display_setup_message_top").style.display = "" ;
                 document.getElementById("display_setup_message").style.display = "" ;
                 document.getElementById("display_pay_button").style.display = "none" ;
-                document.getElementById("display_setup_message").scrollIntoView();
+                //document.getElementById("display_setup_message").scrollIntoView();
             }
             else{
                 document.getElementById("display_setup_message_top").style.display = "none" ;
@@ -87,7 +78,7 @@ function init_pay_button()
             document.getElementById("display_setup_message_top").style.display = "" ;
             document.getElementById("display_setup_message").style.display = "" ;
             document.getElementById("display_pay_button").style.display = "none" ;
-            document.getElementById("display_setup_message").scrollIntoView();
+            //document.getElementById("display_setup_message").scrollIntoView();
         }
     }
     else
@@ -99,7 +90,7 @@ function init_pay_button()
                 document.getElementById("display_setup_message_top").style.display = "" ;
                 document.getElementById("display_setup_message").style.display = "" ;
                 document.getElementById("display_pay_button").style.display = "none" ;
-                document.getElementById("display_setup_message").scrollIntoView();
+                //document.getElementById("display_setup_message").scrollIntoView();
             }
             else{
                 document.getElementById("display_setup_message_top").style.display = "none" ;
@@ -112,7 +103,7 @@ function init_pay_button()
             document.getElementById("display_setup_message_top").style.display = "" ;
             document.getElementById("display_setup_message").style.display = "" ;
             document.getElementById("display_pay_button").style.display = "none" ;
-            document.getElementById("display_setup_message").scrollIntoView();
+            //document.getElementById("display_setup_message").scrollIntoView();
         }
     }
 }

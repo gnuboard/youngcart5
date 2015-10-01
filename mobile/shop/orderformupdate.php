@@ -9,7 +9,7 @@ if(get_session('ss_direct'))
     $page_return_url .= '?sw_direct=1';
 
 // 결제등록 완료 체크
-if($od_settle_case != '무통장') {
+if($od_settle_case != '무통장' && $od_settle_case != 'KAKAOPAY') {
     if($default['de_pg_service'] == 'kcp' && ($_POST['tran_cd'] == '' || $_POST['enc_info'] == '' || $_POST['enc_data'] == ''))
         alert('결제등록 요청 후 주문해 주십시오.', $page_return_url);
 
@@ -392,21 +392,73 @@ else if ($od_settle_case == "신용카드")
     if($od_misu == 0)
         $od_status      = '입금';
 }
+else if ($od_settle_case == "간편결제")
+{
+    switch($default['de_pg_service']) {
+        case 'lg':
+            include G5_SHOP_PATH.'/lg/xpay_result.php';
+            break;
+        case 'inicis':
+            include G5_MSHOP_PATH.'/inicis/pay_result.php';
+            break;
+        default:
+            include G5_MSHOP_PATH.'/kcp/pp_ax_hub.php';
+            $card_name  = iconv("cp949", "utf-8", $card_name);
+            break;
+    }
+
+    $od_tno             = $tno;
+    $od_app_no          = $app_no;
+    $od_receipt_price   = $amount;
+    $od_receipt_point   = $i_temp_point;
+    $od_receipt_time    = preg_replace("/([0-9]{4})([0-9]{2})([0-9]{2})([0-9]{2})([0-9]{2})([0-9]{2})/", "\\1-\\2-\\3 \\4:\\5:\\6", $app_time);
+    $od_bank_account    = $card_name;
+    $pg_price           = $amount;
+    $od_misu            = $i_price - $od_receipt_price;
+    if($od_misu == 0)
+        $od_status      = '입금';
+}
+else if ($od_settle_case == "KAKAOPAY")
+{
+    include G5_SHOP_PATH.'/kakaopay/kakaopay_result.php';
+
+    $od_tno             = $tno;
+    $od_app_no          = $app_no;
+    $od_receipt_price   = $amount;
+    $od_receipt_point   = $i_temp_point;
+    $od_receipt_time    = preg_replace("/([0-9]{4})([0-9]{2})([0-9]{2})([0-9]{2})([0-9]{2})([0-9]{2})/", "\\1-\\2-\\3 \\4:\\5:\\6", $app_time);
+    $od_bank_account    = $card_name;
+    $pg_price           = $amount;
+    $od_misu            = $i_price - $od_receipt_price;
+    if($od_misu == 0)
+        $od_status      = '입금';
+}
 else
 {
     die("od_settle_case Error!!!");
 }
 
+$od_pg = $default['de_pg_service'];
+if($od_settle_case == 'KAKAOPAY')
+    $od_pg = 'KAKAOPAY';
+
 // 주문금액과 결제금액이 일치하는지 체크
 if($tno) {
     if((int)$order_price !== (int)$pg_price) {
         $cancel_msg = '결제금액 불일치';
-        switch($default['de_pg_service']) {
+        switch($od_pg) {
             case 'lg':
                 include G5_SHOP_PATH.'/lg/xpay_cancel.php';
                 break;
             case 'inicis':
                 include G5_SHOP_PATH.'/inicis/inipay_cancel.php';
+                break;
+            case 'KAKAOPAY':
+                $_REQUEST['TID']               = $tno;
+                $_REQUEST['Amt']               = $amount;
+                $_REQUEST['CancelMsg']         = $cancel_msg;
+                $_REQUEST['PartialCancelCode'] = 0;
+                include G5_SHOP_PATH.'/kakaopay/kakaopay_cancel.php';
                 break;
             default:
                 include G5_SHOP_PATH.'/kcp/pp_ax_hub_cancel.php';
@@ -439,7 +491,6 @@ if($default['de_tax_flag_use']) {
     $od_free_mny = (int)$_POST['comm_free_mny'];
 }
 
-$od_pg            = $default['de_pg_service'];
 $od_email         = get_email_address($od_email);
 $od_name          = clean_xss_tags($od_name);
 $od_tel           = clean_xss_tags($od_tel);
@@ -460,6 +511,7 @@ $od_b_addr3       = clean_xss_tags($od_b_addr3);
 $od_b_addr_jibeon = preg_match("/^(N|R)$/", $od_b_addr_jibeon) ? $od_b_addr_jibeon : '';
 $od_memo          = clean_xss_tags($od_memo);
 $od_deposit_name  = clean_xss_tags($od_deposit_name);
+$od_tax_flag      = $default['de_tax_flag_use'];
 
 // 주문서에 입력
 $sql = " insert {$g5['g5_shop_order_table']}
@@ -503,7 +555,7 @@ $sql = " insert {$g5['g5_shop_order_table']}
                 od_tno            = '$od_tno',
                 od_app_no         = '$od_app_no',
                 od_escrow         = '$od_escrow',
-                od_tax_flag       = '{$default['de_tax_flag_use']}',
+                od_tax_flag       = '$od_tax_flag',
                 od_tax_mny        = '$od_tax_mny',
                 od_vat_mny        = '$od_vat_mny',
                 od_free_mny       = '$od_free_mny',
@@ -521,12 +573,19 @@ $result = sql_query($sql, false);
 if(!$result) {
     if($tno) {
         $cancel_msg = '주문정보 입력 오류';
-        switch($default['de_pg_service']) {
+        switch($od_pg) {
             case 'lg':
                 include G5_SHOP_PATH.'/lg/xpay_cancel.php';
                 break;
             case 'inicis':
                 include G5_SHOP_PATH.'/inicis/inipay_cancel.php';
+                break;
+            case 'KAKAOPAY':
+                $_REQUEST['TID']               = $tno;
+                $_REQUEST['Amt']               = $amount;
+                $_REQUEST['CancelMsg']         = $cancel_msg;
+                $_REQUEST['PartialCancelCode'] = 0;
+                include G5_SHOP_PATH.'/kakaopay/kakaopay_cancel.php';
                 break;
             default:
                 include G5_SHOP_PATH.'/kcp/pp_ax_hub_cancel.php';
@@ -538,7 +597,7 @@ if(!$result) {
     $error = 'order';
     include G5_SHOP_PATH.'/ordererrormail.php';
 
-    die('<p>고객님의 주문 정보를 처리하는 중 오류가 발생해서 주문이 완료되지 않았습니다.</p><p>'.strtoupper($default['de_pg_service']).'를 이용한 전자결제(신용카드, 계좌이체, 가상계좌 등)은 자동 취소되었습니다.');
+    die('<p>고객님의 주문 정보를 처리하는 중 오류가 발생해서 주문이 완료되지 않았습니다.</p><p>'.strtoupper($od_pg).'를 이용한 전자결제(신용카드, 계좌이체, 가상계좌 등)은 자동 취소되었습니다.');
 }
 
 // 장바구니 상태변경
@@ -560,12 +619,19 @@ $result = sql_query($sql, false);
 if(!$result) {
     if($tno) {
         $cancel_msg = '주문상태 변경 오류';
-        switch($default['de_pg_service']) {
+        switch($od_pg) {
             case 'lg':
                 include G5_SHOP_PATH.'/lg/xpay_cancel.php';
                 break;
             case 'inicis':
                 include G5_SHOP_PATH.'/inicis/inipay_cancel.php';
+                break;
+            case 'KAKAOPAY':
+                $_REQUEST['TID']               = $tno;
+                $_REQUEST['Amt']               = $amount;
+                $_REQUEST['CancelMsg']         = $cancel_msg;
+                $_REQUEST['PartialCancelCode'] = 0;
+                include G5_SHOP_PATH.'/kakaopay/kakaopay_cancel.php';
                 break;
             default:
                 include G5_SHOP_PATH.'/kcp/pp_ax_hub_cancel.php';
@@ -580,7 +646,7 @@ if(!$result) {
     // 주문삭제
     sql_query(" delete from {$g5['g5_shop_order_table']} where od_id = '$od_id' ");
 
-    die('<p>고객님의 주문 정보를 처리하는 중 오류가 발생해서 주문이 완료되지 않았습니다.</p><p>'.strtoupper($default['de_pg_service']).'를 이용한 전자결제(신용카드, 계좌이체, 가상계좌 등)은 자동 취소되었습니다.');
+    die('<p>고객님의 주문 정보를 처리하는 중 오류가 발생해서 주문이 완료되지 않았습니다.</p><p>'.strtoupper($od_pg).'를 이용한 전자결제(신용카드, 계좌이체, 가상계좌 등)은 자동 취소되었습니다.');
 }
 
 // 회원이면서 포인트를 사용했다면 포인트 테이블에 사용을 추가
@@ -672,11 +738,8 @@ if($config['cf_sms_use'] && ($default['de_sms_use2'] || $default['de_sms_use3'])
         $recv_numbers = array($od_hp, $default['de_sms_hp']);
         $send_numbers = array($default['de_admin_company_tel'], $od_hp);
 
-        include_once(G5_LIB_PATH.'/icode.sms.lib.php');
-
-        $SMS = new SMS; // SMS 연결
-        $SMS->SMS_con($config['cf_icode_server_ip'], $config['cf_icode_id'], $config['cf_icode_pw'], $config['cf_icode_server_port']);
         $sms_count = 0;
+        $sms_messages = array();
 
         for($s=0; $s<count($sms_contents); $s++) {
             $sms_content = $sms_contents[$s];
@@ -694,7 +757,7 @@ if($config['cf_sms_use'] && ($default['de_sms_use2'] || $default['de_sms_use3'])
             $idx = 'de_sms_use'.($s + 2);
 
             if($default[$idx] && $recv_number) {
-                $SMS->Add($recv_number, $send_number, $config['cf_icode_id'], iconv("utf-8", "euc-kr", stripslashes($sms_content)), "");
+                $sms_messages[] = array('recv' => $recv_number, 'send' => $send_number, 'cont' => $sms_content);
                 $sms_count++;
             }
         }
@@ -705,12 +768,58 @@ if($config['cf_sms_use'] && ($default['de_sms_use2'] || $default['de_sms_use3'])
 
             $recv_number = preg_replace("/[^0-9]/", "", $od_hp);
             $send_number = preg_replace("/[^0-9]/", "", $default['de_admin_company_tel']);
-            $SMS->Add($recv_number, $send_number, $config['cf_icode_id'], iconv("utf-8", "euc-kr", $sms_content), "");
+
+            $sms_messages[] = array('recv' => $recv_number, 'send' => $send_number, 'cont' => $sms_content);
             $sms_count++;
         }
 
-        if($sms_count > 0)
-            $SMS->Send();
+        // SMS 전송
+        if($sms_count > 0) {
+            if($config['cf_sms_type'] == 'LMS') {
+                include_once(G5_LIB_PATH.'/icode.lms.lib.php');
+
+                $port_setting = get_icode_port_type($config['cf_icode_id'], $config['cf_icode_pw']);
+
+                // SMS 모듈 클래스 생성
+                if($port_setting !== false) {
+                    $SMS = new LMS;
+                    $SMS->SMS_con($config['cf_icode_server_ip'], $config['cf_icode_id'], $config['cf_icode_pw'], $port_setting);
+
+                    for($s=0; $s<count($sms_messages); $s++) {
+                        $strDest     = array();
+                        $strDest[]   = $sms_messages[$s]['recv'];
+                        $strCallBack = $sms_messages[$s]['send'];
+                        $strCaller   = iconv_euckr(trim($default['de_admin_company_name']));
+                        $strSubject  = '';
+                        $strURL      = '';
+                        $strData     = iconv_euckr($sms_messages[$s]['cont']);
+                        $strDate     = '';
+                        $nCount      = count($strDest);
+
+                        $res = $SMS->Add($strDest, $strCallBack, $strCaller, $strSubject, $strURL, $strData, $strDate, $nCount);
+
+                        $SMS->Send();
+                        $SMS->Init(); // 보관하고 있던 결과값을 지웁니다.
+                    }
+                }
+            } else {
+                include_once(G5_LIB_PATH.'/icode.sms.lib.php');
+
+                $SMS = new SMS; // SMS 연결
+                $SMS->SMS_con($config['cf_icode_server_ip'], $config['cf_icode_id'], $config['cf_icode_pw'], $config['cf_icode_server_port']);
+
+                for($s=0; $s<count($sms_messages); $s++) {
+                    $recv_number = $sms_messages[$s]['recv'];
+                    $send_number = $sms_messages[$s]['send'];
+                    $sms_content = iconv_euckr($sms_messages[$s]['cont']);
+
+                    $SMS->Add($recv_number, $send_number, $config['cf_icode_id'], $sms_content, "");
+                }
+
+                $SMS->Send();
+                $SMS->Init(); // 보관하고 있던 결과값을 지웁니다.
+            }
+        }
     }
 }
 // SMS END   --------------------------------------------------------

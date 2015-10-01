@@ -96,6 +96,22 @@ if(!isset($default['de_mobile_search_list_row'])) {
     sql_query(" ALTER TABLE `{$g5['g5_shop_default_table']}`
                     ADD `de_mobile_search_list_row` int(11) NOT NULL DEFAULT '0' AFTER `de_mobile_search_list_mod` ", true);
 }
+
+// PG 간펼결제 사용여부 필드 추가
+if(!isset($default['de_easy_pay_use'])) {
+    sql_query(" ALTER TABLE `{$g5['g5_shop_default_table']}`
+                    ADD `de_easy_pay_use` tinyint(4) NOT NULL DEFAULT '0' AFTER `de_iche_use` ", true);
+}
+
+// 카카오페이 필드 추가
+if(!isset($default['de_kakaopay_mid'])) {
+    sql_query(" ALTER TABLE `{$g5['g5_shop_default_table']}`
+                    ADD `de_kakaopay_mid` varchar(255) NOT NULL DEFAULT '' AFTER `de_tax_flag_use`,
+                    ADD `de_kakaopay_key` varchar(255) NOT NULL DEFAULT '' AFTER `de_kakaopay_mid`,
+                    ADD `de_kakaopay_enckey` varchar(255) NOT NULL DEFAULT '' AFTER `de_kakaopay_key`,
+                    ADD `de_kakaopay_hashkey` varchar(255) NOT NULL DEFAULT '' AFTER `de_kakaopay_enckey`,
+                    ADD `de_kakaopay_cancelpwd` varchar(255) NOT NULL DEFAULT '' AFTER `de_kakaopay_hashkey` ", true);
+}
 ?>
 
 <form name="fconfig" action="./configformupdate.php" onsubmit="return fconfig_check(this)" method="post" enctype="MULTIPART/FORM-DATA">
@@ -543,6 +559,16 @@ if(!isset($default['de_mobile_search_list_row'])) {
             </td>
         </tr>
         <tr>
+            <th scope="row"><label for="de_easy_pay_use">PG사 간편결제 버튼 사용</label></th>
+            <td>
+                <?php echo help("주문서 작성 페이지에 PG사 간편결제(PAYCO, PAYNOW, KPAY) 버튼의 별도 사용 여부를 설정합니다.", 50); ?>
+                <select id="de_easy_pay_use" name="de_easy_pay_use">
+                    <option value="0" <?php echo get_selected($default['de_easy_pay_use'], 0); ?>>노출안함</option>
+                    <option value="1" <?php echo get_selected($default['de_easy_pay_use'], 1); ?>>노출함</option>
+                </select>
+            </td>
+        </tr>
+        <tr>
             <th scope="row"><label for="de_taxsave_use">현금영수증<br>발급사용</label></th>
             <td>
                 <?php echo help("관리자는 설정에 관계없이 <a href=\"".G5_ADMIN_URL."/shop_admin/orderlist.php\">주문내역</a> &gt; 보기에서 발급이 가능합니다.\n현금영수증 발급 취소는 PG사에서 지원하는 현금영수증 취소 기능을 사용하시기 바랍니다.", 50); ?>
@@ -664,6 +690,44 @@ if(!isset($default['de_mobile_search_list_row'])) {
             </td>
         </tr>
         <tr>
+            <th scope="row">
+                <label for="de_kakaopay_mid">카카오페이 상점MID</label>
+                <a href="http://sir.co.kr/main/service/kakaopay.php" target="_blank" id="scf_lgreg" class="scf_pgreg">카카오페이 서비스신청하기</a>
+            </th>
+            <td>
+                <?php echo help("카카오페이로 부터 발급 받으신 상점아이디(MID) 10자리 중 첫 KHSIR과 끝 m 을 제외한 영문4자리를 입력 합니다. 예) KHSIRtestm"); ?>
+                <span class="sitecode">KHSIR</span> <input type="text" name="de_kakaopay_mid" value="<?php echo $default['de_kakaopay_mid']; ?>" id="de_kakaopay_mid" class="frm_input" size="5" maxlength="4"> <span class="sitecode">m</span>
+            </td>
+        </tr>
+        <tr>
+            <th scope="row"><label for="de_kakaopay_key">카카오페이 상점키</label></th>
+            <td>
+                <?php echo help("카카오페이로 부터 발급 받으신 상점 서명키를 입력합니다."); ?>
+                <input type="text" name="de_kakaopay_key" value="<?php echo $default['de_kakaopay_key']; ?>" id="de_kakaopay_key" class="frm_input" size="90">
+            </td>
+        </tr>
+        <tr>
+            <th scope="row"><label for="de_kakaopay_enckey">카카오페이 상점 EncKey</label></th>
+            <td>
+                <?php echo help("카카오페이로 부터 발급 받으신 상점 인증 전용 EncKey를 입력합니다."); ?>
+                <input type="text" name="de_kakaopay_enckey" value="<?php echo $default['de_kakaopay_enckey']; ?>" id="de_kakaopay_enckey" class="frm_input" size="20">
+            </td>
+        </tr>
+        <tr>
+            <th scope="row"><label for="de_kakaopay_hashkey">카카오페이 상점 HashKey</label></th>
+            <td>
+                <?php echo help("카카오페이로 부터 발급 받으신 상점 인증 전용 HashKey를 입력합니다."); ?>
+                <input type="text" name="de_kakaopay_hashkey" value="<?php echo $default['de_kakaopay_hashkey']; ?>" id="de_kakaopay_hashkey" class="frm_input" size="20">
+            </td>
+        </tr>
+        <tr>
+            <th scope="row"><label for="de_kakaopay_cancelpwd">카카오페이 결제취소 비밀번호</label></th>
+            <td>
+                <?php echo help("카카오페이 상점관리자에서 설정하신 취소 비밀번호를 입력합니다.<br>입력하신 비밀번호와 상점관리자에서 설정하신 비밀번호가 일치하지 않으면 취소가 되지 않습니다."); ?>
+                <input type="text" name="de_kakaopay_cancelpwd" value="<?php echo $default['de_kakaopay_cancelpwd']; ?>" id="de_kakaopay_cancelpwd" class="frm_input" size="20">
+            </td>
+        </tr>
+        <tr>
             <th scope="row">에스크로 사용</th>
             <td>
                 <?php echo help("에스크로 결제를 사용하시려면, 반드시 결제대행사 상점 관리자 페이지에서 에스크로 서비스를 신청하신 후 사용하셔야 합니다.\n에스크로 사용시 배송과의 연동은 되지 않으며 에스크로 결제만 지원됩니다."); ?>
@@ -674,9 +738,9 @@ if(!isset($default['de_mobile_search_list_row'])) {
             </td>
         </tr>
         <tr>
-            <th scope="row">신용카드 결제테스트</th>
+            <th scope="row">결제 테스트</th>
             <td>
-                <?php echo help("신용카드를 테스트 하실 경우에 체크하세요. 결제단위 최소 1,000원"); ?>
+                <?php echo help("PG사의 결제 테스트를 하실 경우에 체크하세요. 결제단위 최소 1,000원"); ?>
                 <input type="radio" name="de_card_test" value="0" <?php echo $default['de_card_test']==0?"checked":""; ?> id="de_card_test1">
                 <label for="de_card_test1">실결제 </label>
                 <input type="radio" name="de_card_test" value="1" <?php echo $default['de_card_test']==1?"checked":""; ?> id="de_card_test2">
@@ -1216,6 +1280,16 @@ function byte_check(el_cont, el_byte)
             </td>
         </tr>
         <tr>
+            <th scope="row"><label for="cf_sms_type">SMS 전송유형</label></th>
+            <td>
+                <?php echo help("전송유형을 SMS로 선택하시면 최대 80바이트까지 전송하실 수 있으며<br>LMS로 선택하시면 90바이트 이하는 SMS로, 그 이상은 1500바이트까지 LMS로 전송됩니다.<br>요금은 건당 SMS는 16원, LMS는 50원입니다."); ?>
+                <select id="cf_sms_type" name="cf_sms_type">
+                    <option value="" <?php echo get_selected($config['cf_sms_type'], ''); ?>>SMS</option>
+                    <option value="LMS" <?php echo get_selected($config['cf_sms_type'], 'LMS'); ?>>LMS</option>
+                </select>
+            </td>
+        </tr>
+        <tr>
             <th scope="row"><label for="de_sms_hp">관리자 휴대폰번호</label></th>
             <td>
                 <?php echo help("주문서작성시 쇼핑몰관리자가 문자메세지를 받아볼 번호를 숫자만으로 입력하세요. 예) 0101234567"); ?>
@@ -1267,12 +1341,6 @@ function byte_check(el_cont, el_byte)
             <td colspan="3">
                 <?php echo number_format($userinfo['coin']); ?> 원.
                 <a href="http://www.icodekorea.com/smsbiz/credit_card_amt.php?icode_id=<?php echo $config['cf_icode_id']; ?>&amp;icode_passwd=<?php echo $config['cf_icode_pw']; ?>" target="_blank" class="btn_frmline" onclick="window.open(this.href,'icode_payment', 'scrollbars=1,resizable=1'); return false;">충전하기</a>
-            </td>
-        </tr>
-        <tr>
-            <th scope="row">건수별 금액</th>
-            <td colspan="3">
-                <?php echo number_format($userinfo['gpay']); ?> 원.
             </td>
         </tr>
         <?php } ?>
@@ -1520,6 +1588,23 @@ if($default['de_iche_use'] || $default['de_vbank_use'] || $default['de_hp_use'] 
         if(!is_dir($log_path)) {
             echo '<script>'.PHP_EOL;
             echo 'alert("'.str_replace(G5_PATH.'/', '', G5_SHOP_PATH).'/inicis 폴더 안에 log 폴더를 생성하신 후 쓰기권한을 부여해 주십시오.\n> mkdir log\n> chmod 707 log");'.PHP_EOL;
+            echo '</script>'.PHP_EOL;
+        } else {
+            if(!is_writable($log_path)) {
+                echo '<script>'.PHP_EOL;
+                echo 'alert("'.str_replace(G5_PATH.'/', '',$log_path).' 폴더에 쓰기권한을 부여해 주십시오.\n> chmod 707 log");'.PHP_EOL;
+                echo '</script>'.PHP_EOL;
+            }
+        }
+    }
+
+    // 카카오페이의 경우 log 디렉토리 체크
+    if($default['de_kakaopay_mid'] && $default['de_kakaopay_key'] && $default['de_kakaopay_enckey'] && $default['de_kakaopay_hashkey'] && $default['de_kakaopay_cancelpwd']) {
+        $log_path = G5_SHOP_PATH.'/kakaopay/log';
+
+        if(!is_dir($log_path)) {
+            echo '<script>'.PHP_EOL;
+            echo 'alert("'.str_replace(G5_PATH.'/', '', G5_SHOP_PATH).'/kakaopay 폴더 안에 log 폴더를 생성하신 후 쓰기권한을 부여해 주십시오.\n> mkdir log\n> chmod 707 log");'.PHP_EOL;
             echo '</script>'.PHP_EOL;
         } else {
             if(!is_writable($log_path)) {
