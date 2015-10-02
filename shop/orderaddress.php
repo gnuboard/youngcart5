@@ -31,16 +31,25 @@ $result = sql_query($sql);
 if(!mysql_num_rows($result))
     alert_close('배송지 목록 자료가 없습니다.');
 
+$order_action_url = G5_HTTPS_SHOP_URL.'/orderaddressupdate.php';
+
 if (G5_IS_MOBILE) {
     include_once(G5_MSHOP_PATH.'/orderaddress.php');
     return;
 }
 
+// 테마에 orderaddress.php 있으면 include
+if(defined('G5_THEME_SHOP_PATH')) {
+    $theme_orderaddress_file = G5_THEME_SHOP_PATH.'/orderaddress.php';
+    if(is_file($theme_orderaddress_file)) {
+        include_once($theme_orderaddress_file);
+        return;
+        unset($theme_orderaddress_file);
+    }
+}
+
 $g5['title'] = '배송지 목록';
 include_once(G5_PATH.'/head.sub.php');
-
-$order_action_url = G5_HTTPS_SHOP_URL.'/orderaddressupdate.php';
-
 ?>
 <form name="forderaddress" method="post" action="<?php echo $order_action_url; ?>" autocomplete="off">
 <div id="sod_addr" class="new_win">
@@ -68,6 +77,7 @@ $order_action_url = G5_HTTPS_SHOP_URL.'/orderaddressupdate.php';
         $sep = chr(30);
         for($i=0; $row=sql_fetch_array($result); $i++) {
             $addr = $row['ad_name'].$sep.$row['ad_tel'].$sep.$row['ad_hp'].$sep.$row['ad_zip1'].$sep.$row['ad_zip2'].$sep.$row['ad_addr1'].$sep.$row['ad_addr2'].$sep.$row['ad_addr3'].$sep.$row['ad_jibeon'].$sep.$row['ad_subject'];
+            $addr = get_text($addr);
         ?>
         <tr>
             <td class="td_chk">
@@ -83,7 +93,7 @@ $order_action_url = G5_HTTPS_SHOP_URL.'/orderaddressupdate.php';
                 <label for="ad_default<?php echo $i;?>" class="sound_only">기본배송지</label>
                 <input type="radio" name="ad_default" value="<?php echo $row['ad_id'];?>" id="ad_default<?php echo $i;?>" <?php if($row['ad_default']) echo 'checked="checked"';?>>
             </td>
-            <td class="td_namesmall"><?php echo $row['ad_name']; ?></td>
+            <td class="td_namesmall"><?php echo get_text($row['ad_name']); ?></td>
             <td class="td_numbig"><?php echo $row['ad_tel']; ?><br><?php echo $row['ad_hp']; ?></td>
             <td><?php echo print_address($row['ad_addr1'], $row['ad_addr2'], $row['ad_addr3'], $row['ad_jibeon']); ?></td>
             <td class="td_mng">

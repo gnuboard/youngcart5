@@ -1,10 +1,18 @@
 <?php
 include_once('./_common.php');
 
+// 테마에 orderaddress.php 있으면 include
+if(defined('G5_THEME_MSHOP_PATH')) {
+    $theme_orderaddress_file = G5_THEME_MSHOP_PATH.'/orderaddress.php';
+    if(is_file($theme_orderaddress_file)) {
+        include_once($theme_orderaddress_file);
+        return;
+        unset($theme_orderaddress_file);
+    }
+}
+
 $g5['title'] = '배송지 목록';
 include_once(G5_PATH.'/head.sub.php');
-
-$order_action_url = G5_HTTPS_SHOP_URL.'/orderaddressupdate.php';
 ?>
 
 <form name="forderaddress" method="post" action="<?php echo $order_action_url; ?>" autocomplete="off">
@@ -17,6 +25,7 @@ $order_action_url = G5_HTTPS_SHOP_URL.'/orderaddressupdate.php';
             $sep = chr(30);
             for($i=0; $row=sql_fetch_array($result); $i++) {
                 $addr = $row['ad_name'].$sep.$row['ad_tel'].$sep.$row['ad_hp'].$sep.$row['ad_zip1'].$sep.$row['ad_zip2'].$sep.$row['ad_addr1'].$sep.$row['ad_addr2'].$sep.$row['ad_addr3'].$sep.$row['ad_jibeon'].$sep.$row['ad_subject'];
+                $addr = get_text($addr);
             ?>
             <li>
                 <div class="addr_chk" rowspan="3">
