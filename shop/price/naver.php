@@ -1,7 +1,8 @@
 <?php
 include_once('./_common.php');
 
-ob_start();
+
+header("Content-Type: text/html; charset=euc-kr");
 
 /*
 네이버지식쇼핑상품EP (Engine Page) 제작및연동가이드 (제휴사제공용)
@@ -42,16 +43,24 @@ $gt = ">>>";
 $shop_url = G5_SHOP_URL;
 $data_url = G5_DATA_URL;
 
-$sql =" select * from {$g5['g5_shop_item_table']} where it_use = '1' order by ca_id";
+$sql =" SELECT * FROM {$g5['g5_shop_item_table']} WHERE it_use = '1' and ca_id != '' order by ca_id";
 $result = sql_query($sql);
 
-for ($i=0; $row=sql_fetch_array($result); $i++)
+$category_arr = array();
+while ( $row=sql_fetch_array($result) )
 {
+    ob_start();
+
     $cate1 = $cate2 = $cate3 = $cate4 = "";
     $caid1 = $caid2 = $caid3 = $caid4 = "";
 
     $caid1 = substr($row['ca_id'],0,2);
-    $row2 = sql_fetch(" select ca_name from {$g5['g5_shop_category_table']} where ca_id = '$caid1' ");
+    if( empty($category_arr[$caid1]) ){
+        $row2 = sql_fetch(" SELECT ca_name FROM {$g5['g5_shop_category_table']} WHERE ca_id = '$caid1' ");
+        $category_arr[$caid1] = $row2;
+    }else{
+        $row2 = $category_arr[$caid1];
+    }
     $cate1 = $row2['ca_name'];
 
     $caid2 = $caid3 = $caid4 = "";
@@ -59,19 +68,34 @@ for ($i=0; $row=sql_fetch_array($result); $i++)
 
     if (strlen($row['ca_id']) >= 8) {
         $caid4 = substr($row['ca_id'],0,8);
-        $row2 = sql_fetch(" select ca_name from {$g5['g5_shop_category_table']} where ca_id = '$caid4' ");
+        if( empty($category_arr[$caid4]) ){
+            $row2 = sql_fetch(" SELECT ca_name FROM {$g5['g5_shop_category_table']} WHERE ca_id = '$caid4' ");
+            $category_arr[$caid4] = $row2;
+        }else{
+            $row2 = $category_arr[$caid4];
+        }
         $cate4 = $row2['ca_name'];
     }
 
     if (strlen($row['ca_id']) >= 6) {
         $caid3 = substr($row['ca_id'],0,6);
-        $row2 = sql_fetch(" select ca_name from {$g5['g5_shop_category_table']} where ca_id = '$caid3' ");
+        if( empty($category_arr[$caid3]) ){
+            $row2 = sql_fetch(" SELECT ca_name FROM {$g5['g5_shop_category_table']} WHERE ca_id = '$caid3' ");
+            $category_arr[$caid3] = $row2;
+        }else{
+            $row2 = $category_arr[$caid3];
+        }
         $cate3 = $row2['ca_name'];
     }
 
     if (strlen($row['ca_id']) >= 4) {
         $caid2 = substr($row['ca_id'],0,4);
-        $row2 = sql_fetch(" select ca_name from {$g5['g5_shop_category_table']} where ca_id = '$caid2' ");
+        if( empty($category_arr[$caid2]) ){
+            $row2 = sql_fetch(" SELECT ca_name FROM {$g5['g5_shop_category_table']} WHERE ca_id = '$caid2' ");
+            $category_arr[$caid2] = $row2;
+        }else{
+            $row2 = $category_arr[$caid2];
+        }
         $cate2 = $row2['ca_name'];
     }
 
@@ -114,7 +138,6 @@ for ($i=0; $row=sql_fetch_array($result); $i++)
 {$lt}ftend{$gt}
 
 HEREDOC;
-}
 
 $content = ob_get_contents();
 ob_end_clean();
@@ -123,4 +146,9 @@ ob_end_clean();
 $content = iconv('utf-8', 'euc-kr', $content);
 
 echo $content;
-?>
+flush();
+
+} // end while
+
+
+// end file.
