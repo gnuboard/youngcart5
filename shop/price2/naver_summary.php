@@ -27,29 +27,34 @@ for ($i=0; $row=sql_fetch_array($result); $i++)
     // 상품별옵션
     $sql = " select * from {$g5['g5_shop_item_option_table']} where it_id = '{$row['it_id']}' and io_type = '0' and io_use = '1' order by io_no asc ";
     $result2 = sql_query($sql);
-    $opt_count = @mysql_num_rows($result2);
+    $opt_count = @sql_num_rows($result2);
 
     if(!$opt_count) {
         $it_name = $row['it_name'];
         $it_price = $row['it_price'];
         $stock_qty = get_it_stock_qty($row['it_id']);
 
-        echo "{$lt}begin{$gt}\n";
-        echo "{$lt}mapid{$gt}{$row['it_id']}\n";
+        $str = '';
+
+        $str .= "{$lt}begin{$gt}\n";
+        $str .= "{$lt}mapid{$gt}{$row['it_id']}\n";
         if ($stock_qty <= 0)
         {
             // 품절 상품 양식
-            echo "{$lt}class{$gt}D\n";
+            $str .= "{$lt}class{$gt}D\n";
         }
         else
         {
             // 업데이트 상품 양식 & 품절 복구 상품 양식
-            echo "{$lt}pname{$gt}{$it_name}\n";
-            echo "{$lt}price{$gt}{$it_price}\n";
-            echo "{$lt}class{$gt}U\n";
+            $str .= "{$lt}pname{$gt}{$it_name}\n";
+            $str .= "{$lt}price{$gt}{$it_price}\n";
+            $str .= "{$lt}class{$gt}U\n";
         }
-        echo "{$lt}utime{$gt}{$row['it_time']}\n";
-        echo "{$lt}ftend{$gt}\n";
+        $str .= "{$lt}utime{$gt}{$row['it_time']}\n";
+        $str .= "{$lt}ftend{$gt}\n";
+
+        // 091223 : 네이버에서는 아직 utf-8 을 지원하지 않고 있음
+        echo iconv('utf-8', 'euc-kr', $str);
 
     } else {
         $subj = explode(',', $row['it_option_subject']);
@@ -64,22 +69,27 @@ for ($i=0; $row=sql_fetch_array($result); $i++)
             $it_price = $row['it_price'] + $row2['io_price'];
             $stock_qty = get_option_stock_qty($row['it_id'], $row2['io_id'], 0);
 
-            echo "{$lt}begin{$gt}\n";
-            echo "{$lt}mapid{$gt}{$row['it_id']}\n";
+            $str = '';
+
+            $str .= "{$lt}begin{$gt}\n";
+            $str .= "{$lt}mapid{$gt}{$row['it_id']}\n";
             if ($stock_qty <= 0)
             {
                 // 품절 상품 양식
-                echo "{$lt}class{$gt}D\n";
+                $str .= "{$lt}class{$gt}D\n";
             }
             else
             {
                 // 업데이트 상품 양식 & 품절 복구 상품 양식
-                echo "{$lt}pname{$gt}{$it_name}\n";
-                echo "{$lt}price{$gt}{$it_price}\n";
-                echo "{$lt}class{$gt}U\n";
+                $str .= "{$lt}pname{$gt}{$it_name}\n";
+                $str .= "{$lt}price{$gt}{$it_price}\n";
+                $str .= "{$lt}class{$gt}U\n";
             }
-            echo "{$lt}utime{$gt}{$row['it_time']}\n";
-            echo "{$lt}ftend{$gt}\n";
+            $str .= "{$lt}utime{$gt}{$row['it_time']}\n";
+            $str .= "{$lt}ftend{$gt}\n";
+
+            // 091223 : 네이버에서는 아직 utf-8 을 지원하지 않고 있음
+            echo iconv('utf-8', 'euc-kr', $str);
 
         }
     }
@@ -87,9 +97,6 @@ for ($i=0; $row=sql_fetch_array($result); $i++)
 
 $content = ob_get_contents();
 ob_end_clean();
-
-// 091223 : 네이버에서는 아직 utf-8 을 지원하지 않고 있음
-$content = iconv('utf-8', 'euc-kr', $content);
 
 echo $content;
 ?>
