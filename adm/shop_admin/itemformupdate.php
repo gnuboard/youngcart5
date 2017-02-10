@@ -108,7 +108,8 @@ if ($_FILES['it_img1']['name']) {
         @unlink($file_img1);
         delete_item_thumbnail(dirname($file_img1), basename($file_img1));
     }
-    $it_img1 = it_img_upload($_FILES['it_img1']['tmp_name'], $_FILES['it_img1']['name'], $it_img_dir.'/'.$it_id);
+
+    $it_img1 = it_img_upload($_FILES['it_img1']['tmp_name'], 'img1.'.pathinfo($_FILES['it_img1']['name'], PATHINFO_EXTENSION), $it_img_dir.'/'.$it_id);
 }
 if ($_FILES['it_img2']['name']) {
     if($w == 'u' && $it_img2) {
@@ -116,7 +117,7 @@ if ($_FILES['it_img2']['name']) {
         @unlink($file_img2);
         delete_item_thumbnail(dirname($file_img2), basename($file_img2));
     }
-    $it_img2 = it_img_upload($_FILES['it_img2']['tmp_name'], $_FILES['it_img2']['name'], $it_img_dir.'/'.$it_id);
+    $it_img2 = it_img_upload($_FILES['it_img2']['tmp_name'], 'img2.'.pathinfo($_FILES['it_img2']['name'], PATHINFO_EXTENSION), $it_img_dir.'/'.$it_id);
 }
 if ($_FILES['it_img3']['name']) {
     if($w == 'u' && $it_img3) {
@@ -124,7 +125,7 @@ if ($_FILES['it_img3']['name']) {
         @unlink($file_img3);
         delete_item_thumbnail(dirname($file_img3), basename($file_img3));
     }
-    $it_img3 = it_img_upload($_FILES['it_img3']['tmp_name'], $_FILES['it_img3']['name'], $it_img_dir.'/'.$it_id);
+    $it_img3 = it_img_upload($_FILES['it_img3']['tmp_name'], 'img3.'.pathinfo($_FILES['it_img3']['name'], PATHINFO_EXTENSION), $it_img_dir.'/'.$it_id);
 }
 if ($_FILES['it_img4']['name']) {
     if($w == 'u' && $it_img4) {
@@ -132,7 +133,7 @@ if ($_FILES['it_img4']['name']) {
         @unlink($file_img4);
         delete_item_thumbnail(dirname($file_img4), basename($file_img4));
     }
-    $it_img4 = it_img_upload($_FILES['it_img4']['tmp_name'], $_FILES['it_img4']['name'], $it_img_dir.'/'.$it_id);
+    $it_img4 = it_img_upload($_FILES['it_img4']['tmp_name'], 'img4.'.pathinfo($_FILES['it_img4']['name'], PATHINFO_EXTENSION), $it_img_dir.'/'.$it_id);
 }
 if ($_FILES['it_img5']['name']) {
     if($w == 'u' && $it_img5) {
@@ -140,7 +141,7 @@ if ($_FILES['it_img5']['name']) {
         @unlink($file_img5);
         delete_item_thumbnail(dirname($file_img5), basename($file_img5));
     }
-    $it_img5 = it_img_upload($_FILES['it_img5']['tmp_name'], $_FILES['it_img5']['name'], $it_img_dir.'/'.$it_id);
+    $it_img5 = it_img_upload($_FILES['it_img5']['tmp_name'], 'img5.'.pathinfo($_FILES['it_img5']['name'], PATHINFO_EXTENSION), $it_img_dir.'/'.$it_id);
 }
 if ($_FILES['it_img6']['name']) {
     if($w == 'u' && $it_img6) {
@@ -148,7 +149,7 @@ if ($_FILES['it_img6']['name']) {
         @unlink($file_img6);
         delete_item_thumbnail(dirname($file_img6), basename($file_img6));
     }
-    $it_img6 = it_img_upload($_FILES['it_img6']['tmp_name'], $_FILES['it_img6']['name'], $it_img_dir.'/'.$it_id);
+    $it_img6 = it_img_upload($_FILES['it_img6']['tmp_name'], 'img6.'.pathinfo($_FILES['it_img6']['name'], PATHINFO_EXTENSION), $it_img_dir.'/'.$it_id);
 }
 if ($_FILES['it_img7']['name']) {
     if($w == 'u' && $it_img7) {
@@ -156,7 +157,7 @@ if ($_FILES['it_img7']['name']) {
         @unlink($file_img7);
         delete_item_thumbnail(dirname($file_img7), basename($file_img7));
     }
-    $it_img7 = it_img_upload($_FILES['it_img7']['tmp_name'], $_FILES['it_img7']['name'], $it_img_dir.'/'.$it_id);
+    $it_img7 = it_img_upload($_FILES['it_img7']['tmp_name'], 'img7.'.pathinfo($_FILES['it_img7']['name'], PATHINFO_EXTENSION), $it_img_dir.'/'.$it_id);
 }
 if ($_FILES['it_img8']['name']) {
     if($w == 'u' && $it_img8) {
@@ -164,7 +165,7 @@ if ($_FILES['it_img8']['name']) {
         @unlink($file_img8);
         delete_item_thumbnail(dirname($file_img8), basename($file_img8));
     }
-    $it_img8 = it_img_upload($_FILES['it_img8']['tmp_name'], $_FILES['it_img8']['name'], $it_img_dir.'/'.$it_id);
+    $it_img8 = it_img_upload($_FILES['it_img8']['tmp_name'], 'img8.'.pathinfo($_FILES['it_img8']['name'], PATHINFO_EXTENSION), $it_img_dir.'/'.$it_id);
 }
 if ($_FILES['it_img9']['name']) {
     if($w == 'u' && $it_img9) {
@@ -172,7 +173,7 @@ if ($_FILES['it_img9']['name']) {
         @unlink($file_img9);
         delete_item_thumbnail(dirname($file_img9), basename($file_img9));
     }
-    $it_img9 = it_img_upload($_FILES['it_img9']['tmp_name'], $_FILES['it_img9']['name'], $it_img_dir.'/'.$it_id);
+    $it_img9 = it_img_upload($_FILES['it_img9']['tmp_name'], 'img9.'.pathinfo($_FILES['it_img9']['name'], PATHINFO_EXTENSION), $it_img_dir.'/'.$it_id);
 }
 if ($_FILES['it_img10']['name']) {
     if($w == 'u' && $it_img10) {
@@ -180,7 +181,7 @@ if ($_FILES['it_img10']['name']) {
         @unlink($file_img10);
         delete_item_thumbnail(dirname($file_img10), basename($file_img10));
     }
-    $it_img10 = it_img_upload($_FILES['it_img10']['tmp_name'], $_FILES['it_img10']['name'], $it_img_dir.'/'.$it_id);
+    $it_img10 = it_img_upload($_FILES['it_img10']['tmp_name'], 'img10.'.pathinfo($_FILES['it_img10']['name'], PATHINFO_EXTENSION), $it_img_dir.'/'.$it_id);
 }
 
 if ($w == "" || $w == "u")
@@ -269,6 +270,8 @@ $it_name = strip_tags(trim($_POST['it_name']));
 if ($it_name == "")
     alert("상품명을 입력해 주십시오.");
 
+$it_type = strip_tags(trim($_POST['it_type']));
+
 $sql_common = " ca_id               = '$ca_id',
                 ca_id2              = '$ca_id2',
                 ca_id3              = '$ca_id3',
@@ -350,7 +353,8 @@ $sql_common = " ca_id               = '$ca_id',
                 it_7                = '$it_7',
                 it_8                = '$it_8',
                 it_9                = '$it_9',
-                it_10               = '$it_10'
+                it_10               = '$it_10',
+                it_type             = '$it_type'
                 ";
 
 if ($w == "")
