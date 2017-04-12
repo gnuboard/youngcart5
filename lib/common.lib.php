@@ -3212,7 +3212,7 @@ class str_encrypt
     function __construct($salt='')
     {
         if(!$salt)
-            $this->salt = md5(G5_MYSQL_PASSWORD);
+            $this->salt = md5(preg_replace('/[^0-9A-Za-z]/', substr(G5_MYSQL_USER, -1), G5_MYSQL_PASSWORD));
         else
             $this->salt = $salt;
 
