@@ -5,6 +5,10 @@ if (!defined("_GNUBOARD_")) exit; // 개별 페이지 접근 불가
 <input type="hidden" name="good_mny"          value="<?php echo $tot_price ?>" >
 <input type="hidden" name="res_cd"            value="">                                     <!-- 결과 코드          -->
 
+<input type="hidden" name="ss_direct" value="<?php echo get_session('ss_direct'); ?>">
+<input type="hidden" name="ss_cart_direct" value="<?php echo get_session('ss_cart_direct'); ?>">
+<input type="hidden" name="ss_cart_id" value="<?php echo get_session('ss_cart_id'); ?>">
+
 <input type="hidden" name="P_HASH"            value="">
 <input type="hidden" name="P_TYPE"            value="">
 <input type="hidden" name="P_UNAME"           value="">

@@ -497,6 +497,10 @@ else
 // 주문번호를 얻는다.
 $od_id = get_session('ss_order_id');
 
+if( !$od_id ){
+    die("주문번호가 없습니다.");
+}
+
 $od_escrow = 0;
 if($escw_yn == 'Y')
     $od_escrow = 1;
@@ -532,6 +536,16 @@ $od_b_addr_jibeon = preg_match("/^(N|R)$/", $od_b_addr_jibeon) ? $od_b_addr_jibe
 $od_memo          = clean_xss_tags($od_memo);
 $od_deposit_name  = clean_xss_tags($od_deposit_name);
 $od_tax_flag      = $default['de_tax_flag_use'];
+
+if( $od_pg && $od_id && $od_tno ){      //이미 주문이 된 경우에는
+    $sql = " select od_id from {$g5['g5_shop_order_table']} where od_pg = '$od_pg' and od_tno = '$od_tno' and od_id = '$od_id' ";
+    $exist_od = sql_fetch($sql, false);
+
+    if( $exist_od['od_id'] ){
+        alert('해당 주문을 확인해 주세요.', G5_SHOP_URL.'/orderinquiry.php');
+        exit;
+    }
+}
 
 // 주문서에 입력
 $sql = " insert {$g5['g5_shop_order_table']}
@@ -909,6 +923,13 @@ if($is_member) {
     }
 
     sql_query($sql);
+}
+
+$is_noti_pay = isset($is_noti_pay) ? $is_noti_pay : false;
+
+if( $is_noti_pay ){
+    $order_id = $od_id;
+    return;
 }
 
 goto_url(G5_SHOP_URL.'/orderinquiryview.php?od_id='.$od_id.'&amp;uid='.$uid);
