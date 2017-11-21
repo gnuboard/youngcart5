@@ -3,6 +3,7 @@ if (!defined("_GNUBOARD_")) exit; // 개별 페이지 접근 불가
 
 // add_stylesheet('css 구문', 출력순서); 숫자가 작을 수록 먼저 출력됨
 add_stylesheet('<link rel="stylesheet" href="'.G5_MSHOP_SKIN_URL.'/style.css">', 0);
+add_javascript('<script src="'.G5_JS_URL.'/jquery.bxslider.js"></script>', 10);
 ?>
 
 <?php
@@ -13,7 +14,7 @@ $bn_sl = ' class="bn_sl"';
 
 for ($i=0; $row=sql_fetch_array($result); $i++)
 {
-    if ($i==0) echo '<div id="main_bn" class="swipe">'.PHP_EOL.'<ul class="slide-wrap bn_img">'.PHP_EOL;
+    if ($i==0) echo '<div id="main_bn">'.PHP_EOL.'<ul class="slide-wrap">'.PHP_EOL;
     //print_r2($row);
     // 테두리 있는지
     $bn_border  = ($row['bn_border']) ? ' class="sbn_border"' : '';;
@@ -47,28 +48,27 @@ for ($i=0; $row=sql_fetch_array($result); $i++)
         echo '</li>'.PHP_EOL;
 
         $bn_first_class = '';
-        $bn_slide_btn .= '<button type="button"'.$bn_sl.'>'.$row['bn_alt'].' 배너이미지</button>'.PHP_EOL;
         $bn_sl = '';
     }
 }
 
 if ($i > 0) {
     echo '</ul>'.PHP_EOL;
-    echo '<div class="bn_silde_btn">'.$bn_slide_btn.'</div>'.PHP_EOL;
     echo '</div>'.PHP_EOL;
 ?>
 
 <script>
-$(function() {
-    $("#main_bn").bannerSlide({
-        wrap: ".slide-wrap",
-        slides: ".slide-wrap > li",
-        buttons: ".bn_silde_btn > button",
-        btnActive: "bn_sl",
-        startSlide: 0,
-        auto: 0
+$(document).ready(function(){
+    $('.slide-wrap').bxSlider({
+        speed:800,
+        pager:true,
+        controls:false,
+        onSliderLoad: function(){ 
+            $(".slide-wrap").css("visibility", "visible");
+        }
     });
 });
+
 </script>
 
 <?php

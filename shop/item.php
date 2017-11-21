@@ -95,7 +95,7 @@ if($ca_dir_check) {
 
 define('G5_SHOP_CSS_URL', str_replace(G5_PATH, G5_URL, $skin_dir));
 
-$g5['title'] = $it['it_name'].' &gt; '.$it['ca_name'];
+$g5['title'] = $it['ca_name'];
 
 // 분류 상단 코드가 있으면 출력하고 없으면 기본 상단 코드 출력
 if ($ca['ca_include_head'])
@@ -111,11 +111,6 @@ if(!is_file($nav_skin))
     $nav_skin = G5_SHOP_SKIN_PATH.'/navigation.skin.php';
 include $nav_skin;
 
-// 이 분류에 속한 하위분류 출력
-$cate_skin = $skin_dir.'/listcategory.skin.php';
-if(!is_file($cate_skin))
-    $cate_skin = G5_SHOP_SKIN_PATH.'/listcategory.skin.php';
-include $cate_skin;
 
 if ($is_admin) {
     echo '<div class="sit_admin"><a href="'.G5_ADMIN_URL.'/shop_admin/itemform.php?w=u&amp;it_id='.$it_id.'" class="btn_admin">상품 관리</a></div>';
@@ -137,7 +132,7 @@ else
 $sql = " select it_id, it_name from {$g5['g5_shop_item_table']} where it_id > '$it_id' and SUBSTRING(ca_id,1,4) = '".substr($it['ca_id'],0,4)."' and it_use = '1' order by it_id asc limit 1 ";
 $row = sql_fetch($sql);
 if ($row['it_id']) {
-    $prev_title = '이전상품<span class="sound_only"> '.$row['it_name'].'</span>';
+    $prev_title = '<i class="fa fa-caret-left" aria-hidden="true"></i> 이전상품<span class="sound_only"> '.$row['it_name'].'</span>';
     $prev_href = '<a href="./item.php?it_id='.$row['it_id'].'" id="siblings_prev">';
     $prev_href2 = '</a>'.PHP_EOL;
 } else {
@@ -150,7 +145,7 @@ if ($row['it_id']) {
 $sql = " select it_id, it_name from {$g5['g5_shop_item_table']} where it_id < '$it_id' and SUBSTRING(ca_id,1,4) = '".substr($it['ca_id'],0,4)."' and it_use = '1' order by it_id desc limit 1 ";
 $row = sql_fetch($sql);
 if ($row['it_id']) {
-    $next_title = '다음 상품<span class="sound_only"> '.$row['it_name'].'</span>';
+    $next_title = '다음 상품<span class="sound_only"> '.$row['it_name'].'</span> <i class="fa fa-caret-right" aria-hidden="true"></i>';
     $next_href = '<a href="./item.php?it_id='.$row['it_id'].'" id="siblings_next">';
     $next_href2 = '</a>'.PHP_EOL;
 } else {
@@ -182,9 +177,9 @@ if($default['de_rel_list_use']) {
 // 소셜 관련
 $sns_title = get_text($it['it_name']).' | '.get_text($config['cf_title']);
 $sns_url  = G5_SHOP_URL.'/item.php?it_id='.$it['it_id'];
-$sns_share_links .= get_sns_share_link('facebook', $sns_url, $sns_title, G5_SHOP_SKIN_URL.'/img/sns_fb_s.png').' ';
-$sns_share_links .= get_sns_share_link('twitter', $sns_url, $sns_title, G5_SHOP_SKIN_URL.'/img/sns_twt_s.png').' ';
-$sns_share_links .= get_sns_share_link('googleplus', $sns_url, $sns_title, G5_SHOP_SKIN_URL.'/img/sns_goo_s.png');
+$sns_share_links .= get_sns_share_link('facebook', $sns_url, $sns_title, G5_SHOP_SKIN_URL.'/img/facebook.png').' ';
+$sns_share_links .= get_sns_share_link('twitter', $sns_url, $sns_title, G5_SHOP_SKIN_URL.'/img/twitter.png').' ';
+$sns_share_links .= get_sns_share_link('googleplus', $sns_url, $sns_title, G5_SHOP_SKIN_URL.'/img/gplus.png');
 
 // 상품품절체크
 if(G5_SOLDOUT_CHECK)
@@ -196,11 +191,11 @@ if(!$it['it_use'] || $it['it_tel_inq'] || $is_soldout)
     $is_orderable = false;
 
 if($is_orderable) {
-    // 선택 옵션
-    $option_item = get_item_options($it['it_id'], $it['it_option_subject']);
+    // 선택 옵션 ( 기존의 tr td 태그로 가져오려면 'div' 를 '' 로 바꾸거나 또는 지워주세요 )
+    $option_item = get_item_options($it['it_id'], $it['it_option_subject'], 'div');
 
-    // 추가 옵션
-    $supply_item = get_item_supply($it['it_id'], $it['it_supply_subject']);
+    // 추가 옵션 ( 기존의 tr td 태그로 가져오려면 'div' 를 '' 로 바꾸거나 또는 지워주세요 )
+    $supply_item = get_item_supply($it['it_id'], $it['it_supply_subject'], 'div');
 
     // 상품 선택옵션 수
     $option_count = 0;
@@ -227,9 +222,6 @@ function pg_anchor($anc_id) {
         <li><a href="#sit_qa" <?php if ($anc_id == 'qa') echo 'class="sanchor_on"'; ?>>상품문의 <span class="item_qa_count"><?php echo $item_qa_count; ?></span></a></li>
         <?php if ($default['de_baesong_content']) { ?><li><a href="#sit_dvr" <?php if ($anc_id == 'dvr') echo 'class="sanchor_on"'; ?>>배송정보</a></li><?php } ?>
         <?php if ($default['de_change_content']) { ?><li><a href="#sit_ex" <?php if ($anc_id == 'ex') echo 'class="sanchor_on"'; ?>>교환정보</a></li><?php } ?>
-        <?php if($default['de_rel_list_use']) { ?>
-        <li><a href="#sit_rel" <?php if ($anc_id == 'rel') echo 'class="sanchor_on"'; ?>>관련상품 <span class="item_relation_count"><?php echo $item_relation_count; ?></span></a></li>
-        <?php } ?>
     </ul>
 <?php
 }
