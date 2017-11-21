@@ -24,7 +24,7 @@ for($k=0; $cp=sql_fetch_array($res); $k++) {
     <header id="ol_after_hd">
         <h2>나의 회원정보</h2>
         <span class="profile_img">
-            <img src="<?php echo G5_IMG_URL ;?>/no_profile.gif" alt="프로필이미지">
+            <?php echo get_member_profile_img($member['mb_id'], 60, 60); ?>
             <a href="<?php echo G5_BBS_URL ?>/member_confirm.php?url=register_form.php" id="ol_after_info"><i class="fa fa-cog" aria-hidden="true"></i><span class="sound_only">정보수정</span></a>
         </span>
         <strong><?php echo $nick ?>님</strong>
