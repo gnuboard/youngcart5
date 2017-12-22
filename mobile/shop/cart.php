@@ -35,10 +35,11 @@ $cart_count = sql_num_rows($result);
 ?>
 
 <script src="<?php echo G5_JS_URL; ?>/shop.js"></script>
+<script src="<?php echo G5_JS_URL; ?>/shop.override.js"></script>
 
 <div id="sod_bsk">
 
-    <form name="frmcartlist" id="sod_bsk_list" method="post" action="<?php echo $cart_action_url; ?>">
+    <form name="frmcartlist" id="sod_bsk_list" class="2017_renewal_itemform" method="post" action="<?php echo $cart_action_url; ?>">
 
     <?php if($cart_count) { ?>
     <div id="sod_chk">

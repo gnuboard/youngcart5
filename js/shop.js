@@ -263,7 +263,11 @@ function sel_option_process(add_exec)
     $("select.it_option").each(function(index) {
 
         value = $(this).val();
-        item = $(this).closest("tr").length ? $(this).closest("tr").find("th label").text() : $(this).closest(".get_item_options").find("label").text();
+        item = $(this).closest(".get_item_options").length ? $(this).closest(".get_item_options").find("label[for^=it_option]").text() : "";
+        
+        if( !item ){
+            item = $(this).closest("tr").length ? $(this).closest("tr").find("th label").text() : "";
+        }
 
         if(!value) {
             run_error = true;
@@ -310,7 +314,11 @@ function sel_supply_process($el, add_exec)
 {
     if( $el.triggerHandler( 'shop_sel_supply_process',{add_exec:add_exec} ) !== false ){
         var val = $el.val();
-        var item = $el.closest("tr").find("th label").text();
+        var item = $el.closest(".get_item_supply").length ? $el.closest(".get_item_supply").find("label[for^=it_supply]").text() : "";
+        
+        if( !item ){
+            item = $el.closest("tr").length ? $el.closest("tr").find("th label").text() : "";
+        }
 
         if(!val) {
             alert(item+"을(를) 선택해 주십시오.");

@@ -16,7 +16,7 @@ $main_banners = array();
 
 for ($i=0; $row=sql_fetch_array($result); $i++)
 {
-	$main_banners[] = $row;
+    $main_banners[] = $row;
 
     if ($i==0) echo '<div id="main_bn">'.PHP_EOL.'<ul class="slide-wrap">'.PHP_EOL;
     //print_r2($row);
@@ -26,7 +26,6 @@ for ($i=0; $row=sql_fetch_array($result); $i++)
     $bn_new_win = ($row['bn_new_win']) ? ' target="_blank"' : '';
 
     $bimg = G5_DATA_PATH.'/banner/'.$row['bn_id'];
-
     if (file_exists($bimg))
     {
         $banner = '';
@@ -41,15 +40,15 @@ for ($i=0; $row=sql_fetch_array($result); $i++)
         if($max_height < $size[1])
             $max_height = $size[1];
 
-        echo '<li'.$bn_first_class.'>';
+        echo '<li'.$bn_first_class.'>'.PHP_EOL;
         if ($row['bn_url'][0] == '#')
             $banner .= '<a href="'.$row['bn_url'].'">';
         else if ($row['bn_url'] && $row['bn_url'] != 'http://') {
             $banner .= '<a href="'.G5_SHOP_URL.'/bannerhit.php?bn_id='.$row['bn_id'].'"'.$bn_new_win.'>';
         }
-        echo $banner.'<img src="'.G5_DATA_URL.'/banner/'.$row['bn_id'].'" alt="'.$row['bn_alt'].'"'.$bn_border.'>';
+        echo $banner.'<img src="'.G5_DATA_URL.'/banner/'.$row['bn_id'].'" width="'.$size[0].'" alt="'.$row['bn_alt'].'"'.$bn_border.'>';
         if($banner)
-            echo '</a>';
+            echo '</a>'.PHP_EOL;
         echo '</li>'.PHP_EOL;
 
        
@@ -58,7 +57,6 @@ for ($i=0; $row=sql_fetch_array($result); $i++)
 
 if ($i > 0) {
     echo '</ul>'.PHP_EOL;
-
 
     echo '<div id="bx_pager" class="bx_pager">
     <ul>';
@@ -73,12 +71,15 @@ if ($i > 0) {
 ?>
 
 <script>
-$(document).ready(function(){
-    $('#main_bn .slide-wrap').show().bxSlider({
+jQuery(function($){
+    var slider = $('.slide-wrap').show().bxSlider({
         speed:800,
-        pagerCustom: '#main_bn .bx_pager',
-        auto: true
- 
+        pagerCustom: '#bx_pager',
+        auto: true,
+        useCSS : false,
+        onSlideAfter : function(){
+            slider.startAuto();
+        }
     });
 });
 </script>

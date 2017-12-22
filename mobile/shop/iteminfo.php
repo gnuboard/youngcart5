@@ -59,7 +59,27 @@ function pg_anchor($info) {
     <?php echo pg_anchor($info); ?>
 </div>
 
-
+<div id="info_content" class="new_win">
+<?php
+switch($info) {
+    case 'use':
+        include_once(G5_MSHOP_SKIN_PATH.'/iteminfo.itemuse.skin.php');
+        break;
+    case 'qa':
+        include_once(G5_MSHOP_SKIN_PATH.'/iteminfo.itemqa.skin.php');
+        break;
+    case 'dvr':
+        include_once(G5_MSHOP_SKIN_PATH.'/iteminfo.delivery.skin.php');
+        break;
+    case 'ex':
+        include_once(G5_MSHOP_SKIN_PATH.'/iteminfo.change.skin.php');
+        break;
+    default:
+        include_once(G5_MSHOP_SKIN_PATH.'/iteminfo.info.skin.php');
+        break;
+}
+?>
+</div>
 <div class="close_btn"><button type="button" id="iteminfo_close" onclick="self.close();">창닫기</button></div>
 
 <?php

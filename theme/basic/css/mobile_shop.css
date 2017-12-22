@@ -18,7 +18,8 @@ p {margin:0;padding:0;word-break:break-all}
 hr {display:none}
 pre {overflow-x:scroll;font-size:1.1em}
 a:link, a:visited {color:#000;text-decoration:none}
-ul,li,dl,dt,dd{list-style:none;padding:0;margin:0;}
+ul,li,dl,dt,dd{padding:0;margin:0;}
+ul{list-style:none}
 
 *, :after, :before {
     -webkit-box-sizing: border-box;
@@ -137,10 +138,7 @@ border: 1px solid #558ab7 !important;
 /* ####### 쇼핑몰 컨텐츠 ####### */
 
 .st_bg{display: inline-block;width: 1px;height: 10px;margin: 0 10px;background: #e2e1e0;vertical-align: -1px;}
-
 #listtype{margin:10px;}
-
-
 
 /* 장바구니 주문서 공통 */
 #sod_chk {margin:10px;}
@@ -160,7 +158,6 @@ border: 1px solid #558ab7 !important;
 .sod_list .total_price strong{font-size:1.25em;color:#ff006c}
 .sod_opt li {padding-left: 10px;background: url('../img/bullet.gif') no-repeat 3px 50%;color: #777;margin: 3px 0;line-height: 1.3em;}
 
-
 #sit_opt_added {margin:0;padding:0;border-bottom:0;background:#fff;list-style:none;border-bottom:1px solid #ccc}
 #sit_opt_added li {padding:10px 15px;border-bottom:1px solid #e9e9e9;position:relative}
 #sit_opt_added li .opt_name{line-height:18px;padding:0 0 5px}
@@ -172,7 +169,6 @@ border: 1px solid #558ab7 !important;
 #sit_opt_added .sit_opt_del{border:0;font-size:15px;background:#d3d3d3;margin-left:3px}
 #sit_opt_added .sit_opt_del:hover{color:#be334a}
 #sit_opt_added .sit_opt_prc{float:right;display:block;padding:0 3px;text-align:right;line-height:30px;font-size:1.183em;font-weight:bold;}
-
 
 /* 장바구니 */
 #mod_option_frm{position:absolute;top:0;left:0;background:#fff;width:100%;z-index:99;border-radius:0 0 3px 3px;
@@ -204,6 +200,7 @@ box-shadow: 1px 1px 5px rgba(0,0,0,0.4);}
 #sod_bsk_act .btn_submit{height:45px;font-size:1.167em;font-weight:bold;width:100%;margin:10px 0}
 
 /* 주문서 작성 */
+
 #sod_frm .od_prd_list{margin:10px;background:#fff;padding:15px}
 .od_prd_list .td_chk{border-left:0;}
 .od_prd_list .td_prd{border-left:0;position:relative;padding-left:90px;min-height:100px}
@@ -236,6 +233,7 @@ box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075);
 #m_sod_frm_paysel .KPAY{background:url('../../../img/kpay.png') no-repeat;width:37px;height:15px;overflow:hidden;text-indent:-999px;display:inline-block;background-size:100%}
 #m_sod_frm_paysel .PAYNOW{background:url('../../../img/paynow.png') no-repeat;width:46px;height:15px;overflow:hidden;text-indent:-999px;display:inline-block;background-size:100%;}
 #m_sod_frm_paysel .PAYCO{background:url('../../../img/payco.png') no-repeat 1px;width:46px;height:15px;overflow:hidden;text-indent:-999px;display:inline-block;background-size:100%;}
+#m_sod_frm_paysel .inicis_lpay{background:url('../../../img/lpay_logo.png') no-repeat;width:35px;height:12px;overflow:hidden;text-indent:-999px;display:inline-block;background-size:100%;}
 .kakaopay_icon{background:url('../../../img/kakao.png') no-repeat ;height:21px;width:74px;display:inline-block;overflow:hidden;text-indent:-999px;background-size:100%}
 .samsung_pay{background:url('../../../img/samsungpay.png') no-repeat ;height:12px;width:83px;display:inline-block;overflow:hidden;text-indent:-999px}
 
@@ -462,6 +460,11 @@ box-shadow: 1px 1px 5px rgba(0,0,0,0.4);}
 #captcha #captcha_key {margin:0 0 0 3px;padding:0 5px;width:90px;height:40px;border:1px solid #ccc;background:#fff;font-size:1.333em;font-weight:bold;text-align:center;border-radius:3px;vertical-align:top}
 #captcha #captcha_info {display:block;margin:3px 0 5px ;font-size:0.95em;letter-spacing:-0.1em}
 
+/* ckeditor 태그 기본값 */
+#bo_v_con ul{display: block;list-style-type: disc;margin-top: 1em;margin-bottom: 1em;margin-left: 0;margin-right: 0;padding-left: 40px;}
+#bo_v_con ol{display: block;list-style-type: decimal;margin-top: 1em;margin-bottom: 1em;margin-left: 0;margin-right: 0;padding-left: 40px;}
+#bo_v_con li{display: list-item;}
+
 /* 캡챠 자동등록(입력)방지 기본 - mobile */
 #captcha.m_captcha audio {display:block;margin:0 0 5px}
 
@@ -644,7 +647,6 @@ box-shadow: 0 1px 4px #cbd1df;
 box-shadow: 0 0 8px rgba(65,98,255,0.8);}
 
 .new_win .win_desc {margin:5px 0;font-size:0.92em;color:#4162ff}
-
 .new_win .win_btn {clear:both;margin:10px;text-align:center}
 .new_win .win_btn a {display:inline-block;height:40px;line-height:40px;font-weight:bold}
 .new_win .win_btn .btn_close {display:inline-block;padding:0 10px;border:0;background:#c6c6d2;color:#666;text-decoration:none;font-weight:bold;height:40px;border-radius:3px;margin:10px 0}
@@ -675,7 +677,6 @@ box-shadow: 0 0 8px rgba(65,98,255,0.8);}
 .pg_end {background:url(../img/btn_end.gif) no-repeat 50% 50% #fff;width:30px;height:30px ;text-indent:-999px;overflow:hidden}
 .pg_current {display:inline-block;background:#4c4f6f;color:#fff;font-weight:normal;border-radius:3px;line-height:30px;}
 
-
 /* 상품상세 메뉴 floating */
 #info_top_layer {display:none;position:absolute; top:0; left:0; width:100%; background-color: #eee;}
 #form_btn_layer { display:none;position:absolute; top:0; left: 0; width: 100%; height: 60px; background-color: #eee;}
@@ -699,7 +700,6 @@ box-shadow: 0 0 8px rgba(65,98,255,0.8);}
 #sev_hhtml,#sev_thtml{padding:10px}
 #sev_hhtml img,#sev_thtml img{width:100%}
 
-
 /*네이버페이*/
 .naverpay-item{padding-top:15px;clear:both}
 #sod_bsk_act .naverpay-cart{margin-top:15px;clear:both;position:static}
@@ -718,6 +718,7 @@ box-shadow: 0 0 8px rgba(65,98,255,0.8);}
 #sod_frm_paysel .KPAY{background:url('../../../img/kpay.png') no-repeat 50% 50% #fff;overflow:hidden;text-indent:-999px}
 #sod_frm_paysel .PAYNOW{background:url('../../../img/paynow.png') no-repeat 50% 50% #fff;overflow:hidden;text-indent:-999px}
 #sod_frm_paysel .PAYCO{background:url('../../../img/payco.png') no-repeat 50% 50% #fff;overflow:hidden;text-indent:-999px}
+#sod_frm_paysel .inicis_lpay{background:url('../../../img/lpay_logo.png') no-repeat 50% 50% #fff;overflow:hidden;text-indent:-999px}
 #sod_frm_paysel .kakaopay_icon{background:url('../../../img/kakao.png') no-repeat 50% 50% #f4dc34;overflow:hidden;text-indent:-999px}
 #sod_frm_paysel .bank_icon{background:url('../../../img/pay_icon1.png') no-repeat 15px 50% #fff}
 #sod_frm_paysel .vbank_icon{background:url('../../../img/pay_icon2.png') no-repeat 15px 50% #fff;padding-top:13px}

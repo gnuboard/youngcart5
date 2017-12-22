@@ -238,7 +238,7 @@ add_stylesheet('<link rel="stylesheet" href="'.G5_SHOP_CSS_URL.'/style.css">', 0
         <?php
         if($option_item) {
         ?>
-        <section class="sit_option_wr">
+        <section class="sit_option">
             <h3>선택옵션</h3>
             <table class="sit_op_sl">
             <colgroup>
@@ -259,7 +259,7 @@ add_stylesheet('<link rel="stylesheet" href="'.G5_SHOP_CSS_URL.'/style.css">', 0
         <?php
         if($supply_item) {
         ?>
-        <section class="sit_option_wr">
+        <section class="sit_option">
             <h3>추가옵션</h3>
             <table class="sit_op_sl">
             <colgroup>

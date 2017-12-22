@@ -170,10 +170,10 @@ box-shadow: 0 2px 5px rgba(0,0,0,0.2);}
 #container:after {display:block;visibility:hidden;clear:both;content:""}
 #container_title {font-size:1.333em;max-width:1200px;margin:0 auto;font-weight:bold;}
 #container_title span{margin:0 auto 10px;display:block;line-height:30px;}
-/*.latest_wr:after {display:block;visibility:hidden;clear:both;content:""}*/
 .lt_wr{width:49%}
 .lt_wr:nth-child(2n+1){clear:both}
 .latest_wr:after {display:block;visibility:hidden;clear:both;content:""}
+
 /* 하단 레이아웃 */
 #ft {border-top:1px solid #d5d5d5;background:#fff;padding-bottom:30px;margin:0 auto;text-align:center}
 #ft h1 {position:absolute;font-size:0;line-height:0;overflow:hidden}
@@ -196,6 +196,7 @@ box-shadow: 0 2px 5px rgba(0,0,0,0.2);}
 /* 화면낭독기 사용자용 */
 #hd_login_msg {position:absolute;top:0;left:0;font-size:0;line-height:0;overflow:hidden}
 .msg_sound_only, .sound_only {display:inline-block !important;position:absolute;top:0;left:0;margin:0 !important;padding:0 !important;font-size:0;line-height:0;border:0 !important;overflow:hidden !important}
+
 /* 본문 바로가기 */
 #skip_to_container a {z-index:100000;position:absolute;top:0;left:0;width:1px;height:1px;font-size:0;line-height:0;overflow:hidden}
 #skip_to_container a:focus, #skip_to_container a:active {width:100%;height:75px;background:#21272e;color:#fff;font-size:2em;font-weight:bold;text-align:center;text-decoration:none;line-height:3.3em}
@@ -231,6 +232,11 @@ box-shadow: 0 2px 5px rgba(0,0,0,0.2);}
 .cke_sc_def dt {width:20%;font-weight:bold}
 .cke_sc_def dd {width:30%}
 
+/* ckeditor 태그 기본값 */
+#bo_v_con ul{display: block;list-style-type: disc;margin-top: 1em;margin-bottom: 1em;margin-left: 0;margin-right: 0;padding-left: 40px;}
+#bo_v_con ol{display: block;list-style-type: decimal;margin-top: 1em;margin-bottom: 1em;margin-left: 0;margin-right: 0;padding-left: 40px;}
+#bo_v_con li{display: list-item;}
+
 /* 버튼 */
 a.btn,.btn{line-height:35px;height:35px;padding:0 10px;text-align:center;font-weight:bold;border:0;
 -webkit-transition: background-color 0.3s ease-out;
@@ -244,16 +250,12 @@ button.btn01 {display:inline-block;margin:0;padding:7px;border:1px solid #ccc;ba
 a.btn02 {display:inline-block;padding:7px;border:1px solid #3b3c3f;background:#4b545e;color:#fff;text-decoration:none;vertical-align:middle;}
 a.btn02:focus, .btn02:hover {text-decoration:none}
 button.btn02 {display:inline-block;margin:0;padding:7px;border:1px solid #3b3c3f;background:#4b545e;color:#fff;text-decoration:none}
-
 .btn_confirm {text-align:right} /* 서식단계 진행 */
-
 .btn_submit {border:0;background:#253dbe;color:#fff;;cursor:pointer;border:0}
 .btn_submit:hover {background:#0025eb}
-
 a.btn_cancel {display:inline-block;background:#969696;color:#fff;text-decoration:none;vertical-align:middle;}
 button.btn_cancel {display:inline-block;background:#969696;color:#fff;text-decoration:none;vertical-align:middle}
-.btn_cancel:hover {background:#aaa;
-}
+.btn_cancel:hover {background:#aaa;}
 a.btn_frmline, button.btn_frmline {display:inline-block;padding:0 5px;height:40px;border:0;background:#3c3c3c;border-radius:5px;color:#fff;text-decoration:none;vertical-align:top} /* 우편번호검색버튼 등 */
 a.btn_frmline {}
 button.btn_frmline {font-size:1em}
@@ -269,7 +271,6 @@ a.btn_b04, .btn_b04 {display:inline-block;background:#fff;border:1px solid #ccc;
 a.btn_b04:hover, .btn_b04:hover {color:#333;background:#f9f9f9}
 a.btn_admin,.btn_admin {display:inline-block;background:#d13f4a;color:#fff;text-decoration:none;vertical-align:middle} /* 관리자 전용 버튼 */
 .btn_admin:hover, a.btn_admin:hover {background:#ff3746}
-
 
 /*컬러*/
 .color_1 {background:#169dd6}
@@ -312,7 +313,6 @@ box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075);
 }
 .tbl_frm01 textarea {padding:2px 2px 3px}
 .frm_input {height:40px;}
-
 .full_input{width:100%}
 .half_input{width:49.5%}
 .tbl_frm01 textarea {width:100%;height:100px}
@@ -325,6 +325,7 @@ box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075);
 .list_01 li:after {display:block;visibility:hidden;clear:both;content:""}
 .list_01 li:hover{background:#f9f9f9}
 .list_01 li.empty_li{text-align:center;padding:20px 0;color:#666}
+
 /*폼 리스트*/
 .form_01 h2{margin:0 0 10px;font-size:1.167em}
 .form_01 li{margin:10px 0}

@@ -605,6 +605,7 @@ box-shadow: 1px 2px 5px #bbb;}
 #sod_frm .btn01 {width:100%;height:40px;line-height:38px;font-weight:bold;font-size:1.25em;margin:5px 0}
 
 
+
 #sod_frm_pay {position:relative;margin:10px 0}
 #sod_frm  #sod_frm_pay h2 {position:absolute;border:0;font-size:0;line-height:0;content:""}
 #sod_frm_pay .pay_tbl table{width:100%;border-collapse:collapse}
@@ -615,7 +616,6 @@ box-shadow: 1px 2px 5px #bbb;}
 #od_tot_price{margin:10px 0;background:#fff;line-height:40px;text-align:right;padding:0 10px}
 #od_tot_price span{float:left;font-weight:bold}
 #od_tot_price strong{font-size:1.5em;color:#ff006c}
-
 #sod_frm_pay_info {margin:0 0 10px}
 
 #sod_frm_pay #sc_coupon_frm, #sod_frm_pay #od_coupon_frm {z-index:10000;position:absolute;top:0;right:0;width:500px;height:auto !important;height:500px;max-height:500px;border:1px solid #000;background:#fff;overflow-y:auto}
@@ -644,6 +644,7 @@ box-shadow: 1px 2px 2px #eee;}
 #sod_frm_paysel .KPAY{background:url('../img/kpay.png') no-repeat 50% 50% #fff;overflow:hidden;text-indent:-999px}
 #sod_frm_paysel .PAYNOW{background:url('../img/paynow.png') no-repeat 50% 50% #fff;overflow:hidden;text-indent:-999px}
 #sod_frm_paysel .PAYCO{background:url('../img/payco.png') no-repeat 50% 50% #fff;overflow:hidden;text-indent:-999px}
+#sod_frm_paysel .inicis_lpay{background:url('../img/lpay_logo.png') no-repeat 50% 50% #fff;overflow:hidden;text-indent:-999px}
 #sod_frm_paysel .kakaopay_icon{background:url('../img/kakao.png') no-repeat 50% 50% #f4dc34;overflow:hidden;text-indent:-999px}
 #sod_frm_paysel .bank_icon{background:url('../img/pay_icon1.png') no-repeat 15px 50% #fff}
 #sod_frm_paysel .vbank_icon{background:url('../img/pay_icon2.png') no-repeat 15px 50% #fff;padding-top:13px}

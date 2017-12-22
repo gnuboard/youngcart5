@@ -1,6 +1,8 @@
 <?php
 include_once('./_common.php');
 
+$od_id = isset($od_id) ? preg_replace('/[^A-Za-z0-9\-_]/', '', strip_tags($od_id)) : 0;
+
 if( isset($_GET['ini_noti']) && !isset($_GET['uid']) ){
     goto_url(G5_SHOP_URL.'/orderinquiry.php');
 }
@@ -223,7 +225,7 @@ if($od['od_pg'] == 'lg') {
         $app_no_subj = '';
         $disp_bank = true;
         $disp_receipt = false;
-        if($od['od_settle_case'] == '신용카드' || $od['od_settle_case'] == 'KAKAOPAY') {
+        if($od['od_settle_case'] == '신용카드' || $od['od_settle_case'] == 'KAKAOPAY' || is_inicis_order_pay($od['od_settle_case']) ) {
             $app_no_subj = '승인번호';
             $app_no = $od['od_app_no'];
             $disp_bank = false;
@@ -272,7 +274,7 @@ if($od['od_pg'] == 'lg') {
                 </tr>
                 <tr>
                     <th scope="row">결제방식</th>
-                    <td><?php echo ($easy_pay_name ? $easy_pay_name.'('.$od['od_settle_case'].')' : $od['od_settle_case']); ?></td>
+                    <td><?php echo ($easy_pay_name ? $easy_pay_name.'('.$od['od_settle_case'].')' : check_pay_name_replace($od['od_settle_case']) ); ?></td>
                 </tr>
                 <tr>
                     <th scope="row">결제금액</th>
@@ -340,7 +342,7 @@ if($od['od_pg'] == 'lg') {
                         <?php
                         }
 
-                        if($od['od_settle_case'] == '신용카드')
+                        if($od['od_settle_case'] == '신용카드' || is_inicis_order_pay($od['od_settle_case']) )
                         {
                             if($od['od_pg'] == 'lg') {
                                 require_once G5_SHOP_PATH.'/settle_lg.inc.php';

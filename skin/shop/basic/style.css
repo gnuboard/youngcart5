@@ -43,7 +43,7 @@
 
 /* 메인배너 */
 #main_bn {border:1px solid #cdcdcd;position:relative;margin-bottom:20px}
-#main_bn .slide-wrap{display:none}
+/* #main_bn .slide-wrap{display:none} */
 #main_bn .bx-prev{position:absolute;top:50%;left:0;margin-top:-35px;z-index:99;background:url(img/btn_prev.png) no-repeat 50% 50%;width:50px;height:70px;;text-indent:-999px;overflow:hidden;opacity:0.6}
 #main_bn .bx-prev:hover{opacity:1}
 #main_bn .bx-next{position:absolute;top:50%;right:0;margin-top:-35px;z-index:99;background:url(img/btn_next.png) no-repeat 50% 50%;width:50px;height:70px;;text-indent:-999px;overflow:hidden;opacity:0.6}

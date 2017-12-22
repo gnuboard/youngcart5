@@ -20,9 +20,9 @@ pre {overflow-x:scroll;font-size:1.1em}
 a {color:#000;text-decoration:none}
 
 *, :after, :before {
-    -webkit-box-sizing: border-box;
-    -moz-box-sizing: border-box;
-    box-sizing: border-box;
+-webkit-box-sizing: border-box;
+-moz-box-sizing: border-box;
+box-sizing: border-box;
 }
 
 input[type=text],input[type=password], textarea {
@@ -56,23 +56,19 @@ border: 1px solid #558ab7 !important;
 /* 상단 레이아웃 */
 #hd {min-width:1200px;}
 #hd_h1 {position:absolute;font-size:0;line-height:0;overflow:hidden}
-
 #hd_qnb {border-bottom:1px solid #e9e9e9;background:#f2f5f9;zoom:1}
 #hd_qnb:after {display:block;visibility:hidden;clear:both;content:""}
 #hd_qnb h2 {position:absolute;font-size:0;line-height:0;overflow:hidden}
 #hd_qnb div {text-align:center;letter-spacing:-4px}
 #hd_qnb a {letter-spacing:0}
-
 #hd_wrapper {position:relative;margin:0 auto;padding:20px 0;height:115px;width:1200px;zoom:1}
 #hd_wrapper:after {display:block;visibility:hidden;clear:both;content:""}
-
 #logo {float:left;padding:25px 0 0}
 
 #hd_sch {position:absolute;top:35px;left:50%;width:430px;margin-left:-215px;}
 #hd_sch h3 {position:absolute;font-size:0;line-height:0;overflow:hidden}
 #hd_sch #sch_str {padding-left:10px;height:45px;background:#fff;border:1px solid #000;width:370px;border-right:0;float:left;border-radius:5px 0 0 5px;font-size:1.25em}
 #hd_sch #sch_submit {height:45px;border:0;background:#fff;border:1px solid #000;border-left:0;color:#333;width:50px;float:left;cursor:pointer;border-radius:0  5px 5px 0;font-size:18px}
-
 #sbn_side{position:absolute;top:20px;right:0}
 
 #tnb {border-bottom:1px solid #e9e9e9}
@@ -100,7 +96,6 @@ border: 1px solid #558ab7 !important;
 #hd_menu li.hd_menu_right{float:right}
 #hd_menu li:last-child{border-left:1px solid #ddd}
 #hd_menu li a{display:block;padding:0 10px}
-
 
 /*사이드 메뉴*/
 #side_menu{position:fixed;top:0;right:0;z-index:999;height:100%;background:#fff}
@@ -193,6 +188,11 @@ border: 1px solid #558ab7 !important;
 .cke_sc_def dt {width:20%;font-weight:bold}
 .cke_sc_def dd {width:30%}
 
+ /* ckeditor 태그 기본값 */
+#bo_v_con ul{display: block;list-style-type: disc;margin-top: 1em;margin-bottom: 1em;margin-left: 0;margin-right: 0;padding-left: 40px;}
+#bo_v_con ol{display: block;list-style-type: decimal;margin-top: 1em;margin-bottom: 1em;margin-left: 0;margin-right: 0;padding-left: 40px;}
+#bo_v_con li{display: list-item;}
+
 /* Mobile화면으로 */
 #mobile_cng {display:block;margin:0.3em;padding:0.5em 0;border:1px solid #eee;border-radius:2em;background:#fff;color:#000;font-size:2em;text-decoration:none;text-align:center}
 
@@ -218,19 +218,13 @@ button.btn01 {display:inline-block;margin:0;padding:0 7px;border:1px solid #b3b3
 a.btn02 {display:inline-block;padding:0 7px;border:1px solid #d50c0c;background:#d50c0c;color:#fff;text-decoration:none;vertical-align:middle}
 a.btn02:focus, .btn02:hover {text-decoration:none;background:#fd0f0f}
 button.btn02 {display:inline-block;margin:0;padding:0 7px;border:1px solid #d50c0c;background:#d50c0c;color:#fff;text-decoration:none}
-
 .btn_confirm {text-align:center} /* 서식단계 진행 */
-
 .btn_submit {background:#d50c0c;color:#fff;border:0;}
 .btn_submit:hover{background:#fd0f0f}
-
 .btn_address{background:#70aff2;border:1px solid #3476be;height:40px;color:#fff;padding:0 10px;font-size:1.083em;font-weight:bold}
-
 fieldset .btn_submit {padding:0 7px;height:24px;line-height:1em}
-
 a.btn_cancel {display:inline-block;padding:7px;border:1px solid #ccc;background:#fafafa;color:#000;text-decoration:none;vertical-align:middle}
 button.btn_cancel {display:inline-block;padding:7px;border:1px solid #ccc;background:#fafafa;color:#000;vertical-align:top;text-decoration:none}
-
 a.btn_frmline, button.btn_frmline {display:inline-block;padding:0 10px;height:30px;border:1px solid #3476be;color:#3476be;background:#fff;letter-spacing:-0.1em;text-decoration:none;vertical-align:middle} /* 우편번호검색버튼 등 */
 a.btn_frmline {line-height:24px}
 button.btn_frmline {font-size:1em}
@@ -490,13 +484,9 @@ box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075);
 
 /* 장바구니 */
 #sod_bsk {}
-
 .btn_cart_del{margin:10px 0;}
 .btn_cart_del button{height:30px;padding:0 10px;border:1px solid #e2e2e2;border-bottom:1px solid #c4c4c4;background:#fff;color:#666}
-
-
 #sod_bsk_list {position:relative}
-
 #sod_bsk #sod_bsk_tot {background:#f4f4f4;padding:15px;margin:20px 0;zoom:1}
 #sod_bsk #sod_bsk_tot ul:after {display:block;visibility:hidden;clear:both;content:""}
 #sod_bsk #sod_bsk_tot li{float:left;width:33.333%;border-left:1px solid #e6e2e2;text-align:center;padding:10px 0;font-size:1.167em}
@@ -567,16 +557,12 @@ box-shadow: inset 7px 0 11px -5px #ced8e5;height:100%}
 
 #sod_frm {}
 #sod_frm h2 {margin:0 0 10px}
-
 #sod_frm p {margin:0 0 10px}
-
 #sod_list {position:relative}
 #sod_list #cp_frm {z-index:10000;position:absolute;top:0;left:99px;width:500px;height:auto !important;height:500px;max-height:500px;border:1px solid #000;background:#fff;overflow-y:auto;overflow-x:none;
 -webkit-box-shadow:  1px 2px 5px #bbb;
 -moz-box-shadow:  1px 2px 5px #bbb;
 box-shadow: 1px 2px 5px #bbb;}
-
-
 #sod_frm_orderer {margin:20px 0 40px}
 #sod_frm_orderer #od_addr_jibeon, #sod_frm_taker #od_b_addr_jibeon {display:inline-block;margin:5px 0 0}
 
@@ -603,7 +589,6 @@ box-shadow: 1px 2px 5px #bbb;}
 #od_tot_price{margin:10px 0;background:#fff;line-height:40px;text-align:right;padding:0 10px}
 #od_tot_price span{float:left;font-weight:bold}
 #od_tot_price strong{font-size:1.5em;color:#ff006c}
-
 #sod_frm_pay_info {margin:0 0 10px}
 
 #sod_frm_pay #sc_coupon_frm, #sod_frm_pay #od_coupon_frm {z-index:10000;position:absolute;top:0;right:0;width:500px;height:auto !important;height:500px;max-height:500px;border:1px solid #000;background:#fff;overflow-y:auto}
@@ -632,6 +617,7 @@ box-shadow: 1px 2px 2px #eee;}
 #sod_frm_paysel .KPAY{background:url('../../../img/kpay.png') no-repeat 50% 50% #fff;overflow:hidden;text-indent:-999px}
 #sod_frm_paysel .PAYNOW{background:url('../../../img/paynow.png') no-repeat 50% 50% #fff;overflow:hidden;text-indent:-999px}
 #sod_frm_paysel .PAYCO{background:url('../../../img/payco.png') no-repeat 50% 50% #fff;overflow:hidden;text-indent:-999px}
+#sod_frm_paysel .inicis_lpay{background:url('../../../img/lpay_logo.png') no-repeat 50% 50% #fff;overflow:hidden;text-indent:-999px}
 #sod_frm_paysel .kakaopay_icon{background:url('../../../img/kakao.png') no-repeat 50% 50% #f4dc34;overflow:hidden;text-indent:-999px}
 #sod_frm_paysel .bank_icon{background:url('../../../img/pay_icon1.png') no-repeat 15px 50% #fff}
 #sod_frm_paysel .vbank_icon{background:url('../../../img/pay_icon2.png') no-repeat 15px 50% #fff;padding-top:13px}
@@ -682,7 +668,6 @@ box-shadow: 1px 2px 2px #eee;}
 #sod_addr .ad_tel{display:block;color:#666}
 #sod_addr .td_mng{width:100px;padding:10px}
 #sod_addr .td_mng .mng_btn{width:100%;margin:2px 0;}
-
 
 /* 주문내역 */
 #sod_v {}
@@ -865,13 +850,10 @@ html.no-overflowscrolling #sc_coupon_frm, html.no-overflowscrolling #od_coupon_f
 .pesonal{background:#f3f3f3;padding:20px}
 .pesonal td{font-weight:bold}
 #sod_frm_pay h2{font-size: 1.167em;margin: 0px 0 10px;border-bottom:1px solid #ddd;padding: 0 0 10px}
-
 #personal_pay h2{font-size: 1.167em;margin: 0px 0 10px;}
 #personal_pay input[type="radio"]{position:absolute;width:0;height:0;overflow:hidden;text-indent:-999px;left: 0;z-index: -1px;visibility:hidden;}
 #personal_pay .lb_icon {display: inline-block;float:left;width:50%;background:#fff;border:1px solid #eceff4;margin:-1px 0 0 -1px;cursor: pointer;height:60px;position:relative;padding-left:65px;padding-top:20px;z-index:1}
 #personal_pay input[type="radio"]:checked+.lb_icon {border:1px solid #ff006c;z-index:3}
-
-#personal_pay {}
 #personal_pay legend {position:absolute;font-size:0;line-height:0;overflow:hidden}
 #personal_pay .KPAY{background:url('../../../img/kpay.png') no-repeat 50% 50% #fff;overflow:hidden;text-indent:-999px}
 #personal_pay .PAYNOW{background:url('../../../img/paynow.png') no-repeat 50% 50% #fff;overflow:hidden;text-indent:-999px}
@@ -882,8 +864,6 @@ html.no-overflowscrolling #sc_coupon_frm, html.no-overflowscrolling #od_coupon_f
 #personal_pay .iche_icon{background:url('../../../img/pay_icon2.png') no-repeat 15px 50% #fff;padding-top:13px}
 #personal_pay .hp_icon{background:url('../../../img/pay_icon3.png') no-repeat 24px 50% #fff}
 #personal_pay .card_icon{background:url('../../../img/pay_icon4.png') no-repeat 17px 50% #fff}
-
-
 #personal_pay .btn_submit{width:100%;height:40px;font-weight: bold;font-size: 1.25em;margin:10px 0 5px}
 #personal_pay .btn01{width:100%;height:40px;line-height:38px;font-weight: bold;font-size: 1.25em;}
 

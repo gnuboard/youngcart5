@@ -44,6 +44,7 @@
 /* 메인배너 */
 #main_bn {border:1px solid #cdcdcd;position:relative;margin-bottom:20px}
 #main_bn .slide-wrap{display:none}
+#main_bn .slide-wrap img{max-width:100%;height:auto}
 #main_bn .bx-prev{position:absolute;top:50%;left:0;margin-top:-35px;z-index:99;background:url(img/btn_prev.png) no-repeat 50% 50%;width:50px;height:70px;;text-indent:-999px;overflow:hidden;opacity:0.6}
 #main_bn .bx-prev:hover{opacity:1}
 #main_bn .bx-next{position:absolute;top:50%;right:0;margin-top:-35px;z-index:99;background:url(img/btn_next.png) no-repeat 50% 50%;width:50px;height:70px;;text-indent:-999px;overflow:hidden;opacity:0.6}
@@ -58,7 +59,7 @@
 /*서브배너*/
 #sbn_side {width:150px;}
 .sb_bn { display:none}
-.sb_bn img{width:100%;height:auto}
+.sb_bn img{width:100%;height:auto;}
 #sbn_side h2{position:absolute;font-size:0;line-height:0;overflow:hidden}
 #sbn_side .bx-controls{position:absolute;bottom:0;right:0}
 #sbn_side .bx-prev{display:block;float:left;background:url(img/btn_sb_prev.png) no-repeat 50% 50% #fff;width:15px;height:15px;text-indent:-999px;overflow:hidden;border:1px solid #ccc;}

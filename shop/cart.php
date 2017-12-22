@@ -36,10 +36,11 @@ include_once('./_head.php');
 
 <!-- 장바구니 시작 { -->
 <script src="<?php echo G5_JS_URL; ?>/shop.js"></script>
+<script src="<?php echo G5_JS_URL; ?>/shop.override.js"></script>
 
 <div id="sod_bsk" class="od_prd_list">
 
-    <form name="frmcartlist" id="sod_bsk_list" method="post" action="<?php echo $cart_action_url; ?>">
+    <form name="frmcartlist" id="sod_bsk_list" class="2017_renewal_itemform" method="post" action="<?php echo $cart_action_url; ?>">
     <div class="tbl_head03 tbl_wrap">
         <table>
         <thead>

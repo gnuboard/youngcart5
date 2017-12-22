@@ -1000,7 +1000,7 @@ function get_item_options($it_id, $subject, $is_div='')
         }
     } else {
         if($is_div === 'div') {
-            $str .= '<div>'.PHP_EOL;
+            $str .= '<div class="get_item_options">'.PHP_EOL;
             $str .= '<label for="it_option_1">'.$subj[0].'</label>'.PHP_EOL;
         } else {
             $str .= '<tr>'.PHP_EOL;
@@ -2440,6 +2440,37 @@ function make_order_field($data, $exclude)
     }
 
     return $field;
+}
+
+//이니시스의 삼성페이 또는 L.pay 결제가 활성화 되어 있는지 체크합니다.
+function is_inicis_simple_pay(){
+    global $default;
+
+    if ( $default['de_samsung_pay_use'] || $default['de_inicis_lpay_use'] ){
+        return true;
+    }
+
+    return false;
+}
+
+//이니시스의 삼성페이 또는 L.pay 결제인지 확인합니다.
+function is_inicis_order_pay($type){
+
+    if( in_array($type, array('삼성페이', 'lpay') ) ){
+        return true;
+    }
+
+    return false;
+}
+
+//결제방식 이름을 체크하여 치환 대상인 문자열은 따로 리턴합니다.
+function check_pay_name_replace($payname){
+
+    if( $payname === 'lpay' ){
+        return 'L.pay';
+    }
+
+    return $payname;
 }
 
 // 다운로드한 쿠폰인지

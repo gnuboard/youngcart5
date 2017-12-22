@@ -12,8 +12,12 @@ $bn_first_class = ' class="bn_first"';
 $bn_slide_btn = '';
 $bn_sl = ' class="bn_sl"';
 
+$main_banners = array();
+
 for ($i=0; $row=sql_fetch_array($result); $i++)
 {
+    $main_banners[] = $row;
+
     if ($i==0) echo '<div id="main_bn">'.PHP_EOL.'<ul class="slide-wrap">'.PHP_EOL;
     //print_r2($row);
     // 테두리 있는지
@@ -54,27 +58,30 @@ for ($i=0; $row=sql_fetch_array($result); $i++)
 if ($i > 0) {
     echo '</ul>'.PHP_EOL;
 
-
-    echo '<div id="bx_pager">
-    <ul>
-        <li><a data-slide-index="0" href="">배너이미지설명1</a></li>
-        <li><a data-slide-index="1" href="">배너이미지설명2</a></li>
-        <li><a data-slide-index="2" href="">배너이미지설명3</a></li>
-    </ul>
+    echo '<div id="bx_pager" class="bx_pager">
+    <ul>';
+		$k = 0;
+		foreach( $main_banners as $row ){
+			echo '<li> <a data-slide-index="'.$k.'" href="">'.get_text($row['bn_alt']).'</a></li>'.PHP_EOL;
+			$k++;
+		}
+    echo '</ul>
     </div>'.PHP_EOL;
     echo '</div>'.PHP_EOL;
 ?>
 
 <script>
-$(document).ready(function(){
-    $('.slide-wrap').show().bxSlider({
+jQuery(function($){
+    var slider = $('.slide-wrap').show().bxSlider({
         speed:800,
         pagerCustom: '#bx_pager',
-        auto: true
- 
+        auto: true,
+        useCSS : false,
+        onSlideAfter : function(){
+            slider.startAuto();
+        }
     });
 });
-
 </script>
 
 <?php

@@ -4,12 +4,10 @@ if (!defined('_GNUBOARD_')) exit; // 개별 페이지 접근 불가
 require_once(G5_MSHOP_PATH.'/settle_'.$default['de_pg_service'].'.inc.php');
 require_once(G5_SHOP_PATH.'/settle_kakaopay.inc.php');
 
-if( $default['de_samsung_pay_use'] ){   //삼성페이 사용시
+if( is_inicis_simple_pay() ){   //이니시스 삼성페이 또는 Lpay 사용시
     require_once(G5_MSHOP_PATH.'/samsungpay/incSamsungpayCommon.php');
 }
 
-// 결제등록 요청시 사용할 입금마감일
-$ipgm_date = date("Ymd", (G5_SERVER_TIME + 86400 * 5));
 $tablet_size = "1.0"; // 화면 사이즈 조정 - 기기화면에 맞게 수정(갤럭시탭,아이패드 - 1.85, 스마트폰 - 1.0)
 
 // 개인결제번호제거
@@ -251,7 +249,7 @@ ob_end_clean();
 // 결제대행사별 코드 include (결제등록 필드)
 require_once(G5_MSHOP_PATH.'/'.$default['de_pg_service'].'/orderform.1.php');
 
-if( $default['de_samsung_pay_use'] ){   //삼성페이 사용시
+if( is_inicis_simple_pay() ){   //이니시스 삼성페이 또는 lpay 사용시
     require_once(G5_MSHOP_PATH.'/samsungpay/orderform.1.php');
 }
 ?>
@@ -543,7 +541,7 @@ if($is_kakaopay_use) {
             $escrow_title = "에스크로 ";
         }
 
-        if ($is_kakaopay_use || $default['de_bank_use'] || $default['de_vbank_use'] || $default['de_iche_use'] || $default['de_card_use'] || $default['de_hp_use'] || $default['de_easy_pay_use'] || $default['de_samsung_pay_use']) {
+        if ($is_kakaopay_use || $default['de_bank_use'] || $default['de_vbank_use'] || $default['de_iche_use'] || $default['de_card_use'] || $default['de_hp_use'] || $default['de_easy_pay_use'] || is_inicis_simple_pay()) {
             echo '<div id="m_sod_frm_paysel"><ul>';
         }
 
@@ -614,6 +612,12 @@ if($is_kakaopay_use) {
             $checked = '';
         }
 
+        //이니시스 Lpay
+        if($default['de_inicis_lpay_use']) {
+            echo '<li><input type="radio" id="od_settle_inicislpay" data-case="lpay" name="od_settle_case" value="lpay" '.$checked.'> <label for="od_settle_inicislpay" class="inicis_lpay">L.pay</label></li>'.PHP_EOL;
+            $checked = '';
+        }
+
         echo '</ul>';
 
         $temp_point = 0;
@@ -669,7 +673,7 @@ if($is_kakaopay_use) {
             echo '</div>';
         }
 
-        if ($default['de_bank_use'] || $default['de_vbank_use'] || $default['de_iche_use'] || $default['de_card_use'] || $default['de_hp_use'] || $default['de_easy_pay_use'] || $default['de_samsung_pay_use']) {
+        if ($default['de_bank_use'] || $default['de_vbank_use'] || $default['de_iche_use'] || $default['de_card_use'] || $default['de_hp_use'] || $default['de_easy_pay_use'] || is_inicis_simple_pay() ) {
             echo '</div>';
         }
 
@@ -682,7 +686,7 @@ if($is_kakaopay_use) {
     // 결제대행사별 코드 include (결제대행사 정보 필드 및 주분버튼)
     require_once(G5_MSHOP_PATH.'/'.$default['de_pg_service'].'/orderform.2.php');
 
-    if( $default['de_samsung_pay_use'] ){   //삼성페이 사용시
+    if( is_inicis_simple_pay() ){   //삼성페이 또는 L.pay 사용시
         require_once(G5_MSHOP_PATH.'/samsungpay/orderform.2.php');
     }
 
@@ -708,7 +712,7 @@ if($is_kakaopay_use) {
         // 결제대행사별 코드 include (에스크로 안내)
         require_once(G5_MSHOP_PATH.'/'.$default['de_pg_service'].'/orderform.3.php');
 
-        if( $default['de_samsung_pay_use'] ){   //삼성페이 사용시
+        if( is_inicis_simple_pay() ){   //삼성페이 사용시
             require_once(G5_MSHOP_PATH.'/samsungpay/orderform.3.php');
         }
     }
@@ -717,7 +721,7 @@ if($is_kakaopay_use) {
 </div>
 
 <?php
-if( $default['de_samsung_pay_use'] ){   //삼성페이 사용시
+if( is_inicis_simple_pay() ){   //삼성페이 사용시
     require_once(G5_MSHOP_PATH.'/samsungpay/order.script.php');
 }
 ?>
@@ -1211,7 +1215,7 @@ function pay_approval()
 
     var form_order_method = '';
 
-    if( settle_method == "삼성페이" ){
+    if( settle_method == "삼성페이" || settle_method == "lpay" ){
         form_order_method = 'samsungpay';
     }
 
@@ -1293,6 +1297,12 @@ function pay_approval()
             case "삼성페이":
                 paymethod = "wcard";
                 f.P_RESERVED.value = f.P_RESERVED.value.replace("&useescrow=Y", "")+"&d_samsungpay=Y";
+                //f.DEF_RESERVED.value = f.DEF_RESERVED.value.replace("&useescrow=Y", "");
+                f.P_SKIP_TERMS.value = "Y"; //약관을 skip 해야 제대로 실행됨
+                break;
+            case "lpay":
+                paymethod = "wcard";
+                f.P_RESERVED.value = f.P_RESERVED.value.replace("&useescrow=Y", "")+"&d_lpay=Y";
                 //f.DEF_RESERVED.value = f.DEF_RESERVED.value.replace("&useescrow=Y", "");
                 f.P_SKIP_TERMS.value = "Y"; //약관을 skip 해야 제대로 실행됨
                 break;
