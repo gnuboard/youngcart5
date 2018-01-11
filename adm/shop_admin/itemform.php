@@ -1673,7 +1673,7 @@ $(function(){
 </section>
 
 <div class="btn_fixed_top">
-    <a href="./itemlist.php?'.$qstr.'" class="btn btn_02">목록</a>
+    <a href="./itemlist.php?<?php echo $qstr; ?>" class="btn btn_02">목록</a>
     <a href="<?php echo G5_SHOP_URL ;?>/item.php?it_id=<?php echo $it_id ;?>" class="btn_02  btn">상품보기</a>
     <input type="submit" value="확인" class="btn_submit btn" accesskey="s">
 </div>
