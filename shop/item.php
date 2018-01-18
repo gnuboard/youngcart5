@@ -95,7 +95,7 @@ if($ca_dir_check) {
 
 define('G5_SHOP_CSS_URL', str_replace(G5_PATH, G5_URL, $skin_dir));
 
-$g5['title'] = $it['ca_name'];
+$g5['title'] = $it['it_name'].' &gt; '.$it['ca_name'];
 
 // 분류 상단 코드가 있으면 출력하고 없으면 기본 상단 코드 출력
 if ($ca['ca_include_head'])
@@ -111,6 +111,13 @@ if(!is_file($nav_skin))
     $nav_skin = G5_SHOP_SKIN_PATH.'/navigation.skin.php';
 include $nav_skin;
 
+if(defined('G5_THEME_USE_ITEM_CATEGORY') && G5_THEME_USE_ITEM_CATEGORY){
+    // 이 분류에 속한 하위분류 출력
+    $cate_skin = $skin_dir.'/listcategory.skin.php';
+    if(!is_file($cate_skin))
+        $cate_skin = G5_SHOP_SKIN_PATH.'/listcategory.skin.php';
+    include $cate_skin;
+}
 
 if ($is_admin) {
     echo '<div class="sit_admin"><a href="'.G5_ADMIN_URL.'/shop_admin/itemform.php?w=u&amp;it_id='.$it_id.'" class="btn_admin">상품 관리</a></div>';
@@ -132,7 +139,7 @@ else
 $sql = " select it_id, it_name from {$g5['g5_shop_item_table']} where it_id > '$it_id' and SUBSTRING(ca_id,1,4) = '".substr($it['ca_id'],0,4)."' and it_use = '1' order by it_id asc limit 1 ";
 $row = sql_fetch($sql);
 if ($row['it_id']) {
-    $prev_title = '<i class="fa fa-caret-left" aria-hidden="true"></i> 이전상품<span class="sound_only"> '.$row['it_name'].'</span>';
+    $prev_title = '이전상품<span class="sound_only"> '.$row['it_name'].'</span>';
     $prev_href = '<a href="./item.php?it_id='.$row['it_id'].'" id="siblings_prev">';
     $prev_href2 = '</a>'.PHP_EOL;
 } else {
@@ -145,7 +152,7 @@ if ($row['it_id']) {
 $sql = " select it_id, it_name from {$g5['g5_shop_item_table']} where it_id < '$it_id' and SUBSTRING(ca_id,1,4) = '".substr($it['ca_id'],0,4)."' and it_use = '1' order by it_id desc limit 1 ";
 $row = sql_fetch($sql);
 if ($row['it_id']) {
-    $next_title = '다음 상품<span class="sound_only"> '.$row['it_name'].'</span> <i class="fa fa-caret-right" aria-hidden="true"></i>';
+    $next_title = '다음 상품<span class="sound_only"> '.$row['it_name'].'</span>';
     $next_href = '<a href="./item.php?it_id='.$row['it_id'].'" id="siblings_next">';
     $next_href2 = '</a>'.PHP_EOL;
 } else {
