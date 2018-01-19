@@ -55,6 +55,9 @@ add_stylesheet('<link rel="stylesheet" href="'.G5_SHOP_CSS_URL.'/style.css">', 0
     <div id="sit_siblings">
         <?php
         if ($prev_href || $next_href) {
+            $prev_title = '<i class="fa fa-caret-left" aria-hidden="true"></i> '.$prev_title;
+            $next_title = $next_title.' <i class="fa fa-caret-right" aria-hidden="true"></i>';
+
             echo $prev_href.$prev_title.$prev_href2;
             echo $next_href.$next_title.$next_href2;
         } else {

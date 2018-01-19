@@ -665,4 +665,4 @@
 .couponzone_list ul li .coupon_btn .btn02:hover{background:#d50c0c;color:#fff}
 .couponzone_list ul li .coupon_btn .disabled {background: #ddd;border:1px;color:#999;border-color:#ddd}
 .couponzone_list ul li .coupon_btn .disabled:hover {background: #ddd;border:1px;color:#999;border-color:#ddd}
-.couponzone_list .no_coupon{padding: 100px 0;text-align:center;color:#999}
+.couponzone_list .no_coupon{position:relative;padding: 100px 0;text-align:center;color:#999}

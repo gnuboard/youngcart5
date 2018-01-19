@@ -33,8 +33,12 @@ if(!sql_num_rows($result))
 <input type="hidden" name="ct_send_cost" value="<?php echo $row2['ct_send_cost']; ?>">
 <input type="hidden" name="sw_direct">
 <?php
-// 선택 옵션 ( 기존의 tr td 태그로 가져오려면 'div' 를 '' 로 바꾸거나 또는 지워주세요 )
-$option_1 = get_item_options($it['it_id'], $it['it_option_subject'], 'div');
+if(defined('G5_THEME_USE_OPTIONS_TRTD') && G5_THEME_USE_OPTIONS_TRTD){
+    $option_1 = get_item_options($it['it_id'], $it['it_option_subject'], '');
+} else {
+    // 선택 옵션 ( 기존의 tr td 태그로 가져오려면 'div' 를 '' 로 바꾸거나 또는 지워주세요 )
+    $option_1 = get_item_options($it['it_id'], $it['it_option_subject'], 'div');
+}
 if($option_1) {
 ?>
 <section class="option_wr">
@@ -50,8 +54,12 @@ if($option_1) {
 ?>
 
 <?php
-// 추가 옵션 ( 기존의 tr td 태그로 가져오려면 'div' 를 '' 로 바꾸거나 또는 지워주세요 )
-$option_2 = get_item_supply($it['it_id'], $it['it_supply_subject'], 'div');
+if(defined('G5_THEME_USE_OPTIONS_TRTD') && G5_THEME_USE_OPTIONS_TRTD){
+    $option_2 = get_item_supply($it['it_id'], $it['it_supply_subject'], '');
+} else {
+    // 추가 옵션 ( 기존의 tr td 태그로 가져오려면 'div' 를 '' 로 바꾸거나 또는 지워주세요 )
+    $option_2 = get_item_supply($it['it_id'], $it['it_supply_subject'], 'div');
+}
 if($option_2) {
 ?>
 <section class="option_wr">
