@@ -86,7 +86,7 @@ if($od['od_pg'] == 'lg') {
                 <th scope="col" id="th_itqty">수량</th>
                 <th scope="col" id="th_itprice">판매가</th>
                 <th scope="col" id="th_itsum">소계</th>
-                <th scope="col" id="th_itpt">포인트</th>
+                <th scope="col" id="th_itpt">적립포인트</th>
                 <th scope="col" id="th_itsd">배송비</th>
                 <th scope="col" id="th_itst">상태</th>
             </tr>
@@ -200,6 +200,11 @@ if($od['od_pg'] == 'lg') {
     <div class="sod_left">
         <h2>결제/배송 정보</h2>
         <?php
+        // 총계 = 주문상품금액합계 + 배송비 - 상품할인 - 결제할인 - 배송비할인
+        $tot_price = $od['od_cart_price'] + $od['od_send_cost'] + $od['od_send_cost2']
+                        - $od['od_cart_coupon'] - $od['od_coupon'] - $od['od_send_coupon']
+                        - $od['od_cancel_price'];
+
         $receipt_price  = $od['od_receipt_price']
                         + $od['od_receipt_point'];
         $cancel_price   = $od['od_cancel_price'];
@@ -569,13 +574,6 @@ if($od['od_pg'] == 'lg') {
     </div>
 
     <div class="sod_right">
-        <?php
-        // 총계 = 주문상품금액합계 + 배송비 - 상품할인 - 결제할인 - 배송비할인
-        $tot_price = $od['od_cart_price'] + $od['od_send_cost'] + $od['od_send_cost2']
-                        - $od['od_cart_coupon'] - $od['od_coupon'] - $od['od_send_coupon']
-                        - $od['od_cancel_price'];
-        ?>
-
         <ul id="sod_bsk_tot">
             <li class="sod_bsk_dvr">
                 <span>주문총액</span>
@@ -627,7 +625,7 @@ if($od['od_pg'] == 'lg') {
                 <strong><?php echo number_format($tot_price); ?> 원</strong>
             </li>
             <li class="sod_bsk_point">
-                <span>포인트</span>
+                <span>적립포인트</span>
                 <strong><?php echo number_format($tot_point); ?> 점</strong>
             </li>
         </ul>
@@ -651,6 +649,12 @@ if($od['od_pg'] == 'lg') {
                 <li id="alrdy">
                     결제액
                     <strong><?php echo $wanbul; ?></strong>
+                    <?php if( $od['od_receipt_point'] ){    //포인트로 결제한 내용이 있으면 ?>
+                    <div class="right">
+                        <p><span class="title"><i class="fa fa-angle-right" aria-hidden="true"></i> 포인트 결제</span><?php echo number_format($od['od_receipt_point']); ?> 점</p>
+                        <p><span class="title"><i class="fa fa-angle-right" aria-hidden="true"></i> 실결제</span><?php echo number_format($od['od_receipt_price']); ?> 원</p>
+                    </div>
+                    <?php } ?>
                 </li>
             </ul>
         </section>

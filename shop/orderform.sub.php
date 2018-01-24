@@ -654,7 +654,7 @@ if($is_kakaopay_use) {
                     </div>
                     <div id="sod_frm_pt">
                         <span><strong>보유포인트</strong><?php echo display_point($member['mb_point']); ?></span>
-                        <span><strong>최대 사용 가능 포인트</strong><?php echo display_point($temp_point); ?></span>
+                        <span class="max_point_box"><strong>최대 사용 가능 포인트</strong><em id="use_max_point"><?php echo display_point($temp_point); ?></em></span>
                     </div>
                 </div>
                 <?php
@@ -1104,7 +1104,7 @@ function calculate_temp_point()
 
     temp_point = parseInt(temp_point / point_unit) * point_unit;
 
-    $("#use_max_point").text("최대 "+number_format(String(temp_point))+"점");
+    $("#use_max_point").text(number_format(String(temp_point))+"점");
     $("input[name=max_temp_point]").val(temp_point);
 }
 

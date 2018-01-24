@@ -198,7 +198,7 @@ if($od['od_pg'] == 'lg') {
                 <dd class="sod_bsk_dvr"><strong><?php echo number_format($od['od_cancel_price']); ?> 원</strong></dd>
                 <?php } ?>
 
-                <dt class="sod_bsk_point">포인트</dt>
+                <dt class="sod_bsk_point">적립포인트</dt>
                 <dd class="sod_bsk_point"><strong><?php echo number_format($tot_point); ?> 점</strong></dd>
 
                 <dt class="sod_bsk_cnt">총계</dt>
@@ -614,6 +614,12 @@ if($od['od_pg'] == 'lg') {
             <li id="alrdy">
                 결제액
                 <strong><?php echo $wanbul; ?></strong>
+                <?php if( $od['od_receipt_point'] ){    //포인트로 결제한 내용이 있으면 ?>
+                <div class="right">
+                    <p><span class="title"><i class="fa fa-angle-right" aria-hidden="true"></i> 포인트 결제</span><?php echo number_format($od['od_receipt_point']); ?> 점</p>
+                    <p><span class="title"><i class="fa fa-angle-right" aria-hidden="true"></i> 실결제</span><?php echo number_format($od['od_receipt_price']); ?> 원</p>
+                </div>
+                <?php } ?>
             </li>
         </ul>
     </section>

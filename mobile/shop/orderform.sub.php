@@ -640,7 +640,7 @@ if($is_kakaopay_use) {
 
                 echo '<div class="sod_frm_point">';
                 echo '<div><input type="hidden" name="max_temp_point" value="'.$temp_point.'"><label for="od_temp_point">사용 포인트('.$point_unit.'점 단위)</label> <input type="text" id="od_temp_point" name="od_temp_point" value="0" size="10"> 점</div>';
-                echo '<div id="sod_frm_pt_info"><span><strong>보유포인트</strong>'.display_point($member['mb_point']).'</span><span><strong id="use_max_point">최대사용가능포인트</strong>'.display_point($temp_point).'</span></div>';
+                echo '<div id="sod_frm_pt_info"><span><strong>보유포인트</strong>'.display_point($member['mb_point']).'</span><span class="max_point_box"><strong>최대사용가능포인트</strong><em id="use_max_point">'.display_point($temp_point).'</em></span></div>';
                 echo '</div>';
                 $multi_settle++;
             }
@@ -1107,7 +1107,7 @@ function calculate_temp_point()
 
     temp_point = parseInt(temp_point / point_unit) * point_unit;
 
-    $("#use_max_point").text("최대 "+number_format(String(temp_point))+"점");
+    $("#use_max_point").text(number_format(String(temp_point))+"점");
     $("input[name=max_temp_point]").val(temp_point);
 }
 
