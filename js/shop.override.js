@@ -5,7 +5,10 @@ jQuery(function($){
         var add_exec = param.add_exec;
         var $el = $(this);
         var val = $el.val();
-        var item = $el.closest(".sit_option").find("label").text();
+		
+        //블랙캣77님이 해당 코드에 도움을 주셨습니다.
+        var eq = $("select.it_supply").index($(this));
+        var item = $el.closest(".sit_option").find("label").eq(eq).text();
         
         if(!val) {
             alert(item+"을(를) 선택해 주십시오.");
