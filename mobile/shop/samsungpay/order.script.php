@@ -10,7 +10,7 @@ if( ! is_inicis_simple_pay() || ('inicis' == $default['de_pg_service']) ){    //
 jQuery(function($){
     $( document ).ready(function() {
         var pf = document.forderform;
-
+        
         // 이후에 Lpay 가 추가됨
         $(pf).on("form_sumbit_order_samsungpay", samsungpay_form_submit);
 
@@ -18,7 +18,7 @@ jQuery(function($){
             var $form = $(this),
                 pf = $form[0],
                 samsungpayform = document.samsungpay_form;
-            
+
             var paymethod = "";
             var width = 330;
             var height = 480;
@@ -30,7 +30,7 @@ jQuery(function($){
             samsungpayform.P_RESERVED.value = p_reserved;
 
             paymethod = "wcard";
-            
+
             if( typeof settle_method != "undefined" && settle_method == "lpay" ){   // L.pay 로 결제하는 경우
                 samsungpayform.P_RESERVED.value = samsungpayform.P_RESERVED.value.replace("&useescrow=Y", "")+"&d_lpay=Y";
             } else {    // 그 외에는 삼성페이로 인식
