@@ -86,8 +86,8 @@ include_once(G5_THEME_SHOP_PATH.'/shop.head.php');
 <!-- } 최신상품 끝 -->
 <?php } ?>
 
-<?php if($default['de_type4_list_use']) { ?>
-<!-- 인기상품 시작 { -->
+<?php if($default['de_type5_list_use']) { ?>
+<!-- 할인상품 시작 { -->
 <section class="sct_wrap">
     <header>
         <h2><a href="<?php echo G5_SHOP_URL; ?>/listtype.php?type=5">할인상품</a></h2>
@@ -105,7 +105,7 @@ include_once(G5_THEME_SHOP_PATH.'/shop.head.php');
     echo $list->run();
     ?>
 </section>
-<!-- } 인기상품 끝 -->
+<!-- } 할인상품 끝 -->
 <?php } ?>
 
 
