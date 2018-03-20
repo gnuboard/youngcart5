@@ -8,8 +8,8 @@ add_stylesheet('<link rel="stylesheet" href="'.G5_SHOP_SKIN_URL.'/style.css">', 
 <!-- 장바구니 간략 보기 시작 { -->
 <aside id="sbsk" class="op_area">
     <h2>장바구니</h2>
-    <ul>
     <form name="skin_frmcartlist" id="skin_sod_bsk_list" method="post" action="<?php echo G5_SHOP_URL.'/cartupdate.php'; ?>">
+    <ul>
     <?php
     $cart_datas = get_boxcart_datas(true);
     $i = 0;
