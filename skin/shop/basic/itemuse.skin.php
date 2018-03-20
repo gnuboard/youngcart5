@@ -13,7 +13,7 @@ add_stylesheet('<link rel="stylesheet" href="'.G5_SHOP_SKIN_URL.'/style.css">', 
 
     <div class="sit_use_top">
         <?php if ($star_score) { ?>
-        <h4>고객고객 평점</h4>
+        <h4>고객 평점</h4>
         <img src="<?php echo G5_SHOP_URL; ?>/img/s_star<?php echo $star_score?>.png" alt="" class="sit_star">
         <span class="st_bg "></span>
         총 <strong><?php echo $total_count; ?></strong> 건 사용후기
