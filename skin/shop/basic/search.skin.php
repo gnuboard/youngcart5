@@ -2,7 +2,7 @@
 if (!defined('_GNUBOARD_')) exit; // 개별 페이지 접근 불가
 ?>
 <?php if ($is_admin) {  //관리자이면 ?>
-    <div class="sit_admin"><a href="<?php echo G5_ADMIN_URL; ?>'/shop_admin/configform.php#anc_scf_etc'.'" class="btn_admin">검색 설정</a></div>
+    <div class="sit_admin"><a href="<?php echo G5_ADMIN_URL; ?>/shop_admin/configform.php#anc_scf_etc" class="btn_admin">검색 설정</a></div>
 <?php } ?>
 <!-- 검색 시작 { -->
 <div id="ssch">

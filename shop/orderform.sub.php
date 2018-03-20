@@ -539,7 +539,7 @@ if($is_kakaopay_use) {
             </div>
             <div id="od_tot_price">
                 <span>총 주문금액</span>
-                <strong><?php echo number_format($tot_price); ?></strong>원
+                <strong class="print_price"><?php echo number_format($tot_price); ?></strong>원
             </div>
 
             <div id="od_pay_sl">
@@ -1082,7 +1082,7 @@ function calculate_order_price()
     var tot_price = sell_price + send_cost + send_cost2 - send_coupon;
 
     $("input[name=good_mny]").val(tot_price);
-    $("#od_tot_price").text(number_format(String(tot_price)));
+    $("#od_tot_price .print_price").text(number_format(String(tot_price)));
     <?php if($temp_point > 0 && $is_member) { ?>
     calculate_temp_point();
     <?php } ?>
