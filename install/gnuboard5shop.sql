@@ -134,7 +134,7 @@ CREATE TABLE IF NOT EXISTS `g5_shop_category` (
 DROP TABLE IF EXISTS `g5_shop_coupon`;
 CREATE TABLE IF NOT EXISTS `g5_shop_coupon` (
   `cp_no` INT(11) NOT NULL AUTO_INCREMENT,
-  `cp_id` VARCHAR(255) NOT NULL DEFAULT '',
+  `cp_id` VARCHAR(100) NOT NULL DEFAULT '',
   `cp_subject` VARCHAR(255) NOT NULL DEFAULT '',
   `cp_method` TINYINT(4) NOT NULL DEFAULT '0',  
   `cp_target` VARCHAR(255) NOT NULL DEFAULT '',
@@ -163,8 +163,8 @@ CREATE TABLE IF NOT EXISTS `g5_shop_coupon` (
 DROP TABLE IF EXISTS `g5_shop_coupon_log`;
 CREATE TABLE IF NOT EXISTS `g5_shop_coupon_log` (
   `cl_id` int(11) NOT NULL AUTO_INCREMENT,
-  `cp_id` varchar(255) NOT NULL DEFAULT '',
-  `mb_id` varchar(255) NOT NULL DEFAULT '',
+  `cp_id` varchar(100) NOT NULL DEFAULT '',
+  `mb_id` varchar(100) NOT NULL DEFAULT '',
   `od_id` bigint(20) NOT NULL,
   `cp_price` int(11) NOT NULL DEFAULT '0',
   `cl_datetime` datetime NOT NULL DEFAULT '0000-00-00 00:00:00',

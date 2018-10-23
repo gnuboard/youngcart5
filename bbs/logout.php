@@ -32,7 +32,7 @@ if ($url) {
     else
         $link = $url;
 } else if ($bo_table) {
-    $link = G5_BBS_URL.'/board.php?bo_table='.$bo_table;
+    $link = get_pretty_url($bo_table);
 } else {
     $link = G5_URL;
 }
