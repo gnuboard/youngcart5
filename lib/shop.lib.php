@@ -254,6 +254,8 @@ class item_list
     function run() {
 
         global $g5, $config, $member, $default;
+        
+        $list = array();
 
         if ($this->query) {
 
@@ -309,7 +311,21 @@ class item_list
                 $row2 = sql_fetch($sql2);
                 $this->total_count = $row2['cnt'];
             }
+        }
 
+        if( isset($result) && $result ){
+            while ($row=sql_fetch_array($result)) {
+                
+                if( isset($row['it_seo_title']) && ! $row['it_seo_title'] ){
+                    shop_seo_title_update($row['it_id']);
+                }
+
+                $list[] = $row;
+            }
+
+            if(function_exists('sql_data_seek')){
+                sql_data_seek($result, 0);
+            }
         }
 
         $file = $this->list_skin;
@@ -328,7 +344,6 @@ class item_list
         }
     }
 }
-
 
 // 장바구니 건수 검사
 function get_cart_count($cart_id)

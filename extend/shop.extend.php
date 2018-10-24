@@ -71,9 +71,11 @@ define('G5_CART_STOCK_LIMIT', 3);
 // 코인 잔액이 설정 금액보다 작을 때는 주문시 SMS 발송 안함
 define('G5_ICODE_COIN', 100);
 
-include_once(G5_LIB_PATH.'/shop.hook.lib.php');
+include_once(G5_LIB_PATH.'/shop.uri.lib.php');
 
+put_replace('get_pretty_url', 'get_pretty_shop_url', 10, 5);
 put_replace('add_nginx_conf_rules', 'add_shop_nginx_conf_rules', 10, 3);
 put_replace('add_mod_rewrite_rules', 'add_shop_mod_rewrite_rules', 10, 3);
-
+put_replace('admin_dbupgrade', 'add_shop_admin_dbupgrade', 10, 3);
+put_replace('exist_check_seo_title', 'shop_exist_check_seo_title', 10, 4);
 ?>

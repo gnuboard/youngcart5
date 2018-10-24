@@ -19,7 +19,14 @@ add_stylesheet('<link rel="stylesheet" href="'.G5_SHOP_SKIN_URL.'/style.css">', 
 
 <!-- 상품유형 30 시작 { -->
 <?php
-for ($i=1; $row=sql_fetch_array($result); $i++) {
+$i=0;
+foreach((array) $list as $row){
+
+    if( empty($row) ) continue;
+    $i++;
+
+    $item_link_href = get_pretty_url('shop', $row['it_id']);
+
     if ($i == 1) {
         if ($this->css) {
             echo "<div id=\"smt_{$this->type}\" class=\"{$this->css}\">\n";
@@ -37,7 +44,7 @@ for ($i=1; $row=sql_fetch_array($result); $i++) {
     echo "<li class=\"sct_li\" style=\"width:{$this->img_width}px\">\n";
 
     if ($this->href) {
-        echo "<div class=\"sct_img\"><a href=\"{$this->href}{$row['it_id']}\" class=\"sct_a\">\n";
+        echo "<div class=\"sct_img\"><a href=\"{$item_link_href}\" class=\"sct_a\">\n";
     }
 
     if ($this->view_it_img) {
@@ -57,7 +64,7 @@ for ($i=1; $row=sql_fetch_array($result); $i++) {
     }
 
     if ($this->href) {
-        echo "<div class=\"sct_txt\"><a href=\"{$this->href}{$row['it_id']}\" class=\"sct_a\">\n";
+        echo "<div class=\"sct_txt\"><a href=\"{$item_link_href}\" class=\"sct_a\">\n";
     }
 
     if ($this->view_it_name) {
@@ -90,7 +97,7 @@ for ($i=1; $row=sql_fetch_array($result); $i++) {
 
     if ($this->view_sns) {
         $sns_top = $this->img_height + 10;
-        $sns_url  = get_pretty_url('shop', $row['it_id']);
+        $sns_url  = $item_link_href;
         $sns_title = get_text($row['it_name']).' | '.get_text($config['cf_title']);
         echo "<div class=\"sct_sns\" style=\"top:{$sns_top}px\">";
         echo get_sns_share_link('facebook', $sns_url, $sns_title, G5_SHOP_SKIN_URL.'/img/sns_fb_s.png');
@@ -229,9 +236,7 @@ if($i == 1) echo "<p class=\"sct_noitem\">등록된 상품이 없습니다.</p>\
         else
             return methods.init.apply(this, arguments);
     }
-}(jQuery));
 
-$(function() {
     $("#smt_<?php echo $this->type; ?>").leftRolling();
     // 기본 설정값을 변경하려면 아래처럼 사용
     //$("#smt_<?php echo $this->type; ?>").leftRolling({ interval: 6000, duration: 1500 });
@@ -256,6 +261,7 @@ $(function() {
             $(this).data("stop", true);
         }
     });
-});
+
+}(jQuery));
 </script>
 <!-- } 상품진열 30 끝 -->

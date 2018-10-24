@@ -11,8 +11,19 @@ $it_id = trim($_GET['it_id']);
 include_once(G5_LIB_PATH.'/iteminfo.lib.php');
 
 // 분류사용, 상품사용하는 상품의 정보를 얻음
-$sql = " select a.*, b.ca_name, b.ca_use from {$g5['g5_shop_item_table']} a, {$g5['g5_shop_category_table']} b where a.it_id = '$it_id' and a.ca_id = b.ca_id ";
+if( isset($it_seo_title) && $it_seo_title ){
+    $sql = " select a.*, b.ca_name, b.ca_use from {$g5['g5_shop_item_table']} a, {$g5['g5_shop_category_table']} b where a.it_seo_title = '".sql_real_escape_string($it_seo_title)."' and a.ca_id = b.ca_id ";
+} else {
+    $sql = " select a.*, b.ca_name, b.ca_use from {$g5['g5_shop_item_table']} a, {$g5['g5_shop_category_table']} b where a.it_id = '$it_id' and a.ca_id = b.ca_id ";
+}
+
 $it = sql_fetch($sql);
+$it_id = $it['it_id'];
+
+if( isset($row['it_seo_title']) && ! $row['it_seo_title'] ){
+    shop_seo_title_update($row['it_id']);
+}
+
 if (!$it['it_id'])
     alert('자료가 없습니다.');
 if (!($it['ca_use'] && $it['it_use'])) {

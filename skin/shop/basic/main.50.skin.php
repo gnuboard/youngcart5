@@ -7,7 +7,14 @@ add_stylesheet('<link rel="stylesheet" href="'.G5_SHOP_SKIN_URL.'/style.css">', 
 
 <!-- 상품진열 10 시작 { -->
 <?php
-for ($i=1; $row=sql_fetch_array($result); $i++) {
+$i=0;
+foreach((array) $list as $row){
+
+    if( empty($row) ) continue;
+    $i++;
+
+    $item_link_href = get_pretty_url('shop', $row['it_id']);
+
     if ($this->list_mod >= 2) { // 1줄 이미지 : 2개 이상
         if ($i%$this->list_mod == 0) $sct_last = 'sct_last'; // 줄 마지막
         else if ($i%$this->list_mod == 1) $sct_last = 'sct_clear'; // 줄 첫번째
@@ -27,8 +34,6 @@ for ($i=1; $row=sql_fetch_array($result); $i++) {
     echo "<li class=\"sct_li sct_li_{$i}\">\n";
 
     echo "<span class=\"sct_rank\">{$i}</span>\n";
-
-    $item_link_href = get_pretty_url('shop', $row['it_id']);
 
     if ($this->href) {
         echo "<div class=\"sct_img\"><a href=\"{$item_link_href}\">\n";
