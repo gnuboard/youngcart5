@@ -28,8 +28,10 @@ for ($i=1; $row=sql_fetch_array($result); $i++) {
 
     echo "<span class=\"sct_rank\">{$i}</span>\n";
 
+    $item_link_href = get_pretty_url('shop', $row['it_id']);
+
     if ($this->href) {
-        echo "<div class=\"sct_img\"><a href=\"{$this->href}{$row['it_id']}\">\n";
+        echo "<div class=\"sct_img\"><a href=\"{$item_link_href}\">\n";
     }
 
     if ($this->view_it_img) {
@@ -49,7 +51,7 @@ for ($i=1; $row=sql_fetch_array($result); $i++) {
     }
 
     if ($this->href) {
-        echo "<div class=\"sct_txt\"><a href=\"{$this->href}{$row['it_id']}\">\n";
+        echo "<div class=\"sct_txt\"><a href=\"{$item_link_href}\">\n";
     }
 
     if ($this->view_it_name) {
@@ -82,7 +84,7 @@ for ($i=1; $row=sql_fetch_array($result); $i++) {
 
     if ($this->view_sns) {
         $sns_top = $this->img_height + 10;
-        $sns_url  = G5_SHOP_URL.'/item.php?it_id='.$row['it_id'];
+        $sns_url  = get_pretty_url('shop', $row['it_id']);
         $sns_title = get_text($row['it_name']).' | '.get_text($config['cf_title']);
         echo "<div class=\"sct_sns\" style=\"top:{$sns_top}px\">";
         echo get_sns_share_link('facebook', $sns_url, $sns_title, G5_SHOP_SKIN_URL.'/img/sns_fb_s.png');

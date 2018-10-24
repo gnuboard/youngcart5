@@ -435,7 +435,7 @@ function get_it_image($it_id, $width, $height=0, $anchor=false, $img_id='', $img
     $img .= '>';
 
     if($anchor)
-        $img = '<a href="'.G5_SHOP_URL.'/item.php?it_id='.$it_id.'">'.$img.'</a>';
+        $img = get_pretty_url('shop', $it_id);
 
     return $img;
 }
@@ -1430,7 +1430,7 @@ function relation_item($it_id, $width, $height, $rows=3)
 
         $img = get_it_image($row['it_id'], $width, $height);
 
-        $str .= '<li class="sct_rel_li"><a href="'.G5_SHOP_URL.'/item.php?it_id='.$row['it_id'].'" class="sct_rel_a">'.$img.'</a></li>';
+        $str .= '<li class="sct_rel_li"><a href="'.get_pretty_url('shop', $row['it_id']).'" class="sct_rel_a">'.$img.'</a></li>';
     }
 
     if($i > 0)

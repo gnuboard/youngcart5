@@ -140,7 +140,7 @@ $sql = " select it_id, it_name from {$g5['g5_shop_item_table']} where it_id > '$
 $row = sql_fetch($sql);
 if ($row['it_id']) {
     $prev_title = '이전상품<span class="sound_only"> '.$row['it_name'].'</span>';
-    $prev_href = '<a href="./item.php?it_id='.$row['it_id'].'" id="siblings_prev">';
+    $prev_href = '<a href="'.get_pretty_url('shop', $row['it_id']).'" id="siblings_prev">';
     $prev_href2 = '</a>'.PHP_EOL;
 } else {
     $prev_title = '';
@@ -153,7 +153,7 @@ $sql = " select it_id, it_name from {$g5['g5_shop_item_table']} where it_id < '$
 $row = sql_fetch($sql);
 if ($row['it_id']) {
     $next_title = '다음 상품<span class="sound_only"> '.$row['it_name'].'</span>';
-    $next_href = '<a href="./item.php?it_id='.$row['it_id'].'" id="siblings_next">';
+    $next_href = '<a href="'.get_pretty_url('shop', $row['it_id']).'" id="siblings_next">';
     $next_href2 = '</a>'.PHP_EOL;
 } else {
     $next_title = '';
@@ -183,7 +183,7 @@ if($default['de_rel_list_use']) {
 
 // 소셜 관련
 $sns_title = get_text($it['it_name']).' | '.get_text($config['cf_title']);
-$sns_url  = G5_SHOP_URL.'/item.php?it_id='.$it['it_id'];
+$sns_url  = get_pretty_url('shop', $it['it_id']);
 $sns_share_links .= get_sns_share_link('facebook', $sns_url, $sns_title, G5_SHOP_SKIN_URL.'/img/facebook.png').' ';
 $sns_share_links .= get_sns_share_link('twitter', $sns_url, $sns_title, G5_SHOP_SKIN_URL.'/img/twitter.png').' ';
 $sns_share_links .= get_sns_share_link('googleplus', $sns_url, $sns_title, G5_SHOP_SKIN_URL.'/img/gplus.png');
