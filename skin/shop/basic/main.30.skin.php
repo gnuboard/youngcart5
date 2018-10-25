@@ -25,7 +25,7 @@ foreach((array) $list as $row){
     if( empty($row) ) continue;
     $i++;
 
-    $item_link_href = get_pretty_url('shop', $row['it_id']);
+    $item_link_href = shop_item_url($row['it_id']);
 
     if ($i == 1) {
         if ($this->css) {

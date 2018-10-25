@@ -144,7 +144,8 @@ echo '<div id="sit_hhtml">'.conv_content($it['it_head_html'], 1).'</div>';
 if (G5_HTTPS_DOMAIN)
     $action_url = G5_HTTPS_DOMAIN.'/'.G5_SHOP_DIR.'/cartupdate.php';
 else
-    $action_url = './cartupdate.php';
+    $action_url = G5_SHOP_URL.'/cartupdate.php';
+
 
 // 이전 상품보기
 $sql = " select it_id, it_name from {$g5['g5_shop_item_table']} where it_id > '$it_id' and SUBSTRING(ca_id,1,4) = '".substr($it['ca_id'],0,4)."' and it_use = '1' order by it_id asc limit 1 ";

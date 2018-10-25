@@ -15,7 +15,7 @@ foreach((array) $list as $row){
     if( empty($row) ) continue;
     $i++;
     
-    $item_link_href = get_pretty_url('shop', $row['it_id']);
+    $item_link_href = shop_item_url($row['it_id']);
 
     if ($list_mod >= 2) { // 1줄 이미지 : 2개 이상
         if ($i%$list_mod == 0) $sct_last = ' sct_last'; // 줄 마지막

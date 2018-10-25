@@ -13,7 +13,7 @@ foreach((array) $list as $row){
     if( empty($row) ) continue;
     $i++;
 
-    $item_link_href = get_pretty_url('shop', $row['it_id']);
+    $item_link_href = shop_item_url($row['it_id']);
 
     if ($this->list_mod >= 2) { // 1줄 이미지 : 2개 이상
         if ($i%$this->list_mod == 0) $sct_last = 'sct_last'; // 줄 마지막
@@ -89,7 +89,7 @@ foreach((array) $list as $row){
 
     if ($this->view_sns) {
         $sns_top = $this->img_height + 10;
-        $sns_url  = get_pretty_url('shop', $row['it_id']);
+        $sns_url  = shop_item_url($row['it_id']);
         $sns_title = get_text($row['it_name']).' | '.get_text($config['cf_title']);
         echo "<div class=\"sct_sns\" style=\"top:{$sns_top}px\">";
         echo get_sns_share_link('facebook', $sns_url, $sns_title, G5_SHOP_SKIN_URL.'/img/sns_fb_s.png');

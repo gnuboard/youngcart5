@@ -26,7 +26,7 @@ foreach((array) $list as $row){
     $i++;
 
     $sct_last = '';
-    $item_link_href = get_pretty_url('shop', $row['it_id']);
+    $item_link_href = shop_item_url($row['it_id']);
 
     if($i>1 && $i%$this->list_mod == 0)
         $sct_last = ' sct_last'; // 줄 마지막

@@ -1,7 +1,37 @@
 <?php
 if (!defined('_GNUBOARD_')) exit;
 
-function get_pretty_shop_url($url, $folder, $no='', $query_string='', $action=''){
+function shop_type_url($type){
+    global $config;
+
+    if( $config['cf_bbs_rewrite'] ){
+        return get_pretty_url('shop', 'type-'.$type);
+    }
+
+    return G5_SHOP_URL.'/listtype.php?type='.urlencode($type);
+}
+
+function shop_item_url($it_id){
+    global $config;
+
+    if( $config['cf_bbs_rewrite'] ){
+        return get_pretty_url('shop', $it_id);
+    }
+
+    return G5_SHOP_URL.'/item.php?it_id='.urlencode($ca_id);
+}
+
+function shop_category_url($ca_id){
+    global $config;
+
+    if( $config['cf_bbs_rewrite'] ){
+        return get_pretty_url('shop', 'list-'.$ca_id);
+    }
+
+    return G5_SHOP_URL.'/list.php?ca_id='.urlencode($ca_id);
+}
+
+function add_pretty_shop_url($url, $folder, $no='', $query_string='', $action=''){
     global $g5, $config;
 
     if( $folder !== 'shop' ){
@@ -15,7 +45,7 @@ function get_pretty_shop_url($url, $folder, $no='', $query_string='', $action=''
         $segments[0] = G5_URL;
         $segments[1] = urlencode($folder);
 
-        if( $config['cf_bbs_rewrite'] > 1 ){
+        if( $config['cf_bbs_rewrite'] > 1 && ! preg_match('/^(list|type)\-([^\/]+)/i', $no) ){
             $item = get_shop_item($no, true);
             $segments[2] = $item['it_seo_title'] ? urlencode($item['it_seo_title']).'/' : urlencode($no);
         } else {
@@ -31,10 +61,15 @@ function get_pretty_shop_url($url, $folder, $no='', $query_string='', $action=''
             }
         }
     } else {
-        $url = G5_SHOP_URL. '/item.php';
-        if($no) {
-            $url .= '?'. urlencode($no);
+        
+        if( preg_match('/^list\-([^\/]+)/i', $no) ){
+            $url = G5_SHOP_URL. '/list.php?ca_id='.urlencode($no);
+        } else if( preg_match('/^type\-([^\/]+)/i', $no) ){
+            $url = G5_SHOP_URL. '/listtype.php?type='.urlencode($no);
+        } else {
+            $url = G5_SHOP_URL. '/item.php?it_id='.urlencode($no);
         }
+
         if($query_string) {
             $url .= ($no ? '?' : '&amp;'). $query_string;
         }
@@ -57,6 +92,8 @@ function add_shop_mod_rewrite_rules($get_path_url, $base_path, $return_string=fa
 
     $add_rules = array();
     
+    $add_rules[] = 'RewriteRule ^shop/list-([0-9a-z]+)$  '.G5_SHOP_DIR.'/list.php?ca_id=$1&rewrite=1  [L]';
+    $add_rules[] = 'RewriteRule ^shop/type-([0-9a-z]+)$  '.G5_SHOP_DIR.'/listtype.php?type=$1&rewrite=1  [L]';
     $add_rules[] = 'RewriteRule ^shop/([0-9a-zA-Z_]+)$  '.G5_SHOP_DIR.'/item.php?it_id=$1&rewrite=1  [L]';
     $add_rules[] = 'RewriteRule ^shop/([^/]+)/$  '.G5_SHOP_DIR.'/item.php?it_seo_title=$1&rewrite=1  [L]';
 

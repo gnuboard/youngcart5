@@ -24,13 +24,13 @@ add_stylesheet('<link rel="stylesheet" href="'.G5_SHOP_SKIN_URL.'/style.css">', 
             $count = sql_num_rows($result2);
         ?>
         <li class="gnb_1dli" style="z-index:<?php echo $gnb_zindex; ?>">
-            <a href="<?php echo G5_SHOP_URL.'/list.php?ca_id='.$row['ca_id']; ?>" class="gnb_1da<?php if ($count) echo ' gnb_1dam'; ?>"><?php echo $row['ca_name']; ?></a>
+            <a href="<?php echo shop_category_url($row['ca_id']); ?>" class="gnb_1da<?php if ($count) echo ' gnb_1dam'; ?>"><?php echo $row['ca_name']; ?></a>
             <?php
             for ($j=0; $row2=sql_fetch_array($result2); $j++)
             {
             if ($j==0) echo '<ul class="gnb_2dul" style="z-index:'.$gnb_zindex.'">';
             ?>
-                <li class="gnb_2dli"><a href="<?php echo G5_SHOP_URL; ?>/list.php?ca_id=<?php echo $row2['ca_id']; ?>" class="gnb_2da"><?php echo $row2['ca_name']; ?></a></li>
+                <li class="gnb_2dli"><a href="<?php echo shop_category_url($row2['ca_id']); ?>" class="gnb_2da"><?php echo $row2['ca_name']; ?></a></li>
             <?php }
             if ($j>0) echo '</ul>';
             ?>

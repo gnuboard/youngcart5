@@ -78,11 +78,11 @@ include_once(G5_LIB_PATH.'/latest.lib.php');
     </div>
     <div id="hd_menu">
         <ul>
-            <li><a href="<?php echo G5_SHOP_URL; ?>/listtype.php?type=1">히트상품</a></li>
-            <li><a href="<?php echo G5_SHOP_URL; ?>/listtype.php?type=2">추천상품</a></li>
-            <li><a href="<?php echo G5_SHOP_URL; ?>/listtype.php?type=3">최신상품</a></li>
-            <li><a href="<?php echo G5_SHOP_URL; ?>/listtype.php?type=4">인기상품</a></li>
-            <li><a href="<?php echo G5_SHOP_URL; ?>/listtype.php?type=5">할인상품</a></li>
+            <li><a href="<?php echo shop_type_url(1); ?>">히트상품</a></li>
+            <li><a href="<?php echo shop_type_url(2); ?>">추천상품</a></li>
+            <li><a href="<?php echo shop_type_url(3); ?>">최신상품</a></li>
+            <li><a href="<?php echo shop_type_url(4); ?>">인기상품</a></li>
+            <li><a href="<?php echo shop_type_url(5); ?>">할인상품</a></li>
             <li class="hd_menu_right"><a href="<?php echo G5_BBS_URL; ?>/faq.php">FAQ</a></li>
             <li class="hd_menu_right"><a href="<?php echo G5_BBS_URL; ?>/qalist.php">1:1문의</a></li>
             <li class="hd_menu_right"><a href="<?php echo G5_SHOP_URL; ?>/personalpay.php">개인결제</a></li>
