@@ -404,8 +404,7 @@ function get_it_image($it_id, $width, $height=0, $anchor=false, $img_id='', $img
     if(!$it_id || !$width)
         return '';
 
-    $sql = " select it_id, it_img1, it_img2, it_img3, it_img4, it_img5, it_img6, it_img7, it_img8, it_img9, it_img10 from {$g5['g5_shop_item_table']} where it_id = '$it_id' ";
-    $row = sql_fetch($sql);
+    $row = get_shop_item($it_id, true);
 
     if(!$row['it_id'])
         return '';
@@ -450,7 +449,7 @@ function get_it_image($it_id, $width, $height=0, $anchor=false, $img_id='', $img
     $img .= '>';
 
     if($anchor)
-        $img = get_pretty_url('shop', $it_id);
+        $img = $img = '<a href="'.shop_item_url($it_id).'">'.$img.'</a>';
 
     return $img;
 }
