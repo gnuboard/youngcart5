@@ -127,6 +127,8 @@ for ($i=1; $i<=10; $i++) {
 
 @include_once($board_skin_path.'/write_update.head.skin.php');
 
+start_event('write_update_before', $board, $wr_id, $w, $qstr);
+
 if ($w == '' || $w == 'u') {
 
     // 외부에서 글을 등록할 수 있는 버그가 존재하므로 공지는 관리자만 등록이 가능해야 함
@@ -218,7 +220,7 @@ if ($w == '' || $w == 'r') {
     if ($member['mb_id']) {
         $mb_id = $member['mb_id'];
         $wr_name = addslashes(clean_xss_tags($board['bo_use_name'] ? $member['mb_name'] : $member['mb_nick']));
-        $wr_password = $member['mb_password'];
+        $wr_password = '';
         $wr_email = addslashes($member['mb_email']);
         $wr_homepage = addslashes(clean_xss_tags($member['mb_homepage']));
     } else {
@@ -550,6 +552,8 @@ for ($i=0; $i<count($_FILES['bf_file']['name']); $i++) {
 
         // 올라간 파일의 퍼미션을 변경합니다.
         chmod($dest_file, G5_FILE_PERMISSION);
+
+        $dest_file = apply_replace('write_update_upload_file', $dest_file, $board, $wr_id, $w);
     }
 }
 
@@ -607,6 +611,8 @@ for ($i=0; $i<count($upload); $i++)
                          bf_type = '{$upload[$i]['image']['2']}',
                          bf_datetime = '".G5_TIME_YMDHIS."' ";
         sql_query($sql);
+
+        start_event('write_update_file_insert', $bo_table, $wr_id, $upload[$i], $w);
     }
 }
 
@@ -690,7 +696,8 @@ if (!($w == 'u' || $w == 'cu') && $config['cf_email_use'] && $board['bo_use_emai
 
     // 중복된 메일 주소는 제거
     $unique_email = array_unique($array_email);
-    $unique_email = array_values($unique_email);
+    $unique_email = apply_replace('write_update_mail_list', array_values($unique_email), $board, $wr_id);
+
     for ($i=0; $i<count($unique_email); $i++) {
         mailer($wr_name, $wr_email, $unique_email[$i], $subject, $content, 1);
     }

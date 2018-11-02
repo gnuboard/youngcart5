@@ -259,6 +259,12 @@ if (!isset($config['cf_bbs_rewrite'])) {
                     ADD `cf_bbs_rewrite` tinyint(4) NOT NULL DEFAULT '0' AFTER `cf_link_target` ", true);
 }
 
+// 읽지 않은 메모 수 칼럼
+if(!isset($member['mb_memo_cnt'])) {
+    sql_query(" ALTER TABLE `{$g5['member_table']}`
+                ADD `mb_memo_cnt` int(11) NOT NULL DEFAULT '0' AFTER `mb_memo_call`", true);
+}
+
 if(!$config['cf_faq_skin']) $config['cf_faq_skin'] = "basic";
 if(!$config['cf_mobile_faq_skin']) $config['cf_mobile_faq_skin'] = "basic";
 
@@ -1327,7 +1333,7 @@ include_once('_rewrite_config_form.php');
                 <label for="cf_<?php echo $i ?>_subj">여분필드<?php echo $i ?> 제목</label>
                 <input type="text" name="cf_<?php echo $i ?>_subj" value="<?php echo get_text($config['cf_'.$i.'_subj']) ?>" id="cf_<?php echo $i ?>_subj" class="frm_input" size="30">
                 <label for="cf_<?php echo $i ?>">여분필드<?php echo $i ?> 값</label>
-                <input type="text" name="cf_<?php echo $i ?>" value="<?php echo $config['cf_'.$i] ?>" id="cf_<?php echo $i ?>" class="frm_input" size="30">
+                <input type="text" name="cf_<?php echo $i ?>" value="<?php echo get_sanitize_input($config['cf_'.$i]); ?>" id="cf_<?php echo $i ?>" class="frm_input" size="30">
             </td>
         </tr>
         <?php } ?>

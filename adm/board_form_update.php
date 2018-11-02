@@ -72,6 +72,9 @@ $bo_category_list = str_replace($src_char, $dst_char, $bo_category_list);
 //https://github.com/gnuboard/gnuboard5/commit/f5f4925d4eb28ba1af728e1065fc2bdd9ce1da58 에 따른 조치
 $str_bo_category_list = isset($_POST['bo_category_list']) ? preg_replace("/[\<\>\'\"\\\'\\\"\%\=\(\)\/\^\*]/", "", $_POST['bo_category_list']) : '';
 
+$_POST['bo_subject'] = strip_tags($_POST['bo_subject']);
+$_POST['bo_mobile_subject'] = strip_tags($_POST['bo_mobile_subject']);
+
 $sql_common = " gr_id               = '{$_POST['gr_id']}',
                 bo_subject          = '{$_POST['bo_subject']}',
                 bo_mobile_subject   = '{$_POST['bo_mobile_subject']}',
@@ -439,6 +442,8 @@ delete_cache_latest($bo_table);
 
 if(function_exists('get_admin_captcha_by'))
     get_admin_captcha_by('remove');
+
+start_event('admin_board_form_update', $bo_table, $w);
 
 goto_url("./board_form.php?w=u&bo_table={$bo_table}&amp;{$qstr}");
 ?>

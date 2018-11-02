@@ -491,6 +491,7 @@ CREATE TABLE IF NOT EXISTS `g5_member` (
   `mb_open_date` date NOT NULL default '0000-00-00',
   `mb_profile` text NOT NULL,
   `mb_memo_call` varchar(255) NOT NULL default '',
+  `mb_memo_cnt` int(11) NOT NULL DEFAULT '0',
   `mb_1` varchar(255) NOT NULL default '',
   `mb_2` varchar(255) NOT NULL default '',
   `mb_3` varchar(255) NOT NULL default '',
@@ -515,11 +516,15 @@ CREATE TABLE IF NOT EXISTS `g5_member` (
 
 DROP TABLE IF EXISTS `g5_memo`;
 CREATE TABLE IF NOT EXISTS `g5_memo` (
-  `me_id` int(11) NOT NULL default '0',
+  `me_id` INT(11) NOT NULL AUTO_INCREMENT,
   `me_recv_mb_id` varchar(20) NOT NULL default '',
   `me_send_mb_id` varchar(20) NOT NULL default '',
   `me_send_datetime` datetime NOT NULL default '0000-00-00 00:00:00',
   `me_read_datetime` datetime NOT NULL default '0000-00-00 00:00:00',
+  `me_memo` text NOT NULL,
+  `me_send_id` INT(11) NOT NULL DEFAULT '0',
+  `me_type` ENUM('send','recv') NOT NULL DEFAULT 'recv',
+  `me_send_ip` VARCHAR(100) NOT NULL DEFAULT '',
   `me_memo` text NOT NULL,
   PRIMARY KEY  (`me_id`),
   KEY `me_recv_mb_id` (`me_recv_mb_id`)
@@ -802,6 +807,7 @@ CREATE TABLE IF NOT EXISTS `g5_content` (
   `co_html` tinyint(4) NOT NULL DEFAULT '0',
   `co_subject` varchar(255) NOT NULL DEFAULT '',
   `co_content` longtext NOT NULL,
+  `co_seo_title` varchar(255) NOT NULL DEFAULT '',
   `co_mobile_content` longtext NOT NULL,
   `co_skin` varchar(255) NOT NULL DEFAULT '',
   `co_mobile_skin` varchar(255) NOT NULL DEFAULT '',
@@ -809,7 +815,8 @@ CREATE TABLE IF NOT EXISTS `g5_content` (
   `co_hit` int(11) NOT NULL DEFAULT '0',
   `co_include_head` varchar(255) NOT NULL,
   `co_include_tail` varchar(255) NOT NULL,
-  PRIMARY KEY (`co_id`)
+  PRIMARY KEY (`co_id`),
+  KEY `co_seo_title` (`co_seo_title`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
