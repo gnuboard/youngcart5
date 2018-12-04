@@ -6,7 +6,7 @@ $is_category = false;
 $category_option = '';
 if ($board['bo_use_category']) {
     $is_category = true;
-    $category_href = G5_BBS_URL.'/board.php?bo_table='.$bo_table;
+    $category_href = get_pretty_url($bo_table);
 
     $category_option .= '<li><a href="'.$category_href.'"';
     if ($sca=='')
@@ -36,9 +36,9 @@ $stx = trim($stx);
 //검색인지 아닌지 구분하는 변수 초기화
 $is_search_bbs = false;
 
-if ($sca || $stx || $stx === '0') {     //검색이면
+if ($sca || $stx || $mb_hash || $stx === '0') {     //검색이면
     $is_search_bbs = true;      //검색구분변수 true 지정
-    $sql_search = get_sql_search($sca, $sfl, $stx, $sop);
+    $sql_search = get_sql_search($sca, $sfl, $stx, $sop, $mb_hash);
 
     // 가장 작은 번호를 얻어서 변수에 저장 (하단의 페이징에서 사용)
     $sql = " select MIN(wr_num) as min_wr_num from {$write_table} ";
@@ -200,13 +200,19 @@ if($page_rows > 0) {
     }
 }
 
-$write_pages = get_paging(G5_IS_MOBILE ? $config['cf_mobile_pages'] : $config['cf_write_pages'], $page, $total_page, './board.php?bo_table='.$bo_table.$qstr.'&amp;page=');
+g5_latest_cache_data($board['bo_table'], $list);
+
+if( $mb_hash ){
+    $qstr.="&amp;mb_hash=$mb_hash";
+}
+
+$write_pages = get_paging(G5_IS_MOBILE ? $config['cf_mobile_pages'] : $config['cf_write_pages'], $page, $total_page, get_pretty_url($bo_table, '', $qstr.'&amp;page='));
 
 $list_href = '';
 $prev_part_href = '';
 $next_part_href = '';
 if ($is_search_bbs) {
-    $list_href = './board.php?bo_table='.$bo_table;
+    $list_href = get_pretty_url($bo_table);
 
     $patterns = array('#&amp;page=[0-9]*#', '#&amp;spt=[0-9\-]*#');
 
@@ -214,14 +220,14 @@ if ($is_search_bbs) {
     $prev_spt = $spt - $config['cf_search_part'];
     if (isset($min_spt) && $prev_spt >= $min_spt) {
         $qstr1 = preg_replace($patterns, '', $qstr);
-        $prev_part_href = './board.php?bo_table='.$bo_table.$qstr1.'&amp;spt='.$prev_spt.'&amp;page=1';
+        $prev_part_href = get_pretty_url($bo_table,0,$qstr1.'&amp;spt='.$prev_spt.'&amp;page=1');
         $write_pages = page_insertbefore($write_pages, '<a href="'.$prev_part_href.'" class="pg_page pg_prev">이전검색</a>');
     }
 
     $next_spt = $spt + $config['cf_search_part'];
     if ($next_spt < 0) {
         $qstr1 = preg_replace($patterns, '', $qstr);
-        $next_part_href = './board.php?bo_table='.$bo_table.$qstr1.'&amp;spt='.$next_spt.'&amp;page=1';
+        $next_part_href = get_pretty_url($bo_table,0,$qstr1.'&amp;spt='.$next_spt.'&amp;page=1');
         $write_pages = page_insertafter($write_pages, '<a href="'.$next_part_href.'" class="pg_page pg_end">다음검색</a>');
     }
 }
@@ -229,7 +235,7 @@ if ($is_search_bbs) {
 
 $write_href = '';
 if ($member['mb_level'] >= $board['bo_write_level']) {
-    $write_href = './write.php?bo_table='.$bo_table;
+    $write_href = short_url_clean(G5_BBS_URL.'/write.php?bo_table='.$bo_table);
 }
 
 $nobr_begin = $nobr_end = "";
