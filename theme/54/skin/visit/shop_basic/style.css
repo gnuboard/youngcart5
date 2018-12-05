@@ -1,0 +1,10 @@
+@charset "utf-8";
+/* 방문자 집계 */
+#visit {padding:20px 0;position:relative;}
+#visit .btn_admin{position:absolute;top:15px;right:0;height:25px;line-height:25px;padding:0 5px;border-radius:3px}
+#visit h2{font-size:1.083em;margin: 0 0 10px;}
+#visit dl {background:#eee;padding:10px 15px;border-radius:5px}
+#visit dl:after {display:block;visibility:hidden;clear:both;content:""}
+#visit dt {float:left;width:30%;line-height:23px;color:#555}
+#visit dt i{color:#8bbd5e}
+#visit dd {float:left;;width:70%;text-align:right;text-align:right;font-weight:bold;line-height:23px}
