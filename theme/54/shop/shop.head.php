@@ -88,38 +88,34 @@ include_once(G5_LIB_PATH.'/latest.lib.php');
         
         <ul class="hd_login">        
             <?php if ($is_member) {  ?>
-            <li><a href="<?php echo G5_BBS_URL ?>/member_confirm.php?url=<?php echo G5_BBS_URL ?>/register_form.php">정보수정</a></li>
-            <li><a href="<?php echo G5_BBS_URL ?>/logout.php">로그아웃</a></li>
-            <?php if ($is_admin) {  ?>
-            <li class="tnb_admin"><a href="<?php echo correct_goto_url(G5_ADMIN_URL); ?>">관리자</a></li>
-            <?php }  ?>
+			<li class="shop_login">
+				<?php echo outlogin('theme/shop_basic'); // 아웃로그인 ?>	
+			</li>
+			<li><a href="<?php echo G5_SHOP_URL; ?>/cart.php"><i class="fa fa-shopping-cart" aria-hidden="true"></i><span class="sound_only">장바구니</span><span class="count"><?php echo get_boxcart_datas_count(); ?></span></a></li>
             <?php } else {  ?>
-            <li><a href="<?php echo G5_BBS_URL ?>/register.php">회원가입</a></li>
-            <li class="loging"><a href="<?php echo G5_BBS_URL ?>/login.php">로그인</a></li>
+            <li class="login"><a href="<?php echo G5_BBS_URL ?>/login.php">로그인</a></li>
             <?php }  ?>
-            <li><a href="<?php echo G5_SHOP_URL; ?>/cart.php">장바구니<span class="count"><?php echo get_boxcart_datas_count(); ?></span></a></li>
         </ul>
     </div>
-    
-    </div>
+
     <div id="hd_menu">
-        <ul>
+    	<button type="button" id="menu_open"><i class="fa fa-bars" aria-hidden="true"></i> 카테고리</button>
+		<?php include_once(G5_THEME_SHOP_PATH.'/category.php'); // 분류 ?>
+		<ul>
             <li><a href="<?php echo shop_type_url(1); ?>">히트상품</a></li>
             <li><a href="<?php echo shop_type_url(2); ?>">추천상품</a></li>
             <li><a href="<?php echo shop_type_url(3); ?>">최신상품</a></li>
             <li><a href="<?php echo shop_type_url(4); ?>">인기상품</a></li>
             <li><a href="<?php echo shop_type_url(5); ?>">할인상품</a></li>
-            <li class="hd_menu_right"><a href="<?php echo G5_BBS_URL; ?>/faq.php">FAQ</a></li>
-            <li class="hd_menu_right"><a href="<?php echo G5_SHOP_URL; ?>/couponzone.php">쿠폰존</a></li>
-
+            <!-- <li><a href="<?php echo G5_SHOP_URL; ?>/couponzone.php">쿠폰존</a></li> -->
         </ul>
-    </div>
+    </div> 
 </div>
-
+<!-- } 상단 끝 -->
+        
 <div id="side_menu">
     <button type="button" id="btn_sidemenu" class="btn_sidemenu_cl"><i class="fa fa-outdent" aria-hidden="true"></i><span class="sound_only">사이드메뉴버튼</span></button>
     <div class="side_menu_wr">
-        <?php echo outlogin('theme/shop_basic'); // 아웃로그인 ?>
         <div class="side_menu_shop">
             <button type="button" class="btn_side_shop">오늘본상품<span class="count"><?php echo get_view_today_items_count(); ?></span></button>
             <?php include(G5_SHOP_SKIN_PATH.'/boxtodayview.skin.php'); // 오늘 본 상품 ?>
@@ -136,7 +132,11 @@ include_once(G5_LIB_PATH.'/latest.lib.php');
 
 <script>
 $(function (){
-
+	$(".btn_member_mn").on("click", function() {
+        $(".member_mn").toggle();
+        $(".btn_member_mn").toggleClass("btn_member_mn_on")
+    });
+    
     $(".btn_sidemenu_cl").on("click", function() {
         $(".side_menu_wr").toggle();
         $(".fa-outdent").toggleClass("fa-indent")
@@ -152,9 +152,7 @@ $(function (){
 <div id="wrapper">
 
     <div id="aside">
-
-        <?php include_once(G5_SHOP_SKIN_PATH.'/boxcategory.skin.php'); // 상품분류 ?>
-        <?php include_once(G5_THEME_SHOP_PATH.'/category.php'); // 분류 ?>
+    	<?php include_once(G5_SHOP_SKIN_PATH.'/boxcategory.skin.php'); // 상품분류 ?>
         <?php if($default['de_type4_list_use']) { ?>
         <!-- 인기상품 시작 { -->
         <section class="sale_prd">
