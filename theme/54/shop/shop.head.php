@@ -26,6 +26,10 @@ include_once(G5_LIB_PATH.'/latest.lib.php');
      
 	<div id="tnb">
     	<div class="inner">
+    		<ul id="hd_define">
+    			<li><a href="<?php echo G5_URL ?>/">커뮤니티</a></li>
+    			<li><a href="<?php echo G5_SHOP_URL ?>/">쇼핑몰</a></li>
+    		</ul>
 			<ul id="hd_qnb">
 	            <li><a href="<?php echo G5_BBS_URL ?>/faq.php">FAQ</a></li>
 	            <li><a href="<?php echo G5_BBS_URL ?>/qalist.php">1:1문의</a></li>
@@ -129,7 +133,6 @@ include_once(G5_LIB_PATH.'/latest.lib.php');
     </div>
 </div>
 
-
 <script>
 $(function (){
 	$(".btn_member_mn").on("click", function() {
@@ -150,7 +153,6 @@ $(function (){
 
 
 <div id="wrapper">
-
     <div id="aside">
     	<?php include_once(G5_SHOP_SKIN_PATH.'/boxcategory.skin.php'); // 상품분류 ?>
         <?php if($default['de_type4_list_use']) { ?>
@@ -173,18 +175,8 @@ $(function (){
         <!-- } 인기상품 끝 -->
         <?php } ?>
 
-        <!-- 커뮤니티 최신글 시작 { -->
-        <section id="sidx_lat">
-            <h2>커뮤니티 최신글</h2>
-            <?php echo latest('theme/shop_basic', 'notice', 5, 30); ?>
-        </section>
-        <!-- } 커뮤니티 최신글 끝 -->
-
         <?php echo poll('theme/shop_basic'); // 설문조사 ?>
-
-        <?php echo visit('theme/shop_basic'); // 접속자 ?>
     </div>
-<!-- } 상단 끝 -->
 
     <!-- 콘텐츠 시작 { -->
     <div id="container">
