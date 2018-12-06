@@ -77,17 +77,13 @@ if($i == 1) echo "<p class=\"sct_noitem\">등록된 상품이 없습니다.</p>\
 ?>
 
 <script>
-jQuery(function($){
-    var slider = $('.smt_50').show().bxSlider({
-        speed:800,
-        pagerCustom: '#bx_pager',
-        auto: true,
-        useCSS : false,
-        onSlideAfter : function(){
-            slider.startAuto();
-        }
-    });
+$(document).ready(function(){
+	$('.smt_50').bxSlider({
+	    minSlides: 4,
+	    maxSlides: 4,
+	    mode: 'vertical',
+	    pager:false
+	});
 });
 </script>
-
 <!-- } 상품진열 50 끝 -->

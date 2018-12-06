@@ -33,33 +33,12 @@ include_once(G5_LIB_PATH.'/latest.lib.php');
 			<ul id="hd_qnb">
 	            <li><a href="<?php echo G5_BBS_URL ?>/faq.php">FAQ</a></li>
 	            <li><a href="<?php echo G5_BBS_URL ?>/qalist.php">1:1문의</a></li>
+	            <li><a href="<?php echo G5_SHOP_URL ?>/itemqalist.php">뭄뭄</a></li>
 	            <li><a href="<?php echo G5_SHOP_URL ?>/personalpay.php">개인결제</a></li>
 	            <li><a href="<?php echo G5_SHOP_URL ?>/itemuselist.php">사용후기</a></li> 
 	        </ul>
 		</div>
 	</div>
-    <!-- <div id="tnb">
-        <h3>회원메뉴</h3>
-        <ul>
-            <?php if(G5_COMMUNITY_USE) { ?>
-            <li class="tnb_left tnb_shop"><a href="<?php echo G5_SHOP_URL; ?>/"><i class="fa fa-shopping-bag" aria-hidden="true"></i> 쇼핑몰</a></li>
-            <li class="tnb_left tnb_community"><a href="<?php echo G5_URL; ?>/"><i class="fa fa-home" aria-hidden="true"></i> 커뮤니티</a></li>
-            <?php } ?>
-            <li class="tnb_cart"><a href="<?php echo G5_SHOP_URL; ?>/cart.php"><i class="fa fa-shopping-cart" aria-hidden="true"></i> 장바구니</a></li>            
-            <li><a href="<?php echo G5_SHOP_URL; ?>/mypage.php">마이페이지</a></li>
-            <?php if ($is_member) { ?>
-
-            <li><a href="<?php echo G5_BBS_URL; ?>/member_confirm.php?url=register_form.php">정보수정</a></li>
-            <li><a href="<?php echo G5_BBS_URL; ?>/logout.php?url=shop">로그아웃</a></li>
-            <?php if ($is_admin) {  ?>
-            <li class="tnb_admin"><a href="<?php echo G5_ADMIN_URL; ?>/shop_admin/"><b>관리자</b></a></li>
-            <?php }  ?>
-            <?php } else { ?>
-            <li><a href="<?php echo G5_BBS_URL; ?>/register.php">회원가입</a></li>
-            <li><a href="<?php echo G5_BBS_URL; ?>/login.php?url=<?php echo $urlencode; ?>"><b>로그인</b></a></li>
-            <?php } ?>
-        </ul>
-    </div> -->
     <div id="hd_wrapper">
         <div id="logo">
         	<a href="<?php echo G5_SHOP_URL; ?>/"><img src="<?php echo G5_DATA_URL; ?>/common/logo_img" alt="<?php echo $config['cf_title']; ?>"></a>
@@ -120,6 +99,28 @@ include_once(G5_LIB_PATH.'/latest.lib.php');
 <div id="side_menu">
     <button type="button" id="btn_sidemenu" class="btn_sidemenu_cl"><i class="fa fa-outdent" aria-hidden="true"></i><span class="sound_only">사이드메뉴버튼</span></button>
     <div class="side_menu_wr">
+    	<div id="tnb">
+	        <h3>회원메뉴</h3>
+	        <ul>
+	            <?php if(G5_COMMUNITY_USE) { ?>
+	            <li class="tnb_left tnb_shop"><a href="<?php echo G5_SHOP_URL; ?>/"><i class="fa fa-shopping-bag" aria-hidden="true"></i> 쇼핑몰</a></li>
+	            <li class="tnb_left tnb_community"><a href="<?php echo G5_URL; ?>/"><i class="fa fa-home" aria-hidden="true"></i> 커뮤니티</a></li>
+	            <?php } ?>
+	            <li class="tnb_cart"><a href="<?php echo G5_SHOP_URL; ?>/cart.php"><i class="fa fa-shopping-cart" aria-hidden="true"></i> 장바구니</a></li>            
+	            <li><a href="<?php echo G5_SHOP_URL; ?>/mypage.php">마이페이지</a></li>
+	            <?php if ($is_member) { ?>
+	
+	            <li><a href="<?php echo G5_BBS_URL; ?>/member_confirm.php?url=register_form.php">정보수정</a></li>
+	            <li><a href="<?php echo G5_BBS_URL; ?>/logout.php?url=shop">로그아웃</a></li>
+	            <?php if ($is_admin) {  ?>
+	            <li class="tnb_admin"><a href="<?php echo G5_ADMIN_URL; ?>/shop_admin/"><b>관리자</b></a></li>
+	            <?php }  ?>
+	            <?php } else { ?>
+	            <li><a href="<?php echo G5_BBS_URL; ?>/register.php">회원가입</a></li>
+	            <li><a href="<?php echo G5_BBS_URL; ?>/login.php?url=<?php echo $urlencode; ?>"><b>로그인</b></a></li>
+	            <?php } ?>
+	        </ul>
+	    </div>
         <div class="side_menu_shop">
             <button type="button" class="btn_side_shop">오늘본상품<span class="count"><?php echo get_view_today_items_count(); ?></span></button>
             <?php include(G5_SHOP_SKIN_PATH.'/boxtodayview.skin.php'); // 오늘 본 상품 ?>
@@ -129,10 +130,8 @@ include_once(G5_LIB_PATH.'/latest.lib.php');
             <?php include_once(G5_SHOP_SKIN_PATH.'/boxwish.skin.php'); // 위시리스트 ?>
         </div>
         <?php include_once(G5_SHOP_SKIN_PATH.'/boxcommunity.skin.php'); // 커뮤니티 ?>
-
     </div>
 </div>
-
 <script>
 $(function (){
 	$(".btn_member_mn").on("click", function() {

@@ -27,11 +27,11 @@ for ($i=1; $row=sql_fetch_array($result); $i++) {
         }
    }
 
-    $list_top_pad = 20;
-    $list_right_pad = 20;
-    $list_bottom_pad = 20;
-    $list_left_pad = $this->img_width + 20;
-    $list_height = $this->img_height + 2;
+    // $list_top_pad = 20;
+    // $list_right_pad = 20;
+    // $list_bottom_pad = 20;
+    // $list_left_pad = $this->img_width + 20;
+    // $list_height = $this->img_height + 2;
 
     echo "<li class=\"sct_li{$sct_last}\" style=\"padding:{$list_top_pad}px {$list_right_pad}px {$list_bottom_pad}px {$list_left_pad}px;width:{$list_width}px;height:{$list_height}px\">\n";
 
