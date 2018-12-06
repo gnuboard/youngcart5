@@ -11,13 +11,12 @@ $admin = get_admin("super");
 // 사용자 화면 우측과 하단을 담당하는 페이지입니다.
 // 우측, 하단 화면을 꾸미려면 이 파일을 수정합니다.
 ?>
-
     </div>
     <!-- } 콘텐츠 끝 -->
+</div>
+<!-- } 전체 콘텐츠 끝 -->
 
 <!-- 하단 시작 { -->
-</div>
-
 <div id="ft">
     <div id="ft_wr">
         <ul id="ft_link" class="ft_cnt">
@@ -37,8 +36,8 @@ $admin = get_admin("super");
 	            <span><b>팩스</b> <?php echo $default['de_admin_company_fax']; ?></span><br>
 	            <!-- <span><b>운영자</b> <?php echo $admin['mb_name']; ?></span><br> -->
 	            <span><b>통신판매업신고번호</b> <?php echo $default['de_admin_tongsin_no']; ?></span>
-	            <span><b>개인정보 보호책임자</b> <?php echo $default['de_admin_info_name']; ?></span>
-
+	            <span><b>개인정보 보호책임자</b> <?php echo $default['de_admin_info_name']; ?></span><br>
+				<?php if ($default['de_admin_buga_no']) echo '<span><b>부가통신사업신고번호</b> '.$default['de_admin_buga_no'].'</span>'; ?>
 			</p>
 	    </div>
 	    
@@ -51,12 +50,6 @@ $admin = get_admin("super");
 
 		<?php echo visit('theme/shop_basic'); // 접속자 ?>
 
-        <div class="ft_cs">
-            <h2>고객센터</h2>
-            <strong>02-123-1234</strong>
-            <p>월-금 am 9:00 - pm 05:00<br>점심시간 : am 12:00 - pm 01:00</p>
-        </div>
-        
         <button type="button" id="top_btn"><i class="fa fa-arrow-up" aria-hidden="true"></i><span class="sound_only">상단으로</span></button>
         <script>
         $(function() {
@@ -67,11 +60,8 @@ $admin = get_admin("super");
         });
         </script>
     </div>
-    <div class="ft_info">
-            
-            <?php if ($default['de_admin_buga_no']) echo '<span><b>부가통신사업신고번호</b> '.$default['de_admin_buga_no'].'</span>'; ?><br>
-            Copyright &copy; 2001-2013 <?php echo $default['de_admin_company_name']; ?>. All Rights Reserved.
-        </div>
+
+    <div id="ft_copy">Copyright &copy; 2001-2013 <?php echo $default['de_admin_company_name']; ?>. All Rights Reserved.</div>
 </div>
 
 <?php

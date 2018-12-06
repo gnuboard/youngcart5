@@ -264,17 +264,13 @@
 
 /* 메인 상품 목록 스킨 50 */
 .smt_50 {position:relative}
-.smt_50 li{margin-bottom:10px;position:relative;padding-left:60px;min-height:50px;}
-.smt_50 .sct_img{width:50px;position:absolute;top:0;left:0;}
-.smt_50 .sct_img img{width:100%;height:auto}
-.smt_50 .sct_rank{position:absolute;top:0;left:0;background:#fb5861;display:block;width:20px;height:20px;line-height:20px;color:#fff;text-align:center;;z-index:10;font-weight:bold}
-.smt_50 .sct_txt a{color:#555;display:block;margin:0 0 3px;line-height:1.4em}
-.smt_50 .sct_cost{font-weight:bold}
-
-.smt_50 .sct_li_1 {padding:0}
-.smt_50 .sct_li_1 .sct_txt a{margin-top:5px}
-.smt_50 .sct_li_1 .sct_img{width:100%;position:relative;}
-.smt_50 .sct_li_1 .sct_rank{width:30px;height:30px;line-height:30px;}
+.smt_50 li {position:relative;min-height:50px;padding:10px 15px}
+.smt_50 li:after {display:block;visibility:hidden;clear:both;content:""}
+.smt_50 .sct_img {float:left;width:80px;margin-right:10px}
+.smt_50 .sct_img img {width:100%;height:auto}
+.smt_50 .sct_cnt {display:inline-block;float:left;max-width:143px;line-height:20px}
+.smt_50 .sct_txt a {display:block;font-size:1em;color:#000}
+.smt_50 .sct_cost {font-weight:bold;font-size:1.2em}
 
 /* 관련상품 목록 스킨 10 */
 #sit_rel{border:1px solid #cdcdcd;padding:20px;margin:20px 0 40px;position:relative}
