@@ -25,8 +25,8 @@ add_stylesheet('<link rel="stylesheet" href="'.G5_SHOP_SKIN_URL.'/style.css">', 
          echo '<div class="prd_img">'.$it_img.'</div>';
         echo '</li>';
 
-        echo '<input type="hidden" name="act" value="buy" >';
-        echo '<input type="hidden" name="ct_chk['.$i.']" value="1" >';
+        echo '<input type="hidden" name="act" value="buy">';
+        echo '<input type="hidden" name="ct_chk['.$i.']" value="1">';
         echo '<input type="hidden" name="it_id['.$i.']" value="'.$row['it_id'].'">';
         echo '<input type="hidden" name="it_name['.$i.']"  value="'.$it_name.'">';
 
@@ -37,7 +37,7 @@ add_stylesheet('<link rel="stylesheet" href="'.G5_SHOP_SKIN_URL.'/style.css">', 
         echo '<li class="li_empty">장바구니 상품 없음</li>'.PHP_EOL;
     ?>
     </ul>
-    <?php if($i){ ?><button type="submit" class="btn02 btn_buy"><i class="fa fa-credit-card" aria-hidden="true"></i> 바로구매</button><?php } ?>
+    <?php if($i){ ?><button type="submit" class="btn02 btn_buy">바로구매</button><?php } ?>
     <a href="<?php echo G5_SHOP_URL; ?>/cart.php" class="btn01 go_cart">장바구니 바로가기</a>
     </form>
 </aside>

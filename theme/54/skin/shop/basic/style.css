@@ -409,10 +409,10 @@
 
 #sit_sel_option h3 {position:absolute;font-size:0;line-height:0;overflow:hidden}
 
-#sit_tot_price {margin:10px 0;font-size:1.167em;line-height:25px;font-weight:bold;text-align:right}
+#sit_tot_price {margin:10px 0;font-size:1.167em;line-height:25px;font-weight:bold}
 #sit_tot_price:after {display:block;visibility:hidden;clear:both;content:""}
 #sit_tot_price span {float:left}
-#sit_tot_price strong {font-size:1.5em;color:#ff0000}
+#sit_tot_price strong {font-size:1.5em;margin-left:15px}
 
 #sit_ov_soldout {padding:20px 0;margin:10px 0;color:#ff3061;background:#fff6f6;font-weight:bold;text-align:center}
 
