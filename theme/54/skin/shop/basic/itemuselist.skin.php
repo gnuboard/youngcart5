@@ -10,9 +10,7 @@ add_stylesheet('<link rel="stylesheet" href="'.G5_SHOP_SKIN_URL.'/style.css">', 
 <!-- 전체 상품 사용후기 목록 시작 { -->
 <form method="get" action="<?php echo $_SERVER['SCRIPT_NAME']; ?>">
 <div id="sps_sch">
-    <a href="<?php echo $_SERVER['SCRIPT_NAME']; ?>">전체보기</a>
-    <div class="sch_wr">
-    <label for="sfl" class="sound_only">검색항목<strong class="sound_only"> 필수</strong></label>
+	<label for="sfl" class="sound_only">검색항목 필수</label>
     <select name="sfl" id="sfl" required>
         <option value="">선택</option>
         <option value="b.it_name"   <?php echo get_selected($sfl, "b.it_name"); ?>>상품명</option>
@@ -22,10 +20,12 @@ add_stylesheet('<link rel="stylesheet" href="'.G5_SHOP_SKIN_URL.'/style.css">', 
         <option value="a.is_name"   <?php echo get_selected($sfl, "a.is_name"); ?>>작성자명</option>
         <option value="a.mb_id"     <?php echo get_selected($sfl, "a.mb_id"); ?>>작성자아이디</option>
     </select>
-    <label for="stx" class="sound_only">검색어<strong class="sound_only"> 필수</strong></label>
-    <input type="text" name="stx" value="<?php echo $stx; ?>" id="stx" required class="sch_input">
-    <button type="submit" value="검색" class="sch_btn"><i class="fa fa-search" aria-hidden="true"></i><span class="sound_only">검색</span></button>
+    <div class="sch_wr">
+	    <label for="stx" class="sound_only">검색어<strong class="sound_only"> 필수</strong></label>
+	    <input type="text" name="stx" value="<?php echo $stx; ?>" id="stx" required class="sch_input">
+	    <button type="submit" value="검색" class="sch_btn"><i class="fa fa-search" aria-hidden="true"></i><span class="sound_only">검색</span></button>
     </div>
+    <a href="<?php echo $_SERVER['SCRIPT_NAME']; ?>">전체보기</a>
 </div>
 </form>
 
@@ -55,6 +55,11 @@ add_stylesheet('<link rel="stylesheet" href="'.G5_SHOP_SKIN_URL.'/style.css">', 
                 <?php echo get_itemuselist_thumbnail($row['it_id'], $row['is_content'], 100, 100); ?>
                 <span><?php echo $row2['it_name']; ?></span>
             </a>
+            <button class="review_detail"><i class="fa fa-camera" aria-hidden="true"></i><span class="sound_only">후기 상세보기</span></button>
+            <div class="review_detail_cnt">
+            	<span class="review_detail_in">zzz</span>
+            </div>
+            
         </div>
 
         <section class="sps_section">
@@ -136,6 +141,19 @@ $(function(){
             $(this).html("내용닫기 <i class=\"fa fa-caret-up\" aria-hidden=\"true\"></i>");
         }
     });
+    
+    // 후기상세 열기
+    $(".sps_img .review_detail").on("click", function(){
+        $(this).parent("div").children(".review_detail_cnt").show();
+    });
+		
+    // 후기상세 닫기
+    $(document).mouseup(function (e){
+        var container = $(".review_detail_cnt");
+        if( container.has(e.target).length === 0)
+        container.hide();
+    });
+    
 });
 </script>
 <!-- } 전체 상품 사용후기 목록 끝 -->
