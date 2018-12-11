@@ -20,11 +20,19 @@
 .gnb_2da:focus, .gnb_2da:hover {text-decoration:none;color:#be334a}
 
 /* 오늘 본 상품 */
-#stv {position:relative}
-#stv_pg {display:block;text-align:center;margin:10px 0 0;line-height:20px}
-.stv_item {display:none;padding:0 9px;word-break:break-all}
-#up {position:absolute;bottom:0;left:0;background:url(img/btn_sb_prev.png) no-repeat 50% 50%;width:30px;height:20px;text-indent:-999px;overflow:hidden;border:1px solid #ccc}
-#down {position:absolute;bottom:0;right:0;background:url(img/btn_sb_next.png) no-repeat 50% 50%;width:30px;height:20px;text-indent:-999px;overflow:hidden;border:1px solid #ccc}
+#stv {position:relative;height:100%}
+#stv .li_empty {text-align:center;line-height:100px}
+#stv_pg {display:block;position:fixed;right:0;bottom:0;width:212px;text-align:center;margin:10px 0 0;padding:15px;line-height:20px;background:#fff}
+.stv_item {display:none;padding:15px;word-break:break-all;border-bottom:1px solid #f6f6f6}
+.stv_item:after {display:block;visibility:hidden;clear:both;content:""}
+.stv_item .prd_img {display:inline-block;float:left;margin-right:10px}
+.stv_item .prd_cnt {display:inline-block;float:left}
+.stv_item .prd_cnt span {display:block;max-width:105px}
+.stv_item .prd_cnt .prd_name {font-weight:bold;margin-bottom:3px}
+
+#stv_btn {position:absolute;top:10px;right:10px;width:60px;height:50px}
+#up {position:absolute;top:0;left:0;background:url(img/btn_sb_prev.png) no-repeat 50% 50%;width:30px;height:30px;text-indent:-999px;overflow:hidden;border:0}
+#down {position:absolute;top:0;right:0;background:url(img/btn_sb_next.png) no-repeat 50% 50%;width:30px;height:30px;text-indent:-999px;overflow:hidden;border:0}
 
 /* 이벤트 링크 */
 #sev {margin:20px 0;text-align:center}
@@ -62,16 +70,36 @@
 
 /*서브배너*/
 #sbn_side {width:150px}
-.sb_bn { display:none}
+.sb_bn {display:none}
 .sb_bn img {width:100%;height:auto}
 #sbn_side h2 {position:absolute;font-size:0;line-height:0;overflow:hidden}
 #sbn_side .bx-controls {position:absolute;bottom:0;right:0}
-#sbn_side .bx-prev {display:block;float:left;background:url(img/btn_sb_prev.png) no-repeat 50% 50% #fff;width:15px;height:15px;text-indent:-999px;overflow:hidden;border:1px solid #ccc}
-#sbn_side .bx-next {display:block;margin-left:-1px;float:left;background:url(img/btn_sb_next.png) no-repeat 50% 50% #fff;width:15px;height:15px;text-indent:-999px;overflow:hidden;border:1px solid #ccc}
+#sbn_side .bx-prev {display:block;float:left;background:url('img/btn_sb_prev.png') no-repeat 50% 50% #fff;width:15px;height:15px;text-indent:-999px;overflow:hidden;border:1px solid #ccc}
+#sbn_side .bx-next {display:block;margin-left:-1px;float:left;background:url('img/btn_sb_next.png') no-repeat 50% 50% #fff;width:15px;height:15px;text-indent:-999px;overflow:hidden;border:1px solid #ccc}
 
 /*장바구니*/
-#sbsk .go_cart {display:block;height:40px;line-height:38px;font-weight:bold;text-align:center;width:100%}
-#sbsk .btn_buy {height:40px;margin:5px 0;font-weight:bold;text-align:center;width:100%}
+#sbsk {position:relative}
+#sbsk li {position:relative;border-bottom:1px solid #f6f6f6;padding:15px}
+#sbsk li:after {display:block;visibility:hidden;clear:both;content:""}
+#sbsk .go_cart {position:absolute;top:11px;right:15px;display:inline-block;height:28px;line-height:22px;border:1px solid #d5d9dd;color:#3a8afd;border-radius:2px;background:#fff;padding:2px 5px}
+#sbsk .btn_buy {padding:15px;font-weight:bold;text-align:center}
+#sbsk .btn_buy .btn_submit {width:100%;height:40px}
+#sbsk .li_empty {text-align:center;line-height:100px}
+#sbsk .prd_img {display:inline-block;float:left;margin-right:10px}
+#sbsk .prd_cnt {display:inline-block;float:left}
+#sbsk .prd_cnt a, #sbsk .prd_cnt span {display:block;max-width:105px}
+#sbsk .prd_cnt .prd_name {font-weight:bold;margin-bottom:3px}
+#sbsk .cart_del {border:0;width:35px;height:35px;text-align:center;position:absolute;right:0;bottom:0;color:#c5c8ca;background:#fff;font-size:1.25em}
+
+/*위시리스트*/
+#wish {}	
+#wish li {position:relative;border-bottom:1px solid #f6f6f6;padding:15px}
+#wish li:after {display:block;visibility:hidden;clear:both;content:""}
+#wish .li_empty {text-align:center;line-height:100px}
+#wish .prd_img {display:inline-block;float:left;margin-right:10px}
+#wish .prd_cnt {display:inline-block;float:left}
+#wish .prd_cnt a {display:block;max-width:105px}
+#wish .prd_cnt .prd_name {font-weight:bold;margin-bottom:3px}
 
 /* ##### main(nn).skin.php, list.(nn).skin.php 공통 적용 시작 ##### */
 /* 공통 */

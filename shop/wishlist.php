@@ -71,7 +71,7 @@ include_once('./_head.php');
                     <input type="hidden" name="io_type[<?php echo $row['it_id']; ?>][0]" value="0">
                     <input type="hidden" name="io_id[<?php echo $row['it_id']; ?>][0]" value="">
                     <input type="hidden" name="io_value[<?php echo $row['it_id']; ?>][0]" value="<?php echo $row['it_name']; ?>">
-                    <input type="hidden"   name="ct_qty[<?php echo $row['it_id']; ?>][0]" value="1">
+                    <input type="hidden" name="ct_qty[<?php echo $row['it_id']; ?>][0]" value="1">
                 </div>
                 <a href="./item.php?it_id=<?php echo $row['it_id']; ?>" class="info_link"><?php echo stripslashes($row['it_name']); ?></a>
                 <div class="info_date"><?php echo $row['wi_time']; ?></div>

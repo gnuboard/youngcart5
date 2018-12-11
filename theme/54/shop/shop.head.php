@@ -33,9 +33,9 @@ include_once(G5_LIB_PATH.'/latest.lib.php');
 			<ul id="hd_qnb">
 	            <li><a href="<?php echo G5_BBS_URL ?>/faq.php">FAQ</a></li>
 	            <li><a href="<?php echo G5_BBS_URL ?>/qalist.php">1:1문의</a></li>
-	            <li><a href="<?php echo G5_SHOP_URL ?>/itemqalist.php">뭄뭄</a></li>
 	            <li><a href="<?php echo G5_SHOP_URL ?>/personalpay.php">개인결제</a></li>
 	            <li><a href="<?php echo G5_SHOP_URL ?>/itemuselist.php">사용후기</a></li> 
+	            <li><a href="<?php echo G5_SHOP_URL ?>/itemqalist.php">상품문의</a></li>
 	        </ul>
 		</div>
 	</div>
@@ -90,7 +90,6 @@ include_once(G5_LIB_PATH.'/latest.lib.php');
             <li><a href="<?php echo shop_type_url(3); ?>">최신상품</a></li>
             <li><a href="<?php echo shop_type_url(4); ?>">인기상품</a></li>
             <li><a href="<?php echo shop_type_url(5); ?>">할인상품</a></li>
-            <!-- <li><a href="<?php echo G5_SHOP_URL; ?>/couponzone.php">쿠폰존</a></li> -->
         </ul>
     </div> 
 </div>
@@ -99,63 +98,46 @@ include_once(G5_LIB_PATH.'/latest.lib.php');
 <div id="side_menu">
 	<ul id="quick">
 		<li><button class="btn_sidemenu_cl1"><i class="fa fa-user-o" aria-hidden="true"></i><span class="qk_tit">마이메뉴</span></button></li>
-		<li><button class="btn_sidemenu_cl2"><i class="fa fa-archive" aria-hidden="true"></i><span class="qk_tit">위시리스트</span></button></li>
-		<li><button class="btn_sidemenu_cl3"><i class="fa fa-shopping-cart" aria-hidden="true"></i><span class="qk_tit">오늘본상품</span></button></li>
-		<li><button class="btn_sidemenu_cl4"><i class="fa fa-heart-o" aria-hidden="true"></i><span class="qk_tit">장바구니</span></button></li>
+		<li><button class="btn_sidemenu_cl2"><i class="fa fa-archive" aria-hidden="true"></i><span class="qk_tit">오늘 본 상품</span></button></li>
+		<li><button class="btn_sidemenu_cl3"><i class="fa fa-shopping-cart" aria-hidden="true"></i><span class="qk_tit">장바구니</span></button></li>
+		<li><button class="btn_sidemenu_cl4"><i class="fa fa-heart-o" aria-hidden="true"></i><span class="qk_tit">위시리스트</span></button></li>
     </ul>
-    <div class="tabsCon">
+    <div id="tabs_con">
 	    <div class="side_menu_wr1 qk_con">
 	    	<div class="qk_con_wr">
-	    	<div id="tnb">
-		        <h3>회원메뉴</h3>
-		        <ul>
-		            <?php if(G5_COMMUNITY_USE) { ?>
-		            <li class="tnb_left tnb_shop"><a href="<?php echo G5_SHOP_URL; ?>/"><i class="fa fa-shopping-bag" aria-hidden="true"></i> 쇼핑몰</a></li>
-		            <li class="tnb_left tnb_community"><a href="<?php echo G5_URL; ?>/"><i class="fa fa-home" aria-hidden="true"></i> 커뮤니티</a></li>
+	    		<?php echo outlogin('theme/shop_side'); // 아웃로그인 ?>
+		        <ul class="side_tnb">
+		        	<?php if ($is_member) { ?>
+					<li><a href="<?php echo G5_SHOP_URL; ?>/mypage.php">마이페이지</a></li>
 		            <?php } ?>
-		            <li class="tnb_cart"><a href="<?php echo G5_SHOP_URL; ?>/cart.php"><i class="fa fa-shopping-cart" aria-hidden="true"></i> 장바구니</a></li>            
-		            <li><a href="<?php echo G5_SHOP_URL; ?>/mypage.php">마이페이지</a></li>
-		            <?php if ($is_member) { ?>
-		
-		            <li><a href="<?php echo G5_BBS_URL; ?>/member_confirm.php?url=register_form.php">정보수정</a></li>
-		            <li><a href="<?php echo G5_BBS_URL; ?>/logout.php?url=shop">로그아웃</a></li>
-		            <?php if ($is_admin) {  ?>
-		            <li class="tnb_admin"><a href="<?php echo G5_ADMIN_URL; ?>/shop_admin/"><b>관리자</b></a></li>
-		            <?php }  ?>
-		            <?php } else { ?>
-		            <li><a href="<?php echo G5_BBS_URL; ?>/register.php">회원가입</a></li>
-		            <li><a href="<?php echo G5_BBS_URL; ?>/login.php?url=<?php echo $urlencode; ?>"><b>로그인</b></a></li>
-		            <?php } ?>
+					<li><a href="<?php echo G5_SHOP_URL; ?>/orderinquiry.php">주문내역</a></li>
+					<li><a href="<?php echo G5_BBS_URL ?>/faq.php">FAQ</a></li>
+		            <li><a href="<?php echo G5_BBS_URL ?>/qalist.php">1:1문의</a></li>
+		            <li><a href="<?php echo G5_SHOP_URL ?>/personalpay.php">개인결제</a></li>
+		            <li><a href="<?php echo G5_SHOP_URL ?>/itemuselist.php">사용후기</a></li>
+		            <li><a href="<?php echo G5_SHOP_URL ?>/itemqalist.php">상품문의</a></li>
+		            <li><a href="<?php echo G5_SHOP_URL; ?>/couponzone.php">쿠폰존</a></li>
 		        </ul>
-		    </div>
-	        <div class="side_menu_shop">
-	            
-	            
-	            
-	        </div>
-	        <?php include_once(G5_SHOP_SKIN_PATH.'/boxcommunity.skin.php'); // 커뮤니티 ?>
-	    	<button type="button" class="con_close"><i class="fa fa-times-circle" aria-hidden="true"></i><span class="sound_only">나의정보 닫기</span></button>
+	        	<?php // include_once(G5_SHOP_SKIN_PATH.'/boxcommunity.skin.php'); // 커뮤니티 ?>
+	    		<button type="button" class="con_close"><i class="fa fa-times-circle" aria-hidden="true"></i><span class="sound_only">나의정보 닫기</span></button>
 	    	</div>
 	    </div>
 	    <div class="side_menu_wr2 qk_con">
 	    	<div class="qk_con_wr">
-	    		<button type="button" class="btn_side_shop">오늘본상품<span class="count"><?php echo get_view_today_items_count(); ?></span></button>
 	        	<?php include(G5_SHOP_SKIN_PATH.'/boxtodayview.skin.php'); // 오늘 본 상품 ?>
-	    		<button type="button" class="con_close"><i class="fa fa-times-circle" aria-hidden="true"></i><span class="sound_only">나의정보 닫기</span></button>
+	    		<button type="button" class="con_close"><i class="fa fa-times-circle" aria-hidden="true"></i><span class="sound_only">오늘 본 상품 닫기</span></button>
 	    	</div>
 	    </div>
 	    <div class="side_menu_wr3 qk_con">
 	    	<div class="qk_con_wr">
-	    		<button type="button" class="btn_side_shop">장바구니<span class="count"><?php echo get_boxcart_datas_count(); ?></span></button>
 	        	<?php include_once(G5_SHOP_SKIN_PATH.'/boxcart.skin.php'); // 장바구니 ?>
-	    		<button type="button" class="con_close"><i class="fa fa-times-circle" aria-hidden="true"></i><span class="sound_only">나의정보 닫기</span></button>
+	    		<button type="button" class="con_close"><i class="fa fa-times-circle" aria-hidden="true"></i><span class="sound_only">장바구니 닫기</span></button>
 	    	</div>
 	    </div>
 	    <div class="side_menu_wr4 qk_con">
 	    	<div class="qk_con_wr">
-	    		<button type="button" class="btn_side_shop">위시리스트<span class="count"><?php echo get_wishlist_datas_count(); ?></span></button>
 	        	<?php include_once(G5_SHOP_SKIN_PATH.'/boxwish.skin.php'); // 위시리스트 ?>
-	    		<button type="button" class="con_close"><i class="fa fa-times-circle" aria-hidden="true"></i><span class="sound_only">나의정보 닫기</span></button>
+	    		<button type="button" class="con_close"><i class="fa fa-times-circle" aria-hidden="true"></i><span class="sound_only">위시리스트 닫기</span></button>
 	    	</div>
 	    </div>
     </div>
@@ -181,10 +163,6 @@ $(function (){
     });
     $(".con_close").on("click", function(){
         $(".qk_con").hide();
-    });
-
-    $(".btn_side_shop").on("click", function() {
-        $(this).next(".op_area").slideToggle(300).siblings(".op_area").slideUp();
     });
 });
 

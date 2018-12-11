@@ -146,4 +146,8 @@ $theme_config = array(
     'ca_mobile_list_best_mod'       => 3,       // 모바일 상품리스트 베스트상품 1줄당 이미지 수
     'ca_mobile_list_best_row'       => 3,       // 모바일 상품리스트 베스트상품 이미지 줄 수
 );
+
+if(!defined('G5_IS_ADMIN'))
+    include_once(G5_THEME_LIB_PATH.'/theme.lib.php');
+
 ?>

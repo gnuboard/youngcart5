@@ -128,55 +128,31 @@ border:1px solid #558ab7 !important;
 
 /*사이드 메뉴*/
 #side_menu {height:100%;position:fixed;top:0;right:0;background:#fff;border-left: 1px solid #d1d1d1;z-index:120;padding-left:50px}
-/*{position:fixed;top:0;right:0;z-index:999;height:100%;background:#fff}*/
+
+#quick {position:absolute;top:50%;left:0;width:50px;margin-top:-157.5px}
+#quick li {position:relative}
+#quick li button {width:50px;height:50px;border:0;font-size:1.325em;background:#fff;color:#495057}
+#quick .qk_tit {display:none;position:absolute;top:12px;right:60px;white-space:pre;padding:0 15px;line-height:30px;background:#8b929c;color:#fff;font-size:0.75em;border-radius:5px}
+#quick .qk_tit:after {content:"";position:absolute;top:10px;right:-8px;display:inline-block;width:0;height:0;border-style:solid;border-top:5px solid transparent;border-bottom:5px solid transparent;border-left:5px solid #8b929c;color:transparent}
+#quick li:hover .qk_tit {display:block}
+
+#tabs_con {height:100%;text-align:left}
+
 .side_menu_wr1 {display:none;width:230px;overflow-y:auto;height:100%;border-left:1px solid #cdcdcd}
 .side_menu_wr2 {display:none;width:230px;overflow-y:auto;height:100%;border-left:1px solid #cdcdcd}
 .side_menu_wr3 {display:none;width:230px;overflow-y:auto;height:100%;border-left:1px solid #cdcdcd}
 .side_menu_wr4 {display:none;width:230px;overflow-y:auto;height:100%;border-left:1px solid #cdcdcd}
 
-#side_menu .side_menu_shop {padding:10px 20px;border-bottom:1px solid #f3f3f3}
-#side_menu .btn_side_shop {position:relative;background:none;border:0;width:100%;height:30px;text-align:left;font-weight:bold}
-#side_menu .btn_side_shop span {position:absolute;top:5px;right:0;padding:0 5px;line-height:20px;border-radius:10px;color:#fff;background:#ed1c24}
-#side_menu .side_menu_shop .op_area { display:none;border-top:1px solid #f3f3f3;margin:5px 0}
-#side_menu .side_menu_shop .op_area h2 {position:absolute;font-size:0;line-height:0;overflow:hidden}
-#side_menu .side_menu_shop .op_area li {border-bottom:1px solid #f3f3f3;position:relative;padding:10px 0;min-height:80px;padding-left:70px}
-#side_menu .side_menu_shop .op_area li .prd_img {position:absolute;top:10px;left:0px}
-#side_menu .side_menu_shop .op_area li .prd_cost {display:block;font-weight:bold;margin:3px 0 0}
-#side_menu .side_menu_shop .op_area .li_empty {padding:50px 0;padding-left:0;color:#999;border-bottom:1px solid #f3f3f3;text-align:center}
-
-#quick {position:absolute;top:50%;left:0;width:50px;margin-top:-157.5px;}
-#quick li {position:relative}
-#quick li button {width:50px;height:50px;border:0;font-size:1.325em;background:#fff;color:#495057}
-
-#quick .qk_tit {display:none;position:absolute;top:12px;right:60px;white-space:pre;padding:0 15px;line-height:30px;background:#8b929c;color:#fff;font-size:0.75em;border-radius:5px}
-#quick .qk_tit:after {content:"";position:absolute;top:10px;right:-8px;display:inline-block;
-
-    width: 0;
-    height: 0;
-    border-style: solid;
-    border-top:5px solid transparent;
-    border-bottom:5px solid transparent;
-    border-left:5px solid #8b929c;
-    }
-#quick li:hover .qk_tit {display:block}
-
-
-
-
-#side_menu .tabsCon{height:100%;text-align:left}
-#side_menu .con_close{position:fixed;top:50%;margin-top:-25px;right:295px;width:50px;height:50px;border:0;background:none;font-size:45px;color:rgba(0,0,0,0.3);}
-#side_menu .con_close:hover{color:rgba(0,0,0,0.8);}
-#side_menu .qk_con{position:relative;background:#fff;height:100%;width:230px;display:none;border-left:1px solid #f0f0f0;}
-#side_menu .qk_con_wr{padding:0;height:100%;overflow-y:auto;}
-#side_menu .qk_con h3{margin:30px 20px 20px; font-size:1.25em;position:relative;padding:0 0 20px}
-#side_menu .qk_con h3:after{position:absolute;bottom:0;left:0;width:25px;height:2px;background:#333;content:""}
-#side_menu .btn_scroll{position:absolute;bottom:0;left:0}
-#side_menu .btn_scroll button{display:block;width:40px;height:40px;border:0;background:none;border-top:1px solid #f0f0f0}
-#side_menu .btn_scroll button:hover{background:#f3f3f3}
-
-
-
-
+.qk_con {display:none;position:relative;width:230px;height:100%;background:#fff;border-left:1px solid #f0f0f0}
+.qk_con h2 {position:relative;margin:0;font-size:1.25em;padding:15px;border-bottom:1px solid #e5e7ea}
+.qk_con_wr {padding:0;height:100%;overflow-y:auto}
+.qk_con_wr .btn_side_shop {position:relative;width:100%;height:30px;background:none;border:0;text-align:left;font-weight:bold}
+.qk_con_wr .btn_side_shop span {position:absolute;top:5px;right:0;padding:0 5px;line-height:20px;border-radius:10px;color:#fff;background:#ed1c24}
+.qk_con_wr .con_close {position:fixed;top:50%;margin-top:-25px;right:295px;width:50px;height:50px;border:0;background:none;font-size:45px;color:rgba(0,0,0,0.3)}
+.qk_con_wr .con_close:hover {color:rgba(0,0,0,0.8)}
+.qk_con_wr .side_tnb {padding:25px}
+.qk_con_wr .side_tnb li a {display:block;line-height:28px;color:#465168;padding:5px 0}
+.qk_con_wr .side_tnb li:hover a {color:#3a8afd}
 
 #category {display:none;position:absolute;border:1px solid #c5d6da;width:100%;background:#fff;z-index:1000;-webkit-box-shadow:0 2px 5px rgba(0,0,0,0.2);
 -moz-box-shadow:0 2px 5px rgba(0,0,0,0.2);
@@ -549,10 +525,11 @@ box-shadow:inset 0 1px 1px rgba(0, 0, 0, .075);
 #smb_my_ov .cou_pt dt {float:left;width:90px;line-height:45px}
 #smb_my_ov .cou_pt dd {float:left;width:110px;text-align:right;padding:0 20px 0 0 ;line-height:45px}
 #smb_my_ov .cou_pt dd a {color:#ff2b64;font-weight:bold;font-size:1.167em}
-#smb_my_ov .op_area {background:#f8f8f8;border:1px solid #ccc;border-top:0;padding:10px 15px;line-height:18px;color:#555}
+/*#smb_my_ov .op_area {background:#f8f8f8;border:1px solid #ccc;border-top:0;padding:10px 15px;line-height:18px;color:#555}
 #smb_my_ov .op_area:after {display:block;visibility:hidden;clear:both;content:""}
 #smb_my_ov .op_area dt {float:left;width:10%;margin:3px 0;font-weight:bold}
-#smb_my_ov .op_area dd {float:left;width:40%;margin:3px 0}
+#smb_my_ov .op_area dd {float:left;width:40%;margin:3px 0}*/
+
 .my_ov_btn {text-align:center}
 .my_ov_btn button {background:#fff;border:1px solid #ccc;vertical-align:top;border-top:0;padding:0 20px;height:25px}
 .my_ov_btn button:hover {background:#f3f3f3}
@@ -625,7 +602,7 @@ margin-top:-100px;border:1px solid #dde7e9;border-radius:3px;background:#fff;ove
 #sit_opt_added button {float:left;width:30px;height:30px;border:1px solid #bdc9dc;border-radius:0;background:#fff;color:#666;font-size:0.92em}
 #sit_opt_added button:hover {color:#000}
 #sit_opt_added .num_input {float:left;border:0;height:30px;border-top:1px solid #e4e4e4;border-bottom:1px solid #e4e4e4;text-align:center}
-#sit_opt_added .sit_opt_del {position:absolute;right:0;top:0;font-size:15px;border:0;border-left:1px solid #e6e9ed;border-bottom:1px solid #e6e9ed;}
+#sit_opt_added .sit_opt_del {position:absolute;right:0;top:0;font-size:15px;border:0;border-left:1px solid #e6e9ed;border-bottom:1px solid #e6e9ed}
 #sit_opt_added .sit_opt_del:hover {color:#be334a}
 #sit_opt_added .sit_opt_prc {display:block;float:right;width:100px;padding:0 3px;text-align:right;line-height:30px;font-size:1.183em;font-weight:bold}
 
