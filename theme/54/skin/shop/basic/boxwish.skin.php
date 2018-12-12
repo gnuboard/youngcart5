@@ -7,7 +7,7 @@ add_stylesheet('<link rel="stylesheet" href="'.G5_SHOP_SKIN_URL.'/style.css">', 
 
 <!-- 위시리스트 간략 보기 시작 { -->
 <aside id="wish">
-    <h2>위시리스트 <?php echo get_wishlist_datas_count(); ?></h2>
+    <h2 class="s_h2">위시리스트 <?php echo get_wishlist_datas_count(); ?></h2>
     <ul>
     <?php
     $wishlist_datas = get_wishlist_datas($member['mb_id'], true);

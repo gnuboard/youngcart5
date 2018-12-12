@@ -1471,7 +1471,7 @@ function item_icon($it)
         $icon .= '<span class="shop_icon shop_icon_3">최신</span>';
 
     if ($it['it_type4'])
-        $icon .= '<span class="shop_icon shop_icon_4">BEST</span>';
+        $icon .= '<span class="shop_icon shop_icon_4">인기</span>';
 
     if ($it['it_type5'])
         $icon .= '<span class="shop_icon shop_icon_5">할인</span>';

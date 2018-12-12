@@ -118,8 +118,13 @@
 .sct_li {position:relative}
 .sct_noitem {padding:100px 0;text-align:center}
 .sct img {position:relative} /* 리스트뷰 갤러리뷰 변경 시 ie6,7 에서 이미지 사라지는 문제 해결하기 위해 */
-.shop_icon {display:inline-block;color:#fff;background:#a8aab1;line-height:20px;padding:0 5px;font-size:0.92em;margin:1px}
-.shop_icon_4 {background:#ff7575}
+.shop_icon {display:inline-block;color:#fff;line-height:20px;padding:0 5px;font-size:0.92em;margin:1px;border-radius:2px}
+.shop_icon_1 {background:#3ec1d3;}
+.shop_icon_2 {background:#ffb722}
+.shop_icon_3 {background:#2dd49f}
+.shop_icon_4 {background:#556ee6}
+.shop_icon_5 {background:#ff5081}
+
 .shop_icon_soldout {display:inline-block;color:#ff0000;font-style:italic;font-weight:bold;margin:2px}
 .shop_icon_coupon {background:#59d495}
 
@@ -128,7 +133,7 @@
 .sctrl:after {display:block;visibility:hidden;clear:both;content:""}
 .sctrl li {position:relative;float:left;margin:0 0 0 -1px}
 .sctrl button {position:relative;margin:0;padding:0;width:21px;height:21px;border:0;cursor:pointer;overflow:hidden}
-.sctrl button span {position:absolute;top:0;left:0;width:19px;height:19px;border:1px solid #ccc;background:url('img/is_button.gif')}
+.sctrl button span {position:absolute;top:0;left:0;width:19px;height:19px;border:1px solid #ccc;background:url('img/is_button.gif') no-repeat}
 .sctrl button.sctrl_play span {background-position:-60px 0}
 .sctrl button.sctrl_play span.sctrl_on {background-position:-60px -30px}
 .sctrl button.sctrl_stop span {background-position:-90px 0}
@@ -139,7 +144,8 @@
 .sctrl button.sctrl_next span.sctrl_on {background-position:-150px -30px}
 
 /* 상품 목록 스킨 10 */
-.sct_10 .sct_li {position:relative;float:left;width:20%;margin:;text-align:center}
+.sct_10 {background:#fff;padding:15px;border:1px solid #e3e5e8;text-align:left}
+.sct_10 .sct_li {position:relative;float:left;width:20%;margin:0 8px;background:pink}
 .sct_10 .sct_last {}
 .sct_10 .sct_clear {clear:both}
 .sct_10 .sct_img {position:relative}
@@ -150,12 +156,8 @@
 .sct_10 .sct_sns .share-twitter:hover {background:#35b3dc}
 .sct_10 .sct_sns .share-googleplus:hover {background:#d5503a}
 .sct_10 .sct_sns img {width:18px}
-.sct_10 .sct_icon {margin:10px 0}
 .sct_10 .sct_cost {margin:10px 0;font-size:1.167em}
-.sct_10 .sct_cost .sct_discount {display:block;color:#999;font-size:0.92em;text-decoration:line-through}
 .sct_10 .sct_txt {display:block;margin:10px 0;font-size:1.167em;font-weight:bold}
-.sct_10 .sct_basic {color:#666;margin:5px 0}
-.sct_10 .shop_icon_4 {position:absolute;top:10px;left:10px;width:50px;height:50px;line-height:50px;font-size:14px;border-radius:50%;font-weight:bold}
 
 /* 상품 목록 스킨 20 */
 .sct_20 .sct_li {position:relative;float:left;margin:0 25px 15px 0}
@@ -538,13 +540,13 @@
 .sit_qa_dl dt {position:absolute;font-size:0;line-height:0;content:""}
 .sit_qa_dl dd {display:inline-block;margin-left:10px}
 .sit_qaa_done {background:#ff9000;color:#fff;height:25px;line-height:25px;display:inline-block;padding:0 8px;margin-right:10px;font-size:12px;font-weight:normal}
-.sit_qaa_yet {background:#fff;border:1px solid #ff9000;color:#ff9000;height:25px;line-height:23px;display:inline-block;margin-right:10px;font-size:12px;padding:0 8px;font-weight:normal}
+.sit_qaa_yet {position:absolute;top:20px;right:20px;background:#f6bb42;color:#fff;height:30px;border-radius:3px;line-height:30px;display:inline-block;font-size:12px;padding:0 8px;font-weight:normal}
 
 .sit_qa_con {display:none;clear:both;margin:20px 0 0}
 .sit_qa_p {margin:10px 0 ;background:#f3f3f3;line-height:1.5em}
 .sit_qa_p .qa_alp {position:absolute;top:15px;left:25px;font-size:2em;color:#bbb}
-.sit_qa_qaa {padding:20px;padding-left:70px;position:relative;min-height:100px;border-top:1px solid #ddd}
-.sit_qa_qaq {padding:20px;padding-left:70px;position:relative;min-height:100px}
+.sit_qa_qaa {padding:15px 20px;padding-left:50px;position:relative;min-height:50px;border-top:1px solid #fff}
+.sit_qa_qaq {padding:15px 20px;padding-left:50px;position:relative;min-height:50px}
 .sit_qa_con textarea {display:none}
 .sit_qa_cmd {text-align:right}
 .sit_qa_cmd a {height:30px;line-height:28px}
@@ -568,7 +570,6 @@
 #sit_ex h2 {position:absolute;font-size:0;line-height:0;content:""}
 
 
-
 /* 사용후기 모음 */
 #sps_sch {margin:0 0 10px}
 #sps_sch a {display:inline-block;padding:0 8px;height:40px;line-height:40px;vertical-align:top;border-radius:3px;background:#434a54;color:#fff;font-weight:bold;text-decoration:none}
@@ -578,19 +579,33 @@
 #sps_sch .sch_input {width:258px;height:38px;border:0;padding:0;background-color:transparent;float:left}
 #sps_sch .sch_btn {height:38px;float:left;background:none;border:0;width:40px;font-size:15px}
 
-
 #sps {zoom:1}
 #sps ol {margin:0;padding:0;list-style:none}
 #sps li {position:relative;padding:15px;border-bottom:1px solid #f0f0f0;background:#fff}
 #sps li:after {display:block;visibility:hidden;clear:both;content:""}
 
-.sps_img {float:left;position:relative;margin:0 10px 0 0}
+.sps_img {position:absolute;top:15px;left:15px}
+.sps_img_inner {float:left;position:relative}
 .sps_img a span {position:absolute;font-size:0;line-height:0;overflow:hidden}
-.sps_img .review_detail {position:absolute;right:0;bottom:0;border:0;color:#fff;background:#078601;width:34px;height:34px;text-align:center;opacity:0.5}
-.sps_img .review_detail:hover {opacity:0.8}
+.sps_img .review_detail {position:absolute;right:0;bottom:0;border:0;color:#fff;background:#078601;width:34px;height:34px;text-align:center;opacity:0.8}
+.sps_img .review_detail:hover {opacity:1}
 
 .sps_img .review_detail_cnt {display:none;position:fixed;width:100%;height:100%;top:0;left:0;z-index:999;background:#292929b8}
-.sps_img .review_detail_in {position:absolute;top:50%;left:50%;background:#fff;text-align:left;width:330px;max-height:300px;margin-left:-125px;margin-top:-180px;overflow-y:auto;border-radius:5px;border:1px solid #dde7e9;background:#fff;border-radius:3px}
+.sps_img .review_detail_in {position:absolute;top:50%;left:50%;width:590px;max-height:450px;background:#fff;text-align:left;margin-left:-300px;margin-top:-180px;overflow-y:auto;border-radius:3px;border:1px solid #dde7e9;background:#fff;border-radius:3px}
+.sps_img .review_detail_in h3 {padding:15px;border-bottom:1px solid #e8e8e8;font-size:1.4em}
+.sps_img .review_cnt {padding:25px}
+.sps_img .rd_cls {position:absolute;top:0;right:0;color:#b5b8bb;border:0;padding:12px 15px;font-size:16px;background:#fff}
+
+.review_tp_cnt {position:relative;padding:0 0 10px;margin-bottom:15px;border-bottom:1px solid #f1f1f1}
+.review_tp_cnt>span {font-size:1.2em}
+.review_tp_cnt .sps_opt_btn_more {position:absolute;top:0;right:0;border:0;padding:5px 5px 5px 10px;background:#fff;color:#c4c8cb;font-size:1.4em}
+.review_tp_cnt .sps_opt_li {display:none;position:absolute;top:40px;right:0;border:1px solid #b8bfc4}
+.review_tp_cnt .sps_opt_li:before {content:"";position:absolute;top:-8px;right:5px;width:0;height:0;border-style:solid;border-width:0 6px 8px 6px;border-color:transparent transparent #b8bfc4 transparent}
+.review_tp_cnt .sps_opt_li:after {content:"";position:absolute;top:-6px;right:5px;width:0;height:0;border-style:solid;border-width:0 6px 8px 6px;border-color:transparent transparent #fff transparent}
+.review_tp_cnt .sps_opt_li li {border-bottom:1px solid #f1f1f1;padding:10px !important;color:#6b757c}
+
+.review_summ {background:#fcfcfc;border:2px solid #efeff1;padding:10px}
+.review_bt_cnt {margin:15px 0}
 
 .sps_reply {margin-top:10px;padding-top:10px;border-top:1px dotted #bbb}
 .sps_reply .sps_img {text-align:right;width:70px}
@@ -599,49 +614,53 @@
 #sps dl {margin:5px 0;zoom:1}
 #sps dl:after {display:block;visibility:hidden;clear:both;content:""}
 #sps dt {float:left}
-#sps dd {float:left;margin:0 10px 0 0 ;color:#999}
+#sps dd {float:left;margin:0 10px 0 0;color:#999}
 #sps dd img {position:relative;top:-2px}
 
-.sps_section {float:left;/*width:835px*/ background:aliceblue}
+.sps_section {float:left;width:100%;padding-left:115px}
+.sps_section .sps_pd_name {display:block;color:#3a8afd;padding:10px 0 5px}
+.sps_section .sps_rv_tit {display:block;font-size:1.2em;font-weight:bold}
+.sps_section .sps_rv_thum {position:absolute;top:15px;right:15px}
 .sps_section p {padding:0;width:100%}
 .sps_con_full {padding:0;height:auto !important}
-.sps_con_btn {clear:both}
-.sps_con_btn button {border:1px solid #ddd;padding:5px 8px;color:#666;font-size:0.92em;margin:5px 0;background:#fff}
+.sps_con_btn {clear:both;margin:5px 0}
+.sps_con_btn:after {display:block;visibility:hidden;clear:both;content:""}
+.sps_con_btn .sps_dl {float:left;}
+.sps_con_btn button {float:right;border-radius:3px;border:1px solid #d4d6db;color:#666;font-size:0.92em;padding:5px 7px;background:#fff}
 .sps_con_btn button:hover {background:#6b99ee;border-color:#6b99ee;color:#fff}
 
 
 /* 상품문의 모음 */
 #sqa_sch {margin:0 0 10px}
-#sqa_sch a {display:inline-block;padding:0 8px;height:40px;line-height:40px;vertical-align:top;border-radius:3px;background:#fff;color:#3059c7;font-weight:bold;border:1px solid #3059c7;text-decoration:none}
-#sqa_sch .sch_wr {border:1px solid #6d7892;border-radius:3px;display:inline-block}
+#sqa_sch a {display:inline-block;padding:0 8px;height:40px;line-height:40px;vertical-align:top;border-radius:3px;background:#434a54;color:#fff;font-weight:bold;text-decoration:none}
+#sqa_sch .sch_wr {width:300px;border:1px solid #d0d3db;border-radius:3px;display:inline-block;background:#fff}
 #sqa_sch:after {display:block;visibility:hidden;clear:both;content:""}
-#sqa_sch select {border:0;margin:9px 5px ;height:20px;float:left;border-right:1px solid #ddd}
-#sqa_sch .sch_input {height:38px;border:0;padding:0;background-color:transparent;float:left}
-#sqa_sch .sch_btn {height:38px;float:left;background:none;border:0;width:40px;font-size:15px}*/
+#sqa_sch select {float:left;border:0;width:175px;height:40px;margin-right:5px;border:1px solid #d0d3db;border-radius:3px}
+#sqa_sch .sch_input {width:258px;height:38px;border:0;padding:0;background-color:transparent;float:left}
+#sqa_sch .sch_btn {height:38px;float:left;background:none;border:0;width:40px;font-size:15px}
 
 #sqa {zoom:1}
-#sqa ol {margin:0;padding:0;border-top:1px solid #e9e9e9;list-style:none}
-#sqa li {position:relative;padding:10px;border-bottom:1px solid #e9e9e9}
+#sqa ol {margin:0;padding:0;list-style:none}
+#sqa li {position:relative;padding:15px 20px 15px 15px;border-bottom:1px solid #f0f0f0;background:#fff}
 #sqa li:after {display:block;visibility:hidden;clear:both;content:""}
 
 .sqa_img {float:left;margin:0 10px 0 0}
-.sqa_img img {border-radius:50%}
 .sqa_img span {position:absolute;font-size:0;line-height:0;overflow:hidden}
 
-#sqa dl {margin:5px 0 10px;zoom:1}
+#sqa dl {margin:5px 0;zoom:1}
 #sqa dl:after {display:block;visibility:hidden;clear:both;content:""}
 #sqa dt {float:left}
-#sqa dd {float:left;margin:0 10px 0 0 ;color:#999}
+#sqa dd {float:left;margin:0 10px 0 0;color:#999}
 
 #sqa dd img {position:relative;top:-2px}
 .sqa_con {margin:10px 0;background:#f3f3f3;line-height:1.5em}
-.sqa_con .qa_alp {position:absolute;top:15px;left:25px;font-size:2em;color:#bbb}
+.sqa_con .qa_alp {position:absolute;top:13px;left:15px;font-size:2em;color:#000}
 
-.sqa_section {float:left;width:835px}
-.sqa_section .sqa_con {background:#f3f3f3;line-height:1.7em}
+.sqa_section {float:left;width:820px}
+.sqa_section h2 {padding-right:70px;font-size:1.2em;font-weight:bold}
+.sqa_section .sqa_con {line-height:1.7em}
 .sqa_section p {padding:0;width:100%}
 .sqa_con_full {padding:0;height:auto !important}
-.sqa_con_btn {margin:5px 0 0}
 .sqa_con_btn button {border:1px solid #ddd;padding:5px 8px;color:#666;font-size:0.92em;margin:5px 0;background:#fff}
 .sqa_con_btn button:hover {background:#6b99ee;border-color:#6b99ee;color:#fff}
 

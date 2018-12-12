@@ -1,10 +1,12 @@
 <?php
 if (!defined('_GNUBOARD_')) exit; // 개별 페이지 접근 불가
+include_once(G5_THEME_LIB_PATH.'/theme.lib.php');
 
 // add_stylesheet('css 구문', 출력순서); 숫자가 작을 수록 먼저 출력됨
 add_stylesheet('<link rel="stylesheet" href="'.G5_SHOP_SKIN_URL.'/style.css">', 0);
 
 // 관련상품 스킨은 사품을 한줄에 하나만 표시하며 해당 상품에 관련상품이 등록되어 있는 경우 기본으로 7개까지 노출합니다.
+add_javascript('<script src="'.G5_THEME_JS_URL.'/jquery.shop.list.js"></script>', 10);
 ?>
 
 <!-- 상품진열 40 시작 { -->
@@ -27,13 +29,9 @@ for ($i=1; $row=sql_fetch_array($result); $i++) {
         }
    }
 
-    // $list_top_pad = 20;
-    // $list_right_pad = 20;
-    // $list_bottom_pad = 20;
-    // $list_left_pad = $this->img_width + 20;
     // $list_height = $this->img_height + 2;
 
-    echo "<li class=\"sct_li{$sct_last}\" style=\"padding:{$list_top_pad}px {$list_right_pad}px {$list_bottom_pad}px {$list_left_pad}px;width:{$list_width}px;height:{$list_height}px\">\n";
+    echo "<li class=\"sct_li{$sct_last}\" style=\"width:{$list_width}px;height:{$list_height}px\">\n";
 
 
     echo "<div class=\"sct_img\">\n";
@@ -49,8 +47,14 @@ for ($i=1; $row=sql_fetch_array($result); $i++) {
     if ($this->href) {
         echo "</a>\n";
     }
+	
+	echo "<div class=\"sct_btn\">
 
-
+        <button type=\"button\" class=\"btn_cart sct_cart\" data-it_id=\"{$row['it_id']}\"><i class=\"fa fa-shopping-cart\" aria-hidden=\"true\"></i> 장바구니</button>
+		<button type=\"button\" class=\"btn_wish\" data-it_id=\"{$row['it_id']}\"><span class=\"\">위시리스트</span></button></div>\n";
+	
+	echo "<div class=\"sct_cartop\"></div>\n";
+	
     if ($this->view_sns) {
         $sns_top = $this->img_height + 10;
         $sns_url  = get_pretty_url('shop', $row['it_id']);

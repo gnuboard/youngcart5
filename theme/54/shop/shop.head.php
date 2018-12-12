@@ -97,13 +97,13 @@ include_once(G5_LIB_PATH.'/latest.lib.php');
         
 <div id="side_menu">
 	<ul id="quick">
-		<li><button class="btn_sidemenu_cl1"><i class="fa fa-user-o" aria-hidden="true"></i><span class="qk_tit">마이메뉴</span></button></li>
-		<li><button class="btn_sidemenu_cl2"><i class="fa fa-archive" aria-hidden="true"></i><span class="qk_tit">오늘 본 상품</span></button></li>
-		<li><button class="btn_sidemenu_cl3"><i class="fa fa-shopping-cart" aria-hidden="true"></i><span class="qk_tit">장바구니</span></button></li>
-		<li><button class="btn_sidemenu_cl4"><i class="fa fa-heart-o" aria-hidden="true"></i><span class="qk_tit">위시리스트</span></button></li>
+		<li><button class="btn_sm_cl1 btn_sm"><i class="fa fa-user-o" aria-hidden="true"></i><span class="qk_tit">마이메뉴</span></button></li>
+		<li><button class="btn_sm_cl2 btn_sm"><i class="fa fa-archive" aria-hidden="true"></i><span class="qk_tit">오늘 본 상품</span></button></li>
+		<li><button class="btn_sm_cl3 btn_sm"><i class="fa fa-shopping-cart" aria-hidden="true"></i><span class="qk_tit">장바구니</span></button></li>
+		<li><button class="btn_sm_cl4 btn_sm"><i class="fa fa-heart-o" aria-hidden="true"></i><span class="qk_tit">위시리스트</span></button></li>
     </ul>
     <div id="tabs_con">
-	    <div class="side_menu_wr1 qk_con">
+	    <div class="side_mn_wr1 qk_con">
 	    	<div class="qk_con_wr">
 	    		<?php echo outlogin('theme/shop_side'); // 아웃로그인 ?>
 		        <ul class="side_tnb">
@@ -122,19 +122,19 @@ include_once(G5_LIB_PATH.'/latest.lib.php');
 	    		<button type="button" class="con_close"><i class="fa fa-times-circle" aria-hidden="true"></i><span class="sound_only">나의정보 닫기</span></button>
 	    	</div>
 	    </div>
-	    <div class="side_menu_wr2 qk_con">
+	    <div class="side_mn_wr2 qk_con">
 	    	<div class="qk_con_wr">
 	        	<?php include(G5_SHOP_SKIN_PATH.'/boxtodayview.skin.php'); // 오늘 본 상품 ?>
 	    		<button type="button" class="con_close"><i class="fa fa-times-circle" aria-hidden="true"></i><span class="sound_only">오늘 본 상품 닫기</span></button>
 	    	</div>
 	    </div>
-	    <div class="side_menu_wr3 qk_con">
+	    <div class="side_mn_wr3 qk_con">
 	    	<div class="qk_con_wr">
 	        	<?php include_once(G5_SHOP_SKIN_PATH.'/boxcart.skin.php'); // 장바구니 ?>
 	    		<button type="button" class="con_close"><i class="fa fa-times-circle" aria-hidden="true"></i><span class="sound_only">장바구니 닫기</span></button>
 	    	</div>
 	    </div>
-	    <div class="side_menu_wr4 qk_con">
+	    <div class="side_mn_wr4 qk_con">
 	    	<div class="qk_con_wr">
 	        	<?php include_once(G5_SHOP_SKIN_PATH.'/boxwish.skin.php'); // 위시리스트 ?>
 	    		<button type="button" class="con_close"><i class="fa fa-times-circle" aria-hidden="true"></i><span class="sound_only">위시리스트 닫기</span></button>
@@ -149,17 +149,21 @@ $(function (){
         $(".btn_member_mn").toggleClass("btn_member_mn_on")
     });
     
-    $(".btn_sidemenu_cl1").on("click", function() {
-        $(".side_menu_wr1").show();
+    $(".btn_sm_cl1").on("click", function() {
+        $(".side_mn_wr1").show();
+        $(".btn_sm_cl1").toggleClass("btn_sm_on");
+    });  
+    $(".btn_sm_cl2").on("click", function() {
+        $(".side_mn_wr2").show();
+        $(".btn_sm_cl2").toggleClass("btn_sm_on");
     });
-    $(".btn_sidemenu_cl2").on("click", function() {
-        $(".side_menu_wr2").show();
+    $(".btn_sm_cl3").on("click", function() {
+        $(".side_mn_wr3").show();
+        $(".btn_sm_cl3").toggleClass("btn_sm_on");
     });
-    $(".btn_sidemenu_cl3").on("click", function() {
-        $(".side_menu_wr3").show();
-    });
-    $(".btn_sidemenu_cl4").on("click", function() {
-        $(".side_menu_wr4").show();
+    $(".btn_sm_cl4").on("click", function() {
+        $(".side_mn_wr4").show();
+        $(".btn_sm_cl4").toggleClass("btn_sm_on");
     });
     $(".con_close").on("click", function(){
         $(".qk_con").hide();
@@ -171,9 +175,6 @@ $(document).mouseup(function (e){
     if( container.has(e.target).length === 0)
     container.hide();
 });
-///////////////////////////////////////////////////
-
-
 
 </script>
 

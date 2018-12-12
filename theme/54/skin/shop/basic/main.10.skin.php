@@ -70,17 +70,9 @@ for ($i=1; $row=sql_fetch_array($result); $i++) {
         echo "</a></div>\n";
     }
 
-    if ($this->view_it_basic && $row['it_basic']) {
-        echo "<div class=\"sct_basic\">".stripslashes($row['it_basic'])."</div>\n";
-    }
-
     if ($this->view_it_cust_price || $this->view_it_price) {
 
         echo "<div class=\"sct_cost\">\n";
-
-        if ($this->view_it_cust_price && $row['it_cust_price']) {
-            echo "<span class=\"sct_discount\">".display_price($row['it_cust_price'])."</span>\n";
-        }
 
         if ($this->view_it_price) {
             echo display_price(get_price($row), $row['it_tel_inq'])."\n";
@@ -90,12 +82,6 @@ for ($i=1; $row=sql_fetch_array($result); $i++) {
 
     }
 
-    if ($this->view_it_icon) {
-        echo "<div class=\"sct_icon\">".item_icon($row)."</div>\n";
-    }
-
-
-    
     echo "</li>\n";
 }
 

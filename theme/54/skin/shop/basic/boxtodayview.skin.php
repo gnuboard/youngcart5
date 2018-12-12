@@ -14,7 +14,7 @@ add_stylesheet('<link rel="stylesheet" href="'.G5_SHOP_SKIN_URL.'/style.css">', 
 
 <!-- 오늘 본 상품 시작 { -->
 <div id="stv">
-    <h2>오늘 본 상품 <?php echo get_view_today_items_count(); ?></h2>
+    <h2 class="s_h2">오늘 본 상품 <?php echo get_view_today_items_count(); ?></h2>
 
     <?php if ($tv_datas) { // 오늘 본 상품이 1개라도 있을 때 ?>
     <?php
