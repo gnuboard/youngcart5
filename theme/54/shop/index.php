@@ -17,7 +17,7 @@ include_once(G5_THEME_SHOP_PATH.'/shop.head.php');
 
 <?php if($default['de_type1_list_use']) { ?>
 <!-- 히트상품 시작 { -->
-<section class="sct_wrap">
+<section id="idx_hit" class="sct_wrap">
     <header>
         <h2><a href="<?php echo G5_SHOP_URL; ?>/listtype.php?type=1">히트상품</a></h2>
     </header>
@@ -37,6 +37,20 @@ include_once(G5_THEME_SHOP_PATH.'/shop.head.php');
 </section>
 <!-- } 히트상품 끝 -->
 <?php } ?>
+
+<script>
+//히트상품
+$(function(){    
+	$('#idx_hit .sct_10').owlCarousel({
+	    loop:true,
+	    nav:true,
+	    autoplay:true,
+	    responsive:{
+	        1000:{items:5}
+	    }
+	})
+});
+</script>
 
 <?php if($default['de_type3_list_use']) { ?>
 <!-- 최신상품 시작 { -->

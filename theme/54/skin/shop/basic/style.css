@@ -40,11 +40,16 @@
 #sev ul:after {display:block;visibility:hidden;clear:both;content:""}
 #sev .ev_li {float:left;margin-left:17px}
 #sev .ev_li:first-child {margin-left:0}
-#sev .ev_prd {border:1px solid #ddd;text-align:center;padding:20px 0}
-#sev .ev_prd li {display:inline-block;text-align:left;width:110px;margin:0 8px;vertical-align:top}
+#sev .ev_prd {border:1px solid #ddd;text-align:center;padding:;background:#fff}
+#sev .ev_prd li {display:block;padding:15px;text-align:left;vertical-align:top;border-bottom:1px solid #f6f6f6}
+#sev .ev_prd li:last-child {border-bottom:0}
+#sev .ev_prd li:after {display:block;visibility:hidden;clear:both;content:""}
 #sev .ev_prd .ev_prd_tit {display:block;color:#666}
-#sev .ev_prd .ev_prd_img {margin:0 0 5px;display:block}
+#sev .ev_prd .ev_prd_img {float:left;display:block}
+#sev .ev_prd .ev_txt_wr {float:left;}
 #sev .ev_prd .ev_prd_price {font-weight:bold;display:block}
+#sev .ev_prd .sev_more {color:#3a8afd;background:#fff;display:block;text-align:center}
+
 
 /* 커뮤니티 링크 */
 #scomm {padding:20px}
@@ -102,13 +107,15 @@
 #wish .prd_cnt .prd_name {font-weight:bold;margin-bottom:3px}
 
 /* ##### main(nn).skin.php, list.(nn).skin.php 공통 적용 시작 ##### */
+
 /* 공통 */
-.sct_wrap {position:relative;margin:0 0 30px;text-align:center;zoom:1}
+.sct_wrap {position:relative;margin:0 0 30px;zoom:1}
 .sct_wrap .sctrl {position:absolute;top:0;right:0} /* 애니메이션 효과 사용 시 재생 정지 버튼 등 */
 .sct_wrap:after {display:block;visibility:hidden;clear:both;content:""}
 .sct_wrap header {margin:0 0 20px;zoom:1}
 .sct_wrap header:after {display:block;visibility:hidden;clear:both;content:""}
-.sct_wrap h2 {text-align:center;font-size:1.5em;margin:0 0 10px 0;display:inline-block;padding:0 0 7px;border-bottom:2px solid #000;line-height:1em}
+.sct_wrap h2 {float:left;font-size:1.5em;margin:0 0 10px 0;display:inline-block;line-height:1em}
+.sct_wrap h2r:after {display:block;visibility:hidden;clear:both;content:""}
 .sct_wrap h2 a {text-decoration:none}
 
 #sct {clear:both}
@@ -125,7 +132,7 @@
 .shop_icon_4 {background:#556ee6}
 .shop_icon_5 {background:#ff5081}
 
-.shop_icon_soldout {display:inline-block;color:#ff0000;font-style:italic;font-weight:bold;margin:2px}
+.shop_icon_soldout {position:absolute;top:0;left:0;width:100%;height:100%;background:#000;background:rgba(0,0,0,0.5);text-align:center;line-height:215px;color:#fff;font-size:18px;font-weight:bold;letter-spacing:1px}
 .shop_icon_coupon {background:#59d495}
 
 /* 재생/정지/이전/다음 버튼 */
@@ -144,20 +151,15 @@
 .sctrl button.sctrl_next span.sctrl_on {background-position:-150px -30px}
 
 /* 상품 목록 스킨 10 */
-.sct_10 {background:#fff;padding:15px;border:1px solid #e3e5e8;text-align:left}
-.sct_10 .sct_li {position:relative;float:left;width:20%;margin:0 8px;background:pink}
+.sct_10 {background:#fff;padding:20px;border:1px solid #e3e5e8}
+.sct_10 .sct_li {position:relative;float:left;width:20%;margin:0 8px}
 .sct_10 .sct_last {}
 .sct_10 .sct_clear {clear:both}
-.sct_10 .sct_img {position:relative}
-.sct_10 .sct_sns {display:none;position:absolute;bottom:10px;right:0px;text-align:center;z-index:60;width:100%}
-.sct_10 li:hover .sct_sns {display:block}
-.sct_10 .sct_sns a {display:inline-block;border-radius:50%;margin:2px ;width:40px;text-align:center;height:40px;padding:10px 0;background:rgba(0,0,0,0.4)}
-.sct_10 .sct_sns .share-facebook:hover {background:#415b92}
-.sct_10 .sct_sns .share-twitter:hover {background:#35b3dc}
-.sct_10 .sct_sns .share-googleplus:hover {background:#d5503a}
-.sct_10 .sct_sns img {width:18px}
-.sct_10 .sct_cost {margin:10px 0;font-size:1.167em}
-.sct_10 .sct_txt {display:block;margin:10px 0;font-size:1.167em;font-weight:bold}
+.sct_10 .sct_img {position:relative;text-align:center}
+.sct_10 .sct_star {margin:10px 0 5px}
+.sct_10 .sct_txt {display:block;margin:5px 0;font-size:1.1em}
+.sct_10 .sct_cost {margin:5px 0;font-size:1.25em;font-weight:bold}
+
 
 /* 상품 목록 스킨 20 */
 .sct_20 .sct_li {position:relative;float:left;margin:0 25px 15px 0}
@@ -268,30 +270,35 @@
 
 /* 메인 상품 목록 스킨 40 */
 .smt_40 {margin:0 -10px}
-.smt_40 .sct_li {position:relative;float:left;width:25%;padding:0 5px;margin-bottom:15px;text-align:left;background:red}
+.smt_40 .sct_li {position:relative;float:left;width:25%;padding:0 5px;margin-bottom:15px;text-align:left}
 .smt_40 .sct_a {text-decoration:none}
 .smt_40 .sct_a:focus, .smt_40 .sct_a:hover {text-decoration:none}
-.smt_40 .sct_img {text-align:center}
-.smt_40 .sct_img a {display:block}
-.smt_40 .sct_sns {display:none;position:absolute;bottom:10px;right:0px;text-align:center;z-index:60;width:100%}
-.smt_40 .sct_img:hover .sct_sns {display:block}
-.smt_40 .sct_sns a {display:inline-block;border-radius:50%;margin:2px ;width:40px;text-align:center;height:40px;padding:10px 0;background:rgba(0,0,0,0.4)}
-.smt_40 .sct_sns .share-facebook:hover {background:#415b92}
-.smt_40 .sct_sns .share-twitter:hover {background:#35b3dc}
-.smt_40 .sct_sns .share-googleplus:hover {background:#d5503a}
-.smt_40 .sct_sns img {width:18px}
 
-/*.smt_40 .sct_icon {}
-.smt_40 .sct_icon img {display:block;margin:0 0 4px}
-.smt_40 .sct_txt {display:block;margin:5px 0;font-size:1.167em;font-weight:bold}
-.smt_40 .sct_basic {color:#666;margin:5px 0}
-.smt_40 .sct_cost {margin:10px 0;font-size:1.167em}
-.smt_40 .sct_cost .sct_discount {display:block;color:#999;font-size:0.92em;text-decoration:line-through}
-.smt_40 .sct_rel {position:absolute;bottom:20px;right:20px}
-.smt_40 .sct_rel_ul {margin:0;padding:0;list-style:none}
-.smt_40 .sct_rel_li {float:left;margin:0 0 0 10px}
-.smt_40 .sct_sns {padding:10px 0 0}
-.smt_40 .shop_icon_4 {position:absolute;top:10px;left:10px;width:50px;height:50px;line-height:50px;font-size:14px;border-radius:50%;text-align:center;font-weight:bold}*/
+.smt_40 .sct_img {position:relative;text-align:center}
+.smt_40 .sct_img a {display:block}
+.smt_40 .sct_cart {display:none;position:absolute;left:0;bottom:0;border:0;width:100%;padding:15px 0;background:#000;background:rgba(0,0,0,0.5);color:#fff;font-size:1em;font-weight:bold}
+.smt_40 .sct_img:hover .sct_cart {display:block}
+.smt_40 .sct_cart i {display:inline-block;margin-right:5px;font-size:1.2em}
+
+.smt_40 .sct_star {margin: 10px 0 5px}
+.smt_40 .sct_txt {border-bottom:1px solid #d9dde2;font-size:1.1em;margin:5px 0;padding-bottom:5px}
+.smt_40 .sct_basic {margin:5px 0;color:#6e7f88}
+.smt_40 .sct_cost {margin:5px 0 10px;font-size:1.25em;font-weight:bold}
+
+.smt_40 .sct_sns_wrap {display:none;width:100%;height:100%;position:fixed;top:0;left:0;z-index:999}
+.smt_40 .sct_sns {position:absolute;top:50%;left:50%;background:#fff;text-align:center;width:245px;max-height:300px;margin-left:-125px;margin-top:-180px;overflow-y:auto;border-radius:5px;-webkit-box-shadow:1px 1px 18px rgba(0,0,0,0.2);-moz-box-shadow: 1px 1px 18px rgba(0,0,0,0.2);box-shadow: 1px 1px 18px rgba(0,0,0,0.2);border:1px solid #dde7e9;background:#fff;border-radius:3px}    
+.smt_40 .sct_sns h3 {padding:15px;border-bottom:1px solid #e8e8e8;text-align:left;font-size:;}
+.smt_40 .sct_sns a {display:inline-block;border-radius:50%;width:50px;height:50px;line-height:25px;text-align:center;padding:10px 0;margin:20px 5px}
+.smt_40 .sct_sns .share-facebook {background:#415b92}
+.smt_40 .sct_sns .share-twitter {background:#35b3dc}
+.smt_40 .sct_sns .share-googleplus {background:#ea3838}
+.smt_40 .sct_sns img {width:24px}
+.smt_40 .sct_sns_bg {background:rgba(0,0,0,0.1);width:100%;height:100%}
+.smt_40 .sct_sns_cls {position:absolute;right:0;top:0;color:#b5b8bb;border:0;padding:12px 15px;font-size:16px;background:#fff}
+
+.smt_40 .sct_op_btn {position:absolute;right:5px;bottom:30px}
+.smt_40 .sct_op_btn>button {border:0;width:25px;height:20px;font-size:1.25em;text-align:center;color:#949494;background:transparent}
+
 /* 메인 상품 목록 스킨 50 */
 .smt_50 {position:relative}
 .smt_50 li {position:relative;min-height:50px;padding:10px 15px}
@@ -666,9 +673,9 @@
 
 /* 상품검색 */
 #ssch {margin:20px 0}
-#ssch h2 {color:;font-size:1.25em;line-height:30px;padding:10px 15px}
+#ssch h2 {font-size:1.25em;line-height:30px;/*padding:10px 15px*/}
 #ssch h2 span {font-size:1.333em;color:#000}
-#ssch h2 strong {color:#d50c0d}
+#ssch h2 strong {color:#ff005a}
 #ssch_frm {background:#fff;border:1px solid #e3e5e8}
 #ssch_frm .ssch_scharea {height:50px;padding:10px 15px}
 #ssch_frm .ssch_scharea:after {display:block;visibility:hidden;clear:both;content:""}

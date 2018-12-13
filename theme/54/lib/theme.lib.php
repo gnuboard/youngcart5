@@ -5,41 +5,9 @@ function item_icon2($it)
 {
     global $g5;
 
-    $icon = '<span class="sct_icon">';
-
-    if ($it['it_type2'])
-        $icon .= '<span class="icon icon_rec">RECOMMEND</span><br>';
-
-    if ($it['it_type4'])
-        $icon .= '<span class="icon icon_best">BEST</span><br>';
-
-    if ($it['it_type5'])
-        $icon .= '<span class="icon icon_sale">SLAE</span><br>';
-
-    if ($it['it_type3'])
-        $icon .= '<span class="icon icon_new">NEW</span><br>';
-
-    if ($it['it_type1'])
-        $icon .= '<span class="icon icon_hit">HIT</span><br>';
-
-    // 쿠폰상품
-    $sql = " select count(*) as cnt
-                from {$g5['g5_shop_coupon_table']}
-                where cp_start <= '".G5_TIME_YMD."'
-                  and cp_end >= '".G5_TIME_YMD."'
-                  and (
-                        ( cp_method = '0' and cp_target = '{$it['it_id']}' )
-                        OR
-                        ( cp_method = '1' and ( cp_target IN ( '{$it['ca_id']}', '{$it['ca_id2']}', '{$it['ca_id3']}' ) ) )
-                      ) ";
-    $row = sql_fetch($sql);
-    if($row['cnt'])
-        $icon .= '<span class="icon icon_cp">CUPON</span>';
-
-    $icon .= '</span>';
     // 품절
     if (is_soldout($it['it_id']))
-        $icon .= '<span class="icon_soldout"><span class="soldout_txt">SOLD OUT</span></span>';
+        $icon .= '<span class="shop_icon_soldout"><span class="soldout_txt">SOLD OUT</span></span>';
 
     return $icon;
 }

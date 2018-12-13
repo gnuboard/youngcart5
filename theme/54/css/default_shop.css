@@ -189,6 +189,11 @@ box-shadow:0 2px 5px rgba(0,0,0,0.2)}
 #container {position:relative;float:left;width:915px;min-height:500px;height:auto !important;height:500px;zoom:1}
 #container:after {display:block;visibility:hidden;clear:both;content:""}
 
+#idx_hit {overflow:hidden}
+#idx_hit .owl-prev {position:absolute;top:50%;left:0;width:36px;height:36px;margin-top:-20px;text-indent:-9999em;background:url('../img/btn_idx_hit.png') no-repeat;-webkit-transform:rotate(180deg);-moz-transform:rotate(180deg)}
+#idx_hit .owl-next {position:absolute;top:50%;right:0;width:36px;height:36px;margin-top:-20px;text-indent:-9999px;background:url('../img/btn_idx_hit.png ') no-repeat}
+
+
 .sale_prd h2 {font-size:1.167em;margin:20px 0 10px}
 .st_bg {display:inline-block;width:1px;height:10px;margin:0 10px;background:#e2e1e0;vertical-align:-1px}
 

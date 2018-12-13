@@ -21,7 +21,7 @@ if(sql_num_rows($hresult)) {
         $event_img = G5_DATA_PATH.'/event/'.$row['ev_id'].'_m'; // 이벤트 이미지
 
         if (file_exists($event_img)) { // 이벤트 이미지가 있다면 이미지 출력
-            echo '<a href="'.$href.'" class="sev_img "><img src="'.G5_DATA_URL.'/event/'.$row['ev_id'].'_m" alt="'.$row['ev_subject'].'"></a>'.PHP_EOL;
+            echo '<a href="'.$href.'" class="sev_img"><img src="'.G5_DATA_URL.'/event/'.$row['ev_id'].'_m" alt="'.$row['ev_subject'].'"></a>'.PHP_EOL;
         } else { // 없다면 텍스트 출력
             echo '<a href="'.$href.'" class="sev_text">';
             if ($row['ev_subject_strong']) echo '<strong>';
@@ -32,10 +32,10 @@ if(sql_num_rows($hresult)) {
 
         // 이벤트 상품
         $sql2 = " select b.*
-                            from `{$g5['g5_shop_event_item_table']}` a left join `{$g5['g5_shop_item_table']}` b on (a.it_id = b.it_id)
-                            where a.ev_id = '{$row['ev_id']}'
-                            order by it_id desc
-                            limit 0, 2 ";
+            from `{$g5['g5_shop_event_item_table']}` a left join `{$g5['g5_shop_item_table']}` b on (a.it_id = b.it_id)
+            where a.ev_id = '{$row['ev_id']}'
+            order by it_id desc
+            limit 0, 3 ";
         $result2 = sql_query($sql2);
         for($k=1; $row2=sql_fetch_array($result2); $k++) {
             if($k == 1) {
@@ -50,7 +50,7 @@ if(sql_num_rows($hresult)) {
             echo '<span class="ev_prd_price">'.display_price(get_price($row2), $row2['it_tel_inq']).'</span></div>'.PHP_EOL;
             echo '</li>'.PHP_EOL;
         }
-
+		echo '<li><a href="'.$href.'" class="sev_more">더보기</a></li>'.PHP_EOL;
         if($k > 1) {
             echo '</ul>'.PHP_EOL;
         }
@@ -60,7 +60,9 @@ if(sql_num_rows($hresult)) {
             echo '<li class="no_prd">등록된 상품이 없습니다.</li>'.PHP_EOL;
             echo '</ul>'.PHP_EOL;
         }
-        echo '</div></li>'.PHP_EOL;
+		//echo '<a href="'.$href.'" class="sev_more">더보기</a>'.PHP_EOL;
+        echo '</div>'.PHP_EOL;
+        echo '</li>'.PHP_EOL;
 
     }
 

@@ -20,7 +20,7 @@ for ($i=1; $row=sql_fetch_array($result); $i++) {
         if ($this->css) {
             echo "<ul class=\"{$this->css}\">\n";
         } else {
-            echo "<ul class=\"sct sct_10\">\n";
+            echo "<ul class=\"sct sct_10 owl-carousel\">\n";
         }
     }
 
@@ -40,24 +40,17 @@ for ($i=1; $row=sql_fetch_array($result); $i++) {
         echo "</a>\n";
     }
 
-
-    if ($this->view_sns) {
-        $sns_top = $this->img_height + 10;
-        $sns_url  = get_pretty_url('shop', $row['it_id']);
-        $sns_title = get_text($row['it_name']).' | '.get_text($config['cf_title']);
-        echo "<div class=\"sct_sns\">";
-        echo get_sns_share_link('facebook', $sns_url, $sns_title, G5_SHOP_SKIN_URL.'/img/facebook.png');
-        echo get_sns_share_link('twitter', $sns_url, $sns_title, G5_SHOP_SKIN_URL.'/img/twitter.png');
-        echo get_sns_share_link('googleplus', $sns_url, $sns_title, G5_SHOP_SKIN_URL.'/img/gplus.png');
-        echo "</div>\n";
-    }
-
     echo "</div>\n";
 
     if ($this->view_it_id) {
         echo "<div class=\"sct_id\">&lt;".stripslashes($row['it_id'])."&gt;</div>\n";
     }
-
+	
+	//별점
+	if ($this->href) {
+        echo "<div class=\"sct_star\"><img src=\"\" alt=\"별점 4점\"></div>\n";
+    }
+	
     if ($this->href) {
         echo "<div class=\"sct_txt\"><a href=\"{$this->href}{$row['it_id']}\">\n";
     }

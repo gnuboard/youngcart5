@@ -1491,10 +1491,6 @@ function item_icon($it)
     if($row['cnt'])
         $icon .= '<span class="shop_icon shop_icon_coupon">쿠폰</span>';
 
-    // 품절
-    if (is_soldout($it['it_id']))
-        $icon .= '<br><span class="shop_icon_soldout">Sold Out</span>';
-
     $icon .= '</span>';
 
     return $icon;
