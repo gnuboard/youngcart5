@@ -10,7 +10,9 @@ if(sql_num_rows($hresult)) {
     add_stylesheet('<link rel="stylesheet" href="'.G5_SHOP_SKIN_URL.'/style.css">', 0);
 ?>
 <div id="sev">
-    <h2>이벤트</h2>
+	<header>
+    	<h2>이벤트</h2>
+    </header>
     <ul>
     <?php
     for ($i=0; $row=sql_fetch_array($hresult); $i++)

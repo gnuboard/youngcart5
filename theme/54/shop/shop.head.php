@@ -204,7 +204,8 @@ $(document).mouseup(function (e){
         </section>
         <!-- } 인기상품 끝 -->
         <?php } ?>
-
+		
+		<?php echo display_banner('왼쪽', 'boxbanner.skin.php'); ?>
         <?php echo poll('theme/shop_basic'); // 설문조사 ?>
     </div>
 

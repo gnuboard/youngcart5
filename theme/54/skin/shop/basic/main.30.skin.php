@@ -25,14 +25,11 @@ for ($i=1; $row=sql_fetch_array($result); $i++) {
         if ($this->css) {
             echo "<ul class=\"{$this->css}\">\n";
         } else {
-            echo "<ul class=\"smt smt_40\">\n";
+            echo "<ul class=\"smt smt_10\">\n";
         }
    }
 
-    // $list_height = $this->img_height + 2;
-
-    echo "<li class=\"sct_li{$sct_last}\" style=\"width:{$list_width}px;height:{$list_height}px\">\n";
-
+	echo "<li class=\"sct_li{$sct_last}\" style=\"width:{$list_width}px;height:{$list_height}px\">\n";
 
     echo "<div class=\"sct_img\">\n";
 
@@ -48,11 +45,7 @@ for ($i=1; $row=sql_fetch_array($result); $i++) {
         echo "</a>\n";
     }
 
-	echo "<div class=\"sct_btn\">
-		<button type=\"button\" class=\"btn_cart sct_cart\" data-it_id=\"{$row['it_id']}\"><i class=\"fa fa-shopping-cart\" aria-hidden=\"true\"></i> 장바구니</button>\n";
-	echo "</div>\n";
-	
-	echo "<div class=\"sct_cartop\"></div>\n";
+	echo "<span class=\"sct_disc\">50%</span>\n";
     
 	if ($this->view_it_icon) {
         echo item_icon2($row);
@@ -87,6 +80,11 @@ for ($i=1; $row=sql_fetch_array($result); $i++) {
     if ($this->view_it_cust_price || $this->view_it_price) {
 
         echo "<div class=\"sct_cost\">\n";
+		
+		if ($this->view_it_cust_price && $row['it_cust_price']) {
+            echo "<strike>".display_price($row['it_cust_price'])."</strike>\n";
+        }
+		
         if ($this->view_it_price) {
             echo display_price(get_price($row), $row['it_tel_inq'])."\n";
         }

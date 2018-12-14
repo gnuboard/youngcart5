@@ -20,7 +20,7 @@ for ($i=1; $row=sql_fetch_array($result); $i++) {
         if ($this->css) {
             echo "<ul class=\"{$this->css}\">\n";
         } else {
-            echo "<ul class=\"sct sct_10 owl-carousel\">\n";
+            echo "<ul class=\"sct smt_40 owl-carousel\">\n";
         }
     }
 

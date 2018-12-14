@@ -17,7 +17,7 @@ for ($i=1; $row=sql_fetch_array($result); $i++) {
         if ($this->css) {
             echo "<ul class=\"{$this->css}\">\n";
         } else {
-            echo "<ul  id=\"smt_{$this->type}\" class=\"smt_50\">\n";
+            echo "<ul  id=\"smt_{$this->type}\" class=\"smt_30\">\n";
         }
     }
 

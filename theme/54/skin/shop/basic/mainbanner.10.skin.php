@@ -6,19 +6,19 @@ add_stylesheet('<link rel="stylesheet" href="'.G5_SHOP_SKIN_URL.'/style.css">', 
 add_javascript('<script src="'.G5_JS_URL.'/jquery.bxslider.js"></script>', 10);
 ?>
 
+<div id="main_bn">
 <?php
 $max_width = $max_height = 0;
 $bn_first_class = ' class="bn_first"';
 $bn_slide_btn = '';
 $bn_sl = ' class="bn_sl"';
-
 $main_banners = array();
 
 for ($i=0; $row=sql_fetch_array($result); $i++)
 {
     $main_banners[] = $row;
 
-    if ($i==0) echo '<div id="main_bn">'.PHP_EOL.'<ul class="slide-wrap">'.PHP_EOL;
+    if ($i==0) echo '<ul class="slide-wrap">'.PHP_EOL;
     //print_r2($row);
     // 테두리 있는지
     $bn_border  = ($row['bn_border']) ? ' class="sbn_border"' : '';;
@@ -50,13 +50,14 @@ for ($i=0; $row=sql_fetch_array($result); $i++)
         if($banner)
             echo '</a>'.PHP_EOL;
         echo '</li>'.PHP_EOL;
-
        
     }
 }
 
 if ($i > 0) {
     echo '</ul>'.PHP_EOL;
+	
+	echo '<div class="btn_wr"><a href="#" class="pager-prev"><i class="fa fa-angle-left"></i></a><div id="slide-counter"></div><a href="#" class="pager-next"><i class="fa fa-angle-right"></i></a> </div>'.PHP_EOL;
 
     echo '<div id="bx_pager" class="bx_pager">
     <ul>';
@@ -64,11 +65,12 @@ if ($i > 0) {
 		foreach( $main_banners as $row ){
 			echo '<li> <a data-slide-index="'.$k.'" href="">'.get_text($row['bn_alt']).'</a></li>'.PHP_EOL;
 			$k++;
-		}
+			}
+		
     echo '</ul>
     </div>'.PHP_EOL;
-    echo '</div>'.PHP_EOL;
 ?>
+</div>
 
 <script>
 jQuery(function($){
@@ -79,8 +81,28 @@ jQuery(function($){
         useCSS : false,
         onSlideAfter : function(){
             slider.startAuto();
-        }
+        },
+
+        onSliderLoad: function (currentIndex){
+	        $('#slide-counter .current-index').text(currentIndex + 1);
+	    },
+	    onSlideBefore: function ($slideElement, oldIndex, newIndex){
+	        $('#slide-counter .current-index').text(newIndex + 1);
+	    }
+
     });
+    
+    $('#slide-counter').prepend('<strong class="slide-index current-index"></strong> / ');
+    $('#slide-counter').append('<span class="total-slides">'+slider.getSlideCount()+'</span>');
+    
+    $('a.pager-prev').click(function () {
+	    var current = slider.getCurrentSlide();
+	    slider.goToPrevSlide(current) - 1;
+	});
+	$('a.pager-next').click(function () {
+	    var current = slider.getCurrentSlide();
+	    slider.goToNextSlide(current) + 1;
+	});
 });
 </script>
 

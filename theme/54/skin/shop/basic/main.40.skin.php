@@ -25,14 +25,11 @@ for ($i=1; $row=sql_fetch_array($result); $i++) {
         if ($this->css) {
             echo "<ul class=\"{$this->css}\">\n";
         } else {
-            echo "<ul class=\"smt smt_40\">\n";
+            echo "<ul class=\"smt smt_10\">\n";
         }
    }
 
-    // $list_height = $this->img_height + 2;
-
-    echo "<li class=\"sct_li{$sct_last}\" style=\"width:{$list_width}px;height:{$list_height}px\">\n";
-
+    echo "<li class=\"sct_li{$sct_last}\">\n";
 
     echo "<div class=\"sct_img\">\n";
 
