@@ -41,7 +41,7 @@ include_once(G5_THEME_SHOP_PATH.'/shop.head.php');
 <script>
 //히트상품
 $(function(){    
-	$('#idx_hit .sct_10').owlCarousel({
+	$('#idx_hit .smt_40').owlCarousel({
 	    loop:true,
 	    nav:true,
 	    autoplay:true,
@@ -120,7 +120,9 @@ $(function(){
 <!-- } 할인상품 끝 -->
 <?php } ?>
 
-
+<script>
+$("#wrapper").addClass("wrap_idx");
+</script>
 
 <?php
 include_once(G5_THEME_SHOP_PATH.'/shop.tail.php');

@@ -41,7 +41,7 @@ if ($i>0) echo '</ul></aside>'.PHP_EOL;
 $(document).ready(function(){
     $('.sb_bn').show().bxSlider({
         speed:800,
-        pager:false,
+        pager:true,
 
     });
 });

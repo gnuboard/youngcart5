@@ -178,11 +178,11 @@ $(document).mouseup(function (e){
     if( container.has(e.target).length === 0)
     container.hide();
 });
-
 </script>
 
 <!-- 전체 콘텐츠 시작 { -->
 <div id="wrapper">
+	<?php if(defined('_INDEX_')) { ?>
     <div id="aside">
     	<?php include_once(G5_SHOP_SKIN_PATH.'/boxcategory.skin.php'); // 상품분류 ?>
         <?php if($default['de_type4_list_use']) { ?>
@@ -208,7 +208,7 @@ $(document).mouseup(function (e){
 		<?php echo display_banner('왼쪽', 'boxbanner.skin.php'); ?>
         <?php echo poll('theme/shop_basic'); // 설문조사 ?>
     </div>
-
+	<?php } ?>
     <!-- 콘텐츠 시작 { -->
     <div id="container">
         <?php if ((!$bo_table || $w == 's' ) && !defined('_INDEX_')) { ?><div id="wrapper_title"><?php echo $g5['title'] ?></div><?php } ?>

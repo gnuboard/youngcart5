@@ -6,10 +6,9 @@ if (!defined('_GNUBOARD_')) exit; // 개별 페이지 접근 불가
 <?php } ?>
 <!-- 검색 시작 { -->
 <div id="ssch">
-	<h2><span><strong><?php echo $q; ?></strong> 검색결과</span> 총 <strong><?php echo $total_count; ?></strong> 건</h2>
+	<h2><strong><?php echo $q; ?></strong> 검색 결과<span class="ssch_result_total">총 <?php echo $total_count; ?>건</span></h2>
     <!-- 상세검색 항목 시작 { -->
     <div id="ssch_frm">
-        
 		<div class="ssch_frm_inner">
 	        <form name="frmdetailsearch">
 	        <input type="hidden" name="qsort" id="qsort" value="<?php echo $qsort ?>">
@@ -18,8 +17,9 @@ if (!defined('_GNUBOARD_')) exit; // 개별 페이지 접근 불가
 	        <div class="ssch_scharea">
 	            <label for="ssch_q" class="sound_only" >검색어</label>
 	            <input type="text" name="q" value="<?php echo $q; ?>" id="ssch_q" class="ssch_input" size="40" maxlength="30" placeholder="검색어">
-	            <button type="submit" class="btn_submit">검색</button>
-	            <span>
+	            <button type="submit" class="btn_submit"><i class="fa fa-search" aria-hidden="true"></i> 검색</button>
+	            <button type="button" class="tooltip_icon"><i class="fa fa-question-circle-o" aria-hidden="true"></i><span class="sound_only">설명보기</span></button>
+	            <span class="tooltip">
 		            상세검색을 선택하지 않거나, 상품가격을 입력하지 않으면 전체에서 검색합니다.<br>
 		            검색어는 최대 30글자까지, 여러개의 검색어를 공백으로 구분하여 입력 할수 있습니다.
 		        </span>
@@ -37,37 +37,34 @@ if (!defined('_GNUBOARD_')) exit; // 개별 페이지 접근 불가
 	            <input type="text" name="qto" value="<?php echo $qto; ?>" id="ssch_qto" class="ssch_input" size="10"> 원
 	        </div>
         	</form>
-		
-			<!-- 검색된 분류 시작 { -->
-		    <div id="ssch_cate" class="sct_ct">
-		        <ul>
-		        <?php
-		        $sql = " select b.ca_id, b.ca_name, count(*) as cnt $sql_common $sql_where group by b.ca_id order by b.ca_id ";
-		        $result = sql_query($sql);
-		        $total_cnt = 0;
-		        for ($i=0; $row=sql_fetch_array($result); $i++) {
-		            echo "<li><a href=\"#\" onclick=\"set_ca_id('{$row['ca_id']}'); return false;\">{$row['ca_name']} (".$row['cnt'].")</a></li>\n";
-		            $total_cnt += $row['cnt'];
-		        }
-		        echo '<li><a href="#" onclick="set_ca_id(\'\'); return false;">전체분류 <span>('.$total_cnt.')</span></a></li>'.PHP_EOL;
-		        ?>
-		        </ul>
-		    </div>
-		    <!-- } 검색된 분류 끝 -->
-		    <div id="sct_sortlst">
-		        <ul id="ssch_sort">
-		            <li><a href="#" onclick="set_sort('it_sum_qty', 'desc'); return false;">판매많은순</a></li>
-		            <li><a href="#" onclick="set_sort('it_price', 'asc'); return false;">낮은가격순</a></li>
-		            <li><a href="#" onclick="set_sort('it_price', 'desc'); return false;">높은가격순</a></li>
-		            <li><a href="#" onclick="set_sort('it_use_avg', 'desc'); return false;">평점높은순</a></li>
-		            <li><a href="#" onclick="set_sort('it_use_cnt', 'desc'); return false;">후기많은순</a></li>
-		            <li><a href="#" onclick="set_sort('it_update_time', 'desc'); return false;">최근등록순</a></li>
-		        </ul>
-		    </div>
 		</div>
-    </div>
-    <!-- } 상세검색 항목 끝 -->
+		<!-- 검색된 분류 시작 { -->
+	    <div id="ssch_cate">
+	        <ul>
+	        <?php
+	        $sql = " select b.ca_id, b.ca_name, count(*) as cnt $sql_common $sql_where group by b.ca_id order by b.ca_id ";
+	        $result = sql_query($sql);
+	        $total_cnt = 0;
+	        echo '<li><a href="#" onclick="set_ca_id(\'\'); return false;">전체분류 <span>('.$total_cnt.')</span></a></li>'.PHP_EOL;
+	        for ($i=0; $row=sql_fetch_array($result); $i++) {
+	            echo "<li><a href=\"#\" onclick=\"set_ca_id('{$row['ca_id']}'); return false;\">{$row['ca_name']} (".$row['cnt'].")</a></li>\n";
+	            $total_cnt += $row['cnt'];
+	        }
+	        ?>
+	        </ul>
+	    </div>
+	    <!-- } 검색된 분류 끝 -->
 
+        <ul id="ssch_sort_all">
+            <li><a href="#" onclick="set_sort('it_sum_qty', 'desc'); return false;">판매많은순</a></li>
+            <li><a href="#" onclick="set_sort('it_price', 'asc'); return false;">낮은가격순</a></li>
+            <li><a href="#" onclick="set_sort('it_price', 'desc'); return false;">높은가격순</a></li>
+            <li><a href="#" onclick="set_sort('it_use_avg', 'desc'); return false;">평점높은순</a></li>
+            <li><a href="#" onclick="set_sort('it_use_cnt', 'desc'); return false;">후기많은순</a></li>
+            <li><a href="#" onclick="set_sort('it_update_time', 'desc'); return false;">최근등록순</a></li>
+        </ul>
+	    <!-- } 상세검색 항목 끝 -->
+	</div>	
     <!-- 검색결과 시작 { -->
     <div>
         <?php
@@ -126,4 +123,19 @@ function set_ca_id(qcaid)
     f.qcaid.value = qcaid;
     f.submit();
 }
+
+$(function(){
+	//tooltip
+    $(".tooltip_icon").click(function(){
+        $(this).next(".tooltip").fadeIn(400);
+    }).mouseout(function(){
+        $(this).next(".tooltip").fadeOut();
+    });
+});
+
+
+// 검색옵션
+$("#ssch_sort_all li a").click(function() {
+    $(this).parent().addClass('active');
+});
 </script>
