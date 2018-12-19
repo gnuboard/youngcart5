@@ -27,13 +27,12 @@ include_once('./_head.php');
 <div id="sod_ws">
 
     <form name="fwishlist" method="post" action="./cartupdate.php">
-    <input type="hidden" name="act"       value="multi">
+    <input type="hidden" name="act" value="multi">
     <input type="hidden" name="sw_direct" value="">
-    <input type="hidden" name="prog"      value="wish">
+    <input type="hidden" name="prog" value="wish">
 
     <div class="list_02">
         <ul>
-
         <?php
         $sql  = " select a.wi_id, a.wi_time, b.* from {$g5['g5_shop_wish_table']} a left join {$g5['g5_shop_item_table']} b on ( a.it_id = b.it_id ) ";
         $sql .= " where a.mb_id = '{$member['mb_id']}' order by a.wi_id desc ";
@@ -50,7 +49,7 @@ include_once('./_head.php');
 
             if ($row['it_tel_inq']) $out_cd = 'tel_inq';
 
-            $image = get_it_image($row['it_id'],230, 230);
+            $image = get_it_image($row['it_id'],225, 225);
         ?>
 
         <li>

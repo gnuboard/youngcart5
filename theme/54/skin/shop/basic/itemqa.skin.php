@@ -65,10 +65,8 @@ add_stylesheet('<link rel="stylesheet" href="'.G5_SHOP_SKIN_URL.'/style.css">', 
         <li class="sit_qa_li">
             <button type="button" class="sit_qa_li_title"><span class="<?php echo $iq_style; ?>"><?php echo $iq_stats; ?></span><?php echo $iq_subject; ?></button>
             <dl class="sit_qa_dl">
-                <dt>작성자</dt>
-                <dd><?php echo $iq_name; ?></dd>
-                <dt>작성일</dt>
-                <dd><i class="fa fa-clock-o" aria-hidden="true"></i> <?php echo $iq_time; ?></dd>
+                <dt>작성자/작성일</dt>
+                <dd><?php echo $iq_name; ?><span class="st_bg"></span><i class="fa fa-clock-o" aria-hidden="true"></i> <?php echo $iq_time; ?></dd>
             </dl>
 
             <div id="sit_qa_con_<?php echo $i; ?>" class="sit_qa_con">

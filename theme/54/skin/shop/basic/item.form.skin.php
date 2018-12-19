@@ -25,7 +25,7 @@ add_stylesheet('<link rel="stylesheet" href="'.G5_SHOP_CSS_URL.'/style.css">', 0
 	
 	            if($img) {
 	                // 썸네일
-	                $thumb = get_it_thumbnail($it['it_img'.$i], 60, 60);
+	                $thumb = get_it_thumbnail($it['it_img'.$i], 70, 70);
 	                $thumbnails[] = $thumb;
 	                $big_img_count++;
 	
@@ -37,7 +37,7 @@ add_stylesheet('<link rel="stylesheet" href="'.G5_SHOP_CSS_URL.'/style.css">', 0
 	            echo '<img src="'.G5_SHOP_URL.'/img/no_image.gif" alt="">';
 	        }
 	        ?>
-	        <a href="<?php echo G5_SHOP_URL; ?>/largeimage.php?it_id=<?php echo $it['it_id']; ?>&amp;no=1" target="_blank" class="popup_item_image "><i class="fa fa-search-plus" aria-hidden="true"></i><span class="sound_only">확대보기</span></a>
+	        <a href="<?php echo G5_SHOP_URL; ?>/largeimage.php?it_id=<?php echo $it['it_id']; ?>&amp;no=1" target="_blank" id="popup_item_image" class="popup_item_image"><i class="fa fa-search-plus" aria-hidden="true"></i><span class="sound_only">확대보기</span></a>
 	        </div>
 	        <?php
 	        // 썸네일
@@ -74,14 +74,19 @@ add_stylesheet('<link rel="stylesheet" href="'.G5_SHOP_CSS_URL.'/style.css">', 0
 	            <?php if ($star_score) { ?>
 	            <span class="sound_only">고객평점</span> 
 	            <img src="<?php echo G5_SHOP_URL; ?>/img/s_star<?php echo $star_score?>.png" alt="" class="sit_star" width="100">
-	            별<?php echo $star_score?>개
+	            <span class="sound_only">별<?php echo $star_score?>개</span> 
 	            <?php } ?>
-	            <span class="st_bg"></span> <i class="fa fa-commenting-o" aria-hidden="true"></i><span class="sound_only">리뷰</span> <?php echo $it['it_use_cnt']; ?>
-	            <span class="st_bg"></span> <i class="fa fa-heart-o" aria-hidden="true"></i><span class="sound_only">위시</span> <?php echo get_wishlist_count_by_item($it['it_id']); ?>
-	            <a href="javascript:item_wish(document.fitem, '<?php echo $it['it_id']; ?>');" id="sit_btn_wish"><i class="fa fa-heart-o" aria-hidden="true"></i><span class="sound_only">위시리스트</span></a>
 	            
-	            <button type="button" class="btn_sns_share"><i class="fa fa-share-alt" aria-hidden="true"></i><span class="sound_only">sns 공유</span></button>
-	            <div class="sns_area"><?php echo $sns_share_links; ?> <a href="javascript:popup_item_recommend('<?php echo $it['it_id']; ?>');" id="sit_btn_rec"><i class="fa fa-envelope-o" aria-hidden="true"></i><span class="sound_only">추천하기</span></a></div>
+	            <span class="">사용후기 <?php echo $it['it_use_cnt']; ?> 개</span>
+	            
+	            <div id="sit_btn_opt">
+	            	<span id="btn_wish"><i class="fa fa-heart-o" aria-hidden="true"></i><span class="sound_only">위시리스트</span><span class="btn_wish_num"><?php echo get_wishlist_count_by_item($it['it_id']); ?></span></span>
+	            	<button type="button" class="btn_sns_share"><i class="fa fa-share-alt" aria-hidden="true"></i><span class="sound_only">sns 공유</span></button>
+	            	<div class="sns_area">
+	            		<?php echo $sns_share_links; ?>
+	            		<a href="javascript:popup_item_recommend('<?php echo $it['it_id']; ?>');" id="sit_btn_rec"><i class="fa fa-envelope-o" aria-hidden="true"></i><span class="sound_only">추천하기</span></a>
+	            	</div>
+	        	</div>
 	        </div>
 	        <script>
 	        $(".btn_sns_share").click(function(){
@@ -120,7 +125,7 @@ add_stylesheet('<link rel="stylesheet" href="'.G5_SHOP_CSS_URL.'/style.css">', 0
 	            </tr>
 	            <?php } // 시중가격 끝 ?>
 	
-	            <tr class="sss">
+	            <tr class="tr_price">
 	                <th scope="row">판매가격</th>
 	                <td>
 	                    <strong><?php echo display_price(get_price($it)); ?></strong>
@@ -298,9 +303,11 @@ add_stylesheet('<link rel="stylesheet" href="'.G5_SHOP_CSS_URL.'/style.css">', 0
 	
 	        <div id="sit_ov_btn">
 	            <?php if ($is_orderable) { ?>
-	            <button type="submit" onclick="document.pressed=this.value;" value="바로구매" id="sit_btn_buy"><i class="fa fa-credit-card" aria-hidden="true"></i> 바로구매</button>
-	            <button type="submit" onclick="document.pressed=this.value;" value="장바구니" id="sit_btn_cart"><i class="fa fa-shopping-cart" aria-hidden="true"></i> 장바구니</button>
+	            <button type="submit" onclick="document.pressed=this.value;" value="장바구니" class="sit_btn_cart">장바구니</button>
+	            <button type="submit" onclick="document.pressed=this.value;" value="바로구매" class="sit_btn_buy">바로구매</button>
 	            <?php } ?>
+	            <a href="javascript:item_wish(document.fitem, '<?php echo $it['it_id']; ?>');" class="sit_btn_wish"><i class="fa fa-heart-o" aria-hidden="true"></i><span class="sound_only">위시리스트</span></a>
+	            	
 	            <?php if(!$is_orderable && $it['it_soldout'] && $it['it_stock_sms']) { ?>
 	            <a href="javascript:popup_stocksms('<?php echo $it['it_id']; ?>');" id="sit_btn_alm"><i class="fa fa-bell-o" aria-hidden="true"></i> 재입고알림</a>
 	            <?php } ?>
@@ -347,18 +354,15 @@ add_stylesheet('<link rel="stylesheet" href="'.G5_SHOP_CSS_URL.'/style.css">', 0
 	</div>
 	<!-- 다른 상품 보기 시작 { -->
     <div id="sit_siblings">
-        <?php
-        if ($prev_href || $next_href) {
-            $prev_title = '<i class="fa fa-chevron-left" aria-hidden="true"></i> '.$prev_title;
-            $next_title = $next_title.' <i class="fa fa-chevron-right" aria-hidden="true"></i>';
-
-            echo $prev_href.$prev_title.$prev_href2;
-            echo $next_href.$next_title.$next_href2;
-        } else {
-            echo '<span class="sound_only">이 분류에 등록된 다른 상품이 없습니다.</span>';
-        }
-        ?>
-    </div>
+	    <?php
+	    if ($prev_href || $next_href) {
+	        echo $prev_href.$prev_title.$prev_href2;
+	        echo $next_href.$next_title.$next_href2;
+	    } else {
+	        echo '<span class="sound_only">이 분류에 등록된 다른 상품이 없습니다.</span>';
+	    }
+	    ?>
+	</div>   
     <!-- } 다른 상품 보기 끝 -->
 	</form>
 </div>

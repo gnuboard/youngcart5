@@ -98,7 +98,7 @@ for($k=0; $cp=sql_fetch_array($res); $k++) {
 	<div id="smb_my_list">
 	    <!-- 최근 주문내역 시작 { -->
 	    <section id="smb_my_od">
-	        <h2>최근 주문내역</h2>
+	        <h2>주문내역조회</h2>
 	        <?php
 	        // 최근 주문내역
 	        define("_ORDERINQUIRY_", true);
@@ -116,38 +116,35 @@ for($k=0; $cp=sql_fetch_array($res); $k++) {
 	    <!-- 최근 위시리스트 시작 { -->
 	    <section id="smb_my_wish">
 	        <h2>최근 위시리스트</h2>
-	
-	        <div class="list_02">
-	            <ul>
-	
-	            <?php
-	            $sql = " select *
-	                       from {$g5['g5_shop_wish_table']} a,
-	                            {$g5['g5_shop_item_table']} b
-	                      where a.mb_id = '{$member['mb_id']}'
-	                        and a.it_id  = b.it_id
-	                      order by a.wi_id desc
-	                      limit 0, 8 ";
-	            $result = sql_query($sql);
-	            for ($i=0; $row = sql_fetch_array($result); $i++)
-	            {
-	                $image = get_it_image($row['it_id'], 230, 230, true);
-	            ?>
-	
-	            <li>
-	                <div class="smb_my_img"><?php echo $image; ?></div>
-	                <div class="smb_my_tit"><a href="./item.php?it_id=<?php echo $row['it_id']; ?>"><?php echo stripslashes($row['it_name']); ?></a></div>
-	                <div class="smb_my_date"><?php echo $row['wi_time']; ?></div>
-	            </li>
-	
-	            <?php
-	            }
-	
-	            if ($i == 0)
-	                echo '<li class="empty_li">보관 내역이 없습니다.</li>';
-	            ?>
-	            </ul>
-	        </div>
+            <ul>
+            <?php
+            $sql = " select *
+                       from {$g5['g5_shop_wish_table']} a,
+                            {$g5['g5_shop_item_table']} b
+                      where a.mb_id = '{$member['mb_id']}'
+                        and a.it_id  = b.it_id
+                      order by a.wi_id desc
+                      limit 0, 8 ";
+            $result = sql_query($sql);
+            for ($i=0; $row = sql_fetch_array($result); $i++)
+            {
+                $image = get_it_image($row['it_id'], 100, 100, true);
+            ?>
+
+            <li>
+                <div class="smb_my_img"><?php echo $image; ?></div>
+                <div class="smb_my_tit"><a href="./item.php?it_id=<?php echo $row['it_id']; ?>"><?php echo stripslashes($row['it_name']); ?></a></div>
+                <div class="smb_my_price">500,000</div>
+                <div class="smb_my_date"><?php echo $row['wi_time']; ?></div>
+            </li>
+
+            <?php
+            }
+
+            if ($i == 0)
+                echo '<li class="empty_li">보관 내역이 없습니다.</li>';
+            ?>
+            </ul>
 	
 	        <div class="smb_my_more">
 	            <a href="./wishlist.php">더보기</a>

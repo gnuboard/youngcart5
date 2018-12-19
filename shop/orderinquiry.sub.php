@@ -64,10 +64,10 @@ if(defined('G5_THEME_SHOP_PATH')) {
 			<a href="<?php echo G5_SHOP_URL; ?>/orderinquiryview.php?od_id=<?php echo $row['od_id']; ?>&amp;uid=<?php echo $uid; ?>" class="ord_name"><?php echo $row['it_name']; ?>상품명입니다</a>
 			<br>
 			<span class="sound_only">주문금액</span>
-			<?php echo display_price($row['od_cart_price'] + $row['od_send_cost'] + $row['od_send_cost2']); ?>
+			<span class="cost"><?php echo display_price($row['od_cart_price'] + $row['od_send_cost'] + $row['od_send_cost2']); ?></span>
     		<!-- <span clsass="sound_only">입금액</span>
     		<?php echo display_price($row['od_receipt_price']); ?> -->
-    		<span>(미입금액 : <?php echo display_price($row['od_misu']); ?>)</span>
+    		<span class="misu">(미입금액 : <?php echo display_price($row['od_misu']); ?>)</span>
 		</div>
 		<div class="smb_my_od_li smb_my_od_li3">
 			<span class="sound_only">상태</span>
