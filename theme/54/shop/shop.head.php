@@ -105,6 +105,7 @@ add_stylesheet('<link rel="stylesheet" href="'.G5_THEME_JS_URL.'/owl.carousel.cs
 		<li><button class="btn_sm_cl3 btn_sm"><i class="fa fa-shopping-cart" aria-hidden="true"></i><span class="qk_tit">장바구니</span></button></li>
 		<li><button class="btn_sm_cl4 btn_sm"><i class="fa fa-heart-o" aria-hidden="true"></i><span class="qk_tit">위시리스트</span></button></li>
     </ul>
+    <button type="button" id="top_btn"><i class="fa fa-arrow-up" aria-hidden="true"></i><span class="sound_only">상단으로</span></button>
     <div id="tabs_con">
 	    <div class="side_mn_wr1 qk_con">
 	    	<div class="qk_con_wr">
@@ -177,6 +178,13 @@ $(document).mouseup(function (e){
     var container = $(".qk_con");
     if( container.has(e.target).length === 0)
     container.hide();
+});
+    
+$(function() {
+    $("#top_btn").on("click", function() {
+        $("html, body").animate({scrollTop:0}, '500');
+        return false;
+    });
 });
 </script>
 

@@ -29,7 +29,7 @@ for($k=0; $cp=sql_fetch_array($res); $k++) {
         </span>
         <strong><?php echo $nick ?>님</strong>
         <a href="<?php echo G5_BBS_URL ?>/member_confirm.php?url=register_form.php" id="s_ol_after_info">정보수정</a>
-        <a href="<?php echo G5_BBS_URL ?>/logout.php" id="ol_after_logout">로그아웃</a>
+        <a href="<?php echo G5_BBS_URL ?>/logout.php" id="s_ol_after_logout">로그아웃</a>
     </header>
     <ul id="s_ol_after_private">
     	<li>

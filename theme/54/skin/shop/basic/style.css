@@ -25,7 +25,7 @@
 /* 오늘 본 상품 */
 #stv {position:relative;height:100%}
 #stv .li_empty {text-align:center;line-height:100px}
-#stv_pg {display:block;position:fixed;right:0;bottom:0;width:212px;text-align:center;margin:10px 0 0;padding:15px;line-height:20px;background:#fff}
+#stv_pg {display:block;position:fixed;right:0;bottom:0;width:229px;text-align:center;margin:10px 0 0;padding:15px;line-height:20px;background:#fff}
 .stv_item {display:none;padding:15px;word-break:break-all;border-bottom:1px solid #f6f6f6}
 .stv_item:after {display:block;visibility:hidden;clear:both;content:""}
 .stv_item .prd_img {display:inline-block;float:left;margin-right:10px}
@@ -169,6 +169,7 @@
 .sct_10 {margin:25px 0}
 .sct_10 .sct_li {position:relative;float:left;margin-right:18px;margin-bottom:20px;text-align:left}
 .sct_10 .sct_last {margin-right:0}
+.sct_10 .sct_clear {clear:both}
 .sct_10 .sct_a {text-decoration:none}
 .sct_10 .sct_a:focus, .sct_10 .sct_a:hover {text-decoration:none}
 
@@ -179,6 +180,8 @@
 .sct_10 .sct_cart i {display:inline-block;margin-right:5px;font-size:1.2em}
 .sct_10 .sct_disc {position:absolute;right:15px;bottom:15px;background:red;color:#fff;padding:0 8px;line-height:24px;font-weight:bold;font-size:1.2em;background:#000;background:rgba(0,0,0,0.5)}
 
+.sct_10 .sct_ct_wrap {position:relative;min-height:120px}
+.sct_10 .sct_ct_wrap:after {display:block;visibility:hidden;clear:both;content:""}
 .sct_10 .sct_star {margin: 10px 0 5px}
 .sct_10 .sct_txt {border-bottom:1px solid #d9dde2;font-size:1.1em;margin:10px 0;padding-bottom:10px}
 .sct_10 .sct_basic {margin-bottom:5px;color:#6e7f88}
@@ -279,6 +282,7 @@
 /* 메인 상품 목록 스킨 10 */
 .smt_10 {margin:0 -5px}
 .smt_10 .sct_li {position:relative;float:left;width:25%;padding:0 5px;margin-bottom:15px;text-align:left}
+.smt_10 .sct_clear {clear:both}
 .smt_10 .sct_a {text-decoration:none}
 .smt_10 .sct_a:focus, .smt_10 .sct_a:hover {text-decoration:none}
 
@@ -316,6 +320,7 @@
 .smt_20 .sct_ul_first {display:block;top:0}
 .smt_20 .sct_li {position:relative;float:left;width:25%;padding:0 5px;margin-bottom:15px;text-align:left}
 .smt_20 .sct_last {margin:0 0 15px !important}
+.smt_20 .sct_clear {clear:both}
 .smt_20 .sct_a {display:inline-block;position:relative;text-decoration:none}
 .smt_20 .sct_a:focus, .smt_20 .sct_a:hover {text-decoration:none}
 .smt_20 .sct_img {position:relative;text-align:center}
@@ -342,6 +347,7 @@
 .smt_30 {position:relative}
 .smt_30 li {position:relative;min-height:50px;padding:10px 15px}
 .smt_30 li:after {display:block;visibility:hidden;clear:both;content:""}
+.smt_30 .sct_clear {clear:both}
 .smt_30 .sct_img {float:left;width:80px;margin-right:10px}
 .smt_30 .sct_img img {width:100%;height:auto}
 .smt_30 .sct_cnt {display:inline-block;float:left;max-width:143px;line-height:20px}
@@ -361,24 +367,26 @@
 
 
 /* 관련상품 목록 스킨 10 */
-#sit_rel {position:relative;border:1px solid #e8e8e8;padding:20px;margin:20px 0 40px;background:#fff}
+#sit_rel {position:relative;border:1px solid #e8e8e8;padding:35px;margin-top:20px;background:#fff}
 #sit_rel:after {display:block;visibility:hidden;clear:both;content:""}
-#sit_rel h2 {font-size:1.5em;margin:10px 0 20px;text-align:center}
+#sit_rel h2 {font-size:1.6em;margin:0 0 30px;text-align:center}
 #sit_rel .bx-wrapper {margin:0 auto}
-#sit_rel .bx-prev {display:inline-block;position:absolute;top:50%;left:0;width:25px;height:50px;margin-top:-25px;border:1px solid #cdcdcd;border-left:0;text-indent:-999px;overflow:hidden;background:url('img/btn_prev.png') no-repeat 50% 50%;background-size:50%}
-#sit_rel .bx-next {display:inline-block;position:absolute;top:50%;right:0;width:25px;height:50px;margin-top:-25px;border:1px solid #cdcdcd;border-right:0;text-indent:-999px;overflow:hidden;background:url('img/btn_next.png') no-repeat 50% 50%;background-size:50%}
+#sit_rel .bx-controls-direction {position:absolute;top:25px;right:35px}
+#sit_rel .bx-prev {display:inline-block;width:30px;height:30px;border:1px solid #dee3eb;border-top:0;text-indent:-999px;overflow:hidden;background:url('img/select_arrow.png') no-repeat 50% 50%;background-size:50%;-webkit-transform:rotate(90deg);-moz-transform:rotate(90deg)}
+#sit_rel .bx-next {display:inline-block;width:30px;height:30px;border:1px solid #dee3eb;text-indent:-999px;overflow:hidden;background:url('img/select_arrow.png') no-repeat 50% 50%;background-size:50%;-webkit-transform:rotate(-90deg);-moz-transform:rotate(-90deg)}
 .scr_10 li img {width:100%;height:auto}
-.scr_10 .sct_txt {margin:5px 0}
-.scr_10 .sct_cost {font-weight:bold}
+.scr_10 .sct_txt {display:block;margin:5px 0;font-size:1.1em}
+.scr_10 .sct_cost {margin:5px 0;font-size:1.25em;font-weight:bold}
 
 /* ##### main(nn).skin.php, list.(nn).skin..php 공통 적용 끝 ##### */
 
 /* 상품 목록 */
 #sct {}
-.sct_admin {margin:0 0 10px;text-align:right}
-.sct_admin a {line-height:35px;padding:0 10px}
+.sct_admin {margin:10px 0;text-align:right}
+.sct_admin a {line-height:35px;padding:0 10px;border:1px solid #d13f4a}
+
 /* 상품 목록 현재 위치 */
-#sct_location {position:absolute;top:10px;right:0}
+#sct_location {position:absolute;top:0;right:0}
 #sct_location a {display:inline-block;padding:10px 5px;text-decoration:none;letter-spacing:0 !important}
 .sct_here {font-weight:bold}
 .sct_bg {padding-right:15px !important;background:url('img/sct_bg_toright.gif') right 50% no-repeat}
@@ -419,8 +427,9 @@
 #sct_lst {float:right;margin:0 0;padding:0;list-style:none;zoom:1}
 #sct_lst:after {display:block;visibility:hidden;clear:both;content:""}
 #sct_lst li {position:relative;float:left}
-#sct_lst button {position:relative;margin:0;padding:0;width:45px;height:45px;border:0;cursor:pointer;background:#fff;border-left:1px solid #dfdfdf;font-size:15px}
-#sct_lst button.sct_lst_list {border-left:1px solid #dfdfdf}
+#sct_lst button {position:relative;margin:0;padding:0;width:45px;height:45px;border:0;cursor:pointer;background:#fff;color:#adadad;font-size:15px}
+#sct_lst button:hover {color:#000}
+#sct_lst button.sct_lst_list {}
 #sct_lst button .icon {display:block}
 
 
@@ -458,7 +467,7 @@
 #sit_pvi_nw li img {width:60px;height:60px}
 
 /* 상품 상세보기 - 간략정보 및 구매기능 */
-#sit_ov {position:relative;float:right;width:448px;height:auto !important;height:355px;min-height:355px}
+#sit_ov {position:relative;float:right;width:448px;height:auto !important;height:355px;min-height:355px;padding-bottom:20px}
 #sit_ov h3 {margin:0 0 10px}
 
 #sit_title {margin:0 0 10px;font-size:2.4em}
@@ -487,7 +496,7 @@
 #btn_wish i {font-size:1.6em;font-weight:bold}
 #btn_wish .btn_wish_num {position:absolute;right:0;bottom:-2px;margin:0;padding:0 2px;height:17px;line-height:15px;border-radius:30px;background:#fff;color:#4b5259;font-size:0.75em}
 
-.sit_info {padding:10px 0;border-top:1px solid #e2e2e2;margin:15px 0 0;border-bottom:1px solid #e2e2e2}
+.sit_info {padding:10px 0;border-top:1px solid #e2e2e2;margin:10px 0 0;border-bottom:1px solid #e2e2e2}
 .sit_info .tr_price {border-bottom:1px solid #e2e2e2}
 .sit_info .tr_price th,
 .sit_info .tr_price td {padding-bottom:15px}
@@ -503,7 +512,14 @@
 
 .sit_option {padding:10px 0;/*border-bottom:1px solid #ebeff3;*/margin:10px 0 0}
 .sit_option label {display:block;margin:0 0 5px;color:#666}
-.sit_option select {width:100%;margin:0 0 10px;height:35px;border:1px solid #cdcdcd}
+.sit_option select {width:100%;margin:0 0 10px;height:50px;padding:0 10px;border:1px solid #cdcdcd;
+-webkit-appearance:none; /* 화살표 없애기 for chrome*/
+-moz-appearance:none;    /* 화살표 없애기 for firefox*/
+appearance:none;         /* 화살표 없애기 공통*/
+background:url('img/select_arrow.png') no-repeat 96% 50%/* 화살표 아이콘 추가 */
+}
+.sit_option select::-ms-expand {display:none/* 화살표 없애기 for IE10, 11*/}
+
 .sit_option h3 {font-size:1.083em}
 .sit_sel_btn {position:relative} /* 선택옵션용 추가 버튼 */
 .sit_sel_btn button {position:absolute;top:-51px;right:0 !important;right:15px}
@@ -538,28 +554,33 @@
 #sit_siblings a#siblings_next:after {content:"";background:url('img/sit_siblings.jpg') -14px 0px no-repeat;position:absolute;right:0;top:10px;width:10px;height:15px;display:inline-block}
 #sit_siblings a span {position:absolute;font-size:0;text-indent:-9999em;line-height:0;overflow:hidden}
 
-#sit_info {position:relative;min-height:600px;margin-bottom:30px;border:1px solid #e8e8e8;background:#fff}
+#sit_info {display:inline-flex;position:relative;width:100%;min-height:600px;margin-top:20px;margin-bottom:30px;border:1px solid #e8e8e8;background:#fff}
 #sit_info:after {display:block;visibility:hidden;clear:both;content:""}
 
-#sit_tab {float:left;width:928px}
+#sit_tab {/*float:left;*/width:928px;     display: table-cell;}
+#sit_tab:after {display:block;visibility:hidden;clear:both;content:""}
 #sit_tab .tab_tit {border-bottom:1px solid #e8e8e8;background:#fff;padding:0 10px}
 #sit_tab .tab_tit:after {display:block;visibility:hidden;clear:both;content:""}
 #sit_tab .tab_tit li {display:inline-block;float:left}
 #sit_tab .tab_tit li button {display:block;width:100%;position:relative;font-size:1.2em;padding:10px 15px;border:0;color:#666;background:#fff;line-height:38px;text-align:center;z-index:1}
 #sit_tab .tab_tit li .selected {background:#fff;z-index:2;border-bottom-color:#fff;color:#000;font-weight:bold}
 #sit_tab .tab_tit li .selected:after {content:"";position:absolute;left:0;bottom:0;width:100%;height:3px;background:#3a8afd;display:inline-block}
-#sit_tab .tab_con {background:#fff;padding:15px;height:100%}
+#sit_tab .tab_con {background:#fff;padding:15px/*;height:100%*/}
 #sit_tab .item_use_count, #sit_tab .item_qa_count {display:inline-block;min-width:20px;height:20px;font-size:0.75em;line-height:20px;padding:0 5px;background:#eee;border-radius:10px;color:#777}
 
-
-#sit_buy {position:absolute;top:0;right:0;width:270px;height:100%;border-left:1px solid #e8e8e8}
-.sit_buy_inner {position:relative;height:100%}
+#sit_buy {display:table-cell;width:270px;border-left:1px solid #e8e8e8}
+.sit_buy_inner {position:relative;top:0 !important}
 .sit_side_option {padding:15px 15px 10px;border-bottom:1px solid #ebeff3}
-.sit_side_option h3 {position:absolute;font-size:0;line-height:0;overflow:hidden}
+.sit_side_option h3 {margin-bottom:10px}
 .sit_side_option label {display:block;margin:0 0 5px;color:#666}
-.sit_side_option select {width:100%;margin:0 0 10px;height:35px;border:1px solid #cdcdcd}
+.sit_side_option select {width:100%;margin:0 0 10px;height:50px;padding:0 10px;border:1px solid #cdcdcd;
+-webkit-appearance:none; /* 화살표 없애기 for chrome*/
+-moz-appearance:none;    /* 화살표 없애기 for firefox*/
+appearance:none;         /* 화살표 없애기 공통*/
+background:url('img/select_arrow.png') no-repeat 96% 50%/* 화살표 아이콘 추가 */}
+.sit_side_option select::-ms-expand {display:none/* 화살표 없애기 for IE10, 11*/}
 
-.sit_sel_option {}
+.sit_sel_option {overflow-y:auto;height:300px}
 .sit_sel_option h3 {position:absolute;font-size:0;line-height:0;overflow:hidden}
 .sit_sel_option:after {display:block;visibility:hidden;clear:both;content:""}
 .sit_sel_option li {position:relative;padding:15px;border-bottom:1px solid #e6e9ed}
@@ -571,7 +592,7 @@
 .sit_sel_option button {float:left;width:30px;height:30px;border:1px solid #bdc9dc;border-radius:0;background:#fff;color:#666;font-size:0.92em}
 .sit_sel_option button:hover {color:#000}
 
-.sum_section {position:absolute;left:0;right:0;bottom:0;padding:15px;border-top:1px solid #ebeff3;z-index:3}
+.sum_section {padding:15px;z-index:3}
 .sum_section:after {display:block;visibility:hidden;clear:both;content:""}
 .sit_tot_price {font-weight:bold;padding-bottom:10px;line-height:25px;font-size:1.167em;text-align:right}
 .sit_tot_price strong {font-size: 1.5em;margin-left:15px}
@@ -613,12 +634,12 @@
 #sit_use_wbtn a {padding:0 20px;line-height:45px;font-weight:bold;font-size:1.167em}
 
 #sit_use_ol {margin:0 0 5px;padding:0;border-top:1px solid #e0e0e0;list-style:none}
-.sit_use_li {position:relative;padding:10px;padding-left:120px;min-height:120px;border-bottom:1px solid #e0e0e0}
+.sit_use_li {position:relative;padding:10px 0;padding-left:110px;min-height:120px;border-bottom:1px solid #e0e0e0}
 .sit_use_li:after {display:block;visibility:hidden;clear:both;content:""}
 .sit_use_li_title {position:absolute;right:20px;bottom:20px;border:1px solid #ddd;padding:8px 10px;border-radius:3px;color:#666;font-size:0.92em;background:#fff}
 .sit_use_li_title:hover {background:#6b99ee;border-color:#6b99ee;color:#fff}
 
-.sit_thum {margin:0;position:absolute;top:10px;left:10px;zoom:1}
+.sit_thum {margin:0;position:absolute;top:10px;left:0;zoom:1}
 .sit_use_dl:after {display:block;visibility:hidden;clear:both;content:""}
 .sit_use_dl dt {position:absolute;font-size:0;line-height:0;content:""}
 .sit_use_dl dd {color:#7f7f7f;line-height:1.5em}
@@ -626,7 +647,7 @@
 .sit_use_dl .sit_use_tit {font-weight:bold;font-size:1.167em;color:#000 !important}
 
 
-.sit_use_con {display:none;margin-right:90px}
+.sit_use_con {display:none;margin-right:110px;margin-bottom:10px}
 .sit_use_p {margin:10px 0;padding:10px 0}
 .sit_use_cmd {}
 
@@ -645,7 +666,7 @@
 #sit_qa h2 {position:absolute;font-size:0;line-height:0;content:""}
 #sit_qa h3 {position:absolute;font-size:0;line-height:0;content:""}
 
-#sit_qa_ol {margin:0 0 5px;padding:0;border-top:1px solid #e0e0e0;list-style:none}
+#sit_qa_ol {margin:0 0 5px;padding:0;border-top:1px solid #f0f0f0;list-style:none}
 .sit_qa_li:after {display:block;visibility:hidden;clear:both;content:""}
 .sit_qa_li {position:relative;border-bottom:1px solid #f0f0f0;padding:15px 10px}
 .sit_qa_li_title {display:block;float:left;width:80%;text-align:left;background:none;border:0;line-height:25px;font-weight:bold;font-size:1.167em}
@@ -815,7 +836,8 @@ box-shadow:inset 0 1px 1px rgba(0, 0, 0, .075)}
 #ssch_sort ul:after {display:block;visibility:hidden;clear:both;content:""}
 #ssch_sort li {float:left;position:relative;margin-left:-1px;height:45px;padding:15px 0;line-height:15px}
 #ssch_sort li a {border-left:1px solid #ddd;display:block;padding:0 10px}
-#ssch_sort li a:hover {color:#be334a}
+#ssch_sort li:hover:after {content:"";position:absolute;left:0;bottom:-1px;width:100%;height:2px;background:#3a8afd}
+#ssch_sort li:hover a {color:#3a8afd}
 #ssch_sort li:first-child a {border:0}
 
 #ssch_sort_all {margin:0;padding:0 15px;list-style:none;zoom:1}
@@ -828,22 +850,38 @@ box-shadow:inset 0 1px 1px rgba(0, 0, 0, .075)}
 
 /*쿠폰존 리스트*/
 .couponzone_list {margin:0 0 50px;position:relative}
-.couponzone_list h2 {margin:0 0 15px;padding-bottom:10px;font-size:1.25em;border-bottom:2px solid #000}
-.couponzone_list p {margin:0 0 5px;position:absolute;top:5px;right:0;color:#666}
-.couponzone_list ul {padding:0;margin:0;list-style:none}
+.couponzone_list h2 {padding:15px 20px;font-size:1.25em;border:1px solid #e3e5e8;background:#fff}
+.couponzone_list p {position:absolute;top:5px;right:0;margin:15px 20px;color:#666}
+.couponzone_list ul {padding:30px;margin:0;list-style:none;background:#fff;border:1px solid #e3e5e8;border-top:0}
 .couponzone_list ul:after {display:block;visibility:hidden;clear:both;content:""}
-.couponzone_list ul li {float:left;width:233px;border:1px solid #ddd;background:#fff;padding:15px;margin:0 0 10px 10px;line-height:1.2em}
+.couponzone_list ul li {float:left;width:262px;margin:0 0 30px 30px;background:#fff}
 .couponzone_list ul li:nth-child(4n+1) {clear:both;margin-left:0}
-.couponzone_list ul li img {width:100%;height:auto}
-.couponzone_list ul li .coupon_img {}
-.couponzone_list ul li .coupon_tit {margin:10px 0 5px;font-weight:bold;text-overflow:ellipsis;overflow:hidden;white-space:nowrap}
-.couponzone_list ul li .coupon_date {margin:5px 0px;font-size:0.92em;text-overflow:ellipsis;overflow:hidden;white-space:nowrap;color:#777}
-.couponzone_list ul li .coupon_target {margin:5px 0px;font-size:0.92em;text-overflow:ellipsis;overflow:hidden;white-space:nowrap;color:#777}
-.couponzone_list ul li .coupon_target a {color:#777;text-decoration:underline}
-.couponzone_list ul li .coupon_point {margin:5px 0px;font-size:0.92em;text-overflow:ellipsis;overflow:hidden;white-space:nowrap;color:#777}
-.couponzone_list ul li .coupon_btn {margin:10px 0 0;text-align:center}
-.couponzone_list ul li .coupon_btn .btn02 {width:100%;height:35px;line-height:35px;border-color:#d50c0c;color:#d50c0c;background:#fff;font-weight:bold}
-.couponzone_list ul li .coupon_btn .btn02:hover {background:#d50c0c;color:#fff}
-.couponzone_list ul li .coupon_btn .disabled {background:#ddd;border:1px;color:#999;border-color:#ddd}
-.couponzone_list ul li .coupon_btn .disabled:hover {background:#ddd;border:1px;color:#999;border-color:#ddd}
+.couponzone_list ul li img {width:100%;height:auto;line-height:1.2em;border-radius:5px}
+.couponzone_list ul li .cp_inner {border:1px solid #ddd;border-radius:5px;
+-webkit-box-shadow:0px 1px 6px 0 #dedede;
+-moz-box-shadow:0px 1px 6px 0 #dedede;
+box-shadow:0px 1px 6px 0 #dedede
+}
+.couponzone_list ul li .coupon_img {position:relative;height:98px;overflow:hidden;border-bottom:1px dashed #ccc}
+.couponzone_list ul li .coupon_tit {position:absolute;top:0;left:0;width:100%;height:98px;padding-top:30px;text-align:center;font-weight:bold;text-overflow:ellipsis;overflow:hidden;white-space:nowrap}
+.couponzone_list ul li .coupon_tit span {display:inline-block}
+.couponzone_list ul li .coupon_tit .cp_evt,
+.couponzone_list ul li .coupon_tit .cp_evt b {font-size:1.4em}
+.couponzone_list ul li .cp_cnt {padding:10px}
+.couponzone_list ul li .coupon_date {display:inline-block;float:right;padding:2px 3px;margin:5px 0px;font-size:0.92em;text-overflow:ellipsis;overflow:hidden;white-space:nowrap;color:#777}
+.couponzone_list ul li .coupon_target {display:inline-block;margin:5px 0px}
+.couponzone_list ul li .coupon_target >span {display:inline-block;max-width:125px;padding:2px 3px;font-size:0.92em;border-radius:3px;text-overflow:ellipsis;overflow:hidden;white-space:nowrap}
+.couponzone_list ul li .coupon_target .cp_1,
+.couponzone_list ul li .coupon_target .cp_1 a {background:#edfbde;color:#8cc152}/*카테고리할인*/
+.couponzone_list ul li .coupon_target .cp_2,
+.couponzone_list ul li .coupon_target .cp_2 a {background:#fbdef3;color:#c15293}/*개별상품할인*/
+.couponzone_list ul li .coupon_target .cp_3,
+.couponzone_list ul li .coupon_target .cp_3 a {background:#fbf1de;color:#c18b52}/*주문금액할인*/
+.couponzone_list ul li .coupon_target .cp_4,
+.couponzone_list ul li .coupon_target .cp_4 a {background:#f2defb;color:#7c52c1}/*배송비할인*/
+.couponzone_list ul li .coupon_btn {text-align:center}
+.couponzone_list ul li .coupon_btn .btn02 {width:100%;height:42px;line-height:28px;margin-top:15px;border:0;color:#fff;background:#3a8afd;border-radius:5px;font-weight:bold}
+.couponzone_list ul li .coupon_btn .btn02:hover {background:#2176f1;color:#fff}
+.couponzone_list ul li .coupon_btn .disabled {background:#c6c6c6;border:1px;color:#fff;border-color:#c6c6c6}
+.couponzone_list ul li .coupon_btn .disabled:hover {background:#c6c6c6;border:1px;color:#fff;border-color:#c6c6c6}
 .couponzone_list .no_coupon {position:relative;padding:100px 0;text-align:center;color:#999}

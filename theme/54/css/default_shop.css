@@ -151,7 +151,7 @@ box-shadow: 0 1px 5px #d6d6d6}
 .qk_con_wr {padding:0;height:100%;overflow-y:auto}
 .qk_con_wr .btn_side_shop {position:relative;width:100%;height:30px;background:none;border:0;text-align:left;font-weight:bold}
 .qk_con_wr .btn_side_shop span {position:absolute;top:5px;right:0;padding:0 5px;line-height:20px;border-radius:10px;color:#fff;background:#ed1c24}
-.qk_con_wr .con_close {position:fixed;top:50%;margin-top:-25px;right:295px;width:50px;height:50px;border:0;background:none;font-size:45px;color:rgba(0,0,0,0.3)}
+.qk_con_wr .con_close {position:fixed;top:0;right:230px;width:50px;height:50px;border:0;background:none;font-size:25px;color:#dedede}
 .qk_con_wr .con_close:hover {color:rgba(0,0,0,0.8)}
 .qk_con_wr .side_tnb {padding:25px}
 .qk_con_wr .side_tnb li a {display:block;line-height:28px;color:#465168;padding:5px 0}
@@ -218,7 +218,7 @@ box-shadow:0 2px 5px rgba(0,0,0,0.2)}
 #ft_company {font-weight:normal;color:#e3e3e3;line-height:2em}
 #ft_catch {margin:20px 0 10px}
 #ft_copy {text-align:center;width:1200px;margin:0 auto;padding:20px 0;color:#5b5b5b;font-size:0.92em;border-top:1px solid #383838}
-#top_btn {position:fixed;bottom:20px;right:20px;width:50px;height:50px;line-height:46px;border:2px solid #333;color:#333;text-align:center;font-size:15px;z-index:90;background:rgba(255,255,255,0.5)}
+#top_btn {position:absolute;bottom:0;left:0;border:0;border-top:1px solid #e5e7ea;margin-top:-25px;width:50px;height:50px;background:none;font-size:20px;color:#dedede}
 #top_btn:hover {border-color:#3059c7;background:#3059c7;color:#fff}
 
 /* 화면낭독기 사용자용 */

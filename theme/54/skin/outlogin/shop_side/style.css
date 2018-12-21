@@ -50,8 +50,8 @@
 #s_ol_after_private .win_scrap:hover strong {background:#8cc152;color:#fff}
 #s_ol_after_private .win_coupon:hover strong {background:#a352c1;color:#fff}
 
-#ol_after_logout {display:inline-block;height:28px;line-height:22px;border:1px solid #d5d9dd;color:#8a8a8a;border-radius:2px;padding:2px 5px}
-#ol_after_logout:hover {color:#3c8bfd}
+#s_ol_after_logout {display:inline-block;height:28px;line-height:22px;border:1px solid #d5d9dd;color:#8a8a8a;border-radius:2px;padding:2px 5px}
+#s_ol_after_logout:hover {color:#3c8bfd}
 #ol_after_memo {margin-right:1px}
 #ol_after_pt {margin-right:1px}
 

@@ -28,8 +28,7 @@ for ($i=1; $row=sql_fetch_array($result); $i++) {
     }
 	
     echo "<li class=\"sct_li {$sct_last}\" style=\"width:{$this->img_width}px\">\n";
-
-    echo "<div class=\"sct_img\">\n";
+	echo "<div class=\"sct_img\">\n";
 
     if ($this->href) {
         echo "<a href=\"{$this->href}{$row['it_id']}\">\n";
@@ -53,6 +52,9 @@ for ($i=1; $row=sql_fetch_array($result); $i++) {
         echo item_icon2($row);
     }
     echo "</div>\n";
+	
+	echo "<div class=\"sct_ct_wrap\">\n";
+    
 	
 	//별점
 	if ($this->href) {
@@ -109,7 +111,9 @@ for ($i=1; $row=sql_fetch_array($result); $i++) {
 	echo "<div class=\"sct_sns_bg\"></div>";
 	echo "</div></div>\n";
 	// 위시리스트 + 공유 버튼 끝
-
+	
+	echo "</div>\n";
+	 
     if ($this->view_it_icon) {
         echo "<div class=\"sit_icon_li\">".item_icon($row)."</div>\n";
     }
