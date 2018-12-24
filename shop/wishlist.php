@@ -55,7 +55,7 @@ include_once('./_head.php');
         <li>
             <div class="sod_ws_img"><a href="./item.php?it_id=<?php echo $row['it_id']; ?>"><?php echo $image; ?></a></div>
             <div class="wish_info">
-                 <div class="wish_chk">
+				<div class="wish_chk">
                     <?php
                     // 품절검사
                     if(is_soldout($row['it_id']))
@@ -76,7 +76,6 @@ include_once('./_head.php');
                 <div class="info_date"><?php echo $row['wi_time']; ?></div>
                 <a href="./wishupdate.php?w=d&amp;wi_id=<?php echo $row['wi_id']; ?>" class="wish_del"><i class="fa fa-trash" aria-hidden="true"></i><span class="sound_only">삭제</span></a>
            </div>
-
         </li>
         <?php
         }
