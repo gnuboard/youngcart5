@@ -8,7 +8,7 @@ $cart_action_url = G5_SHOP_URL.'/cartupdate.php';
 
 <!-- 장바구니 간략 보기 시작 { -->
 <aside id="sbsk">
-    <h2 class="s_h2">장바구니 <?php echo get_boxcart_datas_count(); ?></h2>
+    <h2 class="s_h2">장바구니 <span><?php echo get_boxcart_datas_count(); ?></span></h2>
     <form name="skin_frmcartlist" id="skin_sod_bsk_list" method="post" action="<?php echo G5_SHOP_URL.'/cartupdate.php'; ?>">
     <ul>
     <?php

@@ -29,12 +29,14 @@ add_stylesheet('<link rel="stylesheet" href="'.G5_SHOP_CSS_URL.'/style.css">', 0
             case '0':
                 $sql3 = " select it_id, it_name from {$g5['g5_shop_item_table']} where it_id = '{$row['cp_target']}' ";
                 $row3 = sql_fetch($sql3);
-                $cp_target = '<a href="./item.php?it_id='.$row3['it_id'].'">'.get_text($row3['it_name']).'</a>';
+				$cp_target = '개별상품할인';
+                $cp_link ='<a href="./item.php?it_id='.$row3['it_id'].'">'.get_text($row3['it_name']).'</a>';
                 break;
             case '1':
                 $sql3 = " select ca_id, ca_name from {$g5['g5_shop_category_table']} where ca_id = '{$row['cp_target']}' ";
                 $row3 = sql_fetch($sql3);
-                $cp_target = '<a href="./list.php?ca_id='.$row3['ca_id'].'">'.get_text($row3['ca_name']).'</a>';
+                $cp_target = '카테고리할인';
+                $cp_link = '<a href="./list.php?ca_id='.$row3['ca_id'].'">'.get_text($row3['ca_name']).'</a>';
                 break;
             case '2':
                 $cp_target = '주문금액할인';
@@ -55,7 +57,17 @@ add_stylesheet('<link rel="stylesheet" href="'.G5_SHOP_CSS_URL.'/style.css">', 0
         $coupon .= '<div class="coupon_tit"><span>'.$subj.'</span><br><span class="cp_evt"><b>1,900</b>원</span></div>'.PHP_EOL;
 		$coupon .= '</div>'.PHP_EOL;
 		$coupon .= '<div class="cp_cnt">'.PHP_EOL;
-        $coupon .= '<div class="coupon_target"><span class="sound_only">적용</span><span class="cp_2">'.$cp_target.' <i class="fa fa-angle-right" aria-hidden="true"></i></span></div>'.PHP_EOL;
+        $coupon .= '<div class="coupon_target">'.PHP_EOL;
+        $coupon .= '<span class="sound_only">적용</span><button class="coupon_info_btn cp_2">'.$cp_target.' <i class="fa fa-angle-right" aria-hidden="true"></i></button>'.PHP_EOL;
+        $coupon .= '<div class="coupon_info">
+        <h4>'.$cp_target.'</h4>
+        <ul>
+        	<li>적용 : '.$cp_link.'</li>
+        	<li>최소금액 : <span class="cp_evt"><b>1,900</b>원</span></li>
+        </ul>
+        <button class="coupon_info_cls"><i class="fa fa-times" aria-hidden="true"></i><span class="sound_only">닫기</span></button>
+        </div>'.PHP_EOL;
+        $coupon .= '</div>'.PHP_EOL;
         $coupon .= '<div class="coupon_date"><span class="sound_only">기한</span>다운로드 후 '.number_format($row['cz_period']).'일</div>'.PHP_EOL;
         //cp_1 카테고리할인
         //cp_2 개별상품할인
@@ -98,12 +110,14 @@ add_stylesheet('<link rel="stylesheet" href="'.G5_SHOP_CSS_URL.'/style.css">', 0
             case '0':
                 $sql3 = " select it_id, it_name from {$g5['g5_shop_item_table']} where it_id = '{$row['cp_target']}' ";
                 $row3 = sql_fetch($sql3);
-                $cp_target = '<a href="./item.php?it_id='.$row3['it_id'].'">'.get_text($row3['it_name']).'</a>';
+				$cp_link = '<a href="./item.php?it_id='.$row3['it_id'].'">'.get_text($row3['it_name']).'</a>';
+                $cp_target = '개별상품할인';
                 break;
             case '1':
                 $sql3 = " select ca_id, ca_name from {$g5['g5_shop_category_table']} where ca_id = '{$row['cp_target']}' ";
                 $row3 = sql_fetch($sql3);
-                $cp_target = '<a href="./list.php?ca_id='.$row3['ca_id'].'">'.get_text($row3['ca_name']).'</a>';
+                $cp_link = '<a href="./list.php?ca_id='.$row3['ca_id'].'">'.get_text($row3['ca_name']).'</a>';
+                $cp_target = '카테고리할인';
                 break;
             case '2':
                 $cp_target = '주문금액할인';
@@ -124,7 +138,17 @@ add_stylesheet('<link rel="stylesheet" href="'.G5_SHOP_CSS_URL.'/style.css">', 0
         $coupon .= '<div class="coupon_tit"><span>'.$subj.'</span><br><span class="cp_evt"><b>1,900</b>원</span></div>'.PHP_EOL;
 		$coupon .= '</div>'.PHP_EOL;
 		$coupon .= '<div class="cp_cnt">'.PHP_EOL;
-		$coupon .= '<div class="coupon_target"><span class="sound_only">적용</span><span class="cp_2">'.$cp_target.' <i class="fa fa-angle-right" aria-hidden="true"></i></span></div>'.PHP_EOL;
+		$coupon .= '<div class="coupon_target">'.PHP_EOL;
+		$coupon .= '<span class="sound_only">적용</span><button class="coupon_info_btn cp_2">'.$cp_target.' <i class="fa fa-angle-right" aria-hidden="true"></i></button>'.PHP_EOL;
+        $coupon .= '<div class="coupon_info">
+        <h4>'.$cp_target.'</h4>
+        <ul>
+        	<li>적용 : '.$cp_link.'</li>
+        	<li>최소금액 : <span class="cp_evt"><b>1,900</b>원</span></li>
+        </ul>
+        <button class="coupon_info_cls"><i class="fa fa-times" aria-hidden="true"></i><span class="sound_only">닫기</span></button>
+        </div>'.PHP_EOL;
+        $coupon .= '</div>'.PHP_EOL;		
 		$coupon .= '<div class="coupon_date"><span class="sound_only">기한</span>다운로드 후 '.number_format($row['cz_period']).'일</div>'.PHP_EOL;
 		$coupon .= '<div class="coupon_btn"><button type="button" class="coupon_download btn02'.$disabled.'" data-cid="'.$row['cz_id'].'">포인트 '.number_format($row['cz_point']).'점 차감</button></div>'.PHP_EOL;
         $coupon .= '</div>'.PHP_EOL;
@@ -137,3 +161,20 @@ add_stylesheet('<link rel="stylesheet" href="'.G5_SHOP_CSS_URL.'/style.css">', 0
         echo '<p class="no_coupon">사용할 수 있는 쿠폰이 없습니다.</p>';
     ?>
 </section>
+
+<script>
+$(function (){
+	$(".coupon_info_btn").on("click", function() {
+        $(this).parent("div").children(".coupon_info").show();
+    });
+    $(".coupon_info_cls").on("click", function() {
+        $(".coupon_info").hide();
+    });
+    // 쿠폰 정보창 닫기
+    $(document).mouseup(function (e){
+        var container = $(".coupon_info");
+        if( container.has(e.target).length === 0)
+        container.hide();
+    });
+});
+</script>

@@ -49,16 +49,6 @@ $admin = get_admin("super");
         <!-- } 커뮤니티 최신글 끝 -->
 
 		<?php echo visit('theme/shop_basic'); // 접속자 ?>
-
-        <button type="button" id="top_btn"><i class="fa fa-arrow-up" aria-hidden="true"></i><span class="sound_only">상단으로</span></button>
-        <script>
-        $(function() {
-            $("#top_btn").on("click", function() {
-                $("html, body").animate({scrollTop:0}, '500');
-                return false;
-            });
-        });
-        </script>
     </div>
 
     <div id="ft_copy">Copyright &copy; 2001-2013 <?php echo $default['de_admin_company_name']; ?>. All Rights Reserved.</div>

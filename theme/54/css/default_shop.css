@@ -148,6 +148,7 @@ box-shadow: 0 1px 5px #d6d6d6}
 
 .qk_con {display:none;position:relative;width:230px;height:100%;background:#fff;border-left:1px solid #f0f0f0}
 .qk_con h2.s_h2 {position:relative;margin:0;font-size:1.25em;padding:15px;border-bottom:1px solid #e5e7ea}
+.qk_con h2.s_h2 span {display:inline-block;min-width:20px;padding:2px 8px;border-radius:30px;text-align:center;background:#eff5ff;color:#3b8afc;font-size:0.7em;font-weight:normal;vertical-align:text-bottom}
 .qk_con_wr {padding:0;height:100%;overflow-y:auto}
 .qk_con_wr .btn_side_shop {position:relative;width:100%;height:30px;background:none;border:0;text-align:left;font-weight:bold}
 .qk_con_wr .btn_side_shop span {position:absolute;top:5px;right:0;padding:0 5px;line-height:20px;border-radius:10px;color:#fff;background:#ed1c24}
@@ -174,7 +175,7 @@ box-shadow:0 2px 5px rgba(0,0,0,0.2)}
 /* 중간 레이아웃 */
 #wrapper {z-index:5;margin:0 auto;width:1200px;position:relative;zoom:1}
 #wrapper:after {display:block;visibility:hidden;clear:both;content:""}
-#wrapper_title {margin:10px 0;font-size:1.667em;font-weight:bold}
+#wrapper_title {margin:30px 0;font-size:2em;font-weight:bold}
 
 .lt_wr {width:49%}
 .lt_wr:nth-child(2n+1) {clear:both}
@@ -452,7 +453,7 @@ box-shadow:inset 0 1px 1px rgba(0, 0, 0, .075);
 .td_dvr {width:100px;text-align:center}
 .td_group {width:100px;text-align:center}
 .td_imgsmall {width:60px;text-align:center}
-.td_num {width:50px;text-align:center}
+.td_num {width:80px;text-align:center}
 .td_numbig {width:100px;text-align:center}
 .td_nick {width:100px;text-align:center}
 .td_name {width:100px;text-align:left}
@@ -614,7 +615,7 @@ box-shadow:inset 0 1px 1px rgba(0, 0, 0, .075);
 .cp_cancel {padding:0 7px;border:1px solid #aaa;color:#666;background:#fff;height:23px;margin:10px 0 0 2px}
 
 /* 장바구니 */
-#sod_bsk {}
+#sod_bsk {margin-bottom:30px}
 .btn_cart_del {padding:20px 0;border-bottom:1px solid #ccd2d9}
 .btn_cart_del button {height:30px;padding:0 10px;border:1px solid #d4d6db;border-radius:5px;background:#fff;color:#666}
 #sod_bsk_list {position:relative}
