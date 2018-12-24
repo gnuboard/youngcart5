@@ -136,6 +136,7 @@ for($k=0; $cp=sql_fetch_array($res); $k++) {
                 <div class="smb_my_tit"><a href="./item.php?it_id=<?php echo $row['it_id']; ?>"><?php echo stripslashes($row['it_name']); ?></a></div>
                 <div class="smb_my_price">500,000</div>
                 <div class="smb_my_date"><?php echo $row['wi_time']; ?></div>
+                <a href="./wishupdate.php?w=d&amp;wi_id=<?php echo $row['wi_id']; ?>" class="wish_del"><i class="fa fa-trash" aria-hidden="true"></i><span class="sound_only">삭제</span></a>
             </li>
 
             <?php
@@ -149,6 +150,11 @@ for($k=0; $cp=sql_fetch_array($res); $k++) {
 	        <div class="smb_my_more">
 	            <a href="./wishlist.php">더보기</a>
 	        </div>
+	        
+	        <div id="smb_ws_act">
+		        <button type="submit" class="btn01" onclick="return fwishlist_check(document.fwishlist,'');">장바구니</button>
+		        <button type="submit" class="btn02" onclick="return fwishlist_check(document.fwishlist,'direct_buy');">주문하기</button>
+		    </div>
 	    </section>
 	    <!-- } 최근 위시리스트 끝 -->
 	</div>

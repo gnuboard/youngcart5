@@ -590,13 +590,19 @@ box-shadow:inset 0 1px 1px rgba(0, 0, 0, .075);
 
 #smb_my_wish {position:relative;margin-bottom:30px}
 #smb_my_wish h2 {font-size:1.25em;padding:0 0 20px;border-bottom:1px solid #d9dde2}
-#smb_my_wish li {background:#fff;border-bottom:1px solid #ececec;padding:15px;}
+#smb_my_wish li {position:relative;background:#fff;border-bottom:1px solid #ececec;padding:15px}
 #smb_my_wish li:after {display:block;visibility:hidden;clear:both;content:""}
-.smb_my_img {float:left;margin-right:20px}
-.smb_my_tit {margin:5px 0;font-size:1.167em;font-weight:bold}
-.smb_my_date {font-size:0.92em;color:#777}
+#smb_my_wish .smb_my_img {float:left;margin-right:20px}
+#smb_my_wish .smb_my_tit {margin:5px 0;font-size:1.167em;font-weight:bold}
+#smb_my_wish .smb_my_price {font-weight:bold;font-size:1.2em;margin-bottom:30px}
+#smb_my_wish .smb_my_date {font-size:1em;color:#777}
 .smb_my_more {position:absolute;top:0;right:0}
 .smb_my_more a {display:block;background:url('../img/more-btn.gif') no-repeat 0 2px;padding-left:20px;height:30px}
+#smb_my_wish li .wish_del {position:absolute;right:20px;top:50px;font-size:1.4em;color:#b2b2b2}
+#smb_ws_act {text-align:center;margin:20px 0 30px}
+#smb_ws_act .btn01 {width:180px;height:50px;font-weight:bold;font-size:1.167em;border:1px solid #98a3b3;border-radius:3px}
+#smb_ws_act .btn02 {width:180px;height:50px;font-weight:bold;font-size:1.167em;border:1px solid #1c70e9;border-radius:3px;background:#3a8afd}
+
 
 /* 장바구니 주문서 공통 */
 .od_prd_list .td_chk {/*position:absolute;top:25px;left:0*/}

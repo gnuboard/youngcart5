@@ -95,7 +95,7 @@ include_once('./_head.php');
 </div>
 
 <script>
-<!--
+
     function out_cd_check(fld, out_cd)
     {
         if (out_cd == 'no'){
@@ -139,7 +139,7 @@ include_once('./_head.php');
 
         return true;
     }
-//-->
+
 </script>
 <!-- } 위시리스트 끝 -->
 
