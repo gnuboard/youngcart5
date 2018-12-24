@@ -382,8 +382,8 @@
 
 /* 상품 목록 */
 #sct {}
-.sct_admin {margin:10px 0;text-align:right}
-.sct_admin a {line-height:35px;padding:0 10px;border:1px solid #d13f4a}
+.sct_admin {text-align:right;position:absolute;right:0;top:0}
+.sct_admin a {}
 
 /* 상품 목록 현재 위치 */
 #sct_location {position:absolute;top:0;right:0}
