@@ -87,8 +87,8 @@ include_once('./_head.php');
     </div>
 
     <div id="sod_ws_act">
-        <button type="submit" class="btn01" onclick="return fwishlist_check(document.fwishlist,'');"><i class="fa fa-shopping-cart" aria-hidden="true"></i> 장바구니 담기</button>
-        <button type="submit" class="btn02" onclick="return fwishlist_check(document.fwishlist,'direct_buy');"><i class="fa fa-credit-card" aria-hidden="true"></i> 주문하기</button>
+        <button type="submit" class="btn01" onclick="return fwishlist_check(document.fwishlist,'');">장바구니 담기</button>
+        <button type="submit" class="btn02" onclick="return fwishlist_check(document.fwishlist,'direct_buy');">주문하기</button>
     </div>
     </form>
 </div>
