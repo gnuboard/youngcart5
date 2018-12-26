@@ -456,16 +456,18 @@ if($is_kakaopay_use) {
                     <span>배송비</span>
                     <strong><?php echo number_format($send_cost); ?></strong>원
                 </li>
+			</ul>
+			<ul class="sod_info_bt">
                 <li class="sod_bsk_cnt">
                     <span>총계</span>
                     <?php $tot_price = $tot_sell_price + $send_cost; // 총계 = 주문상품금액합계 + 배송비 ?>
-                    <strong id="ct_tot_price"><?php echo number_format($tot_price); ?></strong>원
+                    <strong id="ct_tot_price"><?php echo number_format($tot_price); ?> 원</strong>
                 </li>
                 <li class="sod_bsk_point">
                     <span>포인트</span>
-                    <strong><?php echo number_format($tot_point); ?></strong>점
+                    <strong><?php echo number_format($tot_point); ?> 점</strong>
                 </li>
-            </ul>
+           </ul>
 
             <div class="sod_info_option">
             	<?php
@@ -596,7 +598,7 @@ if($is_kakaopay_use) {
             <h2>결제수단</h2>
             <?php
             if (!$default['de_card_point'])
-                echo '<p class="tooltip_txt"><strong>무통장입금</strong> 이외의 결제 수단으로 결제하시는 경우 포인트를 적립해드리지 않습니다.</p>';
+                echo '<p class="tooltip_txt"><i class="fa fa-info-circle" aria-hidden="true"></i><strong>무통장입금</strong> 이외의 결제 수단으로 결제하시는 경우 포인트를 적립해드리지 않습니다.</p>';
 
             $multi_settle = 0;
             $checked = '';
@@ -612,7 +614,7 @@ if($is_kakaopay_use) {
             }
 			?>
 			
-			<ul>
+			<ul class="pay_way">
 				<li>
 				<?php
 	            // 카카오페이
@@ -629,7 +631,7 @@ if($is_kakaopay_use) {
 	            // 무통장입금 사용
 	            if ($default['de_bank_use']) {
 	                $multi_settle++;
-	                echo '<input type="radio" id="od_settle_bank" name="od_settle_case" value="무통장" '.$checked.'> <label for="od_settle_bank" class="lb_icon bank_icon">무통장입금</label>'.PHP_EOL;
+	                echo '<input type="radio" id="od_settle_bank" name="od_settle_case" value="무통장" '.$checked.'> <label for="od_settle_bank" class="lb_icon">무통장입금</label>'.PHP_EOL;
 	                $checked = '';
 	            }
 				?>
@@ -640,7 +642,7 @@ if($is_kakaopay_use) {
 	            // 가상계좌 사용
 	            if ($default['de_vbank_use']) {
 	                $multi_settle++;
-	                echo '<input type="radio" id="od_settle_vbank" name="od_settle_case" value="가상계좌" '.$checked.'> <label for="od_settle_vbank" class="lb_icon vbank_icon">'.$escrow_title.'가상계좌</label>'.PHP_EOL;
+	                echo '<input type="radio" id="od_settle_vbank" name="od_settle_case" value="가상계좌" '.$checked.'> <label for="od_settle_vbank" class="lb_icon">'.$escrow_title.'가상계좌</label>'.PHP_EOL;
 	                $checked = '';
 	            }
 				?>
@@ -651,7 +653,7 @@ if($is_kakaopay_use) {
 	            // 계좌이체 사용
 	            if ($default['de_iche_use']) {
 	                $multi_settle++;
-	                echo '<input type="radio" id="od_settle_iche" name="od_settle_case" value="계좌이체" '.$checked.'> <label for="od_settle_iche" class="lb_icon iche_icon">'.$escrow_title.'계좌이체</label>'.PHP_EOL;
+	                echo '<input type="radio" id="od_settle_iche" name="od_settle_case" value="계좌이체" '.$checked.'> <label for="od_settle_iche" class="lb_icon">'.$escrow_title.'계좌이체</label>'.PHP_EOL;
 	                $checked = '';
 	            }
 				?>
@@ -662,7 +664,7 @@ if($is_kakaopay_use) {
 	            // 휴대폰 사용
 	            if ($default['de_hp_use']) {
 	                $multi_settle++;
-	                echo '<input type="radio" id="od_settle_hp" name="od_settle_case" value="휴대폰" '.$checked.'> <label for="od_settle_hp" class="lb_icon hp_icon">휴대폰</label>'.PHP_EOL;
+	                echo '<input type="radio" id="od_settle_hp" name="od_settle_case" value="휴대폰" '.$checked.'> <label for="od_settle_hp" class="lb_icon">휴대폰</label>'.PHP_EOL;
 	                $checked = '';
 	            }
 				?>
@@ -673,7 +675,7 @@ if($is_kakaopay_use) {
 	            // 신용카드 사용
 	            if ($default['de_card_use']) {
 	                $multi_settle++;
-	                echo '<input type="radio" id="od_settle_card" name="od_settle_case" value="신용카드" '.$checked.'> <label for="od_settle_card" class="lb_icon card_icon">신용카드</label>'.PHP_EOL;
+	                echo '<input type="radio" id="od_settle_card" name="od_settle_case" value="신용카드" '.$checked.'> <label for="od_settle_card" class="lb_icon">신용카드</label>'.PHP_EOL;
 	                $checked = '';
 	            }
 				?>
@@ -733,12 +735,16 @@ if($is_kakaopay_use) {
                     }
                     $bank_account .= '</select>'.PHP_EOL;
                 }
-                echo '<div id="settle_bank" style="display:none">';
-                echo '<label for="od_bank_account" class="sound_only">입금할 계좌</label>';
+                echo '<ul id="settle_bank" style="display:none">';
+				echo '<li>';
+                echo '<label for="od_bank_account">은행선택</label>';
                 echo $bank_account;
-                echo '<br><label for="od_deposit_name">입금자명</label> ';
+				echo '</li>';
+				echo '<li>';
+                echo '<label for="od_deposit_name">입금자명</label> ';
                 echo '<input type="text" name="od_deposit_name" id="od_deposit_name" size="10" maxlength="20">';
-                echo '</div>';
+                echo '</li>';
+                echo '</ul>';
             }
 			
             if ($is_kakaopay_use || $default['de_bank_use'] || $default['de_vbank_use'] || $default['de_iche_use'] || $default['de_card_use'] || $default['de_hp_use'] || $default['de_easy_pay_use'] || $default['de_inicis_lpay_use'] ) {
