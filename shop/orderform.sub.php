@@ -553,44 +553,47 @@ if($is_kakaopay_use) {
 
 
         <!-- 포인트정보 입력 시작 { -->
-		<div id="">
-			<h2>포인트사용</h2>
-			<?php
-			$temp_point = 0;
-                // 회원이면서 포인트사용이면
-                if ($is_member && $config['cf_use_point'])
+		<?php
+		$temp_point = 0;
+            // 회원이면서 포인트사용이면
+            if ($is_member && $config['cf_use_point'])
+            {
+                // 포인트 결제 사용 포인트보다 회원의 포인트가 크다면
+                if ($member['mb_point'] >= $default['de_settle_min_point'])
                 {
-                    // 포인트 결제 사용 포인트보다 회원의 포인트가 크다면
-                    if ($member['mb_point'] >= $default['de_settle_min_point'])
-                    {
-                        $temp_point = (int)$default['de_settle_max_point'];
+                    $temp_point = (int)$default['de_settle_max_point'];
 
-                        if($temp_point > (int)$tot_sell_price)
-                            $temp_point = (int)$tot_sell_price;
+                    if($temp_point > (int)$tot_sell_price)
+                        $temp_point = (int)$tot_sell_price;
 
-                        if($temp_point > (int)$member['mb_point'])
-                            $temp_point = (int)$member['mb_point'];
+                    if($temp_point > (int)$member['mb_point'])
+                        $temp_point = (int)$member['mb_point'];
 
-                        $point_unit = (int)$default['de_settle_point_unit'];
-                        $temp_point = (int)((int)($temp_point / $point_unit) * $point_unit);
-                ?>
-                <div class="sod_frm_point">
-                    <div>
-                        <label for="od_temp_point">사용 포인트(<?php echo $point_unit; ?>점 단위)</label>
+                    $point_unit = (int)$default['de_settle_point_unit'];
+                    $temp_point = (int)((int)($temp_point / $point_unit) * $point_unit);
+            ?>
+            <div id="sod_point">
+				<h2>
+					<span class="point_tit">
+						포인트사용
+					<label for="od_temp_point">(<?php echo $point_unit; ?>점 단위)</label>
+					</span>
+                    <span class="point_ipt">
                         <input type="hidden" name="max_temp_point" value="<?php echo $temp_point; ?>">
-                        <input type="text" name="od_temp_point" value="0" id="od_temp_point"  size="7"> 점
-                    </div>
-                    <div id="sod_frm_pt">
-                        <span><strong>보유포인트</strong><?php echo display_point($member['mb_point']); ?></span>
-                        <span class="max_point_box"><strong>최대 사용 가능 포인트</strong><em id="use_max_point"><?php echo display_point($temp_point); ?></em></span>
-                    </div>
+                        <input type="text" name="od_temp_point" value="0" id="od_temp_point" size="7"> 점
+                    </span>
+                </h2>
+                <div id="sod_frm_pt">
+                    <strong>보유포인트</strong><span class="my_point_box"><?php echo display_point($member['mb_point']); ?></span>
+                    <strong>최대 사용 가능 포인트</strong><span class="max_point_box"><em id="use_max_point"><?php echo display_point($temp_point); ?></em></span>
                 </div>
-                <?php
-                    $multi_settle++;
-                    }
+            </div>
+            <?php
+                $multi_settle++;
                 }
-			?>
-		</div>
+            }
+		?>
+
 		<!-- } 포인트정보 입력 끝 -->
 		
 		<!-- 결제정보 입력 시작 { -->

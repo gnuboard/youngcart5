@@ -812,6 +812,24 @@ box-shadow:1px 2px 2px #eee}
 .sod_right .sod_info_option td .btn_frmline {padding:0 7px;border:1px solid #38b2b9;color:#38b2b9;background:#fff;height:23px;line-height:21px;margin:0}
 
 
+/* 주문서 작성  - 포인트사용 */
+#sod_point {clear:both;background:#fff;margin-top:10px;border:1px solid #e3e5e8}
+#sod_point h2 {font-size:1.167em;padding:15px;border-bottom:1px solid #e3e5e8}
+#sod_point h2:after {display:block;visibility:hidden;clear:both;content:''}
+
+#sod_point .point_tit {vertical-align:baseline;float:left;line-height:28px}
+#sod_point .point_tit label {vertical-align:baseline}
+#sod_point .point_ipt {float:right;display:inline-block;margin-left:35px;text-align:left;text-align:right;font-weight:normal}
+#sod_point .point_ipt:after {display:block;visibility:hidden;clear:both;content:''}
+#sod_point .point_ipt #od_temp_point {width:100px;height:30px;text-align:right;padding:0 5px;border:1px solid #d0d3db;border-radius:3px}
+
+#sod_frm_pt {padding:20px}
+#sod_frm_pt strong {display:inline-block;width:45%;color:#000;line-height:28px;text-align:left}
+#sod_frm_pt span {display:inline-block;width:55%;color:#000;text-align:right}
+#sod_frm_pt span:after {display:block;visibility:hidden;clear:both;content:''}
+#sod_frm_pt .max_point_box em {font-style:normal !important}
+
+
 /* 주문서 작성  - 결제수단 */
 #sod_frm_pay {position:relative;margin:10px 0 0;background:#fff;border:1px solid #e3e5e8}
 #sod_frm_pay h2 {font-size:1.167em;padding:15px;border-bottom:1px solid #e3e5e8}
@@ -866,15 +884,6 @@ box-shadow:1px 2px 2px #eee}
 #sod_frm_pay #sc_coupon_frm, #sod_frm_pay #od_coupon_frm {z-index:10000;position:absolute;top:0;right:0;width:500px;height:auto !important;height:500px;max-height:500px;border:1px solid #000;background:#fff;overflow-y:auto}
 #sod_frm_deli {position:relative;line-height:2em}
 
-.sod_frm_point {clear:both;padding:10px 0}
-.sod_frm_point div {background:#fff;margin-bottom:1px;padding:10px;text-align:left;text-align:right}
-.sod_frm_point div:after {display:block;visibility:hidden;clear:both;content:''}
-.sod_frm_point div label {float:left;line-height:30px}
-.sod_frm_point div span {display:block;font-size:0.92em}
-.sod_frm_point div span:after {display:block;visibility:hidden;clear:both;content:''}
-.sod_frm_point div strong {float:left;color:#666;font-weight:normal}
-.sod_frm_point .max_point_box em {font-style:normal !important}
-.sod_frm_point #od_temp_point {height:30px;text-align:right;padding:0 5px;border:1px solid #ccc}
 
 #sod_frm_escrow {margin:30px 0 0}
 #sod_frm #sod_frm_escrow h2 {margin:0;border:0}
