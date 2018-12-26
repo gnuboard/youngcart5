@@ -255,35 +255,40 @@ if($is_kakaopay_use) {
             <div class="tbl_frm01 tbl_wrap">
                 <table>
                 <tbody>
-                <tr>
+                <tr class="half_tr">
                     <th scope="row"><label for="od_name">이름<strong class="sound_only"> 필수</strong></label></th>
                     <td><input type="text" name="od_name" value="<?php echo get_text($member['mb_name']); ?>" id="od_name" required class="frm_input required" maxlength="20"></td>
                 </tr>
 
                 <?php if (!$is_member) { // 비회원이면 ?>
-                <tr>
-                    <th scope="row"><label for="od_pwd">비밀번호</label></th>
+                <tr class="half_tr">
+                    <th scope="row">
+                    	<label for="od_pwd">비밀번호</label>
+                    	<button type="button" class="tooltip_icon"><i class="fa fa-question-circle-o" aria-hidden="true"></i><span class="sound_only">설명보기</span></button>
+                        <span class="tooltip">영,숫자 3~20자 (주문서 조회시 필요)</span>
+                    </th>
                     <td>
-                        <span class="frm_info">영,숫자 3~20자 (주문서 조회시 필요)</span>
                         <input type="password" name="od_pwd" id="od_pwd" required class="frm_input required" maxlength="20">
                     </td>
                 </tr>
                 <?php } ?>
 
-                <tr>
+                <tr class="half_tr">
                     <th scope="row"><label for="od_tel">전화번호<strong class="sound_only"> 필수</strong></label></th>
                     <td><input type="text" name="od_tel" value="<?php echo get_text($member['mb_tel']); ?>" id="od_tel" required class="frm_input required" maxlength="20"></td>
                 </tr>
-                <tr>
+                <tr class="half_tr">
                     <th scope="row"><label for="od_hp">핸드폰</label></th>
                     <td><input type="text" name="od_hp" value="<?php echo get_text($member['mb_hp']); ?>" id="od_hp" class="frm_input" maxlength="20"></td>
                 </tr>
                 <tr>
                     <th scope="row">주소</th>
                     <td>
-                        <label for="od_zip" class="sound_only">우편번호<strong class="sound_only"> 필수</strong></label>
-                        <input type="text" name="od_zip" value="<?php echo $member['mb_zip1'].$member['mb_zip2']; ?>" id="od_zip" required class="frm_input required" size="8" maxlength="6" placeholder="우편번호">
-                        <button type="button" class="btn_address" onclick="win_zip('forderform', 'od_zip', 'od_addr1', 'od_addr2', 'od_addr3', 'od_addr_jibeon');">주소 검색</button><br>
+                    	<div class="addr">
+                        	<label for="od_zip" class="sound_only">우편번호<strong class="sound_only"> 필수</strong></label>
+                        	<input type="text" name="od_zip" value="<?php echo $member['mb_zip1'].$member['mb_zip2']; ?>" id="od_zip" required class="frm_input required" size="8" maxlength="6" placeholder="우편번호">
+                        	<button type="button" class="btn_address" onclick="win_zip('forderform', 'od_zip', 'od_addr1', 'od_addr2', 'od_addr3', 'od_addr_jibeon');">주소 검색</button><br>
+                        </div>
                         <input type="text" name="od_addr1" value="<?php echo get_text($member['mb_addr1']) ?>" id="od_addr1" required class="frm_input frm_address required" size="60" placeholder="기본주소">
                         <label for="od_addr1" class="sound_only">기본주소<strong class="sound_only"> 필수</strong></label><br>
                         <input type="text" name="od_addr2" value="<?php echo get_text($member['mb_addr2']) ?>" id="od_addr2" class="frm_input frm_address" size="60" placeholder="상세주소">
@@ -327,9 +332,7 @@ if($is_kakaopay_use) {
             <h2>받으시는 분</h2>
 
             <div class="tbl_frm01 tbl_wrap">
-                <table>
-                <tbody>
-                <?php
+            	<?php
                 if($is_member) {
                     // 배송지 이력
                     $addr_list = '';
@@ -375,40 +378,47 @@ if($is_kakaopay_use) {
                     $addr_list .= '<label for="ad_sel_addr_same">주문자와 동일</label>'.PHP_EOL;
                 }
                 ?>
-                <tr>
-                    <th scope="row">배송지선택</th>
-                    <td>
+                <div class="choice_place">
+                    <span class="choice_tit">배송지선택</span>
+                    <span>
                         <?php echo $addr_list; ?>
-                    </td>
-                </tr>
+                    </span>
+                </div>
+                
+                <table>
+                <tbody>
                 <?php if($is_member) { ?>
-                <tr>
+                <tr class="half_tr">
                     <th scope="row"><label for="ad_subject">배송지명</label></th>
                     <td>
                         <input type="text" name="ad_subject" id="ad_subject" class="frm_input" maxlength="20">
-                        <input type="checkbox" name="ad_default" id="ad_default" value="1">
-                        <label for="ad_default">기본배송지로 설정</label>
+                        <div class="ad_choice">
+	                        <input type="checkbox" name="ad_default" id="ad_default" value="1">
+	                        <label for="ad_default">기본배송지로 설정</label>
+                        </div>
                     </td>
                 </tr>
                 <?php } ?>
-                <tr>
+                <tr class="half_tr">
                     <th scope="row"><label for="od_b_name">이름<strong class="sound_only"> 필수</strong></label></th>
                     <td><input type="text" name="od_b_name" id="od_b_name" required class="frm_input required" maxlength="20"></td>
                 </tr>
-                <tr>
+                <tr class="half_tr">
                     <th scope="row"><label for="od_b_tel">전화번호<strong class="sound_only"> 필수</strong></label></th>
                     <td><input type="text" name="od_b_tel" id="od_b_tel" required class="frm_input required" maxlength="20"></td>
                 </tr>
-                <tr>
+                <tr class="half_tr">
                     <th scope="row"><label for="od_b_hp">핸드폰</label></th>
                     <td><input type="text" name="od_b_hp" id="od_b_hp" class="frm_input" maxlength="20"></td>
                 </tr>
                 <tr>
                     <th scope="row">주소</th>
                     <td id="sod_frm_addr">
-                        <label for="od_b_zip" class="sound_only">우편번호<strong class="sound_only"> 필수</strong></label>
-                        <input type="text" name="od_b_zip" id="od_b_zip" required class="frm_input required" size="8" maxlength="6" placeholder="우편번호">
-                        <button type="button" class="btn_address" onclick="win_zip('forderform', 'od_b_zip', 'od_b_addr1', 'od_b_addr2', 'od_b_addr3', 'od_b_addr_jibeon');">주소 검색</button><br>
+                    	<div class="addr">
+                        	<label for="od_b_zip" class="sound_only">우편번호<strong class="sound_only"> 필수</strong></label>
+                        	<input type="text" name="od_b_zip" id="od_b_zip" required class="frm_input required" size="8" maxlength="6" placeholder="우편번호">
+                        	<button type="button" class="btn_address" onclick="win_zip('forderform', 'od_b_zip', 'od_b_addr1', 'od_b_addr2', 'od_b_addr3', 'od_b_addr_jibeon');">주소 검색</button><br>
+                        </div>
                         <input type="text" name="od_b_addr1" id="od_b_addr1" required class="frm_input frm_address required" size="60" placeholder="기본주소">
                         <label for="od_b_addr1" class="sound_only">기본주소<strong> 필수</strong></label><br>
                         <input type="text" name="od_b_addr2" id="od_b_addr2" class="frm_input frm_address" size="60" placeholder="상세주소">
@@ -1602,4 +1612,13 @@ $(function(){
     $("#od_hope_date").datepicker({ changeMonth: true, changeYear: true, dateFormat: "yy-mm-dd", showButtonPanel: true, yearRange: "c-99:c+99", minDate: "+<?php echo (int)$default['de_hope_date_after']; ?>d;", maxDate: "+<?php echo (int)$default['de_hope_date_after'] + 6; ?>d;" });
 });
 <?php } ?>
+
+$(function(){
+	//tooltip
+    $(".tooltip_icon").click(function(){
+        $(this).next(".tooltip").fadeIn(400);
+    }).mouseout(function(){
+        $(this).next(".tooltip").fadeOut();
+    });
+});
 </script>
