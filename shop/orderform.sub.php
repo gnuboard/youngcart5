@@ -806,7 +806,11 @@ $(function() {
             }
         );
     });
-
+	
+	$(document).on("click", "#cp_close", function() {
+        $(".od_coupon, .od_coupon_wrap").remove();
+    });
+	
     $(document).on("click", ".cp_apply", function() {
         var $el = $(this).closest("tr");
         var cp_id = $el.find("input[name='f_cp_id[]']").val();
