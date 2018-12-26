@@ -526,11 +526,12 @@ if($is_kakaopay_use) {
 	                <?php } ?>
 	                <?php if($sc_cnt > 0) { ?>
 	                <li>
-	                    <span class="sod_ifop_tit">배송비할인</span>
-	                    <div class="sod_ifop_t">
-	                        <strong id="sc_cp_price">0</strong>원
+	                    <span class="sod_ifop_tit">배송비할인
 	                        <input type="hidden" name="sc_cp_id" value="">
 	                        <button type="button" id="sc_coupon_btn" class="btn_frmline">쿠폰적용</button>
+	                    </span>
+	                    <div class="sod_ifop_t">
+	                    	<strong id="sc_cp_price">0</strong>원
 	                    </div>
 	                </li>
 	                <?php } ?>

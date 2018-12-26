@@ -676,7 +676,7 @@ background:url('img/select_arrow.png') no-repeat 96% 50%/* 화살표 아이콘 �
 .sit_qa_dl dt {position:absolute;font-size:0;line-height:0;content:""}
 .sit_qa_dl dd {display:inline-block;margin-left:10px}
 .sit_qaa_done {background:#ff9000;color:#fff;height:25px;line-height:25px;display:inline-block;padding:0 8px;margin-right:10px;font-size:12px;font-weight:normal}
-.sit_qaa_yet {background:#f6bb42;color:#fff;height:30px;margin-right:10px;border-radius:3px;line-height:30px;display:inline-block;font-size:12px;padding:0 8px;font-weight:normal}
+.sit_qaa_yet {display:inline-block;background:#f6bb42;color:#fff;height:30px;margin-right:10px;border-radius:3px;line-height:30px;font-size:12px;padding:0 8px;font-weight:normal}
 
 .sit_qa_con {display:none;clear:both}
 .sit_qa_p {margin:10px 0;background:#f3f3f3;line-height:1.5em}
@@ -778,6 +778,8 @@ background:url('img/select_arrow.png') no-repeat 96% 50%/* 화살표 아이콘 �
 #sqa ol {margin:0;padding:0;list-style:none}
 #sqa li {position:relative;padding:15px 20px 15px 15px;border-bottom:1px solid #f0f0f0;background:#fff}
 #sqa li:after {display:block;visibility:hidden;clear:both;content:""}
+#sqa li .sit_qaa_yet {display:inline-block;position:absolute;right:20px;top:20px;background:#f6bb42;color:#fff;margin-right:0;height:30px;border-radius:3px;line-height:30px;font-size:12px;padding:0 8px;font-weight:normal}
+
 
 .sqa_img {float:left;margin:0 10px 0 0}
 .sqa_img span {position:absolute;font-size:0;line-height:0;overflow:hidden}

@@ -682,7 +682,7 @@ box-shadow:0 1px 10px rgba(0,0,0,.1)}
 #sod_bsk #sod_bsk_tot li:first-child {border:0}
 #sod_bsk #sod_bsk_tot li span {display:inline-block;float:left}
 #sod_bsk #sod_bsk_tot .sod_bsk_cnt {width:33.335%;background:#212a37}
-#sod_bsk_act {text-align:center}
+#sod_bsk_act {text-align:center;margin-bottom:30px}
 #sod_bsk_act .btn_submit {height:50px;padding:0 10px;width:160px;font-weight:bold;font-size:1.25em}
 #sod_bsk_act .btn01 {height:50px;line-height:50px;padding:0 10px;width:160px;font-weight:bold;font-size:1.25em}
 #sod_bsk_act p {margin:0 0 10px}
@@ -801,13 +801,16 @@ margin-top:-150px;border:1px solid #dde7e9;border-radius:3px;background:#fff;ove
 .sod_right .sod_info_option {clear:both;border-top:1px solid #e7ebf1}
 .sod_right .sod_info_option h2 {position:absolute;font-size:0;line-height:0;overflow:hidden}
 .sod_right .sod_info_option ul {padding:10px 15px;background:#fff}
+.sod_right .sod_info_option li {margin-bottom:5px}
 .sod_right .sod_info_option li:after {display:block;visibility:hidden;clear:both;content:""}
 .sod_right .sod_info_option .sod_ifop_tit {display:inline-block;float:left;width:50%;line-height:28px;text-align:left;font-weight:bold}
 .sod_right .sod_info_option .sod_ifop_tit .btn_frmline {width:auto;height:30px;color:#3a8afd;background:#fff;border:1px solid #d4d6db}
-.sod_right .sod_info_option .sod_ifop_t {display:inline-block;float:left;width:50%;line-height:28px;text-align:right}
-.sod_right .sod_info_option td {text-align:right;padding:10px;height:30px}
-.sod_right .sod_info_option td .cp_cancel {margin:0 0 0 2px}
-.sod_right .sod_info_option td .btn_frmline {padding:0 7px;border:1px solid #38b2b9;color:#38b2b9;background:#fff;height:23px;line-height:21px;margin:0}
+.sod_right .sod_info_option .sod_ifop_tit .od_coupon {position:relative;width:308px;margin:10px 0;background:#fff;z-index:999;border:1px solid #e2e4e7}
+.sod_right .sod_info_option .sod_ifop_tit .od_coupon>td {text-align:left}
+.sod_right .sod_info_option>td, .sod_right .sod_info_option .sod_ifop_t {display:inline-block;float:left;width:50%;line-height:28px;text-align:right}
+.sod_right .sod_info_option>td {text-align:right;padding:10px;height:30px}
+.sod_right .sod_info_option>td .cp_cancel {margin:0 0 0 2px}
+.sod_right .sod_info_option>td .btn_frmline {padding:0 7px;border:1px solid #38b2b9;color:#38b2b9;background:#fff;height:23px;line-height:21px;margin:0}
 
 
 /* 주문서 작성  - 포인트사용 */
@@ -881,7 +884,6 @@ margin-top:-150px;border:1px solid #dde7e9;border-radius:3px;background:#fff;ove
 
 #sod_frm_pay #sc_coupon_frm, #sod_frm_pay #od_coupon_frm {z-index:10000;position:absolute;top:0;right:0;width:500px;height:auto !important;height:500px;max-height:500px;border:1px solid #000;background:#fff;overflow-y:auto}
 #sod_frm_deli {position:relative;line-height:2em}
-
 
 #sod_frm_escrow {margin:30px 0 0}
 #sod_frm #sod_frm_escrow h2 {margin:0;border:0}
