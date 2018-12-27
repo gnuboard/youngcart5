@@ -666,7 +666,6 @@ box-shadow:0 1px 10px rgba(0,0,0,.1)}
 .sod_opt ul {display:inline-block;margin:0;padding:0;list-style:none}
 .sod_opt li {color:#000;padding:3px 0;line-height:1.3em}
 .sod_opt li:before {content:"옵션";display:inline-block;margin:1px 5px 2px 0;padding:3px;border-radius:3px;background:#e2eaf6;line-height:1em;color:#3a8afd}
-.sod_option_btn {position:relative}
 .sod_option_btn .mod_options {height:30px;margin:5px 0 0;padding:0 5px;border:1px solid #d4d6db;color:#606060;background:#fff;border-radius:3px}
 .cp_btn {padding:0 10px;border:1px solid #d4d6db;color:#3a8afd;background:#fff;height:26px;margin:10px 0 0;border-radius:3px}
 .cp_cancel {padding:0 10px;border:1px solid #aaa;color:#666;background:#fff;height:23px;margin:10px 0 0 2px}
@@ -688,7 +687,7 @@ box-shadow:0 1px 10px rgba(0,0,0,.1)}
 #sod_bsk_act p {margin:0 0 10px}
 
 /*장바구니 선택사항수정*/
-#sod_bsk_list #mod_option_frm {z-index:10000;position:absolute;top:50%;left:50%;width:540px;height:auto !important;height:500px;max-height:500px;margin-left:-125px;
+#sod_bsk_list #mod_option_frm {z-index:10000;position:fixed;top:50%;left:50%;width:540px;height:auto !important;height:500px;max-height:500px;margin-left:-280px;
 margin-top:-150px;border:1px solid #dde7e9;border-radius:3px;background:#fff;overflow-y:auto;overflow-x:none}
 #sod_bsk_list .mod_option_bg {content:"";position:fixed;left:0;top:0;width:100%;height:100%;background:rgba(0,0,0,0.1);display:block;z-index:9999}
 #mod_option_frm h2 {border-bottom:1px solid #e8e8e8;padding:0 20px;line-height:50px;font-size:1.25em}
