@@ -539,7 +539,7 @@ background:url('img/select_arrow.png') no-repeat 96% 50%/* 화살표 아이콘 �
 .sit_btn_buy:hover {background:#2176f1}
 .sit_btn_cart {background:#fff;border-radius:3px;border:1px solid #98a3b3;color:#000}
 .sit_btn_cart:hover {background:#f3f3f3}
-.sit_btn_alm {display:inline-block;width:215px;float:left;margin-right:5px;height:50px;line-height:50px;margin-bottom:10px;font-weight:bold;font-size:1.25em;background:#d50c0c;color:#fff;border:0;text-align:center}
+#sit_btn_alm {float:left;display:inline-block;width:186px;height:50px;margin-left:5px;line-height:50px;margin-bottom:10px;font-weight:bold;font-size:1.25em;background:#d50c0c;border-radius:3px;color:#fff;border:0;text-align:center}
 .sit_btn_wish {float:left;display:inline-block;width:65px;height:50px;margin-bottom:10px;line-height:50px;color:#8c9195;font-size:1.6em;border:1px solid #98a3b3;text-align:center;border-radius:3px;font-weight:bold}
 .sit_btn_wish:hover {color:red}
 
