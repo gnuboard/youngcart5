@@ -27,13 +27,12 @@ include_once('./_head.php');
 <div id="sod_ws">
 
     <form name="fwishlist" method="post" action="./cartupdate.php">
-    <input type="hidden" name="act"       value="multi">
+    <input type="hidden" name="act" value="multi">
     <input type="hidden" name="sw_direct" value="">
-    <input type="hidden" name="prog"      value="wish">
+    <input type="hidden" name="prog" value="wish">
 
     <div class="list_02">
         <ul>
-
         <?php
         $sql  = " select a.wi_id, a.wi_time, b.* from {$g5['g5_shop_wish_table']} a left join {$g5['g5_shop_item_table']} b on ( a.it_id = b.it_id ) ";
         $sql .= " where a.mb_id = '{$member['mb_id']}' order by a.wi_id desc ";
@@ -50,13 +49,13 @@ include_once('./_head.php');
 
             if ($row['it_tel_inq']) $out_cd = 'tel_inq';
 
-            $image = get_it_image($row['it_id'],230, 230);
+            $image = get_it_image($row['it_id'],225, 225);
         ?>
 
         <li>
             <div class="sod_ws_img"><a href="./item.php?it_id=<?php echo $row['it_id']; ?>"><?php echo $image; ?></a></div>
             <div class="wish_info">
-                 <div class="wish_chk">
+				<div class="wish_chk">
                     <?php
                     // 품절검사
                     if(is_soldout($row['it_id']))
@@ -71,13 +70,12 @@ include_once('./_head.php');
                     <input type="hidden" name="io_type[<?php echo $row['it_id']; ?>][0]" value="0">
                     <input type="hidden" name="io_id[<?php echo $row['it_id']; ?>][0]" value="">
                     <input type="hidden" name="io_value[<?php echo $row['it_id']; ?>][0]" value="<?php echo $row['it_name']; ?>">
-                    <input type="hidden"   name="ct_qty[<?php echo $row['it_id']; ?>][0]" value="1">
+                    <input type="hidden" name="ct_qty[<?php echo $row['it_id']; ?>][0]" value="1">
                 </div>
                 <a href="./item.php?it_id=<?php echo $row['it_id']; ?>" class="info_link"><?php echo stripslashes($row['it_name']); ?></a>
                 <div class="info_date"><?php echo $row['wi_time']; ?></div>
                 <a href="./wishupdate.php?w=d&amp;wi_id=<?php echo $row['wi_id']; ?>" class="wish_del"><i class="fa fa-trash" aria-hidden="true"></i><span class="sound_only">삭제</span></a>
            </div>
-
         </li>
         <?php
         }
@@ -89,14 +87,14 @@ include_once('./_head.php');
     </div>
 
     <div id="sod_ws_act">
-        <button type="submit" class="btn01" onclick="return fwishlist_check(document.fwishlist,'');"><i class="fa fa-shopping-cart" aria-hidden="true"></i> 장바구니 담기</button>
-        <button type="submit" class="btn02" onclick="return fwishlist_check(document.fwishlist,'direct_buy');"><i class="fa fa-credit-card" aria-hidden="true"></i> 주문하기</button>
+        <button type="submit" class="btn01" onclick="return fwishlist_check(document.fwishlist,'');">장바구니 담기</button>
+        <button type="submit" class="btn02" onclick="return fwishlist_check(document.fwishlist,'direct_buy');">주문하기</button>
     </div>
     </form>
 </div>
 
 <script>
-<!--
+
     function out_cd_check(fld, out_cd)
     {
         if (out_cd == 'no'){
@@ -140,7 +138,7 @@ include_once('./_head.php');
 
         return true;
     }
-//-->
+
 </script>
 <!-- } 위시리스트 끝 -->
 

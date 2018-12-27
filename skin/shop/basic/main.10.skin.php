@@ -7,7 +7,14 @@ add_stylesheet('<link rel="stylesheet" href="'.G5_SHOP_SKIN_URL.'/style.css">', 
 
 <!-- 상품진열 10 시작 { -->
 <?php
-for ($i=1; $row=sql_fetch_array($result); $i++) {
+$i=0;
+foreach((array) $list as $row){
+
+    if( empty($row) ) continue;
+    $i++;
+
+    $item_link_href = shop_item_url($row['it_id']);
+
     if ($this->list_mod >= 2) { // 1줄 이미지 : 2개 이상
         if ($i%$this->list_mod == 0) $sct_last = 'sct_last'; // 줄 마지막
         else if ($i%$this->list_mod == 1) $sct_last = 'sct_clear'; // 줄 첫번째
@@ -29,7 +36,7 @@ for ($i=1; $row=sql_fetch_array($result); $i++) {
     echo "<div class=\"sct_img\">\n";
 
     if ($this->href) {
-        echo "<a href=\"{$this->href}{$row['it_id']}\">\n";
+        echo "<a href=\"{$item_link_href}\">\n";
     }
 
     if ($this->view_it_img) {
@@ -43,7 +50,7 @@ for ($i=1; $row=sql_fetch_array($result); $i++) {
 
     if ($this->view_sns) {
         $sns_top = $this->img_height + 10;
-        $sns_url  = G5_SHOP_URL.'/item.php?it_id='.$row['it_id'];
+        $sns_url  = $item_link_href;
         $sns_title = get_text($row['it_name']).' | '.get_text($config['cf_title']);
         echo "<div class=\"sct_sns\">";
         echo get_sns_share_link('facebook', $sns_url, $sns_title, G5_SHOP_SKIN_URL.'/img/facebook.png');
@@ -59,7 +66,7 @@ for ($i=1; $row=sql_fetch_array($result); $i++) {
     }
 
     if ($this->href) {
-        echo "<div class=\"sct_txt\"><a href=\"{$this->href}{$row['it_id']}\">\n";
+        echo "<div class=\"sct_txt\"><a href=\"{$item_link_href}\">\n";
     }
 
     if ($this->view_it_name) {

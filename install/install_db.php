@@ -13,6 +13,11 @@ include_once ('../config.php');
 include_once ('../lib/common.lib.php');
 include_once('./install.function.php');    // 인스톨 과정 함수 모음
 
+include_once('../lib/hook.lib.php');    // hook 함수 파일
+include_once('../lib/get_data.lib.php');    
+include_once('../lib/uri.lib.php');    // URL 함수 파일
+include_once('../lib/cache.lib.php');
+
 $title = G5_VERSION." 설치 완료 3/3";
 include_once ('./install.inc.php');
 
@@ -62,7 +67,7 @@ if (!$select_db) {
 }
 
 $mysql_set_mode = 'false';
-sql_set_charset('utf8', $dblink);
+sql_set_charset(G5_DB_CHARSET, $dblink);
 $result = sql_query(" SELECT @@sql_mode as mode ", true, $dblink);
 $row = sql_fetch_array($result);
 if($row['mode']) {
@@ -92,7 +97,10 @@ if($g5_install || !$result) {
     $f = explode(';', $file);
     for ($i=0; $i<count($f); $i++) {
         if (trim($f[$i]) == '') continue;
-        sql_query($f[$i], true, $dblink);
+
+        $sql = get_db_create_replace($f[$i]);
+
+        sql_query($sql, true, $dblink);
     }
 }
 
@@ -105,7 +113,10 @@ if($g5_shop_install) {
     $f = explode(';', $file);
     for ($i=0; $i<count($f); $i++) {
         if (trim($f[$i]) == '') continue;
-        sql_query($f[$i], true, $dblink);
+
+        $sql = get_db_create_replace($f[$i]);
+
+        sql_query($sql, true, $dblink);
     }
 }
 // 테이블 생성 ------------------------------------
@@ -303,6 +314,8 @@ if($g5_install || !$result) {
 
         // 게시판 테이블 생성
         $file = file("../adm/sql_write.sql");
+        $file = get_db_create_replace($file);
+
         $sql = implode($file, "\n");
 
         $create_table = $table_prefix.'write_' . $tmp_bo_table[$i];
