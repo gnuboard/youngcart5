@@ -1,10 +1,9 @@
 <?php
 $tv_idx = get_session("ss_tv_idx");
 
-$tv_div['top'] = 0;
 $tv_div['img_width'] = 100;
 $tv_div['img_height'] = 100;
-$tv_div['img_length'] = 6; // 한번에 보여줄 이미지 수
+$tv_div['img_length'] = 5; // 한번에 보여줄 이미지 수
 
 // add_stylesheet('css 구문', 출력순서); 숫자가 작을 수록 먼저 출력됨
 add_stylesheet('<link rel="stylesheet" href="'.G5_MSHOP_SKIN_URL.'/style.css">', 0);
@@ -13,7 +12,8 @@ add_stylesheet('<link rel="stylesheet" href="'.G5_MSHOP_SKIN_URL.'/style.css">',
 <!-- 오늘 본 상품 시작 { -->
 <div id="stv" class="op_area">
         <h2>
-            오늘 본 상품
+            오늘 본 상품<span id="stv_pg"></span>
+
         </h2>
 
         <?php if ($tv_idx) { // 오늘 본 상품이 1개라도 있을 때 ?>
@@ -48,7 +48,6 @@ add_stylesheet('<link rel="stylesheet" href="'.G5_MSHOP_SKIN_URL.'/style.css">',
     if ($tv_tot_count > 0) echo '</ul>'.PHP_EOL;
     ?>
         <div id="stv_btn"></div>
-        <span id="stv_pg"></span>
 
         <script>
         $(function() {
@@ -56,7 +55,7 @@ add_stylesheet('<link rel="stylesheet" href="'.G5_MSHOP_SKIN_URL.'/style.css">',
             var itemShow = <?php echo $tv_div['img_length']; ?>; // 한번에 보여줄 아이템 수량
             if (itemQty > itemShow)
             {
-                $('#stv_btn').append('<button type="button" id="up"><i class="fa fa-angle-left" aria-hidden="true"></i> 이전</button><button type="button" id="down">다음 <i class="fa fa-angle-right" aria-hidden="true"></i></button>');
+                $('#stv_btn').append('<button type="button" id="up"><i class="fa fa-chevron-left" aria-hidden="true"></i><span class="sound_only">이전</span></button><button type="button" id="down"><span class="sound_only">다음</span><i class="fa fa-chevron-right" aria-hidden="true"></i></button>');
             }
             var Flag = 1; // 페이지
             var EOFlag = parseInt(<?php echo $i-1; ?>/itemShow); // 전체 리스트를 3(한 번에 보여줄 값)으로 나눠 페이지 최댓값을 구하고
