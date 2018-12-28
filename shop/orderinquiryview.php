@@ -57,9 +57,7 @@ if($od['od_pg'] == 'lg') {
 
 <!-- 주문상세내역 시작 { -->
 <div id="sod_fin">
-
     <div id="sod_fin_no">주문번호 <strong><?php echo $od_id; ?></strong></div>
-
     <section id="sod_fin_list">
         <h2>주문하신 상품</h2>
 
@@ -74,15 +72,17 @@ if($od['od_pg'] == 'lg') {
                     order by ct_id ";
         $result = sql_query($sql);
         ?>
+        
         <div class="tbl_head03 tbl_wrap">
             <table>
             <thead>
             <tr>
-                <th scope="col" rowspan="2">이미지</th>
-                <th scope="col" colspan="7" id="th_itname">상품명</th>
+                <!-- <th scope="col" rowspan="2">이미지</th> 
+                <th scope="col" colspan="7" id="th_itname">상품명</th>-->
             </tr>
             <tr class="th_line">
-                <th scope="col" id="th_itopt">옵션명</th>
+            	<th scope="col" id="th_itname">상품명</th>
+                <!-- <th scope="col" id="th_itopt">옵션명</th> -->
                 <th scope="col" id="th_itqty">수량</th>
                 <th scope="col" id="th_itprice">판매가</th>
                 <th scope="col" id="th_itsum">소계</th>
@@ -146,8 +146,9 @@ if($od['od_pg'] == 'lg') {
                     if($k == 0) {
             ?>
             <tr>
-                <td rowspan="<?php echo $rowspan; ?>" class="td_imgsmall"><?php echo $image; ?></td>
+                <!-- <td rowspan="<?php echo $rowspan; ?>" class="td_imgsmall"><?php echo $image; ?></td>
                 <td headers="th_itname" colspan="7" class="td_bdno"><a href="./item.php?it_id=<?php echo $row['it_id']; ?>"><?php echo $row['it_name']; ?></a></td>
+            	-->
             </tr>
             <?php } ?>
             <tr>
@@ -195,7 +196,6 @@ if($od['od_pg'] == 'lg') {
                 <button type="button" id="sod_sts_explan_close" class="btn_frmline">상태설명닫기</button>
             </div>
         </div>
-    
     </section>
     <div class="sod_left">
         <h2>결제/배송 정보</h2>

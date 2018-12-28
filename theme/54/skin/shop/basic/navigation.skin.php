@@ -27,12 +27,27 @@ else
     $navigation = $g5['title'];
 
 //if ($it_id) $navigation .= " > $it[it_name]";
-
 // add_stylesheet('css 구문', 출력순서); 숫자가 작을 수록 먼저 출력됨
 add_stylesheet('<link rel="stylesheet" href="'.G5_SHOP_CSS_URL.'/style.css">', 0);
 ?>
 
-<div id="sct_location">
+<!-- <div id="sct_location">
     <a href='<?php echo G5_SHOP_URL; ?>/' class="sct_bg">HOME</a>
     <?php echo $navigation; ?>
+</div> -->
+
+<div id="sct_location">
+    <a href='<?php echo G5_SHOP_URL; ?>/' class="go_home"><span class="sound_only">메인으로</span><i class="fa fa-home" aria-hidden="true"></i></a>
+    <i class="fa fa-angle-right" aria-hidden="true"></i>
+    <select>
+    	<option>카테고리<option>
+    </select>
+    <i class="fa fa-angle-right" aria-hidden="true"></i>
+    <select>
+    	<option>대분류<option>
+    </select>
+    <i class="fa fa-angle-right" aria-hidden="true"></i>
+    <select>
+    	<option>소분류<option>
+    </select>
 </div>
