@@ -267,17 +267,16 @@
 .sct_pv .sct_li {position:relative;float:left;margin:0 15px 15px 0}
 .sct_pv .sct_last {margin:0 0 15px !important}
 .sct_pv .sct_clear {clear:both}
-.sct_pv .sct_a {display:inline-block;position:relative;text-decoration:none}
+.sct_pv .sct_a {display:inline-block;position:relative;text-decoration:none;font-size:1.1em}
 .sct_pv .sct_a:focus, .sct_pv .sct_a:hover {text-decoration:none}
 .sct_pv .sct_img {margin:0 0 10px}
 .sct_pv .sct_txt {margin:0 0 5px}
 .sct_pv .sct_icon {margin:0 0 10px}
 .sct_pv .sct_id {display:block;margin:0 0 5px}
 .sct_pv .sct_basic {margin:0 0 10px}
-.sct_pv .sct_cost {display:block;margin:0 0 10px;font-weight:bold}
+.sct_pv .sct_cost {display:block;margin:5px 0 10px;font-size:1.25em;font-weight:bold}
 .sct_pv .sct_cost strike {display:block;margin:0 0 5px;color:#999;font-weight:normal}
 .sct_pv .sct_sns {}
-
 
 /* 메인 상품 목록 스킨 10 */
 .smt_10 {margin:0 -5px}
@@ -390,16 +389,17 @@
 .sct_admin a {}
 
 /* 상품 목록 현재 위치 */
-#sct_location {padding:12px 0}
+#sct_location {display:inline-block;float:right;padding:12px 0}
 #sct_location .go_home {display:inline-block;font-size:1.4em;color:#a2a2a2;line-height:26px;text-decoration:none;vertical-align:bottom}
 #sct_location i {vertical-align:middle;font-size:1.2em;color:#a2a2a2;display:inline-block;margin:0 5px}
 #sct_location select {border:1px solid #d3d3d3;height:26px;padding:0 5px}
+.view_location {float:left !important}
 
 .sct_here {font-weight:bold}
 .sct_bg {padding-right:15px !important;background:url('img/sct_bg_toright.gif') right 50% no-repeat}
 
 /* 상품 목록 카테고리 목록 */
-.sct_ct {margin:10px 0 20px;background:#fff;border:1px solid #d3d3d3;border-top:2px solid #000;padding:10px}
+.sct_ct {clear:both;margin:10px 0 20px;background:#fff;border:1px solid #d3d3d3;border-top:2px solid #000;padding:10px}
 .sct_ct h2 {position:absolute;font-size:0;line-height:0;overflow:hidden}
 .sct_ct ul:after {display:block;visibility:hidden;clear:both;content:""}
 .sct_ct a {text-decoration:none}
@@ -417,7 +417,7 @@
 #sct_ct_3 li {float:left;margin:0 10px 10px 0;width:120px}
 
 /* 상품 정렬 리스트 스타일 선택 공통 */
-#sct_sortlst {background:#fff;border:1px solid #e3e5e8;zoom:1}
+#sct_sortlst {clear:both;background:#fff;border:1px solid #e3e5e8;zoom:1}
 #sct_sortlst:after {display:block;visibility:hidden;clear:both;content:""}
 
 /* 상품 정렬 */
@@ -447,7 +447,7 @@
 .sit_empty {padding:60px 0;text-align:center}
 
 /* 상품 상세보기 - 개요 */
-#sit_ov_from {background:#fff;border-bottom:1px solid #e3e3e3}
+#sit_ov_from {background:#fff;border-bottom:1px solid #e3e3e3;clear:both}
 #sit_ov_wrap {width:1200px;margin:0 auto;padding:45px 45px 0;border-top:1px solid #e3e3e3}
 #sit_ov_wrap:after {display:block;visibility:hidden;clear:both;content:""}
 

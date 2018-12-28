@@ -175,7 +175,7 @@ box-shadow:0 2px 5px rgba(0,0,0,0.2)}
 /* 중간 레이아웃 */
 #wrapper {z-index:5;margin:0 auto;width:1200px;position:relative;zoom:1}
 #wrapper:after {display:block;visibility:hidden;clear:both;content:""}
-#wrapper_title {padding:30px 0;font-size:2em;font-weight:bold}
+#wrapper_title {padding:20px 0;font-size:2em;font-weight:bold}
 
 .lt_wr {width:49%}
 .lt_wr:nth-child(2n+1) {clear:both}
@@ -323,26 +323,10 @@ button.btn_cancel {display:inline-block;background:#969696;color:#fff;text-decor
 a.btn_frmline, button.btn_frmline {display:inline-block;width:128px;padding:0 5px;height:40px;border:0;background:#434a54;border-radius:3px;color:#fff;text-decoration:none;vertical-align:top} /* 우편번호검색버튼 등 */
 a.btn_frmline {}
 button.btn_frmline {font-size:1em}
-/*.btn_submit {background:#d50c0c;color:#fff;border:0}
-.btn_submit:hover {background:#fd0f0f}
-.btn_address {background:#70aff2;border:1px solid #3476be;height:40px;color:#fff;padding:0 10px;font-size:1.083em;font-weight:bold}
-fieldset .btn_submit {padding:0 7px;height:24px;line-height:1em}
-a.btn_cancel {display:inline-block;padding:7px;border:1px solid #ccc;background:#fafafa;color:#000;text-decoration:none;vertical-align:middle}
-button.btn_cancel {display:inline-block;padding:7px;border:1px solid #ccc;background:#fafafa;color:#000;vertical-align:top;text-decoration:none}
-a.btn_frmline, button.btn_frmline {display:inline-block;padding:0 10px;height:30px;border:1px solid #3476be;color:#3476be;background:#fff;letter-spacing:-0.1em;text-decoration:none;vertical-align:middle} /* 우편번호검색버튼 등 */
 a.btn_frmline {line-height:24px}
-button.btn_frmline {font-size:1em}*/
+button.btn_frmline {font-size:1em}
 
 /* 게시판용 버튼 */
-/*a.btn_b01,.btn_b01 {display:inline-block;background:#4c4f6f;color:#fff;text-decoration:none;vertical-align:middle}
-.btn_b01:hover, .btn_b01:hover {background:#54598c}
-a.btn_b02,.btn_b02 {display:inline-block;background:#828ce8;padding:0 10px;color:#fff;text-decoration:none;border:0;vertical-align:middle}
-a.btn_b02:hover, .btn_b02:hover {background:#656eca}
-a.btn_b03, .btn_b03 {display:inline-block;background:#none;border:1px solid #b9bdd3;color:#646982;background:none;text-decoration:none;vertical-align:middle}
-a.btn_b03:hover, .btn_b03:hover {background:#ebedf6}
-a.btn_admin,.btn_admin {display:inline-block;background:#d13f4a;color:#fff;text-decoration:none;vertical-align:middle;padding:10px} /* 관리자 전용 버튼 */
-/*.btn_admin:hover, a.btn_admin:hover {background:#ff3746}*/
-
 a.btn_b01,.btn_b01 {display:inline-block;color:#bababa;text-decoration:none;vertical-align:middle;border:0;background:transparent}
 .btn_b01:hover, .btn_b01:hover {color:#000}
 a.btn_b02,.btn_b02 {display:inline-block;background:#253dbe;padding:0 10px;color:#fff;text-decoration:none;border:0;vertical-align:middle}
@@ -491,25 +475,6 @@ box-shadow:inset 0 1px 1px rgba(0, 0, 0, .075);
 .text_right {text-align:right !important}
 
 /* 새창 기본 스타일 */
-/*.new_win {position:relative}
-.new_win #win_title {font-size:1.25em;height:50px;line-height:30px;padding:10px 20px;background:#333;color:#fff}
-.new_win #win_title .sv {font-size:0.75em;line-height:1.2em}
-.new_win .win_ul {border-right:1px solid #dfe6e7}
-.new_win .win_ul:after {display:block;visibility:hidden;clear:both;content:""}
-.new_win .win_ul li {float:left;background:#f3f7f7;width:33.333%;text-align:center;border-left:1px solid #dfe6e7;border-bottom:1px solid #dfe6e7;border-top:1px solid #dfe6e7}
-.new_win .win_ul li a {display:block;padding:10px 0}
-.new_win .win_ul .selected {background:#fff;border-bottom-color:#fff;border-top-color:#ae99da}
-.new_win .win_ul .selected a {color:#9781c5}
-.new_win .win_desc {margin:5px 0;font-size:0.92em;color:#3598db}
-.new_win .frm_info {font-size:0.92em;color:#3598db}
-.new_win .win_total {text-align:right;margin:10px 0}
-.new_win .win_total span {display:inline-block;padding:0 5px;color:#777;line-height:26px;border:1px solid #ddd;border-radius:3px;font-size:0.92em}
-.new_win .new_win_con {margin:20px}
-.new_win .new_win_con:after {display:block;visibility:hidden;clear:both;content:""}
-.new_win .btn_confirm:after {display:block;visibility:hidden;clear:both;content:""}
-.new_win .btn_close {position:absolute;top:0;right:0;height:50px;width:50px;background:url('../img/close_btn.gif') no-repeat 50% 50%;border:0;text-indent:-999px;overflow:hidden}
-.new_win .btn_submit {padding:0 20px;height:40px;border-radius:3px;font-weight:bold;font-size:1.083em;float:right}
-.new_win .win_btn {margin:10px 0}*/
 .new_win {position:relative;background:#fff}
 .new_win .tbl_wrap {margin:0 20px}
 .new_win #win_title {font-size:1.3em;height:50px;line-height:30px;padding:10px 20px;background:#fff;color:#000;-webkit-box-shadow:0 1px 10px rgba(0,0,0,.1);
@@ -657,7 +622,7 @@ box-shadow:0 1px 10px rgba(0,0,0,.1)}
 
 
 /* 장바구니 주문서 공통 */
-.od_prd_list .td_chk {/*position:absolute;top:25px;left:0*/}
+.od_prd_list .td_chk {}
 .od_prd_list .td_prd {border-left:0;position:relative;padding-left:120px;min-height:100px}
 .od_prd_list .td_prd .sod_img {position:absolute;top:25px;left:20px}
 .od_prd_list .td_prd .sod_name {min-height:80px}
@@ -701,10 +666,10 @@ margin-top:-150px;border:1px solid #dde7e9;border-radius:3px;background:#fff;ove
 .option_wr select {width:100%;border:1px solid #d4d4d4;height:48px}
 
 #sit_opt_added {margin:0;padding:0;border-bottom:0;list-style:none}
-#sit_opt_added li {padding:10px;background:#fff;border:1px solid #e6e9ed;margin-bottom:10px;position:relative}
+#sit_opt_added li {padding:10px;background:#fff;border:1px solid #e6e9ed;margin:10px 0;position:relative}
 #sit_opt_added li:after {display:block;visibility:hidden;clear:both;content:""}
 #sit_opt_added li .opt_name {line-height:28px;font-weight:bold}
-#sit_opt_added li .opt_count {/*position:absolute;top:50%;right:0;margin-top:-15px*/}
+#sit_opt_added li .opt_count {}
 #sit_opt_added button {float:left;width:30px;height:30px;border:1px solid #bdc9dc;border-radius:0;background:#fff;color:#666;font-size:0.92em}
 #sit_opt_added button:hover {color:#000}
 #sit_opt_added .num_input {float:left;border:0;height:30px;border-top:1px solid #e4e4e4;border-bottom:1px solid #e4e4e4;text-align:center}
@@ -833,7 +798,7 @@ margin-top:-150px;border:1px solid #dde7e9;border-radius:3px;background:#fff;ove
 
 
 /* 주문서 작성  - 결제수단 */
-#sod_frm_pay {position:relative;margin:10px 0 0;background:#fff;border:1px solid #e3e5e8}
+#sod_frm_pay {position:relative;margin:10px 0 0;background:red;border:1px solid #e3e5e8}
 #sod_frm_pay h2 {font-size:1.167em;padding:15px;border-bottom:1px solid #e3e5e8}
 #sod_frm_pay .tooltip_txt {height:auto;line-height:18px;font-weight:normal;font-size:1em;padding:10px 20px;margin:10px}
 #sod_frm_pay .tooltip_txt i {float:left;line-height:36px;font-size:2em;margin-right:15px}
@@ -863,15 +828,11 @@ margin-top:-150px;border:1px solid #dde7e9;border-radius:3px;background:#fff;ove
 #display_pay_button .btn01 {width:100%;height:50px;line-height:38px;font-weight:bold;font-size:1.25em;margin:5px 0;border:1px solid #ccd1d9}
 
 
-
 .display_setup_message {margin:0 0 10px;padding:15px;border:1px solid #fccdff;background:#ffeef9}
 .display_setup_message strong {display:block;margin:0 0 10px}
 
-
 #sod_frm_taker label {display:inline-block}
-
 #sod_frm_same {margin:0 0 10px}
-
 #sod_frm #od_memo {height:50px}
 
 #sod_frm #display_pay_process {text-align:center}
@@ -881,7 +842,6 @@ margin-top:-150px;border:1px solid #dde7e9;border-radius:3px;background:#fff;ove
 #od_tot_price span {float:left;font-weight:bold}
 #od_tot_price strong {font-size:1.5em;color:#ff006c}
 #sod_frm_pay_info {margin:0 0 10px}
-
 
 #sod_frm_pay #sc_coupon_frm, #sod_frm_pay #od_coupon_frm {z-index:10000;position:absolute;top:0;right:0;width:500px;height:auto !important;height:500px;max-height:500px;border:1px solid #000;background:#fff;overflow-y:auto}
 #sod_frm_deli {position:relative;line-height:2em}
@@ -1098,23 +1058,26 @@ html.no-overflowscrolling #sc_coupon_frm, html.no-overflowscrolling #od_coupon_f
 #bo_v_top .btn_admin, #bo_list .btn_admin {padding-top:0}
 
 /*개인결제*/
-.pesonal {background:#f3f3f3;padding:20px}
-.pesonal td {font-weight:bold}
-#personal_pay h2 {font-size:1.167em;margin:0px 0 10px}
-#personal_pay input[type="radio"] {position:absolute;width:0;height:0;overflow:hidden;text-indent:-999px;left:0;z-index:-1px;visibility:hidden}
-#personal_pay .lb_icon {display:inline-block;float:left;width:50%;background:#fff;border:1px solid #eceff4;margin:-1px 0 0 -1px;cursor:pointer;height:60px;position:relative;padding-left:65px;padding-top:20px;z-index:1}
-#personal_pay input[type="radio"]:checked+.lb_icon {border:1px solid #ff006c;z-index:3}
+.pesonal {background:#fff;border:1px solid #e3e5e8;margin-bottom:30px}
+.pesonal h2 {border-bottom:1px solid #e2e4e7;font-size:1.167em;padding:20px}
+.pesonal .tbl_frm01 {padding:20px 10px;margin:0}
+.pesonal tr {display:inline-block;width:100%;padding:0 10px;margin-bottom:20px}
+.pesonal th {display:block;width:auto;text-align:left;padding:10px 0;font-weight:bold}
+.pesonal td {display:block;padding:0}
+.pesonal td input {width:100%}
+.pesonal .half_tr {width:50%}
+
+#personal_pay {background:#fff;border:1px solid #e3e5e8}
+#personal_pay h2 {background:#fff;border-bottom:1px solid #e2e4e7;font-size:1.167em;padding:20px}
+/*#personal_pay input[type="radio"] {position:absolute;width:0;height:0;overflow:hidden;text-indent:-999px;left:0;z-index:-1px;visibility:hidden}*/
+#personal_pay input[type="radio"] {}
+#personal_pay .lb_icon {position:relative;display:inline-block;cursor:pointer;z-index:1}
+#personal_pay input[type="radio"]:checked+.lb_icon {z-index:3}
+
 #personal_pay legend {position:absolute;font-size:0;line-height:0;overflow:hidden}
-#personal_pay .KPAY {background:url('../../../img/kpay.png') no-repeat 50% 50% #fff;overflow:hidden;text-indent:-999px}
-#personal_pay .PAYNOW {background:url('../../../img/paynow.png') no-repeat 50% 50% #fff;overflow:hidden;text-indent:-999px}
-#personal_pay .PAYCO {background:url('../../../img/payco.png') no-repeat 50% 50% #fff;overflow:hidden;text-indent:-999px}
-#personal_pay .kakaopay_icon {background:url('../../../img/kakao.png') no-repeat 50% 50% #f4dc34;overflow:hidden;text-indent:-999px}
-#personal_pay .bank_icon {background:url('../../../img/pay_icon1.png') no-repeat 15px 50% #fff}
-#personal_pay .vbank_icon {background:url('../../../img/pay_icon2.png') no-repeat 15px 50% #fff;padding-top:13px}
-#personal_pay .iche_icon {background:url('../../../img/pay_icon2.png') no-repeat 15px 50% #fff;padding-top:13px}
-#personal_pay .hp_icon {background:url('../../../img/pay_icon3.png') no-repeat 24px 50% #fff}
-#personal_pay .card_icon {background:url('../../../img/pay_icon4.png') no-repeat 17px 50% #fff}
-#personal_pay .btn_submit {width:100%;height:40px;font-weight:bold;font-size:1.25em;margin:10px 0 5px}
-#personal_pay .btn01 {width:100%;height:40px;line-height:38px;font-weight:bold;font-size:1.25em}
-
-
+#personal_pay .KPAY {width:58px;background:url('../../../img/kpay.png') no-repeat 50% 50% #fff;overflow:hidden;text-indent:-999px}
+#personal_pay .PAYNOW {width:75px;background:url('../../../img/paynow.png') no-repeat 50% 50% #fff;overflow:hidden;text-indent:-999px;border-radius:30px}
+#personal_pay .PAYCO {width:75px;background:url('../../../img/payco.png') no-repeat 50% 50% #fff;overflow:hidden;text-indent:-999px;border-radius:30px}
+#personal_pay .kakaopay_icon {width:60px;background:url('../../../img/kakao.png') no-repeat 50% 50% #ffeb00;overflow:hidden;text-indent:-999px;border-radius:30px}
+#personal_pay .pay_way {border-bottom:1px solid #e2e4e7}
+#personal_pay #display_pay_button {border:0}
