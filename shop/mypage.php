@@ -46,8 +46,8 @@ for($k=0; $cp=sql_fetch_array($res); $k++) {
         
         <div class="smb_me">
 	        <strong class="my_ov_name"><img src="<?php echo G5_THEME_IMG_URL ;?>/no_profile.gif" alt="프로필이미지"><br><?php echo $member['mb_name']; ?></strong><br>
-	        <a href="<?php echo G5_BBS_URL ?>/member_confirm.php?url=register_form.php" id="s_ol_after_info">정보수정</a>
-	        <a href="<?php echo G5_BBS_URL ?>/logout.php" id="ol_after_logout">로그아웃</a>
+	        <a href="<?php echo G5_BBS_URL ?>/member_confirm.php?url=register_form.php" class="smb_info">정보수정</a>
+	        <a href="<?php echo G5_BBS_URL ?>/logout.php">로그아웃</a>
         </div>
         
         <ul id="smb_private">

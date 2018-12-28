@@ -556,7 +556,8 @@ box-shadow:0 1px 10px rgba(0,0,0,.1)}
 #smb_my_ov .smb_me {display:block;background:#fff;border-bottom:1px solid #e8e8e8;padding:20px;text-align:center;font-size:1.167em}
 #smb_my_ov .smb_me img {width:45px;border-radius:50%}
 #smb_my_ov .smb_me .my_ov_name {display:inline-block;margin-bottom:10px;line-height:28px}
-#smb_my_ov .smb_me a {font-size:0.85em}
+#smb_my_ov .smb_me a {display:inline-block;font-size:0.85em;height:28px;line-height:22px;border:1px solid #d5d9dd;color:#8a8a8a;border-radius:2px;padding:2px 5px}
+#smb_my_ov .smb_me a.smb_info {color:#3a8afd}
 
 #smb_private:after {display:block;visibility:hidden;clear:both;content:""}
 #smb_private {padding:10px 0}
@@ -1069,7 +1070,6 @@ html.no-overflowscrolling #sc_coupon_frm, html.no-overflowscrolling #od_coupon_f
 
 #personal_pay {background:#fff;border:1px solid #e3e5e8}
 #personal_pay h2 {background:#fff;border-bottom:1px solid #e2e4e7;font-size:1.167em;padding:20px}
-/*#personal_pay input[type="radio"] {position:absolute;width:0;height:0;overflow:hidden;text-indent:-999px;left:0;z-index:-1px;visibility:hidden}*/
 #personal_pay input[type="radio"] {}
 #personal_pay .lb_icon {position:relative;display:inline-block;cursor:pointer;z-index:1}
 #personal_pay input[type="radio"]:checked+.lb_icon {z-index:3}
