@@ -959,10 +959,16 @@ margin-top:-150px;border:1px solid #dde7e9;border-radius:3px;background:#fff;ove
 #sod_fin_dvr .dvr_link {color:#ff3061;text-decoration:underline}
 
 #sod_fin_cancel {text-align:center}
-#sod_fin_cancel h2 {position:absolute;font-size:0;line-height:0;overflow:hidden}
-#sod_fin_cancel button {height:50px;border:1px solid #bababa;border-radius:3px;font-weight:bold;width:100%;background:none;color:#5e6b6f}
-#sod_fin_cancel button:hover {background:#fff}
-#sod_fin_cancelfrm {display:none;margin:10px 0 0;text-align:center;background:#fff;padding:15px}
+#sod_fin_cancel .sod_fin_c_btn {height:50px;border:1px solid #bababa;border-radius:3px;font-weight:bold;width:100%;background:none;color:#5e6b6f}
+#sod_fin_cancel .sod_fin_c_btn:hover {background:#fff}
+#sod_fin_cancel h2 {padding:15px;border-bottom:1px solid #e8e8e8;text-align:left}
+
+#sod_cancel_pop {display:none;width:100%;height:100%;position:fixed;top:0;left:0;z-index:999}
+#sod_fin_cancelfrm {position:absolute;top:50%;left:50%;background:#fff;text-align:center;width:245px;max-height:300px;margin-left:-125px;margin-top:-180px;overflow-y:auto;border-radius:5px;-webkit-box-shadow:1px 1px 18px rgba(0,0,0,0.2);-moz-box-shadow: 1px 1px 18px rgba(0,0,0,0.2);box-shadow: 1px 1px 18px rgba(0,0,0,0.2);border:1px solid #dde7e9;background:#fff;border-radius:3px}    
+#sod_fin_cancelfrm form {padding:20px}
+.sod_fin_bg {background:rgba(0,0,0,0.1);width:100%;height:100%}
+.sod_cls_btn {position:absolute;right:0;top:0;color:#b5b8bb;border:0;padding:12px 15px;font-size:16px;background:#fff}
+
 #sod_fin_cancelfrm .frm_input {background:#fff;margin:0 0 5px;width:100%}
 #sod_fin_cancelfrm .btn_frmline {background:#5e6b6f;color:#fff;border:0;padding:10px;width:100%;cursor:pointer}
 #sod_fin_test {padding:10px}

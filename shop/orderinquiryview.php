@@ -627,25 +627,38 @@ if($od['od_pg'] == 'lg') {
         </section>
 
         <section id="sod_fin_cancel">
-            <h2>주문취소</h2>
             <?php
             // 취소한 내역이 없다면
             if ($cancel_price == 0) {
                 if ($custom_cancel) {
             ?>
-            <button type="button" onclick="document.getElementById('sod_fin_cancelfrm').style.display='block';">주문 취소하기</button>
+            <button type="button" class="sod_fin_c_btn">주문 취소하기</button>
+			<div id="sod_cancel_pop">	
+	            <div id="sod_fin_cancelfrm">
+	            	<h2>주문취소</h2>
+	                <form method="post" action="./orderinquirycancel.php" onsubmit="return fcancel_check(this);">
+	                <input type="hidden" name="od_id" value="<?php echo $od['od_id']; ?>">
+	                <input type="hidden" name="token" value="<?php echo $token; ?>">
+	
+	                <label for="cancel_memo" class="sound_only">취소사유</label>
+	                <input type="text" name="cancel_memo" id="cancel_memo" required class="frm_input required" size="40" maxlength="100" placeholder="취소사유">
+	                <input type="submit" value="확인" class="btn_frmline">
+	                </form>
+	                <button class="sod_cls_btn"><span class="sound_only">닫기</span><i class="fa fa-times" aria-hidden="true"></i></button>
+		        </div>
+		        <div class="sod_fin_bg"></div>
+			</div>
+			<script>	
+			$(function (){
+				$(".sod_fin_c_btn").on("click", function() {
+			        $("#sod_cancel_pop").show();
+			    });
+			    $(".sod_cls_btn").on("click", function() {
+			        $("#sod_cancel_pop").hide();
+			    });		
+			});
+			</script>
 
-            <div id="sod_fin_cancelfrm">
-                <form method="post" action="./orderinquirycancel.php" onsubmit="return fcancel_check(this);">
-                <input type="hidden" name="od_id"  value="<?php echo $od['od_id']; ?>">
-                <input type="hidden" name="token"  value="<?php echo $token; ?>">
-
-                <label for="cancel_memo" class="sound_only">취소사유</label>
-                <input type="text" name="cancel_memo" id="cancel_memo" required class="frm_input required" size="40" maxlength="100" placeholder="취소사유">
-                <input type="submit" value="확인" class="btn_frmline">
-
-                </form>
-            </div>
             <?php
                 }
             } else {
@@ -654,9 +667,6 @@ if($od['od_pg'] == 'lg') {
             <?php } ?>
         </section>
     </div>
-
-
-   
 
     <?php if ($od['od_settle_case'] == '가상계좌' && $od['od_misu'] > 0 && $default['de_card_test'] && $is_admin && $od['od_pg'] == 'kcp') {
     preg_match("/\s{1}([^\s]+)\s?/", $od['od_bank_account'], $matchs);
@@ -738,7 +748,7 @@ function fcancel_check(f)
     }
 
     return true;
-}
+}		
 </script>
 
 <?php
