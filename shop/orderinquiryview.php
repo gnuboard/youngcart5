@@ -76,13 +76,8 @@ if($od['od_pg'] == 'lg') {
         <div class="tbl_head03 tbl_wrap">
 			<table>
 	            <thead>
-	            <tr>
-	                <!-- <th scope="col" rowspan="2">이미지</th> 
-	                <th scope="col" colspan="7" id="th_itname">상품명</th>-->
-	            </tr>
 	            <tr class="th_line">
 	            	<th scope="col" id="th_itname">상품명</th>
-	                <!-- <th scope="col" id="th_itopt">옵션명</th> -->
 	                <th scope="col" id="th_itqty">총수량</th>
 	                <th scope="col" id="th_itprice">판매가</th>
 	                <th scope="col" id="th_itpt">포인트</th>

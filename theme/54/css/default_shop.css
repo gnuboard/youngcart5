@@ -782,7 +782,7 @@ margin-top:-150px;border:1px solid #dde7e9;border-radius:3px;background:#fff;ove
 
 
 /* 주문서 작성  - 결제수단 */
-#sod_frm_pay {position:relative;margin:10px 0 0;background:red;border:1px solid #e3e5e8}
+#sod_frm_pay {position:relative;margin:10px 0 0;background:#fff;border:1px solid #e3e5e8}
 #sod_frm_pay h2 {font-size:1.167em;padding:15px;border-bottom:1px solid #e3e5e8}
 #sod_frm_pay .tooltip_txt {height:auto;line-height:18px;font-weight:normal;font-size:1em;padding:10px 20px;margin:10px}
 #sod_frm_pay .tooltip_txt i {float:left;line-height:36px;font-size:2em;margin-right:15px}
@@ -851,6 +851,7 @@ margin-top:-150px;border:1px solid #dde7e9;border-radius:3px;background:#fff;ove
 #sod_ws li .wish_del:hover {background:#777;color:#fff}
 
 /* 배송지 목록 */
+#sod_addr .tbl_wrap {margin:30px}
 #sod_addr .td_mng .sel_address {color:#fff;background:#fff;border:1px solid #333;color:#333;padding:0 5px;height:26px}
 #sod_addr .td_mng .del_address {display:inline-block;border:1px solid #aaa;color:#888;padding:0 5px;height:26px;line-height:24px;vertical-align:middle}
 #sod_addr input[type="radio"] {position:absolute;left:0;z-index:-1;visibility:hidden;width:0;height:0;overflow:hidden;text-indent:-999px}
@@ -859,7 +860,7 @@ margin-top:-150px;border:1px solid #dde7e9;border-radius:3px;background:#fff;ove
 #sod_addr td {height:40px;vertical-align:top}
 #sod_addr .td_name {width:100px}
 #sod_addr .frm_input {height:30px}
-#sod_addr .td_sbj {width:120px;text-align:left}
+#sod_addr .td_sbj {width:155px;text-align:left}
 #sod_addr .ad_tel {display:block;color:#666}
 #sod_addr .td_mng {width:100px;padding:10px}
 #sod_addr .td_mng .mng_btn {width:100%;margin:2px 0}
