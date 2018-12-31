@@ -68,6 +68,7 @@ if ($i > 0) {
 jQuery(function($){
     var slider = $('.slide-wrap').show().bxSlider({
         speed:800,
+        controls:false,
         pagerCustom: '#bx_pager',
         auto: true,
         useCSS : false,

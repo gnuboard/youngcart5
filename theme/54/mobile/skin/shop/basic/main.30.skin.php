@@ -2,7 +2,7 @@
 if (!defined("_GNUBOARD_")) exit; // 개별 페이지 접근 불가
 
 // add_stylesheet('css 구문', 출력순서); 숫자가 작을 수록 먼저 출력됨
-//add_stylesheet('<link rel="stylesheet" href="'.G5_MSHOP_SKIN_URL.'/style.css">', 0);
+add_stylesheet('<link rel="stylesheet" href="'.G5_MSHOP_SKIN_URL.'/style.css">', 0);
 ?>
 
 <script src="<?php echo G5_JS_URL ?>/jquery.fancylist.js"></script>
@@ -14,7 +14,7 @@ if (!defined("_GNUBOARD_")) exit; // 개별 페이지 접근 불가
     Kakao.init("<?php echo $config['cf_kakao_js_apikey']; ?>");
 </script>
 <?php } ?>
-
+<div class="st_30_wr">
 <!-- 메인상품진열 30 시작 { -->
 <?php
 $li_width = intval(100 / $this->list_mod);
@@ -50,6 +50,11 @@ for ($i=0; $row=sql_fetch_array($result); $i++) {
     }
 
     echo "<div class=\"sct_txt_wr\">\n";
+
+ 	//별점
+	if ($this->href) {
+        echo "<div class=\"sct_star\"><img src=\"\" alt=\"별점 4점\"></div>\n";
+    }
 
     if ($this->view_it_id) {
         echo "<div class=\"sct_id\">&lt;".stripslashes($row['it_id'])."&gt;</div>\n";
@@ -96,3 +101,16 @@ if ($i > 0) echo "</ul>\n";
 if($i == 0) echo "<p class=\"sct_noitem\">등록된 상품이 없습니다.</p>\n";
 ?>
 <!-- } 상품진열 30 끝 -->
+</div>
+
+<script>
+$('.sct_30').bxSlider({
+    slideWidth: 200,
+    minSlides: 2,
+    maxSlides: 8,
+    slideMargin: 5,
+    controls: false
+});
+
+</script>
+

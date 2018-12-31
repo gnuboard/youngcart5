@@ -24,7 +24,7 @@ include_once(G5_THEME_MSHOP_PATH.'/shop.head.php');
         $list->set_view('it_cust_price', true);
         $list->set_view('it_price', true);
         $list->set_view('it_icon', true);
-        $list->set_view('sns', true);
+        $list->set_view('sns', false);
         echo $list->run();
         ?>
     </div>
@@ -60,6 +60,7 @@ include_once(G5_THEME_MSHOP_PATH.'/shop.head.php');
         $list->set_type(3);
         $list->set_view('it_id', false);
         $list->set_view('it_name', true);
+        $list->set_view('it_basic', true);
         $list->set_view('it_cust_price', true);
         $list->set_view('it_price', true);
         $list->set_view('it_icon', true);

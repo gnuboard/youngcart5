@@ -49,6 +49,10 @@ for ($i=0; $row=sql_fetch_array($result); $i++) {
         echo "</a></div>\n";
     }
 
+    //별점
+    if ($this->href) {
+        echo "<div class=\"sct_star\"><img src=\"\" alt=\"별점 4점\"></div>\n";
+    }
 
     if ($this->view_it_id) {
         echo "<div class=\"sct_id\">&lt;".stripslashes($row['it_id'])."&gt;</div>\n";
@@ -96,3 +100,4 @@ if ($i > 0) echo "</ul>\n";
 if($i == 0) echo "<p class=\"sct_noitem\">등록된 상품이 없습니다.</p>\n";
 ?>
 <!-- } 상품진열 20 끝 -->
+
