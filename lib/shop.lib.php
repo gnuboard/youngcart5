@@ -1106,14 +1106,14 @@ function get_item_supply($it_id, $subject, $is_div='')
             $seq = $i + 1;
             if($is_div === 'div') {
                 $str .= '<div class="get_item_supply">'.PHP_EOL;
-                $str .= '<label for="it_supply_'.$seq.'">'.$subj[$i].'</label>'.PHP_EOL;
+                //$str .= '<label for="it_supply_'.$seq.'">'.$subj[$i].'</label>'.PHP_EOL;
             } else {
                 $str .= '<tr>'.PHP_EOL;
                 $str .= '<th><label for="it_supply_'.$seq.'">'.$subj[$i].'</label></th>'.PHP_EOL;
             }
 
             $select = '<select id="it_supply_'.$seq.'" class="it_supply">'.PHP_EOL;
-            $select .= '<option value="">선택</option>'.PHP_EOL;
+            $select .= '<option value="">'.$subj[$i].'</option>'.PHP_EOL;
             for($k=0; $k<$opt_count; $k++) {
                 $opt_val = $opt[$k];
                 if($opt_val) {

@@ -18,7 +18,7 @@ if(defined('G5_THEME_SHOP_PATH')) {
 <?php if (!$limit) { ?>총 <?php echo $cnt; ?> 건<?php } ?>
 
 <p class="tooltip_txt"><i class="fa fa-info-circle" aria-hidden="true"></i> 주문서번호 링크를 누르시면 주문상세내역을 조회하실 수 있습니다.</p>
-<ul>
+<ul class="smb_my_od">
 	<?php
 	    $sql = " select * 
 	              from {$g5['g5_shop_order_table']}
