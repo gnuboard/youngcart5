@@ -340,7 +340,7 @@ if($is_kakaopay_use) {
 
                     // 주문자와 동일
                     $addr_list .= '<input type="radio" name="ad_sel_addr" value="same" id="ad_sel_addr_same">'.PHP_EOL;
-                    $addr_list .= '<label for="ad_sel_addr_same">주문자와 동일</label>'.PHP_EOL;
+                    $addr_list .= '<label for="ad_sel_addr_same"><span></span>주문자와 동일</label>'.PHP_EOL;
 
                     // 기본배송지
                     $sql = " select *
@@ -350,6 +350,7 @@ if($is_kakaopay_use) {
                     $row = sql_fetch($sql);
                     if($row['ad_id']) {
                         $val1 = $row['ad_name'].$sep.$row['ad_tel'].$sep.$row['ad_hp'].$sep.$row['ad_zip1'].$sep.$row['ad_zip2'].$sep.$row['ad_addr1'].$sep.$row['ad_addr2'].$sep.$row['ad_addr3'].$sep.$row['ad_jibeon'].$sep.$row['ad_subject'];
+                        
                         $addr_list .= '<input type="radio" name="ad_sel_addr" value="'.get_text($val1).'" id="ad_sel_addr_def">'.PHP_EOL;
                         $addr_list .= '<label for="ad_sel_addr_def">기본배송지</label>'.PHP_EOL;
                     }
@@ -364,12 +365,12 @@ if($is_kakaopay_use) {
                     $result = sql_query($sql);
                     for($i=0; $row=sql_fetch_array($result); $i++) {
                         $val1 = $row['ad_name'].$sep.$row['ad_tel'].$sep.$row['ad_hp'].$sep.$row['ad_zip1'].$sep.$row['ad_zip2'].$sep.$row['ad_addr1'].$sep.$row['ad_addr2'].$sep.$row['ad_addr3'].$sep.$row['ad_jibeon'].$sep.$row['ad_subject'];
-                        $val2 = '<label for="ad_sel_addr_'.($i+1).'">최근배송지('.($row['ad_subject'] ? $row['ad_subject'] : $row['ad_name']).')</label>';
+                        $val2 = '<label for="ad_sel_addr_'.($i+1).'"><span></span>최근배송지('.($row['ad_subject'] ? $row['ad_subject'] : $row['ad_name']).')</label>';
                         $addr_list .= '<input type="radio" name="ad_sel_addr" value="'.get_text($val1).'" id="ad_sel_addr_'.($i+1).'"> '.PHP_EOL.$val2.PHP_EOL;
                     }
 
                     $addr_list .= '<input type="radio" name="ad_sel_addr" value="new" id="od_sel_addr_new">'.PHP_EOL;
-                    $addr_list .= '<label for="od_sel_addr_new">신규배송지</label>'.PHP_EOL;
+                    $addr_list .= '<label for="od_sel_addr_new"><span></span>신규배송지</label>'.PHP_EOL;
 
                     $addr_list .='<a href="'.G5_SHOP_URL.'/orderaddress.php" id="order_address" class="btn_frmline">배송지목록</a>';
                 } else {
@@ -380,7 +381,7 @@ if($is_kakaopay_use) {
                 ?>
                 <div class="choice_place">
                     <span class="choice_tit">배송지선택</span>
-                    <span>
+                    <span class="chk_box">
                         <?php echo $addr_list; ?>
                     </span>
                 </div>
@@ -618,13 +619,13 @@ if($is_kakaopay_use) {
             }
 			?>
 			
-			<ul class="pay_way">
+			<ul class="pay_way chk_box">
 				<li>
 				<?php
 	            // 카카오페이
 	            if($is_kakaopay_use) {
 	                $multi_settle++;
-	                echo '<input type="radio" id="od_settle_kakaopay" name="od_settle_case" value="KAKAOPAY" '.$checked.'> <label for="od_settle_kakaopay" class="kakaopay_icon lb_icon">KAKAOPAY</label>'.PHP_EOL;
+	                echo '<input type="radio" id="od_settle_kakaopay" name="od_settle_case" value="KAKAOPAY" '.$checked.'> <label for="od_settle_kakaopay" class="lb_icon"><span></span><b class="kakaopay_icon">KAKAOPAY</b></label>'.PHP_EOL;
 	                $checked = '';
 	            }
 				?>
@@ -635,7 +636,7 @@ if($is_kakaopay_use) {
 	            // 무통장입금 사용
 	            if ($default['de_bank_use']) {
 	                $multi_settle++;
-	                echo '<input type="radio" id="od_settle_bank" name="od_settle_case" value="무통장" '.$checked.'> <label for="od_settle_bank" class="lb_icon">무통장입금</label>'.PHP_EOL;
+	                echo '<input type="radio" id="od_settle_bank" name="od_settle_case" value="무통장" '.$checked.'> <label for="od_settle_bank" class="lb_icon"><span></span>무통장입금</label>'.PHP_EOL;
 	                $checked = '';
 	            }
 				?>
@@ -646,7 +647,7 @@ if($is_kakaopay_use) {
 	            // 가상계좌 사용
 	            if ($default['de_vbank_use']) {
 	                $multi_settle++;
-	                echo '<input type="radio" id="od_settle_vbank" name="od_settle_case" value="가상계좌" '.$checked.'> <label for="od_settle_vbank" class="lb_icon">'.$escrow_title.'가상계좌</label>'.PHP_EOL;
+	                echo '<input type="radio" id="od_settle_vbank" name="od_settle_case" value="가상계좌" '.$checked.'> <label for="od_settle_vbank" class="lb_icon"><span></span>'.$escrow_title.'가상계좌</label>'.PHP_EOL;
 	                $checked = '';
 	            }
 				?>
@@ -657,7 +658,7 @@ if($is_kakaopay_use) {
 	            // 계좌이체 사용
 	            if ($default['de_iche_use']) {
 	                $multi_settle++;
-	                echo '<input type="radio" id="od_settle_iche" name="od_settle_case" value="계좌이체" '.$checked.'> <label for="od_settle_iche" class="lb_icon">'.$escrow_title.'계좌이체</label>'.PHP_EOL;
+	                echo '<input type="radio" id="od_settle_iche" name="od_settle_case" value="계좌이체" '.$checked.'> <label for="od_settle_iche" class="lb_icon"><span></span>'.$escrow_title.'계좌이체</label>'.PHP_EOL;
 	                $checked = '';
 	            }
 				?>
@@ -668,7 +669,7 @@ if($is_kakaopay_use) {
 	            // 휴대폰 사용
 	            if ($default['de_hp_use']) {
 	                $multi_settle++;
-	                echo '<input type="radio" id="od_settle_hp" name="od_settle_case" value="휴대폰" '.$checked.'> <label for="od_settle_hp" class="lb_icon">휴대폰</label>'.PHP_EOL;
+	                echo '<input type="radio" id="od_settle_hp" name="od_settle_case" value="휴대폰" '.$checked.'> <label for="od_settle_hp" class="lb_icon"><span></span>휴대폰</label>'.PHP_EOL;
 	                $checked = '';
 	            }
 				?>
@@ -679,7 +680,7 @@ if($is_kakaopay_use) {
 	            // 신용카드 사용
 	            if ($default['de_card_use']) {
 	                $multi_settle++;
-	                echo '<input type="radio" id="od_settle_card" name="od_settle_case" value="신용카드" '.$checked.'> <label for="od_settle_card" class="lb_icon">신용카드</label>'.PHP_EOL;
+	                echo '<input type="radio" id="od_settle_card" name="od_settle_case" value="신용카드" '.$checked.'> <label for="od_settle_card" class="lb_icon"><span></span>신용카드</label>'.PHP_EOL;
 	                $checked = '';
 	            }
 				?>
@@ -702,7 +703,7 @@ if($is_kakaopay_use) {
 	                }
 	
 	                $multi_settle++;
-	                echo '<input type="radio" id="od_settle_easy_pay" name="od_settle_case" value="간편결제" '.$checked.'> <label for="od_settle_easy_pay" class="'.$pg_easy_pay_name.' lb_icon">'.$pg_easy_pay_name.'</label>'.PHP_EOL;
+	                echo '<input type="radio" id="od_settle_easy_pay" name="od_settle_case" value="간편결제" '.$checked.'> <label for="od_settle_easy_pay" class="lb_icon"><span></span><b class="'.$pg_easy_pay_name.'">'.$pg_easy_pay_name.'</b></label>'.PHP_EOL;
 	                $checked = '';
 	            }
 				?>
@@ -712,7 +713,7 @@ if($is_kakaopay_use) {
 				<?php
 	            //이니시스 Lpay
 	            if($default['de_inicis_lpay_use']) {
-	                echo '<input type="radio" id="od_settle_inicislpay" data-case="lpay" name="od_settle_case" value="lpay" '.$checked.'> <label for="od_settle_inicislpay" class="inicis_lpay lb_icon">L.pay</label>'.PHP_EOL;
+	                echo '<input type="radio" id="od_settle_inicislpay" data-case="lpay" name="od_settle_case" value="lpay" '.$checked.'> <label for="od_settle_inicislpay" class="lb_icon"><span></span><b class="inicis_lpay">L.pay</b></label>'.PHP_EOL;
 	                $checked = '';
 	            }
 				?>

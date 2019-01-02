@@ -707,9 +707,11 @@ margin-top:-150px;border:1px solid #dde7e9;border-radius:3px;background:#fff;ove
 #sod_frm_taker .tbl_frm01 {padding:20px 10px}
 #sod_frm_taker .tbl_frm01 .choice_place {display:block;background:#edf3fc;padding:10px 15px;border:1px solid #d1ddee;margin:0 10px}
 #sod_frm_taker .tbl_frm01 .choice_place:after {display:block;visibility:hidden;clear:both;content:""}
-#sod_frm_taker .tbl_frm01 .choice_place span {float:left;display:inline-block;width:85%;line-height:30px}
-#sod_frm_taker .tbl_frm01 .choice_tit {width:15% !important}
-#sod_frm_taker .tbl_frm01 .choice_place input {margin-left:10px}
+#sod_frm_taker .tbl_frm01 .choice_place .chk_box {float:left;display:inline-block;width:85%;line-height:30px}
+#sod_frm_taker .tbl_frm01 .choice_tit {float:left;display:inline-block;width:15% !important;line-height:30px}
+#sod_frm_taker .tbl_frm01 .choice_place input[type="radio"] + label span {top:7px}
+#sod_frm_taker .tbl_frm01 .choice_place input,
+#sod_frm_taker .tbl_frm01 .choice_place label {margin-left:10px}
 #sod_frm_taker .tbl_frm01 .btn_frmline {width:80px;height:30px;line-height:28px;background:#fff;border:1px solid #d4d6db;color:#606060;text-align:center;float:right}
 
 #sod_frm_taker .tbl_frm01 tr {display:inline-block;width:100%;padding:0 10px}
@@ -726,7 +728,6 @@ margin-top:-150px;border:1px solid #dde7e9;border-radius:3px;background:#fff;ove
 /* 주문서 작성  - 공통 */
 #sod_frm_orderer #od_addr_jibeon,
 #sod_frm_taker #od_b_addr_jibeon {display:inline-block;margin:5px 0 0}
-
 
 /* 주문서 작성  - 오른쪽 */
 .sod_right {display:inline-block;float:left;width:340px;height:100%;vertical-align:top}
@@ -790,28 +791,30 @@ margin-top:-150px;border:1px solid #dde7e9;border-radius:3px;background:#fff;ove
 #sod_frm_pay .tooltip_txt:before {height:100%}
 #sod_frm_pay input[type="radio"] {}
 #sod_frm_pay .lb_icon {display:inline-block;position:relative;cursor:pointer;z-index:1}
-#sod_frm_pay input[type="radio"]:checked+.lb_icon {color:red;z-index:3}
+#sod_frm_pay input[type="radio"]:checked+.lb_icon {color:#3a8afd;z-index:3}
+#sod_frm_pay input[type="radio"] + label span {top:7px}
 
 #sod_frm_paysel {}
 #sod_frm_paysel legend {position:absolute;font-size:0;line-height:0;overflow:hidden}
-#sod_frm_paysel .PAYCO {width:75px;background:url('../../../img/payco.png') no-repeat 50% 50% #fff;overflow:hidden;text-indent:-999px;border-radius:30px}
-#sod_frm_paysel .PAYNOW {width:75px;background:url('../../../img/paynow.png') no-repeat 50% 50% #fff;overflow:hidden;text-indent:-999px;border-radius:30px}
-#sod_frm_paysel .kakaopay_icon {width:60px;background:url('../../../img/kakao.png') no-repeat 50% 50% #ffeb00;overflow:hidden;text-indent:-999px;border-radius:30px}
-#sod_frm_paysel .KPAY {width:58px;background:url('../../../img/kpay.png') no-repeat 50% 50% #fff;overflow:hidden;text-indent:-999px}
-#sod_frm_paysel .inicis_lpay {width:50px;background:url('../../../img/lpay_logo.png') no-repeat 50% 50% #fff;overflow:hidden;text-indent:-999px}
+#sod_frm_paysel .PAYCO {display:inline-block;width:75px;background:url('../../../img/payco.png') no-repeat 50% 50% #fff;overflow:hidden;text-indent:-999px;border-radius:30px;border:1px solid #fa1417}
+#sod_frm_paysel .PAYNOW {display:inline-block;width:75px;background:url('../../../img/paynow.png') no-repeat 50% 50% #fff;overflow:hidden;text-indent:-999px;border-radius:30px;border:1px solid #c01734}
+#sod_frm_paysel .kakaopay_icon {display:inline-block;width:60px;background:url('../../../img/kakao.png') no-repeat 50% 50% #ffeb00;overflow:hidden;text-indent:-999px;border-radius:30px}
+#sod_frm_paysel .KPAY {display:inline-block;width:58px;background:url('../../../img/kpay.png') no-repeat 50% 50% #fff;overflow:hidden;text-indent:-999px;border-radius:30px;border:1px solid #22096a}
+#sod_frm_paysel .inicis_lpay {display:inline-block;width:50px;background:url('../../../img/lpay_logo.png') no-repeat 50% 50% #fff;overflow:hidden;text-indent:-999px;border-radius:30px;border:1px solid #009bd7}
 #sod_frm_paysel ul.pay_way {margin:0;padding:15px}
+#sod_frm_paysel ul.pay_way input[type="radio"] + label span {top:7px}
 #sod_frm_paysel ul:after {display:block;visibility:hidden;clear:both;content:""}
-#sod_frm_paysel li {line-height:28px;text-align:left;list-style:none}
+#sod_frm_paysel li {position:relative;line-height:28px;text-align:left;list-style:none}
 
 #settle_bank {border-top:1px solid #e3e5e8;background:#fff;padding:20px;clear:both}
 #settle_bank label {float:left;width:30%;line-height:30px}
 #settle_bank select, #settle_bank input {width:70%;height:32px;margin:0 0 5px;border:1px solid #e3e5e8;border-radius:3px;text-align:left}
-#settle_bank #od_deposit_name {height:32px;border:1px solid #e3e5e8}
+#settle_bank option {padding:3px 0}
+#settle_bank #od_deposit_name {height:32px;padding:0 5px;border:1px solid #e3e5e8}
 
 #display_pay_button {background:#fff;padding:20px;border:1px solid #e3e5e8;border-top:0}
 #display_pay_button .btn_submit {width:100%;height:50px;font-weight:bold;font-size:1.25em;cursor:pointer;border:1px solid #3a8afd}
 #display_pay_button .btn01 {width:100%;height:50px;line-height:38px;font-weight:bold;font-size:1.25em;margin:5px 0;border:1px solid #ccd1d9}
-
 
 .display_setup_message {margin:0 0 10px;padding:15px;border:1px solid #fccdff;background:#ffeef9}
 .display_setup_message strong {display:block;margin:0 0 10px}
@@ -1089,12 +1092,18 @@ html.no-overflowscrolling #sc_coupon_frm, html.no-overflowscrolling #od_coupon_f
 #personal_pay #display_pay_button {border:0}
 
 
-/* input */
+/* input, radio */
 .selec_chk {position:absolute;top:0;left:0;width:0;height:0;opacity:0;outline:0;z-index:-1;overflow:hidden}
 .chk_box {position:relative}
 .chk_box input[type="checkbox"] + label {position:relative;padding-left:20px;color:#676e70}
 .chk_box input[type="checkbox"] + label:hover{color:#2172f8}
 .chk_box input[type="checkbox"] + label span {position:absolute;top:2px;left:0;width:15px;height:15px;display:block;margin:0;background:#fff;border:1px solid #d0d4df;border-radius:3px}
 .chk_box input[type="checkbox"]:checked + label {color:#000}
-.chk_box input[type="checkbox"]:checked + label span {background:url(/img/chk.png) no-repeat 50% 50% #3a8afd;border-color:#1471f6;border-radius:3px}
+.chk_box input[type="checkbox"]:checked + label span {background:url('/img/chk.png') no-repeat 50% 50% #3a8afd;border-color:#1471f6;border-radius:3px}
+
+.chk_box input[type="radio"] {position:absolute;top:0;left:0;width:0;height:0;opacity:0;outline:0;z-index:-1;overflow:hidden}
+.chk_box input[type="radio"] + label {position:relative;padding-left:23px;display:inline-block;color:#676e70}
+.chk_box input[type="radio"] + label span {position:absolute;top:0;left:0;width:15px;height:15px;display:block;background:#fff;border:1px solid #cdd6df;border-radius:50%}
+.chk_box input[type="radio"]:checked + label {color:#305af9}
+.chk_box input[type="radio"]:checked + label span:before {width:7px;height:7px;background:#305af9;content:'';position:absolute;top:3px;left:3px;border-radius:50%}
 
