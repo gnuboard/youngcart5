@@ -180,7 +180,7 @@
 .sct_10 .sct_cart i {display:inline-block;margin-right:5px;font-size:1.2em}
 .sct_10 .sct_disc {position:absolute;right:15px;bottom:15px;background:red;color:#fff;padding:0 8px;line-height:24px;font-weight:bold;font-size:1.2em;background:#000;background:rgba(0,0,0,0.5)}
 
-.sct_10 .sct_ct_wrap {position:relative;min-height:120px}
+.sct_10 .sct_ct_wrap {position:relative}
 .sct_10 .sct_ct_wrap:after {display:block;visibility:hidden;clear:both;content:""}
 .sct_10 .sct_star {margin: 10px 0 5px}
 .sct_10 .sct_txt {border-bottom:1px solid #d9dde2;font-size:1.1em;margin:10px 0;padding-bottom:10px}
@@ -199,10 +199,8 @@
 .sct_10 .sct_sns_bg {background:rgba(0,0,0,0.1);width:100%;height:100%}
 .sct_10 .sct_sns_cls {position:absolute;right:0;top:0;color:#b5b8bb;border:0;padding:12px 15px;font-size:16px;background:#fff}
 
-.sct_10 .sct_op_btn {position:absolute;right:5px;bottom:30px}
+.sct_10 .sct_op_btn {position:absolute;right:5px;bottom:0}
 .sct_10 .sct_op_btn>button {border:0;width:25px;height:20px;font-size:1.25em;text-align:center;color:#949494;background:transparent}
-
-
 
 /* 상품 목록 스킨 20 */
 .sct_20 .sct_li {position:relative;float:left;margin:0 25px 15px 0}
@@ -280,10 +278,13 @@
 
 /* 메인 상품 목록 스킨 10 */
 .smt_10 {margin:0 -5px}
-.smt_10 .sct_li {position:relative;float:left;width:25%;padding:0 5px;margin-bottom:15px;text-align:left}
+.smt_10 .sct_li {position:relative;float:left;width:215px;margin-right:15px;margin-bottom:15px;text-align:left}
+.smt_10 .sct_last {margin-right:0}
 .smt_10 .sct_clear {clear:both}
 .smt_10 .sct_a {text-decoration:none}
 .smt_10 .sct_a:focus, .smt_10 .sct_a:hover {text-decoration:none}
+.smt_10 .sct_ct_wrap {position:relative}
+.smt_10 .sct_ct_wrap:after {display:block;visibility:hidden;clear:both;content:""}
 
 .smt_10 .sct_img {position:relative;text-align:center}
 .smt_10 .sct_img a {display:block}
@@ -309,7 +310,7 @@
 .smt_10 .sct_sns_bg {background:rgba(0,0,0,0.1);width:100%;height:100%}
 .smt_10 .sct_sns_cls {position:absolute;right:0;top:0;color:#b5b8bb;border:0;padding:12px 15px;font-size:16px;background:#fff}
 
-.smt_10 .sct_op_btn {position:absolute;right:5px;bottom:30px}
+.smt_10 .sct_op_btn {position:absolute;right:5px;bottom:0}
 .smt_10 .sct_op_btn>button {border:0;width:25px;height:20px;font-size:1.25em;text-align:center;color:#949494;background:transparent}
 
 .sct_cartop_wr {position:absolute;top:0;left:0;width:100%;height:100%;padding:10px;text-align:left;background:rgba(0,0,0,0.5);opacity:0.98}
@@ -321,7 +322,7 @@
 .smt_20 {position:relative;overflow-y:hidden;margin:0 -5px}
 .smt_20 .sct_ul {width:100%;position:absolute;top:0;left:0;margin:0;padding:0;list-style:none}
 .smt_20 .sct_ul_first {display:block;top:0}
-.smt_20 .sct_li {position:relative;float:left;width:25%;padding:0 5px;margin-bottom:15px;text-align:left}
+.smt_20 .sct_li {position:relative;float:left;width:215px;margin-right:15px;margin-bottom:15px;text-align:left}
 .smt_20 .sct_last {margin:0 0 15px !important}
 .smt_20 .sct_clear {clear:both}
 .smt_20 .sct_a {display:inline-block;position:relative;text-decoration:none}
@@ -348,13 +349,13 @@
 
 /* 메인 상품 목록 스킨 30 */
 .smt_30 {position:relative}
-.smt_30 li {position:relative;min-height:50px;padding:10px 15px}
+.smt_30 li {position:relative;min-height:50px;padding:10px 15px;background:#fff}
 .smt_30 li:after {display:block;visibility:hidden;clear:both;content:""}
 .smt_30 .sct_clear {clear:both}
 .smt_30 .sct_img {float:left;width:80px;margin-right:10px}
 .smt_30 .sct_img img {width:100%;height:auto}
 .smt_30 .sct_cnt {display:inline-block;float:left;max-width:143px;line-height:20px}
-.smt_30 .sct_txt a {display:block;font-size:1em;color:#000}
+.smt_30 .sct_txt a {display:block;font-size:1em;color:#000;max-height:40px;overflow:hidden;text-overflow:ellipsis;list-style:none}
 .smt_30 .sct_cost {font-weight:bold;font-size:1.2em}
 
 
