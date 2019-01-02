@@ -171,7 +171,7 @@ box-shadow:0 2px 5px rgba(0,0,0,0.2)}
 #aside {float:left;margin:0 10px 0 0;width:265px;margin-right:20px}
 #side_pd {position:relative;border:1px solid #dde7e9;background:#fff;border-radius:3px;margin-bottom:15px}
 #side_pd h2 {border-bottom:1px solid #e8e8e8;padding:15px}
-#side_pd .bx-wrapper {padding-bottom:10px}
+#side_pd .bx-wrapper {padding-bottom:10px;min-height:400px}
 #side_pd .bx-controls {display:inline-block;position:absolute;right:10px;top:12px}
 #side_pd .bx-prev {display:inline-block;width:20px;height:20px;text-indent:-9999em;background:url('../img/btn_prev.png') no-repeat}
 #side_pd .bx-next {display:inline-block;width:20px;height:20px;text-indent:-9999em;background:url('../img/btn_next.png') no-repeat}
@@ -649,7 +649,8 @@ margin-top:-150px;border:1px solid #dde7e9;border-radius:3px;background:#fff;ove
 
 .option_wr {padding:20px 20px 0}
 .option_wr h3 {font-size:1.167em;margin-bottom:10px}
-.option_wr .get_item_options {margin-bottom:10px}
+.option_wr .get_item_options,
+.option_wr .get_item_supply {margin-bottom:10px}
 .option_wr label {display:block;margin:10px 0 5px}
 .option_wr select {width:100%;border:1px solid #d4d4d4;height:48px}
 
