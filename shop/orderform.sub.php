@@ -392,9 +392,9 @@ if($is_kakaopay_use) {
                     <th scope="row"><label for="ad_subject">배송지명</label></th>
                     <td>
                         <input type="text" name="ad_subject" id="ad_subject" class="frm_input" maxlength="20">
-                        <div class="ad_choice">
-	                        <input type="checkbox" name="ad_default" id="ad_default" value="1">
-	                        <label for="ad_default">기본배송지로 설정</label>
+                        <div class="ad_choice chk_box">
+	                        <input type="checkbox" name="ad_default" id="ad_default" value="1" class="selec_chk">
+	                        <label for="ad_default"><span></span><b>기본배송지로 설정</b></label>
                         </div>
                     </td>
                 </tr>

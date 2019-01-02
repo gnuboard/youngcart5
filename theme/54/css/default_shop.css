@@ -621,8 +621,8 @@ box-shadow:0 1px 10px rgba(0,0,0,.1)}
 .sod_opt li {color:#000;padding:3px 0;line-height:1.3em}
 .sod_opt li:before {content:"옵션";display:inline-block;margin:1px 5px 2px 0;padding:3px;border-radius:3px;background:#e2eaf6;line-height:1em;color:#3a8afd}
 .sod_option_btn .mod_options {height:30px;margin:5px 0 0;padding:0 5px;border:1px solid #d4d6db;color:#606060;background:#fff;border-radius:3px}
-.cp_btn {padding:0 10px;border:1px solid #d4d6db;color:#3a8afd;background:#fff;height:26px;margin:10px 0 0;border-radius:3px}
-.cp_cancel {padding:0 10px;border:1px solid #aaa;color:#666;background:#fff;height:23px;margin:10px 0 0 2px}
+.cp_btn {padding:0 10px;border:1px solid #d4d6db;color:#3a8afd;background:#fff;height:26px;border-radius:3px}
+.cp_cancel {padding:0 10px;border:1px solid #aaa;color:#666;background:#fff;height:26px;border-radius:3px}
 
 /* 장바구니 */
 #sod_bsk {margin-bottom:30px}
@@ -755,6 +755,7 @@ margin-top:-150px;border:1px solid #dde7e9;border-radius:3px;background:#fff;ove
 .sod_right .sod_info_option li:after {display:block;visibility:hidden;clear:both;content:""}
 .sod_right .sod_info_option .sod_ifop_tit {display:inline-block;float:left;width:50%;line-height:28px;text-align:left;font-weight:bold}
 .sod_right .sod_info_option .sod_ifop_tit .btn_frmline {width:auto;height:30px;color:#3a8afd;background:#fff;border:1px solid #d4d6db}
+.sod_right .sod_info_option .sod_ifop_tit .cp_cancel {width:auto;height:30px;border:1px solid #d4d6db;padding:0 5px;margin-left:5px;color:#b1b1b1;vertical-align:baseline}
 .sod_right .sod_info_option .sod_ifop_tit .od_coupon {position:relative;width:308px;margin:10px 0;background:#fff;z-index:999;border:1px solid #e2e4e7}
 .sod_right .sod_info_option .sod_ifop_tit .od_coupon>td {text-align:left}
 .sod_right .sod_info_option>td, .sod_right .sod_info_option .sod_ifop_t {display:inline-block;float:left;width:50%;line-height:28px;text-align:right}
@@ -852,15 +853,17 @@ margin-top:-150px;border:1px solid #dde7e9;border-radius:3px;background:#fff;ove
 
 /* 배송지 목록 */
 #sod_addr .tbl_wrap {margin:30px}
-#sod_addr .td_mng .sel_address {color:#fff;background:#fff;border:1px solid #333;color:#333;padding:0 5px;height:26px}
-#sod_addr .td_mng .del_address {display:inline-block;border:1px solid #aaa;color:#888;padding:0 5px;height:26px;line-height:24px;vertical-align:middle}
+#sod_addr .td_mng .sel_address {color:#fff;background:#fff;border:1px solid #19bc9b;color:#19bc9b;padding:0 5px;height:26px;border-radius:3px}
+#sod_addr .td_mng .del_address {display:inline-block;border:1px solid #aaa;color:#888;padding:0 5px;height:26px;line-height:24px;vertical-align:middle;border-radius:3px}
 #sod_addr input[type="radio"] {position:absolute;left:0;z-index:-1;visibility:hidden;width:0;height:0;overflow:hidden;text-indent:-999px}
-#sod_addr .default_lb {display:inline-block;background:#fff;border:1px solid #3476be;color:#3476be;cursor:pointer;position:relative;padding:0 5px;height:26px;line-height:24px}
+#sod_addr .default_lb {display:inline-block;background:#fff;border:1px solid #1c70e9;color:#3a8afd;cursor:pointer;position:relative;padding:0 5px;height:26px;line-height:24px;border-radius:3px}
 #sod_addr input[type="radio"]:checked+.default_lb {background:#3476be;color:#fff}
 #sod_addr td {height:40px;vertical-align:top}
 #sod_addr .td_name {width:100px}
 #sod_addr .frm_input {height:30px}
 #sod_addr .td_sbj {width:155px;text-align:left}
+#sod_addr .td_sbj .chk_box {display:inline-block;float:left}
+#sod_addr .td_sbj .chk_box input[type="checkbox"]:checked + label span {background:url(../img/chk.png) no-repeat 50% 50% #3a8afd;border-color:#1471f6;border-radius:3px}
 #sod_addr .ad_tel {display:block;color:#666}
 #sod_addr .td_mng {width:100px;padding:10px}
 #sod_addr .td_mng .mng_btn {width:100%;margin:2px 0}
