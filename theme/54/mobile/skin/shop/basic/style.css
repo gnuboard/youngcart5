@@ -91,7 +91,7 @@
 .sct_10 .sct_sns_wrap {display:none;width:100%;height:100%;position:fixed;top:0;left:0;z-index:999}
 .sct_10 .sct_sns {position:absolute;top:50%;left:50%;background:#fff;text-align:center;width:245px;max-height:300px;margin-left:-125px;margin-top:-180px;overflow-y:auto;border-radius:5px;-webkit-box-shadow:1px 1px 18px rgba(0,0,0,0.2);-moz-box-shadow: 1px 1px 18px rgba(0,0,0,0.2);box-shadow: 1px 1px 18px rgba(0,0,0,0.2);border:1px solid #dde7e9;background:#fff;border-radius:3px}    
 .sct_10 .sct_sns h3 {padding:15px;border-bottom:1px solid #e8e8e8;text-align:left;font-size:}
-.sct_10 .sct_sns a {display:inline-block;border-radius:50%;width:50px;height:50px;line-height:25px;text-align:center;padding:10px 0;margin:20px 5px}
+.sct_10 .sct_sns a {display:inline-block;border-radius:50%;width:50px;height:50px;line-height:25px;text-align:center;padding:13px 0;margin:20px 5px}
 .sct_10 .sct_sns .share-facebook {background:#415b92}
 .sct_10 .sct_sns .share-twitter {background:#35b3dc}
 .sct_10 .sct_sns .share-googleplus {background:#ea3838}
@@ -103,12 +103,35 @@
 .sct_10 .sct_icon .shop_icon_4{padding: 0 5px;line-height:20px;position: absolute;top: 0;left: 0;background: #fb5861;color: #fff;font-size: 12px;border:0}
 .li_more{text-align:center}
 
-.sct_10 .sct_op_btn {position:absolute;right:5px;bottom:30px}
+.sct_10 .sct_op_btn {position:absolute;right:5px;bottom:10px}
 .sct_10 .sct_op_btn>button {border:0;width:25px;height:20px;font-size:1.25em;text-align:center;color:#949494;background:transparent}
 
-
 #item_load_msg{display:none}
-#btn_more_item{height: 43px;width:100%;border:1px solid #c8c8c8;border-bottom-color:#aaa;font-size:1.167em;color: #282828;line-height: 43px;background:none}
+.li_more_btn{margin:10px}
+#btn_more_item{height: 43px;width:100%;border:1px solid #ddd;font-size:1.167em;color: #282828;line-height: 43px;background:none;}
+
+.sct_10_list li{border-bottom:1px solid #d9dde2;width:100%;padding:10px;text-align:left}
+.sct_10_list .li_wr {;min-height:130px;padding-left:120px;}
+.sct_10_list .sct_sns_wrap {display:none;width:100%;height:100%;position:fixed;top:0;left:0;z-index:999}
+.sct_10_list .sct_sns {position:absolute;top:50%;left:50%;background:#fff;text-align:center;width:245px;max-height:300px;margin-left:-125px;margin-top:-180px;overflow-y:auto;border-radius:5px;-webkit-box-shadow:1px 1px 18px rgba(0,0,0,0.2);-moz-box-shadow: 1px 1px 18px rgba(0,0,0,0.2);box-shadow: 1px 1px 18px rgba(0,0,0,0.2);border:1px solid #dde7e9;background:#fff;border-radius:3px}    
+.sct_10_list .sct_sns h3 {padding:15px;border-bottom:1px solid #e8e8e8;text-align:left;font-size:}
+.sct_10_list .sct_sns a {display:inline-block;border-radius:50%;width:50px;height:50px;line-height:25px;text-align:center;padding:13px 0;margin:20px 5px}
+.sct_10_list .sct_sns .share-facebook {background:#415b92}
+.sct_10_list .sct_sns .share-twitter {background:#35b3dc}
+.sct_10_list .sct_sns .share-googleplus {background:#ea3838}
+.sct_10_list .sct_sns img {width:24px}
+.sct_10_list .sct_sns_bg {background:rgba(0,0,0,0.1);width:100%;height:100%}
+.sct_10_list .sct_sns_cls {position:absolute;right:0;top:0;color:#b5b8bb;border:0;padding:12px 15px;font-size:16px;background:#fff}
+.sct_10_list .sct_img {position:absolute;top:0;left:0}
+.sct_10_list .sct_img img{width:110px;height:auto;}
+.sct_10_list .li_wr{position:relative}
+.sct_10_list .sct_star {margin:5px 0}
+.sct_10_list .sct_id{margin:5px 10px ;font-size:0.92em;color:#666 }
+.sct_10_list .sct_txt{font-size:1.077em;margin:5px 0 ;line-height:1.5em}
+.sct_10_list .sct_cost{margin:5px 0;font-weight:bold}
+.sct_10_list .sct_sns{margin:10px 0}
+.sct_10_list .sct_op_btn {position:absolute;right:5px;bottom:10px}
+.sct_10_list .sct_op_btn>button {border:0;width:25px;height:20px;font-size:1.25em;text-align:center;color:#949494;background:transparent}
 
 /* 상품 목록 스킨 20 */
 .sct_20 {background:#fff;border-bottom:1px solid #e5e5e5;padding:10px 0}
@@ -149,14 +172,14 @@
 .srl_10 .sct_txt{display:block;text-overflow: ellipsis;overflow: hidden;white-space: nowrap;}
 
 /* 베스트상품 스킨 10 */
-#best_item{margin:20px 0 ;overflow:hidden;position:relative}
-#best_item h2{position:absolute;font-size:0;text-indent:-9999em;line-height:0;overflow:hidden}
+#best_item{margin:10px 0 ;overflow:hidden;position:relative}
+#best_item h2 {font-size:1.25em;margin: 10px }
 #best_item #sbest_list{width:100%;overflow:hidden;}
 #best_item .slide-wrap{margin:0px;overflow:hidden;position:relative;top:0;left:0;float:left;}
 #best_item .slide-wrap:after {display:block;visibility:hidden;clear:both;content:""}
-#best_item .sct_best{width:100%;position:relative;padding:0;float:left;}
+#best_item .sct_best{width:100%;background:#fff;border-bottom:1px solid #e5e5e5;padding:10px 0;position:relative;padding:0;float:left;}
 #best_item .best_on{}
-.sct_best .sct_li {position:relative;float:left}
+.sct_best .sct_li {position:relative;float:left;padding:10px}
 .sct_best .sct_last {margin:0 0 15px !important}
 .sct_best .sct_clear {clear:both;margin-left:0}
 .sct_best .sct_a {display:block;position:relative;text-decoration:none;font-weight:bold; text-overflow: ellipsis;  overflow: hidden;  white-space: nowrap;}
@@ -168,13 +191,9 @@
 .sct_best .sct_icon {margin:0 0 10px}
 .sct_best .sct_sns {margin:15px 0 0}
 .sct_best .sct_img{position:relative;margin:0 5px 5px ;}
-.sct_best .best_icon{padding:5px;position:absolute;top:0;left:0;background:#fb5861;color:#fff;font-size: 12px;}
-.bst_silde_btn{text-align:center;clear:both;margin:10px 0 }
-.bst_silde_btn button{border:0;display:inline-block;width:10px;height:10px;background:#fff;border-radius:5px;text-indent:-999px;overflow:hidden;margin:3px;
--webkit-box-shadow: 0 1px 3px rgba(0,0,0,0.2);
-    -moz-box-shadow: 0 1px 3px rgba(0,0,0,0.2);
-    box-shadow: 0 1px 3px rgba(0,0,0,0.2);}
-.bst_silde_btn button.bst_sl{background: #d5503a;width: 18px;}
+.bst_silde_btn{position:absolute;top:10px;right:10px}
+.bst_silde_btn button{border:0;width:8px;height:8px;text-indent:-999px;overflow:hidden;background:#adadad;border-radius:5px;margin:3px}
+.bst_silde_btn button.bst_sl{background: #000;}
 
 /* 개인결제 목록 */
 #sct_pv{margin:10px 5px}
@@ -194,7 +213,7 @@
 /* ##### maint.(nn).skin.php, list.(nn).skin.php 공통 적용 끝 ##### */
 
 /* 상품 목록 */
-#sct {margin:10px}
+#sct {margin:10px 0}
 .sct_admin {margin:0 0 10px;text-align:right}
 #sit_hhtml img{max-width:100%;height:auto}
 
@@ -207,21 +226,22 @@
 /* 상품 목록 카테고리 목록 */
 .sct_ct {text-align:center;width:100%;margin:10px 0}
 .sct_ct h2 {position:absolute;font-size:0;text-indent:-9999em;line-height:0;overflow:hidden}
-.sct_ct ul {list-style:none;}
+.sct_ct ul {list-style:none;border-bottom:1px solid #d9dce3}
 .sct_ct ul:after {display:block;visibility:hidden;clear:both;content:""}
-.sct_ct ul li {border-right:1px solid #ddd;border-bottom:1px solid #ddd; background:#fff;float:left;width:50%;text-align:left;}
+.sct_ct ul li {border-left:1px solid #f2f2f2;border-top:1px solid #f2f2f2; background:#fff;float:left;width:50%;text-align:left;}
+.sct_ct ul li:nth-child(2n+1){clear:both;border-left:0}
 .sct_ct a {text-decoration:none;display:block;color:#656565;padding:10px;position:relative;padding-right:25px;position:relative;line-height:20px}
-.sct_ct .prd_cnt{position:absolute;top:10px;right:10px;display:inline-block;line-height:20px;padding:0 5px;background:#eee;border-radius:10px;color:#777}
+.sct_ct .prd_cnt{position:absolute;top:10px;right:10px;display:inline-block;line-height:20px;padding:0 5px;border-radius:10px;color:#999}
 .sct_ct_parent {font-weight:bold}
 .sct_ct_here {color:#ff3600 !important}
 
 /* 상품 정렬 */
-#sct_sortlst{position:relative;background:#fff;border-bottom:1px solid #ddd;}
+#sct_sortlst{position:relative;background:#fff;border-bottom:1px solid #e5e5e5;}
 
 #sct_sort {clear:both}
 #sct_sort:after {display:block;visibility:hidden;clear:both;content:""}
 #sct_sort h2 {position:absolute;font-size:0;text-indent:-9999em;line-height:0;overflow:hidden}
-#sct_sort button{height:40px;line-height:40px;border:0;padding:0 10px;background:#fff}
+#sct_sort button{height:40px;line-height:40px;border:0;padding:0 10px;background:#fff;border-right:1px solid #f8f8f8}
 #sct_sort ul:before{content: "";position: absolute;top: -8px;left: 30px;width: 0;border-style: solid;border-width: 0 6px 8px 6px;border-color: transparent transparent #bbb transparent;}
 #sct_sort ul:after{content: "";position: absolute;top: -7px;left: 30px;width: 0;height: 0;border-style: solid;border-width: 0 6px 8px 6px;border-color: transparent transparent #fff transparent;}
 #sct_sort ul {display:none;position:absolute;border:1px solid #bbb;z-index:99}
@@ -232,7 +252,7 @@
 #sct_lst {position:absolute;top:0;right:0;padding:0;list-style:none}
 #sct_lst:after {display:block;visibility:hidden;clear:both;content:""}
 #sct_lst li {position:relative;float:left;}
-#sct_lst button {position:relative;padding:0;width:40px;height:40px;border:0;border-left:1px solid #ddd;background:#fff;font-size:15px}
+#sct_lst button {position:relative;padding:0;width:40px;height:40px;border:0;background:#fff;font-size:15px;color:#999}
 
 /* 상품 상세보기 */
 #sit {margin: 0;border-top:1px solid #e9e9e9}
