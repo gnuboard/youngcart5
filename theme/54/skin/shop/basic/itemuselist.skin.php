@@ -53,9 +53,28 @@ add_stylesheet('<link rel="stylesheet" href="'.G5_SHOP_SKIN_URL.'/style.css">', 
 	                <?php echo get_itemuselist_thumbnail($row['it_id'], $row['is_content'], 100, 100); ?>
 	                <span><?php echo $row2['it_name']; ?></span>
 	            </a>
-	            <button class="review_detail"><i class="fa fa-camera" aria-hidden="true"></i><span class="sound_only">후기 상세보기</span></button>
+	            <button class="prd_detail"><i class="fa fa-camera" aria-hidden="true"></i><span class="sound_only">후기 상세보기</span></button>
+			</div>            
+		</section>
+
+        <section class="sps_section">
+        	<span class="sound_only">평가점수</span>
+            <span><img src="<?php echo G5_URL; ?>/shop/img/s_star<?php echo $star; ?>.png" alt="별<?php echo $star; ?>개" width="80"></span>
+                
+            <span class="sps_pd_name">상품명</span>
+            <span class="sps_rv_tit"><?php echo get_text($row['is_subject']); ?></span>
+            <span class="sps_rv_thum"><?php echo get_itemuselist_thumbnail($row['it_id'], $row['is_content'], 60, 60); ?></span>
+
+	        <div class="sps_con_btn">
+	        	<dl class="sps_dl">
+	                <dt class="sound_only">작성자</dt>
+	                <dd><i class="fa fa-user" aria-hidden="true"></i> <?php echo $row['is_name']; ?></dd>
+	                <dt class="sound_only">작성일</dt>
+	                <dd><i class="fa fa-clock-o" aria-hidden="true"></i> <?php echo substr($row['is_time'],0,10); ?></dd>
+	            </dl>
 	            
-	            <!-- 사용후기 자세히 시작 -->
+	        	<button class="sps_con_<?php echo $i; ?> review_detail">내용보기</button>
+	        	<!-- 사용후기 자세히 시작 -->
 	            <div class="review_detail_cnt">
 	            	<div class="review_detail_in">
 	            		<h3>사용후기</h3>
@@ -111,54 +130,7 @@ add_stylesheet('<link rel="stylesheet" href="'.G5_SHOP_SKIN_URL.'/style.css">', 
 	            	</div>
 	            </div>
 	            <!-- 사용후기 자세히 끝 -->
-			</div>            
-		</section>
-		
-		<section class="sps_section">
-        	<span class="sound_only">평가점수</span>
-            <span><img src="<?php echo G5_URL; ?>/shop/img/s_star<?php echo $star; ?>.png" alt="별<?php echo $star; ?>개" width="80"></span>
-                
-            <span class="sps_pd_name">상품명</span>
-            <span class="sps_rv_tit"><?php echo get_text($row['is_subject']); ?></span>
-            <span class="sps_rv_thum"><?php echo get_itemuselist_thumbnail($row['it_id'], $row['is_content'], 60, 60); ?></span>
-
-            <div id="sps_con_<?php echo $i; ?>" style="display:none;">
-                <?php echo $is_content; // 사용후기 내용 ?>
-                <?php
-                if( !empty($row['is_reply_subject']) ){     //사용후기 답변이 있다면
-                    $is_reply_content = get_view_thumbnail(conv_content($row['is_reply_content'], 1), $thumbnail_width);
-                ?>
-                <div class="sps_reply">
-                    <div class="sps_img">
-                        <a href="<?php echo $it_href; ?>">
-                            <?php echo get_itemuselist_thumbnail($row['it_id'], $row['is_reply_content'], 50, 50); ?>
-                            <span><?php echo $row2['it_name']; ?></span>
-                        </a>
-                    </div>
-
-                    <section>
-						<div class="sps_dl">
-                            <i class="fa fa-clock-o" aria-hidden="true"></i> <?php echo $row['is_reply_name']; ?>
-                        </div>
-                        <h2 class="is_use_reply"><?php echo get_text($row['is_reply_subject']); ?></h2>
-                        <div id="sps_con_<?php echo $i; ?>_reply" style="display:none;">
-                            <?php echo $is_reply_content; // 사용후기 답변 내용 ?>
-                        </div>
-
-                    </section>
-                </div>
-                <?php } //end if ?>
-            </div>
-
-            <div class="sps_con_btn">
-            	<dl class="sps_dl">
-	                <dt class="sound_only">작성자</dt>
-	                <dd><i class="fa fa-user" aria-hidden="true"></i> <?php echo $row['is_name']; ?></dd>
-	                <dt class="sound_only">작성일</dt>
-	                <dd><i class="fa fa-clock-o" aria-hidden="true"></i> <?php echo substr($row['is_time'],0,10); ?></dd>
-	            </dl>
-            	<button class="sps_con_<?php echo $i; ?>">내용보기 <i class="fa fa-caret-down" aria-hidden="true"></i></button>
-            </div>
+	        </div>
         </section>
     </li>
 
@@ -172,31 +144,13 @@ add_stylesheet('<link rel="stylesheet" href="'.G5_SHOP_SKIN_URL.'/style.css">', 
 
 <script>
 $(function(){
-    // 사용후기 더보기
-    $(".sps_con_btn button").click(function(){
-        var $con = $(this).parent().prev();
-        if($con.is(":visible")) {
-            $con.slideUp();
-            $(this).html("내용보기 <i class=\"fa fa-caret-down\" aria-hidden=\"true\"></i>");
-        } else {
-            $(".sps_con_btn button").html("내용보기 <i class=\"fa fa-caret-down\" aria-hidden=\"true\"></i>");
-            $("div[id^=sps_con]:visible").hide();
-            $con.slideDown(
-                function() {
-                    // 이미지 리사이즈
-                    $con.viewimageresize2();
-                }
-            );
-            $(this).html("내용닫기 <i class=\"fa fa-caret-up\" aria-hidden=\"true\"></i>");
-        }
-    });
-    
-    // 후기상세 열기
-    $(".sps_img .review_detail").on("click", function(){
+
+    // 사용후기 열기
+    $(".review_detail").on("click", function(){
         $(this).parent("div").children(".review_detail_cnt").show();
     });
 		
-    // 후기상세 닫기
+    // 사용후기 닫기
     $(document).mouseup(function (e){
         var container = $(".review_detail_cnt");
         if( container.has(e.target).length === 0)

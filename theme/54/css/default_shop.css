@@ -171,7 +171,8 @@ box-shadow:0 2px 5px rgba(0,0,0,0.2)}
 #aside {float:left;margin:0 10px 0 0;width:265px;margin-right:20px}
 #side_pd {position:relative;border:1px solid #dde7e9;background:#fff;border-radius:3px;margin-bottom:15px}
 #side_pd h2 {border-bottom:1px solid #e8e8e8;padding:15px}
-#side_pd .bx-controls {background:red;display:inline-block;position:absolute;right:10px;top:12px}
+#side_pd .bx-wrapper {padding-bottom:10px;min-height:400px}
+#side_pd .bx-controls {display:inline-block;position:absolute;right:10px;top:12px}
 #side_pd .bx-prev {display:inline-block;width:20px;height:20px;text-indent:-9999em;background:url('../img/btn_prev.png') no-repeat}
 #side_pd .bx-next {display:inline-block;width:20px;height:20px;text-indent:-9999em;background:url('../img/btn_next.png') no-repeat}
 
@@ -621,8 +622,8 @@ box-shadow:0 1px 10px rgba(0,0,0,.1)}
 .sod_opt li {color:#000;padding:3px 0;line-height:1.3em}
 .sod_opt li:before {content:"옵션";display:inline-block;margin:1px 5px 2px 0;padding:3px;border-radius:3px;background:#e2eaf6;line-height:1em;color:#3a8afd}
 .sod_option_btn .mod_options {height:30px;margin:5px 0 0;padding:0 5px;border:1px solid #d4d6db;color:#606060;background:#fff;border-radius:3px}
-.cp_btn {padding:0 10px;border:1px solid #d4d6db;color:#3a8afd;background:#fff;height:26px;margin:10px 0 0;border-radius:3px}
-.cp_cancel {padding:0 10px;border:1px solid #aaa;color:#666;background:#fff;height:23px;margin:10px 0 0 2px}
+.cp_btn {padding:0 10px;border:1px solid #d4d6db;color:#3a8afd;background:#fff;height:26px;border-radius:3px}
+.cp_cancel {padding:0 10px;border:1px solid #aaa;color:#666;background:#fff;height:26px;border-radius:3px}
 
 /* 장바구니 */
 #sod_bsk {margin-bottom:30px}
@@ -640,7 +641,7 @@ box-shadow:0 1px 10px rgba(0,0,0,.1)}
 #sod_bsk_act .btn01 {height:50px;line-height:50px;padding:0 10px;width:160px;font-weight:bold;font-size:1.25em}
 #sod_bsk_act p {margin:0 0 10px}
 
-/*장바구니 선택사항수정*/
+/* 장바구니 선택사항수정 */
 #sod_bsk_list #mod_option_frm {z-index:10000;position:fixed;top:50%;left:50%;width:540px;height:auto !important;height:500px;max-height:500px;margin-left:-280px;
 margin-top:-150px;border:1px solid #dde7e9;border-radius:3px;background:#fff;overflow-y:auto;overflow-x:none}
 #sod_bsk_list .mod_option_bg {content:"";position:fixed;left:0;top:0;width:100%;height:100%;background:rgba(0,0,0,0.1);display:block;z-index:9999}
@@ -648,7 +649,8 @@ margin-top:-150px;border:1px solid #dde7e9;border-radius:3px;background:#fff;ove
 
 .option_wr {padding:20px 20px 0}
 .option_wr h3 {font-size:1.167em;margin-bottom:10px}
-.option_wr .get_item_options {margin-bottom:10px}
+.option_wr .get_item_options,
+.option_wr .get_item_supply {margin-bottom:10px}
 .option_wr label {display:block;margin:10px 0 5px}
 .option_wr select {width:100%;border:1px solid #d4d4d4;height:48px}
 
@@ -707,9 +709,11 @@ margin-top:-150px;border:1px solid #dde7e9;border-radius:3px;background:#fff;ove
 #sod_frm_taker .tbl_frm01 {padding:20px 10px}
 #sod_frm_taker .tbl_frm01 .choice_place {display:block;background:#edf3fc;padding:10px 15px;border:1px solid #d1ddee;margin:0 10px}
 #sod_frm_taker .tbl_frm01 .choice_place:after {display:block;visibility:hidden;clear:both;content:""}
-#sod_frm_taker .tbl_frm01 .choice_place span {float:left;display:inline-block;width:85%;line-height:30px}
-#sod_frm_taker .tbl_frm01 .choice_tit {width:15% !important}
-#sod_frm_taker .tbl_frm01 .choice_place input {margin-left:10px}
+#sod_frm_taker .tbl_frm01 .choice_place .chk_box {float:left;display:inline-block;width:85%;line-height:30px}
+#sod_frm_taker .tbl_frm01 .choice_tit {float:left;display:inline-block;width:15% !important;line-height:30px}
+#sod_frm_taker .tbl_frm01 .choice_place input[type="radio"] + label span {top:7px}
+#sod_frm_taker .tbl_frm01 .choice_place input,
+#sod_frm_taker .tbl_frm01 .choice_place label {margin-left:10px}
 #sod_frm_taker .tbl_frm01 .btn_frmline {width:80px;height:30px;line-height:28px;background:#fff;border:1px solid #d4d6db;color:#606060;text-align:center;float:right}
 
 #sod_frm_taker .tbl_frm01 tr {display:inline-block;width:100%;padding:0 10px}
@@ -726,7 +730,6 @@ margin-top:-150px;border:1px solid #dde7e9;border-radius:3px;background:#fff;ove
 /* 주문서 작성  - 공통 */
 #sod_frm_orderer #od_addr_jibeon,
 #sod_frm_taker #od_b_addr_jibeon {display:inline-block;margin:5px 0 0}
-
 
 /* 주문서 작성  - 오른쪽 */
 .sod_right {display:inline-block;float:left;width:340px;height:100%;vertical-align:top}
@@ -755,6 +758,7 @@ margin-top:-150px;border:1px solid #dde7e9;border-radius:3px;background:#fff;ove
 .sod_right .sod_info_option li:after {display:block;visibility:hidden;clear:both;content:""}
 .sod_right .sod_info_option .sod_ifop_tit {display:inline-block;float:left;width:50%;line-height:28px;text-align:left;font-weight:bold}
 .sod_right .sod_info_option .sod_ifop_tit .btn_frmline {width:auto;height:30px;color:#3a8afd;background:#fff;border:1px solid #d4d6db}
+.sod_right .sod_info_option .sod_ifop_tit .cp_cancel {width:auto;height:30px;border:1px solid #d4d6db;padding:0 5px;margin-left:5px;color:#b1b1b1;vertical-align:baseline}
 .sod_right .sod_info_option .sod_ifop_tit .od_coupon {position:relative;width:308px;margin:10px 0;background:#fff;z-index:999;border:1px solid #e2e4e7}
 .sod_right .sod_info_option .sod_ifop_tit .od_coupon>td {text-align:left}
 .sod_right .sod_info_option>td, .sod_right .sod_info_option .sod_ifop_t {display:inline-block;float:left;width:50%;line-height:28px;text-align:right}
@@ -789,28 +793,30 @@ margin-top:-150px;border:1px solid #dde7e9;border-radius:3px;background:#fff;ove
 #sod_frm_pay .tooltip_txt:before {height:100%}
 #sod_frm_pay input[type="radio"] {}
 #sod_frm_pay .lb_icon {display:inline-block;position:relative;cursor:pointer;z-index:1}
-#sod_frm_pay input[type="radio"]:checked+.lb_icon {color:red;z-index:3}
+#sod_frm_pay input[type="radio"]:checked+.lb_icon {color:#3a8afd;z-index:3}
+#sod_frm_pay input[type="radio"] + label span {top:7px}
 
 #sod_frm_paysel {}
 #sod_frm_paysel legend {position:absolute;font-size:0;line-height:0;overflow:hidden}
-#sod_frm_paysel .PAYCO {width:75px;background:url('../../../img/payco.png') no-repeat 50% 50% #fff;overflow:hidden;text-indent:-999px;border-radius:30px}
-#sod_frm_paysel .PAYNOW {width:75px;background:url('../../../img/paynow.png') no-repeat 50% 50% #fff;overflow:hidden;text-indent:-999px;border-radius:30px}
-#sod_frm_paysel .kakaopay_icon {width:60px;background:url('../../../img/kakao.png') no-repeat 50% 50% #ffeb00;overflow:hidden;text-indent:-999px;border-radius:30px}
-#sod_frm_paysel .KPAY {width:58px;background:url('../../../img/kpay.png') no-repeat 50% 50% #fff;overflow:hidden;text-indent:-999px}
-#sod_frm_paysel .inicis_lpay {width:50px;background:url('../../../img/lpay_logo.png') no-repeat 50% 50% #fff;overflow:hidden;text-indent:-999px}
+#sod_frm_paysel .PAYCO {display:inline-block;width:75px;background:url('../../../img/payco.png') no-repeat 50% 50% #fff;overflow:hidden;text-indent:-999px;border-radius:30px;border:1px solid #fa1417}
+#sod_frm_paysel .PAYNOW {display:inline-block;width:75px;background:url('../../../img/paynow.png') no-repeat 50% 50% #fff;overflow:hidden;text-indent:-999px;border-radius:30px;border:1px solid #c01734}
+#sod_frm_paysel .kakaopay_icon {display:inline-block;width:60px;background:url('../../../img/kakao.png') no-repeat 50% 50% #ffeb00;overflow:hidden;text-indent:-999px;border-radius:30px}
+#sod_frm_paysel .KPAY {display:inline-block;width:58px;background:url('../../../img/kpay.png') no-repeat 50% 50% #fff;overflow:hidden;text-indent:-999px;border-radius:30px;border:1px solid #22096a}
+#sod_frm_paysel .inicis_lpay {display:inline-block;width:50px;background:url('../../../img/lpay_logo.png') no-repeat 50% 50% #fff;overflow:hidden;text-indent:-999px;border-radius:30px;border:1px solid #009bd7}
 #sod_frm_paysel ul.pay_way {margin:0;padding:15px}
+#sod_frm_paysel ul.pay_way input[type="radio"] + label span {top:7px}
 #sod_frm_paysel ul:after {display:block;visibility:hidden;clear:both;content:""}
-#sod_frm_paysel li {line-height:28px;text-align:left;list-style:none}
+#sod_frm_paysel li {position:relative;line-height:28px;text-align:left;list-style:none}
 
 #settle_bank {border-top:1px solid #e3e5e8;background:#fff;padding:20px;clear:both}
 #settle_bank label {float:left;width:30%;line-height:30px}
 #settle_bank select, #settle_bank input {width:70%;height:32px;margin:0 0 5px;border:1px solid #e3e5e8;border-radius:3px;text-align:left}
-#settle_bank #od_deposit_name {height:32px;border:1px solid #e3e5e8}
+#settle_bank option {padding:3px 0}
+#settle_bank #od_deposit_name {height:32px;padding:0 5px;border:1px solid #e3e5e8}
 
 #display_pay_button {background:#fff;padding:20px;border:1px solid #e3e5e8;border-top:0}
 #display_pay_button .btn_submit {width:100%;height:50px;font-weight:bold;font-size:1.25em;cursor:pointer;border:1px solid #3a8afd}
 #display_pay_button .btn01 {width:100%;height:50px;line-height:38px;font-weight:bold;font-size:1.25em;margin:5px 0;border:1px solid #ccd1d9}
-
 
 .display_setup_message {margin:0 0 10px;padding:15px;border:1px solid #fccdff;background:#ffeef9}
 .display_setup_message strong {display:block;margin:0 0 10px}
@@ -852,15 +858,17 @@ margin-top:-150px;border:1px solid #dde7e9;border-radius:3px;background:#fff;ove
 
 /* 배송지 목록 */
 #sod_addr .tbl_wrap {margin:30px}
-#sod_addr .td_mng .sel_address {color:#fff;background:#fff;border:1px solid #333;color:#333;padding:0 5px;height:26px}
-#sod_addr .td_mng .del_address {display:inline-block;border:1px solid #aaa;color:#888;padding:0 5px;height:26px;line-height:24px;vertical-align:middle}
+#sod_addr .td_mng .sel_address {color:#fff;background:#fff;border:1px solid #19bc9b;color:#19bc9b;padding:0 5px;height:26px;border-radius:3px}
+#sod_addr .td_mng .del_address {display:inline-block;border:1px solid #aaa;color:#888;padding:0 5px;height:26px;line-height:24px;vertical-align:middle;border-radius:3px}
 #sod_addr input[type="radio"] {position:absolute;left:0;z-index:-1;visibility:hidden;width:0;height:0;overflow:hidden;text-indent:-999px}
-#sod_addr .default_lb {display:inline-block;background:#fff;border:1px solid #3476be;color:#3476be;cursor:pointer;position:relative;padding:0 5px;height:26px;line-height:24px}
+#sod_addr .default_lb {display:inline-block;background:#fff;border:1px solid #1c70e9;color:#3a8afd;cursor:pointer;position:relative;padding:0 5px;height:26px;line-height:24px;border-radius:3px}
 #sod_addr input[type="radio"]:checked+.default_lb {background:#3476be;color:#fff}
 #sod_addr td {height:40px;vertical-align:top}
 #sod_addr .td_name {width:100px}
 #sod_addr .frm_input {height:30px}
 #sod_addr .td_sbj {width:155px;text-align:left}
+#sod_addr .td_sbj .chk_box {display:inline-block;float:left}
+#sod_addr .td_sbj .chk_box input[type="checkbox"]:checked + label span {background:url(../img/chk.png) no-repeat 50% 50% #3a8afd;border-color:#1471f6;border-radius:3px}
 #sod_addr .ad_tel {display:block;color:#666}
 #sod_addr .td_mng {width:100px;padding:10px}
 #sod_addr .td_mng .mng_btn {width:100%;margin:2px 0}
@@ -1005,7 +1013,7 @@ margin-top:-150px;border:1px solid #dde7e9;border-radius:3px;background:#fff;ove
 #coupon .cou_date {float:right;color:#888d92}
 #coupon .btn_close {margin:20px auto}
 
-/* 모바일일때 피시버전 주문폼*/
+/* 모바일일때 피시버전 주문폼 */
 .sod_list {position:relative;margin:0;padding:0;list-style:none}
 .sod_list .sod_li {position:relative;padding:0;border:1px solid #e9e9e9;margin:10px 0}
 .sod_list .sod_li:after {display:block;visibility:hidden;clear:both;content:""}
@@ -1053,7 +1061,7 @@ margin-top:-150px;border:1px solid #dde7e9;border-radius:3px;background:#fff;ove
 html.no-overflowscrolling #sc_coupon_frm, html.no-overflowscrolling #od_coupon_frm {height:auto;max-height:10000px !important} /* overflow 미지원 기기 대응 */
 #sod_frm_pay_info {margin:0 0 10px}
 
-/*네이버페이*/
+/* 네이버페이 */
 .itemform-naverpay {margin:15px 0;clear:both}
 .cart-naverpay {margin-top:15px}
 
@@ -1061,7 +1069,7 @@ html.no-overflowscrolling #sc_coupon_frm, html.no-overflowscrolling #od_coupon_f
 #bo_list table td, #fqalist table td {border-left:0;border-right:0}
 #bo_v_top .btn_admin, #bo_list .btn_admin {padding-top:0}
 
-/*개인결제*/
+/* 개인결제 */
 .pesonal {background:#fff;border:1px solid #e3e5e8;margin-bottom:30px}
 .pesonal h2 {border-bottom:1px solid #e2e4e7;font-size:1.167em;padding:20px}
 .pesonal .tbl_frm01 {padding:20px 10px;margin:0}
@@ -1084,3 +1092,20 @@ html.no-overflowscrolling #sc_coupon_frm, html.no-overflowscrolling #od_coupon_f
 #personal_pay .kakaopay_icon {width:60px;background:url('../../../img/kakao.png') no-repeat 50% 50% #ffeb00;overflow:hidden;text-indent:-999px;border-radius:30px}
 #personal_pay .pay_way {border-bottom:1px solid #e2e4e7}
 #personal_pay #display_pay_button {border:0}
+
+
+/* input, radio */
+.selec_chk {position:absolute;top:0;left:0;width:0;height:0;opacity:0;outline:0;z-index:-1;overflow:hidden}
+.chk_box {position:relative}
+.chk_box input[type="checkbox"] + label {position:relative;padding-left:20px;color:#676e70}
+.chk_box input[type="checkbox"] + label:hover{color:#2172f8}
+.chk_box input[type="checkbox"] + label span {position:absolute;top:2px;left:0;width:15px;height:15px;display:block;margin:0;background:#fff;border:1px solid #d0d4df;border-radius:3px}
+.chk_box input[type="checkbox"]:checked + label {color:#000}
+.chk_box input[type="checkbox"]:checked + label span {background:url('/img/chk.png') no-repeat 50% 50% #3a8afd;border-color:#1471f6;border-radius:3px}
+
+.chk_box input[type="radio"] {position:absolute;top:0;left:0;width:0;height:0;opacity:0;outline:0;z-index:-1;overflow:hidden}
+.chk_box input[type="radio"] + label {position:relative;padding-left:23px;display:inline-block;color:#676e70}
+.chk_box input[type="radio"] + label span {position:absolute;top:0;left:0;width:15px;height:15px;display:block;background:#fff;border:1px solid #cdd6df;border-radius:50%}
+.chk_box input[type="radio"]:checked + label {color:#305af9}
+.chk_box input[type="radio"]:checked + label span:before {width:7px;height:7px;background:#305af9;content:'';position:absolute;top:3px;left:3px;border-radius:50%}
+

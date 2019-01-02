@@ -67,7 +67,7 @@
 #scomm li a:hover {color:#be334a}
 
 /* 메인배너 */
-#main_bn {border:1px solid #e3e5e8;position:relative;margin:20px 0}
+#main_bn {border:1px solid #e3e5e8;position:relative;margin:20px 0 40px}
 #main_bn .slide-wrap {display:none;padding:0;margin:0}
 #main_bn .slide-wrap img {max-width:100%;height:auto}
 #main_bn .bx-controls {display:none}
@@ -180,7 +180,7 @@
 .sct_10 .sct_cart i {display:inline-block;margin-right:5px;font-size:1.2em}
 .sct_10 .sct_disc {position:absolute;right:15px;bottom:15px;background:red;color:#fff;padding:0 8px;line-height:24px;font-weight:bold;font-size:1.2em;background:#000;background:rgba(0,0,0,0.5)}
 
-.sct_10 .sct_ct_wrap {position:relative;min-height:120px}
+.sct_10 .sct_ct_wrap {position:relative}
 .sct_10 .sct_ct_wrap:after {display:block;visibility:hidden;clear:both;content:""}
 .sct_10 .sct_star {margin: 10px 0 5px}
 .sct_10 .sct_txt {border-bottom:1px solid #d9dde2;font-size:1.1em;margin:10px 0;padding-bottom:10px}
@@ -199,10 +199,8 @@
 .sct_10 .sct_sns_bg {background:rgba(0,0,0,0.1);width:100%;height:100%}
 .sct_10 .sct_sns_cls {position:absolute;right:0;top:0;color:#b5b8bb;border:0;padding:12px 15px;font-size:16px;background:#fff}
 
-.sct_10 .sct_op_btn {position:absolute;right:5px;bottom:30px}
+.sct_10 .sct_op_btn {position:absolute;right:5px;bottom:0}
 .sct_10 .sct_op_btn>button {border:0;width:25px;height:20px;font-size:1.25em;text-align:center;color:#949494;background:transparent}
-
-
 
 /* 상품 목록 스킨 20 */
 .sct_20 .sct_li {position:relative;float:left;margin:0 25px 15px 0}
@@ -264,7 +262,7 @@
 .sct_40 .shop_icon_4 {position:absolute;top:10px;left:10px;width:50px;height:50px;line-height:50px;font-size:14px;border-radius:50%;text-align:center;font-weight:bold}
 
 /* 개인결제 목록 */
-.sct_pv .sct_li {position:relative;float:left;margin:0 15px 15px 0}
+.sct_pv .sct_li {position:relative;float:left;margin:0 18px 15px 0}
 .sct_pv .sct_last {margin:0 0 15px !important}
 .sct_pv .sct_clear {clear:both}
 .sct_pv .sct_a {display:inline-block;position:relative;text-decoration:none;font-size:1.1em}
@@ -280,10 +278,13 @@
 
 /* 메인 상품 목록 스킨 10 */
 .smt_10 {margin:0 -5px}
-.smt_10 .sct_li {position:relative;float:left;width:25%;padding:0 5px;margin-bottom:15px;text-align:left}
+.smt_10 .sct_li {position:relative;float:left;width:215px;margin-right:15px;margin-bottom:15px;text-align:left}
+.smt_10 .sct_last {margin-right:0}
 .smt_10 .sct_clear {clear:both}
 .smt_10 .sct_a {text-decoration:none}
 .smt_10 .sct_a:focus, .smt_10 .sct_a:hover {text-decoration:none}
+.smt_10 .sct_ct_wrap {position:relative}
+.smt_10 .sct_ct_wrap:after {display:block;visibility:hidden;clear:both;content:""}
 
 .smt_10 .sct_img {position:relative;text-align:center}
 .smt_10 .sct_img a {display:block}
@@ -309,7 +310,7 @@
 .smt_10 .sct_sns_bg {background:rgba(0,0,0,0.1);width:100%;height:100%}
 .smt_10 .sct_sns_cls {position:absolute;right:0;top:0;color:#b5b8bb;border:0;padding:12px 15px;font-size:16px;background:#fff}
 
-.smt_10 .sct_op_btn {position:absolute;right:5px;bottom:30px}
+.smt_10 .sct_op_btn {position:absolute;right:5px;bottom:0}
 .smt_10 .sct_op_btn>button {border:0;width:25px;height:20px;font-size:1.25em;text-align:center;color:#949494;background:transparent}
 
 .sct_cartop_wr {position:absolute;top:0;left:0;width:100%;height:100%;padding:10px;text-align:left;background:rgba(0,0,0,0.5);opacity:0.98}
@@ -321,7 +322,7 @@
 .smt_20 {position:relative;overflow-y:hidden;margin:0 -5px}
 .smt_20 .sct_ul {width:100%;position:absolute;top:0;left:0;margin:0;padding:0;list-style:none}
 .smt_20 .sct_ul_first {display:block;top:0}
-.smt_20 .sct_li {position:relative;float:left;width:25%;padding:0 5px;margin-bottom:15px;text-align:left}
+.smt_20 .sct_li {position:relative;float:left;width:215px;margin-right:15px;margin-bottom:15px;text-align:left}
 .smt_20 .sct_last {margin:0 0 15px !important}
 .smt_20 .sct_clear {clear:both}
 .smt_20 .sct_a {display:inline-block;position:relative;text-decoration:none}
@@ -348,13 +349,13 @@
 
 /* 메인 상품 목록 스킨 30 */
 .smt_30 {position:relative}
-.smt_30 li {position:relative;min-height:50px;padding:10px 15px}
+.smt_30 li {position:relative;min-height:50px;padding:10px 15px;background:#fff}
 .smt_30 li:after {display:block;visibility:hidden;clear:both;content:""}
 .smt_30 .sct_clear {clear:both}
 .smt_30 .sct_img {float:left;width:80px;margin-right:10px}
 .smt_30 .sct_img img {width:100%;height:auto}
 .smt_30 .sct_cnt {display:inline-block;float:left;max-width:143px;line-height:20px}
-.smt_30 .sct_txt a {display:block;font-size:1em;color:#000}
+.smt_30 .sct_txt a {display:block;font-size:1em;color:#000;max-height:40px;overflow:hidden;text-overflow:ellipsis;list-style:none}
 .smt_30 .sct_cost {font-weight:bold;font-size:1.2em}
 
 
@@ -729,18 +730,13 @@ background:url('img/select_arrow.png') no-repeat 96% 50%/* 화살표 아이콘 �
 .sps_img {position:absolute;top:15px;left:15px}
 .sps_img_inner {float:left;position:relative}
 .sps_img a span {position:absolute;font-size:0;line-height:0;overflow:hidden}
-.sps_img .review_detail {position:absolute;right:0;bottom:0;border:0;color:#fff;background:#078601;width:34px;height:34px;text-align:center;opacity:0.8}
-.sps_img .review_detail:hover {opacity:1}
-
-.sps_img .review_detail_cnt {display:none;position:fixed;width:100%;height:100%;top:0;left:0;z-index:999;background:#292929b8}
-.sps_img .review_detail_in {position:absolute;top:50%;left:50%;width:590px;max-height:450px;background:#fff;text-align:left;margin-left:-300px;margin-top:-180px;overflow-y:auto;border-radius:3px;border:1px solid #dde7e9;background:#fff;border-radius:3px}
-.sps_img .review_detail_in h3 {padding:15px;border-bottom:1px solid #e8e8e8;font-size:1.4em}
-.sps_img .review_cnt {padding:25px}
-.sps_img .rd_cls {position:absolute;top:0;right:0;color:#b5b8bb;border:0;padding:12px 15px;font-size:16px;background:#fff}
+.sps_img .prd_detail {position:absolute;right:0;bottom:0;border:0;color:#fff;background:#078601;width:34px;height:34px;text-align:center;opacity:0.8}
+.sps_img .prd_detail:hover {opacity:1}
 
 .review_tp_cnt {position:relative;padding:0 0 10px;margin-bottom:15px;border-bottom:1px solid #f1f1f1}
-.review_tp_cnt>span {font-size:1.2em}
-.review_tp_cnt .sps_opt_btn_more {position:absolute;top:0;right:0;border:0;padding:5px 5px 5px 10px;background:#fff;color:#c4c8cb;font-size:1.4em}
+.review_tp_cnt:after {display:block;visibility:hidden;clear:both;content:""}
+.review_tp_cnt>span {font-size:1.4em;display:block}
+.review_tp_cnt .sps_opt_btn_more {position:absolute;top:-5px;right:0;border:0;padding:5px 5px 5px 10px;background:#fff;color:#c4c8cb;font-size:1.4em}
 .review_tp_cnt .sps_opt_li {display:none;position:absolute;top:40px;right:0;border:1px solid #b8bfc4}
 .review_tp_cnt .sps_opt_li:before {content:"";position:absolute;top:-8px;right:5px;width:0;height:0;border-style:solid;border-width:0 6px 8px 6px;border-color:transparent transparent #b8bfc4 transparent}
 .review_tp_cnt .sps_opt_li:after {content:"";position:absolute;top:-6px;right:5px;width:0;height:0;border-style:solid;border-width:0 6px 8px 6px;border-color:transparent transparent #fff transparent}
@@ -770,6 +766,12 @@ background:url('img/select_arrow.png') no-repeat 96% 50%/* 화살표 아이콘 �
 .sps_con_btn .sps_dl {float:left}
 .sps_con_btn button {float:right;border-radius:3px;border:1px solid #d4d6db;color:#666;font-size:0.92em;padding:5px 7px;background:#fff}
 .sps_con_btn button:hover {background:#6b99ee;border-color:#6b99ee;color:#fff}
+
+.sps_con_btn .review_detail_cnt {display:none;position:fixed;width:100%;height:100%;top:0;left:0;z-index:999;background:#292929b8}
+.sps_con_btn .review_detail_in {position:absolute;top:50%;left:50%;width:590px;max-height:450px;background:#fff;text-align:left;margin-left:-300px;margin-top:-180px;overflow-y:auto;border-radius:3px;border:1px solid #dde7e9;background:#fff;border-radius:3px}
+.sps_con_btn .review_detail_in h3 {padding:15px;border-bottom:1px solid #e8e8e8;font-size:1.4em}
+.sps_con_btn .review_cnt {padding:25px}
+.sps_con_btn .rd_cls {position:absolute;top:0;right:0;color:#b5b8bb;border:0;padding:12px 15px;font-size:16px;background:#fff}
 
 
 /* 상품문의 모음 */

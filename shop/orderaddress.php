@@ -75,9 +75,12 @@ include_once(G5_PATH.'/head.sub.php');
         ?>
         <tr>
             <td class="td_sbj">
-                <input type="hidden" name="ad_id[<?php echo $i; ?>]" value="<?php echo $row['ad_id'];?>">
-                <label for="chk_<?php echo $i;?>" class="sound_only">배송지선택</label>
-                <input type="checkbox" name="chk[]" value="<?php echo $i;?>" id="chk_<?php echo $i;?>">
+            	<div class="chk_box">
+                	<input type="hidden" name="ad_id[<?php echo $i; ?>]" value="<?php echo $row['ad_id'];?>">
+                	<input type="checkbox" name="chk[]" value="<?php echo $i;?>" id="chk_<?php echo $i;?>" class="selec_chk">
+                	<label for="chk_<?php echo $i;?>"><span></span><b class="sound_only">배송지선택</b></label>
+                </div>
+                
                 <label for="ad_subject<?php echo $i;?>" class="sound_only">배송지명</label>
                 <input type="text" name="ad_subject[<?php echo $i; ?>]" id="ad_subject<?php echo $i;?>" class="frm_input" size="12" maxlength="20" value="<?php echo get_text($row['ad_subject']); ?>">
             </td>

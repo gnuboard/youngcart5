@@ -20,8 +20,8 @@ include_once('./_head.php');
 
         $list_mod   = 5;
         $list_row   = 5;
-        $img_width  = 215;
-        $img_height = 215;
+        $img_width  = 225;
+        $img_height = 225;
 
         $sql_common = " from {$g5['g5_shop_personalpay_table']}
                         where pp_use = '1'

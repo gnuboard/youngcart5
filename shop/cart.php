@@ -45,9 +45,9 @@ include_once('./_head.php');
         <table>
         <thead>
         <tr>
-            <th scope="col">
-                <label for="ct_all" class="sound_only">상품 전체</label>
-                <input type="checkbox" name="ct_all" value="1" id="ct_all" checked="checked">
+            <th scope="col" class="chk_box">
+                <input type="checkbox" name="ct_all" value="1" id="ct_all" checked="checked" class="selec_chk">
+                <label for="ct_all"><span></span><b class="sound_only">상품 전체</b></label>
             </th>
             <th scope="col">상품명</th>
             <th scope="col">총수량</th>
@@ -136,9 +136,9 @@ include_once('./_head.php');
         ?>
 
         <tr>
-            <td class="td_chk">
-                <label for="ct_chk_<?php echo $i; ?>" class="sound_only">상품</label>
-                <input type="checkbox" name="ct_chk[<?php echo $i; ?>]" value="1" id="ct_chk_<?php echo $i; ?>" checked="checked">
+            <td class="td_chk chk_box">
+                <input type="checkbox" name="ct_chk[<?php echo $i; ?>]" value="1" id="ct_chk_<?php echo $i; ?>" checked="checked" class="selec_chk">
+            	<label for="ct_chk_<?php echo $i; ?>"><span></span><b class="sound_only">상품</b></label>
             </td> 
             
             <td class="td_prd">
