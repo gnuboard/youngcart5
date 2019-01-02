@@ -17,7 +17,7 @@ add_stylesheet('<link rel="stylesheet" href="'.G5_MSHOP_SKIN_URL.'/style.css">',
 <!-- 상품 정렬 선택 시작 { -->
 <section id="sct_sort">
     <h2>상품 정렬</h2>
-    <button type="button" class="btn_sort"><i class="fa fa-arrows-v" aria-hidden="true"></i> 상품정렬</button>
+    <button type="button" class="btn_sort">상품정렬 <i class="fa fa-caret-down" aria-hidden="true"></i> </button>
     <ul>
         <li><a href="<?php echo $sct_sort_href; ?>it_price&amp;sortodr=asc" >낮은가격순</a></li>
         <li><a href="<?php echo $sct_sort_href; ?>it_price&amp;sortodr=desc">높은가격순</a></li>

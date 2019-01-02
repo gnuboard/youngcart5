@@ -3,6 +3,7 @@ if (!defined('_GNUBOARD_')) exit; // 개별 페이지 접근 불가
 
 // add_stylesheet('css 구문', 출력순서); 숫자가 작을 수록 먼저 출력됨
 add_stylesheet('<link rel="stylesheet" href="'.G5_SHOP_CSS_URL.'/style.css">', 0);
+add_javascript('<script src="'.G5_JS_URL.'/jquery.bxslider.js"></script>', 10);
 ?>
 
 <?php if($config['cf_kakao_js_apikey']) { ?>
@@ -23,8 +24,8 @@ add_stylesheet('<link rel="stylesheet" href="'.G5_SHOP_CSS_URL.'/style.css">', 0
     <?php
     // 이미지(중) 썸네일
     $thumb_img = '';
-    $thumb_img_w = 280; // 넓이
-    $thumb_img_h = 280; // 높이
+    $thumb_img_w = 600; // 넓이
+    $thumb_img_h = 600; // 높이
     for ($i=1; $i<=10; $i++)
     {
         if(!$it['it_img'.$i])
@@ -42,68 +43,14 @@ add_stylesheet('<link rel="stylesheet" href="'.G5_SHOP_CSS_URL.'/style.css">', 0
     if ($thumb_img)
     {
         echo '<div id="sit_pvi">'.PHP_EOL;
-        echo '<button type="button" id="sit_pvi_prev" class="sit_pvi_btn" >이전</button>'.PHP_EOL;
-        echo '<button type="button" id="sit_pvi_next" class="sit_pvi_btn">다음</button>'.PHP_EOL;
-        echo '<ul id="sit_pvi_slide" style="width:'.$thumb_img_w.'px;height:'.$thumb_img_h.'px">'.PHP_EOL;
+        echo '<ul id="sit_pvi_slide" >'.PHP_EOL;
         echo $thumb_img;
         echo '</ul>'.PHP_EOL;
+        echo '<div class="btn_wr"><a href="#" class="pager-prev"><i class="fa fa-angle-left"></i></a><div id="slide-counter"></div><a href="#" class="pager-next"><i class="fa fa-angle-right"></i></a> </div>'.PHP_EOL;
         echo '</div>';
     }
     ?>
 
-    <!-- 다른 상품 보기 시작 { -->
-    <div id="sit_siblings">
-        <?php
-        if ($prev_href || $next_href) {
-            $prev_title = '<i class="fa fa-caret-left" aria-hidden="true"></i> '.$prev_title;
-            $next_title = $next_title.' <i class="fa fa-caret-right" aria-hidden="true"></i>';
-
-            echo $prev_href.$prev_title.$prev_href2;
-            echo $next_href.$next_title.$next_href2;
-        } else {
-            echo '<span class="sound_only">이 분류에 등록된 다른 상품이 없습니다.</span>';
-        }
-        ?>
-        <a href="<?php echo G5_SHOP_URL; ?>/largeimage.php?it_id=<?php echo $it['it_id']; ?>&amp;no=1" target="_blank" class="popup_item_image "><i class="fa fa-search-plus" aria-hidden="true"></i><span class="sound_only">확대보기</span></a>
-    </div>
-    <!-- } 다른 상품 보기 끝 -->
-
-    <div id="sit_star_sns">
-        <?php
-        $sns_title = get_text($it['it_name']).' | '.get_text($config['cf_title']);
-        $sns_url  = G5_SHOP_URL.'/item.php?it_id='.$it['it_id'];
-
-        if ($score = get_star_image($it['it_id'])) { ?>
-        <span class="sound_only">고객평점 <?php echo $score?>개</span>
-        <img src="<?php echo G5_SHOP_URL; ?>/img/s_star<?php echo $score?>.png" alt="" class="sit_star" width="100"> <span class="st_bg"></span>
-        <?php } ?>
-
-
-         <i class="fa fa-commenting-o" aria-hidden="true"></i><span class="sound_only">리뷰</span> <?php echo $it['it_use_cnt']; ?>
-        <span class="st_bg"></span> <i class="fa fa-heart-o" aria-hidden="true"></i><span class="sound_only">위시</span> <?php echo get_wishlist_count_by_item($it['it_id']); ?>
-        <button type="button" class="btn_sns_share"><i class="fa fa-share-alt" aria-hidden="true"></i><span class="sound_only">sns 공유</span></button>
-        <div class="sns_area">
-            <?php echo get_sns_share_link('facebook', $sns_url, $sns_title, G5_MSHOP_SKIN_URL.'/img/facebook.png'); ?>
-            <?php echo get_sns_share_link('twitter', $sns_url, $sns_title, G5_MSHOP_SKIN_URL.'/img/twitter.png'); ?>
-            <?php echo get_sns_share_link('googleplus', $sns_url, $sns_title, G5_MSHOP_SKIN_URL.'/img/gplus.png'); ?>
-            <?php echo get_sns_share_link('kakaotalk', $sns_url, $sns_title, G5_MSHOP_SKIN_URL.'/img/sns_kakao.png'); ?>
-            <?php
-            $href = G5_SHOP_URL.'/iteminfo.php?it_id='.$it_id;
-            ?> 
-            <a href="javascript:popup_item_recommend('<?php echo $it['it_id']; ?>');" id="sit_btn_rec"><i class="fa fa-envelope-o" aria-hidden="true"></i><span class="sound_only">추천하기</span></a></div>
-        </div>
-    <script>
-    $(".btn_sns_share").click(function(){
-        $(".sns_area").show();
-    });
-    $(document).mouseup(function (e){
-        var container = $(".sns_area");
-        if( container.has(e.target).length === 0)
-        container.hide();
-    });
-
-
-    </script>
     <section id="sit_ov" class="2017_renewal_itemform">
         <h2>상품간략정보 및 구매기능</h2>
         <div class="sit_ov_wr">
@@ -114,6 +61,44 @@ add_stylesheet('<link rel="stylesheet" href="'.G5_SHOP_CSS_URL.'/style.css">', 0
                 상품 선택옵션 <?php echo $option_count; ?> 개, 추가옵션 <?php echo $supply_count; ?> 개
             </p>
             <?php } ?>
+
+                
+            <div id="sit_star_sns">
+                <?php
+                $sns_title = get_text($it['it_name']).' | '.get_text($config['cf_title']);
+                $sns_url  = G5_SHOP_URL.'/item.php?it_id='.$it['it_id'];
+
+                if ($score = get_star_image($it['it_id'])) { ?>
+                <span class="sound_only">고객평점 <?php echo $score?>개</span>
+                <img src="<?php echo G5_SHOP_URL; ?>/img/s_star<?php echo $score?>.png" alt="" class="sit_star" width="100">
+                <span class="review_num">사용후기 <?php echo $it['it_use_cnt']; ?> 개</span>
+                <?php } ?>
+
+                <div class="sit_btn_opt">
+                    <span id="btn_wish"><i class="fa fa-heart-o" aria-hidden="true"></i><span class="sound_only">위시리스트</span><span class="btn_wish_num"><?php echo get_wishlist_count_by_item($it['it_id']); ?></span></span>
+                    <button type="button" class="btn_sns_share"><i class="fa fa-share-alt" aria-hidden="true"></i><span class="sound_only">sns 공유</span></button>
+                    <div class="sns_area">
+                        <?php echo get_sns_share_link('facebook', $sns_url, $sns_title, G5_MSHOP_SKIN_URL.'/img/facebook.png'); ?>
+                        <?php echo get_sns_share_link('twitter', $sns_url, $sns_title, G5_MSHOP_SKIN_URL.'/img/twitter.png'); ?>
+                        <?php echo get_sns_share_link('googleplus', $sns_url, $sns_title, G5_MSHOP_SKIN_URL.'/img/gplus.png'); ?>
+                        <?php echo get_sns_share_link('kakaotalk', $sns_url, $sns_title, G5_MSHOP_SKIN_URL.'/img/sns_kakao.png'); ?>
+                        <?php
+                        $href = G5_SHOP_URL.'/iteminfo.php?it_id='.$it_id;
+                        ?> 
+                        <a href="javascript:popup_item_recommend('<?php echo $it['it_id']; ?>');" id="sit_btn_rec"><i class="fa fa-envelope-o" aria-hidden="true"></i><span class="sound_only">추천하기</span></a>
+                    </div>
+                </div>
+            </div>
+            <script>
+            $(".btn_sns_share").click(function(){
+                $(".sns_area").show();
+            });
+            $(document).mouseup(function (e){
+                var container = $(".sns_area");
+                if( container.has(e.target).length === 0)
+                container.hide();
+            });
+            </script>
 
             <div class="sit_ov_tbl">
                 <table >
@@ -238,6 +223,34 @@ add_stylesheet('<link rel="stylesheet" href="'.G5_SHOP_CSS_URL.'/style.css">', 0
                 </table>
             </div>
         </div>
+
+        <!-- 다른 상품 보기 시작 { -->
+        <div id="sit_siblings">
+            <?php
+            if ($prev_href || $next_href) {
+                $prev_title = '<i class="fa fa-caret-left" aria-hidden="true"></i> '.$prev_title;
+                $next_title = $next_title.' <i class="fa fa-caret-right" aria-hidden="true"></i>';
+
+                echo $prev_href.$prev_title.$prev_href2;
+                echo $next_href.$next_title.$next_href2;
+            } else {
+                echo '<span class="sound_only">이 분류에 등록된 다른 상품이 없습니다.</span>';
+            }
+            ?>
+            <a href="<?php echo G5_SHOP_URL; ?>/largeimage.php?it_id=<?php echo $it['it_id']; ?>&amp;no=1" target="_blank" class="popup_item_image "><i class="fa fa-search-plus" aria-hidden="true"></i><span class="sound_only">확대보기</span></a>
+        </div>
+        <!-- } 다른 상품 보기 끝 -->
+    </section>
+
+       
+</div>
+
+<div class="btn_option_wr">
+    <button type="button" class="btn_cart_op btn_submit btn">구매하기</button>
+ </div>
+ <div id="btn_option">
+
+    <div>
         <?php
         if($option_item) {
         ?>
@@ -323,8 +336,8 @@ add_stylesheet('<link rel="stylesheet" href="'.G5_SHOP_CSS_URL.'/style.css">', 0
 
         <div id="sit_ov_btn">
             <?php if ($is_orderable) { ?>
-            <input type="submit" onclick="document.pressed=this.value;" value="장바구니" id="sit_btn_cart">
-            <input type="submit" onclick="document.pressed=this.value;" value="바로구매" id="sit_btn_buy">
+            <input type="submit" onclick="document.pressed=this.value;" value="장바구니" id="sit_btn_cart" class="btn">
+            <input type="submit" onclick="document.pressed=this.value;" value="바로구매" id="sit_btn_buy" class="btn_submit btn">
             <?php } ?>
             <?php if(!$is_orderable && $it['it_soldout'] && $it['it_stock_sms']) { ?>
             <a href="javascript:popup_stocksms('<?php echo $it['it_id']; ?>');" id="sit_btn_buy">재입고알림</a>
@@ -334,9 +347,8 @@ add_stylesheet('<link rel="stylesheet" href="'.G5_SHOP_CSS_URL.'/style.css">', 0
             <div class="naverpay-item"><?php echo $naverpay_request_js.$naverpay_button_js; ?></div>
             <?php } ?>
         </div>
-    </section>
+    </div>
 </div>
-
 
 <div id="sit_tab">
     <ul class="tab_tit">
@@ -476,46 +488,31 @@ $(window).bind("pageshow", function(event) {
 });
 
 $(function(){
-    // 상품이미지 슬라이드
-    var time = 500;
-    var idx = idx2 = 0;
-    var slide_width = $("#sit_pvi_slide").width();
-    var slide_count = $("#sit_pvi_slide li").size();
-    $("#sit_pvi_slide li:first").css("display", "block");
-    if(slide_count > 1)
-        $(".sit_pvi_btn").css("display", "inline");
-
-    $("#sit_pvi_prev").click(function() {
-        if(slide_count > 1) {
-            idx2 = (idx - 1) % slide_count;
-            if(idx2 < 0)
-                idx2 = slide_count - 1;
-            $("#sit_pvi_slide li:hidden").css("left", "-"+slide_width+"px");
-            $("#sit_pvi_slide li:eq("+idx+")").filter(":not(:animated)").animate({ left: "+="+slide_width+"px" }, time, function() {
-                $(this).css("display", "none").css("left", "-"+slide_width+"px");
-            });
-            $("#sit_pvi_slide li:eq("+idx2+")").css("display", "block").filter(":not(:animated)").animate({ left: "+="+slide_width+"px" }, time,
-                function() {
-                    idx = idx2;
-                }
-            );
+    //이미지
+    $('#slide-counter').prepend('<strong class="slide-index current-index"></strong> / ');
+     
+    var slider = $('#sit_pvi_slide').bxSlider({
+        auto: true,
+        pager:false,
+        controls: false,
+        onSliderLoad: function (currentIndex){
+            $('#slide-counter .current-index').text(currentIndex + 1);
+        },
+        onSlideBefore: function ($slideElement, oldIndex, newIndex){
+            $('#slide-counter .current-index').text(newIndex + 1);
         }
     });
+   
+    $('#slide-counter').append('<span class="total-slides">'+slider.getSlideCount()+'</span>');
 
-    $("#sit_pvi_next").click(function() {
-        if(slide_count > 1) {
-            idx2 = (idx + 1) % slide_count;
-            $("#sit_pvi_slide li:hidden").css("left", slide_width+"px");
-            $("#sit_pvi_slide li:eq("+idx+")").filter(":not(:animated)").animate({ left: "-="+slide_width+"px" }, time, function() {
-                $(this).css("display", "none").css("left", slide_width+"px");
-            });
-            $("#sit_pvi_slide li:eq("+idx2+")").css("display", "block").filter(":not(:animated)").animate({ left: "-="+slide_width+"px" }, time,
-                function() {
-                    idx = idx2;
-                }
-            );
-        }
+    $('a.pager-prev').click(function () {
+        var current = slider.getCurrentSlide();
+        slider.goToPrevSlide(current) - 1;
     });
+    $('a.pager-next').click(function () {
+        var current = slider.getCurrentSlide();
+        slider.goToNextSlide(current) + 1;
+    });     
 
     // 상품이미지 크게보기
     $(".popup_item_image").click(function() {

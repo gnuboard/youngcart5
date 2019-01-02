@@ -143,7 +143,7 @@ $theme_config = array(
     'ev_mobile_img_height'          => 230,     // 모바일 이벤트 리스트 이미지 높이
     'ev_mobile_list_mod'            => 2,       // 모바일 이벤트 1줄당 이미지 수
     'ev_mobile_list_row'            => 5,       // 모바일 이벤트 이미지 줄 수
-    'ca_mobile_list_best_mod'       => 3,       // 모바일 상품리스트 베스트상품 1줄당 이미지 수
+    'ca_mobile_list_best_mod'       => 2,       // 모바일 상품리스트 베스트상품 1줄당 이미지 수
     'ca_mobile_list_best_row'       => 3,       // 모바일 상품리스트 베스트상품 이미지 줄 수
 );
 
