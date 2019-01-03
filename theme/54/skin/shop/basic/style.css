@@ -503,7 +503,7 @@
 #sit_star_sns .sns_area {display:none;position:absolute;top:45px;right:0;max-width:175px;text-align:center;background:#fff;border:1px solid #e2e2e2;padding:10px;z-index:10}
 #sit_star_sns .sns_area:before {content:"";position:absolute;top:-8px;right:13px;width:0;height:0;border-style:solid;border-width:0 6px 8px 6px;border-color:transparent transparent #e2e2e2 transparent}
 #sit_star_sns .sns_area:after {content:"";position:absolute;top:-7px;right:13px;width:0;height:0;border-style:solid;border-width:0 6px 8px 6px;border-color:transparent transparent #fff transparent}
-#sit_star_sns .sns_area a {display:inline-block;width:35px;height:35px;line-height:35px;background:#eee;text-align:center;border-radius:50%}
+#sit_star_sns .sns_area a {display:inline-block;width:35px;height:35px;line-height:35px;margin-bottom:5px;background:#eee;text-align:center;border-radius:50%}
 #sit_star_sns .sns_area a img {width:24px;height:auto}
 #sit_star_sns .sns_area #sit_btn_rec {font-size:15px}
 #sit_star_sns .sns_area .share-googleplus {background:#ea3838}
