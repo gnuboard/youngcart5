@@ -248,9 +248,8 @@ add_javascript('<script src="'.G5_JS_URL.'/jquery.bxslider.js"></script>', 10);
 <div class="btn_option_wr">
     <button type="button" class="btn_cart_op btn_submit btn">구매하기</button>
  </div>
- <div id="btn_option">
-
-    <div>
+<div id="btn_option">
+    <div class="sl_option">
         <?php
         if($option_item) {
         ?>
@@ -329,26 +328,37 @@ add_javascript('<script src="'.G5_JS_URL.'/jquery.bxslider.js"></script>', 10);
 
         <div id="sit_tot_price"></div>
         <?php } ?>
-
-        <?php if($is_soldout) { ?>
-        <p id="sit_ov_soldout">상품의 재고가 부족하여 구매할 수 없습니다.</p>
-        <?php } ?>
-
-        <div id="sit_ov_btn">
-            <?php if ($is_orderable) { ?>
-            <input type="submit" onclick="document.pressed=this.value;" value="장바구니" id="sit_btn_cart" class="btn">
-            <input type="submit" onclick="document.pressed=this.value;" value="바로구매" id="sit_btn_buy" class="btn_submit btn">
-            <?php } ?>
-            <?php if(!$is_orderable && $it['it_soldout'] && $it['it_stock_sms']) { ?>
-            <a href="javascript:popup_stocksms('<?php echo $it['it_id']; ?>');" id="sit_btn_buy">재입고알림</a>
-            <?php } ?>
-            <a href="javascript:item_wish(document.fitem, '<?php echo $it['it_id']; ?>');" id="sit_btn_wish"><span class="sound_only">위시리스트</span><i class="fa fa-heart-o" aria-hidden="true"></i></a>
-            <?php if ($naverpay_button_js) { ?>
-            <div class="naverpay-item"><?php echo $naverpay_request_js.$naverpay_button_js; ?></div>
-            <?php } ?>
-        </div>
     </div>
+    <?php if($is_soldout) { ?>
+    <p id="sit_ov_soldout">상품의 재고가 부족하여 구매할 수 없습니다.</p>
+    <?php } ?>
+    <div id="sit_ov_btn">
+        <?php if ($is_orderable) { ?>
+        <input type="submit" onclick="document.pressed=this.value;" value="장바구니" id="sit_btn_cart" class="btn">
+        <input type="submit" onclick="document.pressed=this.value;" value="바로구매" id="sit_btn_buy" class="btn_submit btn">
+        <?php } ?>
+        <?php if(!$is_orderable && $it['it_soldout'] && $it['it_stock_sms']) { ?>
+        <a href="javascript:popup_stocksms('<?php echo $it['it_id']; ?>');" id="sit_btn_buy">재입고알림</a>
+        <?php } ?>
+        <a href="javascript:item_wish(document.fitem, '<?php echo $it['it_id']; ?>');" id="sit_btn_wish"><span class="sound_only">위시리스트</span><i class="fa fa-heart-o" aria-hidden="true"></i></a>
+        <?php if ($naverpay_button_js) { ?>
+        <div class="naverpay-item"><?php echo $naverpay_request_js.$naverpay_button_js; ?></div>
+        <?php } ?>
+    </div>
+
+    <button type="button" class="btn_close"><span class="sound_only">닫기</span><i class="fa fa-chevron-down" aria-hidden="true"></i></button>
 </div>
+
+<script>
+$(function (){
+    $(".btn_cart_op").click(function(){
+        $("#btn_option").show();
+    });
+    $("#btn_option .btn_close").click(function(){
+        $("#btn_option").hide();
+    });
+});
+</script>
 
 <div id="sit_tab">
     <ul class="tab_tit">
