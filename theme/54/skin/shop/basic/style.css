@@ -455,7 +455,7 @@
 
 /* 상품 상세보기 */
 #sit {margin:0 0 10px}
-.sit_admin {text-align:right;position:absolute;right:0;top:7px}
+.sit_admin {text-align:right}
 .sit_admin a {line-height:35px;padding:0 10px}
 .sit_empty {padding:60px 0;text-align:center}
 
