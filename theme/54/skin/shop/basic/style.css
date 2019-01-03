@@ -493,7 +493,7 @@
 #sit_desc {margin:0 0 10px;padding:0;color:#474747;font-size:1.167em}
 #sit_opt_info {position:absolute;font-size:0;text-indent:-9999em;line-height:0;overflow:hidden}
 
-#sit_star_sns {position:relative;/*height:45px;padding:10px 0;line-height:25px*/}
+#sit_star_sns {position:relative}
 #sit_star_sns span {display:inline-block;margin:0 5px 0 0;color:#666;letter-spacing:0}
 #sit_star_sns .sit_star {position:relative;top:-2px;margin:0 5px 0 0}
 
@@ -529,7 +529,7 @@
 .sit_ov_input {margin:0 1px 0 0;padding:2px 2px 3px;border:1px solid #b8c9c2;background:transparent;vertical-align:middle}
 #sit_ov_tbl button {margin:0 1px 0 0}
 
-.sit_option {padding:10px 0;/*border-bottom:1px solid #ebeff3;*/margin:10px 0 0}
+.sit_option {padding:10px 0;margin:10px 0 0}
 .sit_option label {display:block;margin:0 0 5px;color:#666}
 .sit_option select {width:100%;margin:0 0 10px;height:50px;padding:0 10px;border:1px solid #cdcdcd;
 -webkit-appearance:none; /* 화살표 없애기 for chrome*/
@@ -584,7 +584,7 @@ background:url('img/select_arrow.png') no-repeat 96% 50%/* 화살표 아이콘 �
 #sit_tab .tab_tit li button {display:block;width:100%;position:relative;font-size:1.2em;padding:10px 15px;border:0;color:#666;background:#fff;line-height:38px;text-align:center;z-index:1}
 #sit_tab .tab_tit li .selected {background:#fff;z-index:2;border-bottom-color:#fff;color:#000;font-weight:bold}
 #sit_tab .tab_tit li .selected:after {content:"";position:absolute;left:0;bottom:0;width:100%;height:3px;background:#3a8afd;display:inline-block}
-#sit_tab .tab_con {background:#fff;padding:15px/*;height:100%*/}
+#sit_tab .tab_con {background:#fff;padding:15px}
 #sit_tab .item_use_count, #sit_tab .item_qa_count {display:inline-block;min-width:20px;height:20px;font-size:0.75em;line-height:20px;padding:0 5px;background:#eee;border-radius:10px;color:#777}
 
 #sit_buy {display:table-cell;width:270px;border-left:1px solid #e8e8e8}

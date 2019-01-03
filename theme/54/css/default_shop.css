@@ -156,7 +156,7 @@ box-shadow:0 2px 5px rgba(0,0,0,0.2)}
 #category .cate_li_2 {line-height:2em}
 #category .cate_li_2 a {color:#555}
 #category .close_btn {position:absolute;top:0;right:0;width:50px;height:50px;background:#fff;color:#b6b9bb;border:0;vertical-align:top;font-size:18px}
-#category_all_bg {display:none;background:#292929b8;width:100%;height:100%;position:fixed;left:0;top:0;z-index:999}
+#category_all_bg {display:none;background:rgba(0,0,0,0.1);width:100%;height:100%;position:fixed;left:0;top:0;z-index:999}
 
 
 /* 중간 레이아웃 */
