@@ -69,7 +69,7 @@ for($k=0; $cp=sql_fetch_array($res); $k++) {
                 <span><?php echo sprintf("(%s%s)", $member['mb_zip1'], $member['mb_zip2']).' '.print_address($member['mb_addr1'], $member['mb_addr2'], $member['mb_addr3'], $member['mb_addr_jibeon']); ?></span>
             </div>
         </div>
-        <div class="my_ov_btn"><button type="button" class="btn_op_area"><i class="fa fa-caret-down" aria-hidden="true"></i><span class="sound_only">상세정보 보기</span></button></div>
+        <div class="my_ov_btn"><button type="button" class="btn_op_area"><span class="sound_only">상세정보</span>더보기<i class="fa fa-caret-down" aria-hidden="true"></i></button></div>
 
     </section>
 

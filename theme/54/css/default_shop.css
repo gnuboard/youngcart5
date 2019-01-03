@@ -594,7 +594,7 @@ box-shadow:0 1px 10px rgba(0,0,0,.1)}
 #smb_my_wish h2 {font-size:1.25em;padding:0 0 20px;border-bottom:1px solid #d9dde2}
 #smb_my_wish li {position:relative;background:#fff;border-bottom:1px solid #ececec;padding:15px}
 #smb_my_wish li:after {display:block;visibility:hidden;clear:both;content:""}
-#smb_my_wish .smb_my_chk {display:inline-block;float:left;margin-right:10px}
+#smb_my_wish .smb_my_chk {display:inline-block;float:left;margin-right:10px;color:red}
 #smb_my_wish .smb_my_img {float:left;margin-right:20px}
 #smb_my_wish .smb_my_tit {margin:5px 0;font-size:1.167em;font-weight:bold}
 #smb_my_wish .smb_my_price {font-weight:bold;font-size:1.2em;margin-bottom:30px}
