@@ -365,15 +365,25 @@ box-shadow: 1px 1px 5px rgba(0,0,0,0.4);}
 
 
 /* 마이페이지 */
-#smb_my {margin:10px ;}
-#smb_my .btn_more{display:block; height: 43px;width: 100%;border: 1px solid #c8c8c8;border-bottom-color: #aaa;font-size: 1.167em;color: #282828;line-height: 43px;text-align:center;}
-#smb_my_ov {margin:0 0 20px;}
+#smb_my_ov {position:relative;margin:0 10px 0 0;background:#fff;margin-right:20px}
 #smb_my_ov h2 {position:absolute;font-size:0;text-indent:-9999em;line-height:0;overflow:hidden}
-#smb_my_ov .my_name{position:relative;line-height:20px;height:50px;padding: 15px;background:#525f78;color:#fff;font-weight:normal;font-size:1.083em}
-#smb_my_ov .my_name img{border-radius:50%;vertical-align:top}
-#smb_my_ov .smb_my_act{position:absolute;top:10px;right:10px}
+#smb_my_ov .my_name {display:block;background:#fff;border-bottom:1px solid #e8e8e8;padding:20px;text-align:center;font-size:1.167em}
+#smb_my_ov .my_name>strong {display:block}
+#smb_my_ov .my_name img {width:45px;border-radius:50%}
+#smb_my_ov .my_name .my_ov_name {display:inline-block;margin-bottom:10px;line-height:28px}
+#smb_my_ov .my_name a {display:inline-block;font-size:0.85em;height:28px;line-height:22px;border:1px solid #d5d9dd;color:#8a8a8a;border-radius:2px;padding:2px 5px}
+#smb_my_ov .my_name a.smb_info {color:#3a8afd}
+#smb_my_ov .smb_my_act {}
 #smb_my_ov .smb_my_act li{display:inline-block;font-size:0.92em}
 #smb_my_ov .smb_my_act li a{line-height:28px;height:30px;vertical-align:middle;padding:0 5px;margin:0;border-radius:3px}
+
+
+#smb_my {}
+#smb_my .btn_more{display:block; height: 43px;width: 100%;border: 1px solid #c8c8c8;border-bottom-color: #aaa;font-size: 1.167em;color: #282828;line-height: 43px;text-align:center;}
+#smb_my_ov {margin:0 0 20px;}
+/*#smb_my_ov h2 {position:absolute;font-size:0;text-indent:-9999em;line-height:0;overflow:hidden}
+#smb_my_ov .my_name{position:relative;line-height:20px;height:50px;padding: 15px;background:#525f78;color:#fff;font-weight:normal;font-size:1.083em}
+#smb_my_ov .my_name img{border-radius:50%;vertical-align:top}*/
 #smb_my_ov .my_pocou{padding:10px 5px;background:#fff}
 #smb_my_ov .my_pocou li{position:relative;padding:0 10px;line-height:30px}
 #smb_my_ov .my_pocou a{position:absolute;top:0;right:10px;font-weight:bold;color:#f50057}
@@ -383,8 +393,11 @@ box-shadow: 1px 1px 5px rgba(0,0,0,0.4);}
 #smb_my_ov .my_info_wr strong{display:inline-block;position:absolute;top:0;left:0;vertical-align: top;padding:3px 0px;}
 #smb_my_ov .my_info_wr span{display:block;padding-left:100px;}
 #smb_my_ov .ov_addr{width:100%}
-#smb_my_ov .my_ov_btn{text-align:center;border-top:1px solid #ccc}
-#smb_my_ov .my_ov_btn button{border:1px solid #ccc;border-top:1px solid #fff;background:#fff;padding:0 20px;height:20px;margin-top:-1px}
+
+#smb_my_ov .my_ov_btn{border-top:1px solid #ccc}
+#smb_my_ov .my_ov_btn button {display:block;width:100%;border:0;border-bottom:1px solid #ccc;background:#fff;padding:15px;text-align:left}
+#smb_my_ov .my_ov_btn button i {display:inline-block;float:right}
+
 #smb_my_od h2{font-size:1.167em;margin:10px 0 }
 #smb_my_wish h2{font-size:1.167em;margin:30px 0 10px }
 .wishlist ul{margin:10px 0}
