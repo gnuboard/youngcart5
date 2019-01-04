@@ -317,9 +317,12 @@ box-shadow:1px 1px 5px rgba(0,0,0,0.4)}
 #sod_addr input[type="radio"]:checked+.add_lb {z-index:3;background:#4162ff;color:#fff}
 
 /* 주문내역 */
-#sod_v {margin:10px}
+#sod_v {}
 #sod_v .td_stat {width:100px}
-#sod_v_info {margin:0 0 10px;padding:10px;background:#e6d5d2;color:#883d1a;text-align:center;border-bottom:1px solid #c3bcb1}
+#sod_v_info {position:relative;text-align:left;color:#fff;height:50px;line-height:50px;font-size:1.1em;background:#f2838f;margin:10px;padding:0 20px;border-radius:5px;font-weight:bold}
+#sod_v_info:before {content:"";position:absolute;top:0;left:0;width:5px;height:50px;border-radius:5px 0 0 5px;background:#da4453}
+#sod_v_info i {font-size:1.2em;vertical-align:middle}
+
 
 /* 주문상세내역 */
 #sod_list_inq {}
@@ -415,7 +418,7 @@ box-shadow:1px 1px 5px rgba(0,0,0,0.4)}
 
 #smb_my_od h2 {font-size:1.167em;margin:10px}
 #smb_my_wish h2 {font-size:1.167em;margin:30px 10px 10px}
-.wishlist ul {margin:10px}
+.wishlist ul {margin:10px 10px 0}
 .wishlist ul:after {display:block;visibility:hidden;clear:both;content:''}
 .wishlist li {float:left;padding:5px;width:33.333%;text-align:center}
 .wishlist li img {width:100%;height:auto;max-width:250px}

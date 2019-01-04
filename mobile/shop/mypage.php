@@ -101,8 +101,7 @@ for($k=0; $cp=sql_fetch_array($res); $k++) {
     </section>
 
     <section id="smb_my_wish" class="wishlist">
-        <h2><a href="<?php echo G5_SHOP_URL; ?>/wishlist.php">최근 위시리스트</a></h2>
-
+        <h2><a href="<?php echo G5_SHOP_URL; ?>/wishlist.php">위시리스트</a></h2>
         <ul>
             <?php
             $sql = " select *
@@ -123,10 +122,13 @@ for($k=0; $cp=sql_fetch_array($res); $k++) {
 
             <li>
                 <div class="wish_img"><?php echo $image; ?></div>
+                <!-- 상품명, 날짜를 노출하려면 주석을 지우세요. -->
+                <!--
                 <div class="wish_info">
                     <a href="./item.php?it_id=<?php echo $row['it_id']; ?>" class="info_link"><?php echo stripslashes($row['it_name']); ?></a>
                      <span class="info_date"><?php echo substr($row['wi_time'], 2, 8); ?></span>
                 </div>
+                -->
             </li>
 
             <?php
