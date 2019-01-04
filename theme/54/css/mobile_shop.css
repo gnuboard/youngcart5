@@ -28,18 +28,18 @@ ul {list-style:none}
 }
 
 input[type=text],input[type=password], textarea {
--webkit-transition:all 0.30s ease-in-out;
--moz-transition:all 0.30s ease-in-out;
--ms-transition:all 0.30s ease-in-out;
--o-transition:all 0.30s ease-in-out;
-outline:none;
+	-webkit-transition:all 0.30s ease-in-out;
+	-moz-transition:all 0.30s ease-in-out;
+	-ms-transition:all 0.30s ease-in-out;
+	-o-transition:all 0.30s ease-in-out;
+	outline:none;
 }
  
-input[type=text]:focus,input[type=password]:focus,  textarea:focus,select:focus {
--webkit-box-shadow:0 0 5px #9ed4ff;
--moz-box-shadow:0 0 5px #9ed4ff;
-box-shadow:0 0 5px #9ed4ff;
-border:1px solid #558ab7 !important;
+input[type=text]:focus,input[type=password]:focus, textarea:focus,select:focus {
+	-webkit-box-shadow:0 0 5px #9ed4ff;
+	-moz-box-shadow:0 0 5px #9ed4ff;
+	box-shadow:0 0 5px #9ed4ff;
+	border:1px solid #558ab7 !important;
 }
 
 /* 팝업레이어 */
@@ -365,17 +365,24 @@ box-shadow:1px 1px 5px rgba(0,0,0,0.4)}
 
 
 /* 마이페이지 */
-#smb_my_ov {position:relative;margin:0 10px 0 0;background:#fff;margin-right:20px}
+#smb_my_ov {position:relative;background:#fff;margin-right:20px}
 #smb_my_ov h2 {position:absolute;font-size:0;text-indent:-9999em;line-height:0;overflow:hidden}
-#smb_my_ov .my_name {display:block;background:#fff;border-bottom:1px solid #e8e8e8;padding:20px;text-align:center;font-size:1.167em}
+#smb_my_ov .my_name {display:block;background:#fff;border-bottom:1px solid #e8e8e8;padding:15px 10px 15px 80px;font-size:1.167em}
+#smb_my_ov .profile_img {display:inline-block;position:absolute;top:15px;left:15px}
+#smb_my_ov .my_info_modi {position:absolute;bottom:0;right:-5px;text-align:center;background:#212020;width:20px;height:20px;line-height:20px;color:#fff;font-size:13px;border-radius:50%}
 #smb_my_ov .my_name>strong {display:block}
+#smb_my_ov .win_point {color:#c7d4e6;font-size:0.92em}
+#smb_my_ov .win_point strong {color:#3a8afd}
+
 #smb_my_ov .my_name img {width:45px;border-radius:50%}
 #smb_my_ov .my_name .my_ov_name {display:inline-block;margin-bottom:10px;line-height:28px}
-#smb_my_ov .my_name a {display:inline-block;font-size:0.85em;height:28px;line-height:22px;border:1px solid #d5d9dd;color:#8a8a8a;border-radius:2px;padding:2px 5px}
+/*#smb_my_ov .my_name a {display:inline-block;font-size:0.85em;height:28px;line-height:22px;border:1px solid #d5d9dd;color:#8a8a8a;border-radius:2px;padding:2px 5px}*/
+
 #smb_my_ov .my_name a.smb_info {color:#3a8afd}
-#smb_my_ov .smb_my_act {}
+#smb_my_ov .smb_my_act {position:absolute;right:15px;top:20px;display:inline-block}
 #smb_my_ov .smb_my_act li {display:inline-block;font-size:0.92em}
 #smb_my_ov .smb_my_act li a {line-height:28px;height:30px;vertical-align:middle;padding:0 5px;margin:0;border-radius:3px}
+#smb_my_ov .smb_my_act li a.btn_logout {display:inline-block;border:1px solid #4f93fd;color:#4f93fd}
 
 
 #smb_my {}
@@ -387,12 +394,11 @@ box-shadow:1px 1px 5px rgba(0,0,0,0.4)}
 
 #smb_my_ov .my_pocou {background:#fff}
 #smb_my_ov .my_pocou:after {display:block;visibility:hidden;clear:both;content:''}
-#smb_my_ov .my_pocou li {width:33.333%;float:left;padding:15px;border-right:1px solid #efefef}
+#smb_my_ov .my_pocou li {width:50%;float:left;padding:15px;border-right:1px solid #efefef}
 #smb_my_ov .my_pocou li:last-child {border-right:0}
-#smb_my_ov .my_pocou li a {display:inline-block;float:right;color:#fff;overflow:hidden;white-space:nowrap;text-overflow:clip;padding:0 5px;border-radius:15px;font-weight:normal;font-size:0.92em}
+#smb_my_ov .my_pocou li a {display:inline-block;float:right;color:#fff;overflow:hidden;white-space:nowrap;text-overflow:clip;padding:0 5px;line-height:20px;border-radius:35px;font-weight:normal;font-size:0.846em}
 #smb_my_ov .my_pocou li.my_cou a {background:#a352c1}
 #smb_my_ov .my_pocou li.my_memo a {background:#ff8b77}
-#smb_my_ov .my_pocou li.my_point a {background:#37bc9b}
 #smb_my_ov .my_pocou li i {color:#8c9eb0}
 
 #smb_my_ov .my_info {display:none;clear:both;width:100%;margin-top:-1px;background:#fff;padding:5px 20px 20px;border-bottom:1px solid #e6e6e6}
@@ -401,9 +407,10 @@ box-shadow:1px 1px 5px rgba(0,0,0,0.4)}
 #smb_my_ov .my_info_wr strong {display:block;vertical-align:top;padding:3px 0px;color:#8c9eb0}
 #smb_my_ov .my_info_wr span {display:block;text-align:left}
 #smb_my_ov .ov_addr {border-bottom:0}
+#smb_my_ov .ov_addr a {color:#c7c7c7}
 
 #smb_my_ov .my_ov_btn {border-top:1px solid #dde7e9}
-#smb_my_ov .my_ov_btn button {display:block;width:100%;border:0;border-bottom:1px solid #dde7e9;background:#fff;padding:15px 20px;text-align:left;font-size:1.125em;font-weight:bold}
+#smb_my_ov .my_ov_btn button {display:block;width:100%;border:0;border-bottom:1px solid #dde7e9;background:#fff;padding:15px;text-align:left;font-size:1.125em;font-weight:bold}
 #smb_my_ov .my_ov_btn button i {display:inline-block;float:right}
 
 #smb_my_od h2 {font-size:1.167em;margin:10px}
@@ -440,19 +447,19 @@ box-shadow:1px 1px 5px rgba(0,0,0,0.4)}
 #sod_inquiry li {background:#fff;border-top:1px solid #ececec;padding:15px;position:relative}
 #sod_inquiry li:after {display:block;visibility:hidden;clear:both;content:''} 
 #sod_inquiry li .idtime_link {font-weight:bold;font-size:1.167em}
-#sod_inquiry li .idtime_time {position:absolute;top:15px;right:15px;color:#999}
-#sod_inquiry li .inquiry_name {margin:10px 0;color:#666}
+#sod_inquiry li .idtime_time {color:#999}
+#sod_inquiry li .inquiry_name {margin:10px 0;font-weight:bold}
 #sod_inquiry li .inquiry_price {font-size:1.25em;font-weight:bold;color:#3a8afd}
 #sod_inquiry li .inv_status {display:inline-block;float:right;margin:5px 0 0;font-weight:bold}
-#sod_inquiry li .inv_inv {margin:10px 0 0;display:block;border:1px solid #c4c5cc;color:#666}
+#sod_inquiry li .inv_inv {margin:10px 0 0;display:block;border:1px solid #edeef1;color:#666}
 #sod_inquiry li .inv_inv i {width:30px;height:30px;line-height:30px;background:#f3f3f3;text-align:center;color:#555;font-size:15px;margin-right:5px}
 
-.status_01 {display:block;background:#edfbde;color:#8cc152;line-height:24px;border-radius:5px;border-radius:5px;padding:0 5px}
-.status_02 {display:block;background:#ff6f6f;color:#fff;line-height:24px;border-radius:5px;border-radius:5px;padding:0 5px}
-.status_03 {display:block;background:#5bd085;color:#fff;line-height:24px;border-radius:5px;border-radius:5px;padding:0 5px}
-.status_04 {display:block;background:#6fa8ff;color:#fff;line-height:24px;border-radius:5px;border-radius:5px;padding:0 5px}
-.status_05 {display:block;background:#333;color:#fff;line-height:24px;border-radius:5px;border-radius:5px;padding:0 5px}
-.status_06 {display:block;background:#f3f3f3;border:1px solid #ddd;color:#666;line-height:30px;font-weight:bold}
+.status_01 {display:block;background:#edfbde;color:#8cc152;line-height:24px;border-radius:5px;border-radius:5px;padding:0 5px;font-weight:normal;font-size:0.85em}
+.status_02 {display:block;background:#84c93a;color:#fff;line-height:24px;border-radius:5px;border-radius:5px;padding:0 5px;font-weight:normal;font-size:0.85em}
+.status_03 {display:block;background:#5bd085;color:#16b494;line-height:24px;border-radius:5px;border-radius:5px;padding:0 5px;font-weight:normal;font-size:0.85em}
+.status_04 {display:block;background:#e2eaf6;color:#3a8afd;line-height:24px;border-radius:5px;border-radius:5px;padding:0 5px;font-weight:normal;font-size:0.85em}
+.status_05 {display:block;background:#3a8afd;color:#fff;line-height:24px;border-radius:5px;border-radius:5px;padding:0 5px;font-weight:normal;font-size:0.85em}
+.status_06 {display:block;background:#fff;color:red;line-height:24px;border-radius:5px;border-radius:5px;padding:0 5px;font-weight:normal;font-size:0.85em}
 
 /* 주문상세내역 중 현금영수증 발급 */
 #scash {}
