@@ -113,7 +113,6 @@ box-shadow: 0 0 5px #eee;}
 #ft h2 {position:absolute;font-size:0;text-indent:-9999em;line-height:0;overflow:hidden}
 #ft p {margin:0;padding:10px 0;line-height:1.8em;color:#e3e3e3;font-size:0.92em}
 #ft_logo{padding:20px 0 0}
-#ft_to_top  {position:fixed;bottom:10px;right:10px;width:40px;height:40px;line-height:36px;border:2px solid #333;background:rgba(255,255,255,0.6);color:#333;text-align:center;font-size:15px;z-index:99}
 #ft_company {}
 #ft_company a {display:inline-block;padding-right: 10px;line-height:1em;color:#fff}
 #ft_company a:first-child{border:0}
@@ -134,21 +133,24 @@ box-shadow: 0 0 5px #eee;}
 
 /* 장바구니 주문서 공통 */
 #sod_chk {margin:10px;}
-.sod_list {margin:10px}
-.sod_list .sod_li {background:#fff;border-bottom: 1px solid #ccc;margin:10px 0;}
-.sod_list .li_name{border-bottom:1px solid #dcdcdc;line-height:1.3em;padding: 10px 10px;font-size:1.083em}
-.sod_list .li_op_wr{position:relative;margin:10px;padding-left:90px;min-height:80px}
-.sod_list .total_img{position:absolute;top:0;left:0}
-.sod_list .mod_options{padding: 0 7px;border: 1px solid #38b2b9;color: #38b2b9;background: #fff;height: 23px;line-height: 21px;margin: 5px 0 0;}
-.sod_list .li_prqty{margin:10px 10px ;border-top:1px solid #dcdcdc;padding:10px 0 0}
+.sod_list {margin:10px 0}
+.sod_list .sod_li {background:#fff;border-bottom: 1px solid #e5e5e5;margin:10px 0;}
+.sod_list .li_name{font-size:1.083em}
+.sod_list .li_op_wr{position:relative;padding:10px 10px 0 110px;min-height:75px}
+.sod_list .li_op_wr .chk_box{position:absolute;top:10px;left:10px;}
+.sod_list .total_img{position:absolute;top:10px;left:35px}
+.sod_list .mod_options{padding: 0 7px;border: 1px solid #d4d6db;border-radius:3px;color: #606060;background: #fff;line-height: 24px;margin: 5px 0 0;font-size:0.923em}
+.sod_list .li_prqty{padding:10px  ;border-top:1px solid #f8f8f8}
 .sod_list .li_prqty:after {display:block;visibility:hidden;clear:both;content:''}
-.sod_list .li_prqty_sp{float:left;width:50%;display:block;line-height:20px;padding:0 7px;text-align :right;}
-.sod_list .li_prqty_sp span{float:left}
-.sod_list .prqty_sc,.sod_list .prqty_price{border-right:1px solid #dcdcdc}
-.sod_list .total_price{background:#f5f5f5;border:1px solid #e2e2e2;display:block;clear:both;margin:10px;text-align:right;padding:5px 10px;line-height:20px}
+.sod_list .li_prqty_sp{float:left;width:50%;display:block;line-height:20px;padding:0 5px;text-align :right;}
+.sod_list .li_prqty_sp span{float:left;color:#696969}
+.sod_list .prqty_sc,.sod_list .prqty_price{border-right:1px solid #e5e5e5}
+.sod_list .total_price{background:#f2f7ff;display:block;clear:both;margin:0 10px 10px;text-align:right;padding:5px 10px;line-height:20px}
 .sod_list .total_price span{float:left}
-.sod_list .total_price strong{font-size:1.25em;color:#ff006c}
-.sod_opt li {padding-left: 10px;background: url('../img/bullet.gif') no-repeat 3px 50%;color: #777;margin: 3px 0;line-height: 1.3em;}
+.sod_list .total_price strong{font-size:1.25em;color:#3a8afd}
+.sod_opt{padding:5px 10px 5px 35px}
+.sod_opt li {color: #777;margin: 3px 0;line-height: 1.3em;}
+.sod_opt li:before {content:"옵션";display:inline-block;margin:1px 5px 2px 0;font-size:11px;padding:0 5px;border-radius:3px;background:#e2eaf6;line-height:20px;color:#3a8afd}
 
 #sit_opt_added {margin:0;padding:0;border-bottom:0;background:#fff;list-style:none}
 #sit_opt_added li {padding:10px 15px;margin:5px 0;border:1px solid #e6e9ed;background:#f9f9f9;position:relative}
@@ -163,11 +165,9 @@ box-shadow: 0 0 5px #eee;}
 #sit_opt_added .sit_opt_prc{float:right;display:block;padding:0 3px;text-align:right;line-height:30px;font-size:1.183em;font-weight:bold;}
 
 /* 장바구니 */
-#mod_option_frm{position:absolute;top:0;left:0;background:#fff;width:100%;z-index:99;border-radius:0 0 3px 3px;
--webkit-box-shadow:1px 1px 5px rgba(0,0,0,0.4);
--moz-box-shadow: 1px 1px 5px rgba(0,0,0,0.4);
-box-shadow: 1px 1px 5px rgba(0,0,0,0.4);}
+#mod_option_frm {z-index:10000;position:fixed;top:10%;left:5%;width:90%;height:auto !important;height:80%;max-height:80%;border:1px solid #dde7e9;border-radius:3px;background:#fff;overflow-y:auto;overflow-x:none}x 3px;}
 #mod_option_frm h2{height:45px;line-height:45px;font-size:1.167em;background:#333;color:#fff;padding:0 15px}
+#sod_bsk_list .mod_option_bg {content:"";position:fixed;left:0;top:0;width:100%;height:100%;background:rgba(0,0,0,0.1);display:block;z-index:9999}
 #mod_option_frm  #sit_sel_option{margin:15px }
 #mod_option_frm #sit_tot_price{margin:15px }
 #mod_option_frm  #sit_sel_option ul{;background:#f3f3f3;border:0 }
@@ -180,17 +180,22 @@ box-shadow: 1px 1px 5px rgba(0,0,0,0.4);}
 #mod_option_frm .btn_confirm .btn_close{position:absolute;top:0;right:0;width:45px;height:45px;border:0;background:none;color:#fff;font-size:1.25em}
 
 #sod_bsk .btn_del_wr{margin:10px }
-#sod_bsk .sod_ta_wr{background:#fff;padding:15px;}
+#sod_bsk .sod_ta_wr{}
 #sod_bsk .go_shopping{margin: 10px}
 #sod_bsk .go_shopping .btn01{height:45px;line-height:43px;font-size:1.167em;font-weight:bold;width:100%;text-align:center}
-#m_sod_bsk_tot{background:#f4f4f4;border-radius:5px;padding:5px 10px}
+#m_sod_bsk_tot{background:#4a505a;color:#fff;}
 #m_sod_bsk_tot:after{display:block;visibility:hidden;clear:both;content:""}
-#m_sod_bsk_tot dt{float:left;width:40%;padding:5px 0 ;line-height:20px;clear:both}
-#m_sod_bsk_tot dd{float:left;width:60%;padding:5px 0;text-align:right;line-height:20px}
-#m_sod_bsk_tot .sod_bsk_cnt{border-top:1px solid #cdcdcd;font-weight:bold;margin-top:5px;line-height:25px}
-#m_sod_bsk_tot .sod_bsk_cnt strong{color:#ff006c;font-size:1.25em}
-#sod_bsk_act .btn_submit{height:45px;font-size:1.167em;font-weight:bold;width:100%;margin:10px 0}
-
+#m_sod_bsk_tot dt{float:left;width:40%;padding:10px ;line-height:20px;clear:both}
+#m_sod_bsk_tot dd{float:left;width:60%;padding:10px;text-align:right;line-height:20px}
+#m_sod_bsk_tot .sod_bsk_cnt{font-weight:bold;margin-top:5px;line-height:25px;background:#212a37}
+#m_sod_bsk_tot .sod_bsk_cnt strong{color:#3a8afd;font-size:1.25em}
+#sod_bsk_act {position:fixed;bottom:0;left:0;width:100%;background:#fff;z-index:90;border-top:1px solid #000; padding:10px 10px 10px 50%;
+-webkit-box-shadow:  0 0 9px rgba(0,0,0,0.2);
+-moz-box-shadow:  0 0 9px rgba(0,0,0,0.2);
+box-shadow: 0 0 6px rgba(0,0,0,0.2);}
+#sod_bsk_act .btn_submit{height:45px;font-size:1.167em;font-weight:bold;width:100%;border-radius:3px}
+#sod_bsk_act .total{position:absolute;top:0;left:0;width:50%;padding:10px;text-align:left;color:#717171;line-height:20px;}
+#sod_bsk_act .total strong{display:block;color:#000;font-size:1.154em;line-height:25px}
 /* 주문서 작성 */
 
 #sod_frm .od_prd_list{margin:10px;background:#fff;padding:15px}
@@ -776,3 +781,19 @@ box-shadow: 0 0 8px rgba(65,98,255,0.8);}
 #m_pv_sod_frm .btn_confirm{margin:10px}
 #m_pv_sod_frm .btn_confirm .btn_submit{width:100%;height: 45px;font-size: 1.167em;font-weight: bold;margin:0 0 3px;}
 #m_pv_sod_frm .btn_confirm .btn_cancel{width:100%;height: 45px;line-height: 43px;font-size: 1.167em;font-weight: bold;padding:0}
+
+/* input, radio */
+.selec_chk {position:absolute;top:0;left:0;width:0;height:0;opacity:0;outline:0;z-index:-1;overflow:hidden}
+.chk_box {position:relative}
+.chk_box input[type="checkbox"] + label {position:relative;padding-left:20px;color:#676e70}
+.chk_box input[type="checkbox"] + label:hover{color:#2172f8}
+.chk_box input[type="checkbox"] + label span {position:absolute;top:2px;left:0;width:15px;height:15px;display:block;margin:0;background:#fff;border:1px solid #d0d4df;border-radius:3px}
+.chk_box input[type="checkbox"]:checked + label {color:#000}
+.chk_box input[type="checkbox"]:checked + label span {background:url('../img/chk.png') no-repeat 50% 50% #3a8afd;border-color:#1471f6;border-radius:3px}
+
+.chk_box input[type="radio"] {position:absolute;top:0;left:0;width:0;height:0;opacity:0;outline:0;z-index:-1;overflow:hidden}
+.chk_box input[type="radio"] + label {position:relative;padding-left:23px;display:inline-block;color:#676e70}
+.chk_box input[type="radio"] + label span {position:absolute;top:0;left:0;width:15px;height:15px;display:block;background:#fff;border:1px solid #cdd6df;border-radius:50%}
+.chk_box input[type="radio"]:checked + label {color:#305af9}
+.chk_box input[type="radio"]:checked + label span:before {width:7px;height:7px;background:#305af9;content:'';position:absolute;top:3px;left:3px;border-radius:50%}
+
