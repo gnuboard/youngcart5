@@ -30,7 +30,6 @@ for($k=0; $cp=sql_fetch_array($res); $k++) {
 ?>
 
 <div id="smb_my">
-
     <section id="smb_my_ov">
         <h2>회원정보 개요</h2>
         <div class="my_name">
@@ -42,11 +41,15 @@ for($k=0; $cp=sql_fetch_array($res); $k++) {
             </ul>
         </div>
         <ul class="my_pocou">
-            <li  class="my_cou">보유쿠폰<a href="<?php echo G5_SHOP_URL; ?>/coupon.php" target="_blank" class="win_coupon"><?php echo number_format($cp_count); ?></a></li>
-            <li class="my_point">보유포인트
-            <a href="<?php echo G5_BBS_URL; ?>/point.php" target="_blank" class="win_point"><?php echo number_format($member['mb_point']); ?>점</a></li>
-
+        	<li class="my_cou"><i class="fa fa-ticket" aria-hidden="true"></i> 쿠폰<a href="<?php echo G5_SHOP_URL; ?>/coupon.php" target="_blank" class="win_coupon"><?php echo number_format($cp_count); ?></a></li>
+        	<li class="my_memo"><i class="fa fa-envelope-o" aria-hidden="true"></i> 쪽지<a href="<?php echo G5_BBS_URL ?>/memo.php" target="_blank" class="win_memo"><?php echo $memo_not_read ?></a></li>
+        	<li class="my_point"><i class="fa fa-database" aria-hidden="true"></i> 포인트<a href="<?php echo G5_BBS_URL; ?>/point.php" target="_blank" class="win_point"><?php echo number_format($member['mb_point']); ?></a></li>
         </ul>
+        
+        <div class="my_ov_btn">
+        	<button type="button" class="btn_op_area">내정보<span class="sound_only">상세보기</span><i class="fa fa-chevron-down" aria-hidden="true"></i></button>
+        </div>
+        
         <div class="my_info">
             <div class="my_info_wr">
                 <strong>연락처</strong>
@@ -69,7 +72,6 @@ for($k=0; $cp=sql_fetch_array($res); $k++) {
                 <span><?php echo sprintf("(%s%s)", $member['mb_zip1'], $member['mb_zip2']).' '.print_address($member['mb_addr1'], $member['mb_addr2'], $member['mb_addr3'], $member['mb_addr_jibeon']); ?></span>
             </div>
         </div>
-        <div class="my_ov_btn"><button type="button" class="btn_op_area"><span class="sound_only">상세정보</span>더보기<i class="fa fa-caret-down" aria-hidden="true"></i></button></div>
 
     </section>
 
@@ -77,7 +79,7 @@ for($k=0; $cp=sql_fetch_array($res); $k++) {
     
         $(".btn_op_area").on("click", function() {
             $(".my_info").toggle();
-            $(".fa-caret-down").toggleClass("fa-caret-up")
+            $(".fa-chevron-down").toggleClass("fa-caret-up")
         });
 
     </script>
