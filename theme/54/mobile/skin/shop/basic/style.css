@@ -627,7 +627,7 @@ box-shadow: 0 0 6px rgba(0,0,0,0.2);}
 .couponzone_list ul {padding:0 10px 10px;margin:0;list-style:none;background:#fff}
 .couponzone_list ul:after {display:block;visibility:hidden;clear:both;content:""}
 .couponzone_list ul li {line-height:1.2em;margin:0 0 10px}
-.couponzone_list ul li img {width:100%;height:auto}
+.couponzone_list ul li img {width:100%;height:auto;border-radius:3px 3px 0 0}
 .couponzone_list ul li .cp_inner {border:1px solid #ddd;border-radius:5px;
 -webkit-box-shadow:0px 1px 6px 0 #dedede;
 -moz-box-shadow:0px 1px 6px 0 #dedede;
