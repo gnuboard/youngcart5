@@ -60,11 +60,11 @@ $result = sql_query($sql);
     <li>
         <div class="cou_top">
             <div class="cou_tit"><?php echo $row['cp_subject']; ?></div>
-            <span class="cou_pri"><?php echo $cp_price; ?></span>
+            <span class="cou_pri"><?php echo $cp_price; ?> <i class="fa fa-angle-right" aria-hidden="true"></i></span>
         </div>
         <div>
             <span class="cou_target"><?php echo $cp_target; ?></span>
-            <span class="pd_date"><i class="fa fa-clock-o" aria-hidden="true"></i> <?php echo substr($row['cp_start'], 2, 8); ?> ~ <i class="fa fa-clock-o" aria-hidden="true"></i> <?php echo substr($row['cp_end'], 2, 8); ?></span>
+            <span class="cou_date"><i class="fa fa-clock-o" aria-hidden="true"></i> <?php echo substr($row['cp_start'], 2, 8); ?> ~ <i class="fa fa-clock-o" aria-hidden="true"></i> <?php echo substr($row['cp_end'], 2, 8); ?></span>
         </div>
     </li>
     <?php

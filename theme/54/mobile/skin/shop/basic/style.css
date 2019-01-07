@@ -1,17 +1,17 @@
 @charset "utf-8";
 
 /* 오늘 본 상품 */
-#stv{position:relative;margin:10px 0;background:#fff;border-bottom:1px solid #e1e1e1}
+#stv {position:relative;margin:10px 0;background:#fff;border-bottom:1px solid #e1e1e1}
 #stv h2 {border-bottom:1px solid #efefef;padding:10px;line-height:30px;font-size:1.077em}
-#stv_ul{padding:10px 0}
+#stv_ul {padding:10px}
 #stv_ul:after {display:block;visibility:hidden;clear:both;content:""}
-#stv_ul li{float:left;width:20%;text-align:center}
-#stv_ul li img{max-width:100%;height:auto}
+#stv_ul li {float:left;width:20%;text-align:center}
+#stv_ul li img {max-width:100%;height:auto}
 #stv_pg {display:inline-block;text-align:center;margin: 0 0 0 5px;line-height:20px;font-weight:normal;font-size:0.929em;color:#999}
 .stv_item {display:none;padding: 3px;word-break:break-all}
-#up{position:absolute;top:0px;right:30px;height:50px;width:30px;border:0;background:none;color:#ccc}
-#down{position:absolute;top:0px;right:0px;height:50px;width:30px;border:0;background:none;color:#ccc}
-#stv .li_empty{text-align:center;padding:50px 0;color:#666;}
+#up {position:absolute;top:0px;right:30px;height:50px;width:30px;border:0;background:none;color:#ccc}
+#down {position:absolute;top:0px;right:0px;height:50px;width:30px;border:0;background:none;color:#ccc}
+#stv .li_empty {text-align:center;padding:50px 0;color:#666;}
 
 /*메인배너*/
 #main_bn{position:relative;text-align:center}
@@ -25,26 +25,26 @@
 
 /*사이드배너*/
 #sbn_side{margin: 5px}
-#sbn_side h2  {position:absolute;font-size:0;text-indent:-9999em;line-height:0;overflow:hidden}
+#sbn_side h2 {position:absolute;font-size:0;text-indent:-9999em;line-height:0;overflow:hidden}
 #sbn_side ul:after {display:block;visibility:hidden;clear:both;content:""}
-#sbn_side img{width:100%;height:auto}
-#sbn_side li{float:left;width:50%;padding:5px}
+#sbn_side img {width:100%;height:auto}
+#sbn_side li {float:left;width:50%;padding:5px}
 
 /* 쇼핑몰 이벤트 */
 #sev {text-align:center;margin:10px}
-#sev .bx-wrapper{;position:relative}
+#sev .bx-wrapper {position:relative}
 #sev h2 {text-align:center;font-size:1.25em;display:inline-block;padding-bottom:5px;margin: 0 0 10px;border-bottom:2px solid #000;}
-#sev li img{width:100%}
-.sev_admin{margin:10px;text-align:right}
-.sev_admin .btn_admin{line-height:30px;padding:0 10px}
-#sev  .bx-pager-item{display:inline-block;margin:2px}
-#sev .bx-pager-link{display:inline-block;width:10px;height:10px;background:#fff;border-radius:5px;text-indent:-999px;overflow:hidden;
--webkit-box-shadow: 0 1px 3px rgba(0,0,0,0.2);
--moz-box-shadow: 0 1px 3px rgba(0,0,0,0.2);
-box-shadow: 0 1px 3px rgba(0,0,0,0.2);}
-#sev .active{background:#555;width:18px}
-#sev_list{margin:10px}
-#sev_list #sct_sort{background:#fff}
+#sev li img {width:100%}
+.sev_admin {margin:10px;text-align:right}
+.sev_admin .btn_admin {line-height:30px;padding:0 10px}
+#sev  .bx-pager-item {display:inline-block;margin:2px}
+#sev .bx-pager-link {display:inline-block;width:10px;height:10px;background:#fff;border-radius:5px;text-indent:-999px;overflow:hidden;
+-webkit-box-shadow:0 1px 3px rgba(0,0,0,0.2);
+-moz-box-shadow:0 1px 3px rgba(0,0,0,0.2);
+box-shadow:0 1px 3px rgba(0,0,0,0.2)}
+#sev .active {background:#555;width:18px}
+#sev_list {margin:10px}
+#sev_list #sct_sort {background:#fff}
 
 /* ##### maint.(nn).skin.php, list.(nn).skin.php 공통 적용 시작 ##### */
 /* 공통 */
@@ -195,24 +195,25 @@ box-shadow: 0 1px 3px rgba(0,0,0,0.2);}
 .sct_best .sct_cost {display:block;margin:0 0 10px;font-size:0.917em}
 .sct_best .sct_icon {margin:0 0 10px}
 .sct_best .sct_sns {margin:15px 0 0}
-.sct_best .sct_img{position:relative;margin:0 5px 5px ;}
+.sct_best .sct_img{position:relative;margin:0 5px 5px}
 .bst_silde_btn{position:absolute;top:10px;right:10px}
 .bst_silde_btn button{border:0;width:8px;height:8px;text-indent:-999px;overflow:hidden;background:#adadad;border-radius:5px;margin:3px}
-.bst_silde_btn button.bst_sl{background: #000;}
+.bst_silde_btn button.bst_sl{background:#000}
 
 /* 개인결제 목록 */
-#sct_pv{margin:10px 5px}
+#sct_pv {margin:10px 5px}
 .sct_pv {margin:10px 0}
-.sct_pv .sct_li {position:relative;float:left;position:relative;float:left;margin-bottom:10px;}
-.sct_pv .sct_img{padding:0 5px}
-.sct_pv .sct_img a{}
-.sct_pv .sct_img img{width:100%;}
+.sct_pv .sct_li {position:relative;float:left;position:relative;float:left;margin-bottom:10px}
+.sct_pv .sct_img {padding:0 5px}
+.sct_pv .sct_img a {}
+.sct_pv .sct_img img {width:100%}
+.sct_pv .sct_txt {padding:0 5px}
 .sct_pv .sct_last {margin:0 0 15px !important}
 .sct_pv .sct_clear {clear:both}
 .sct_pv .sct_a {display:block;position:relative;margin:0 0 5px;text-decoration:none;  font-weight: bold;  text-overflow: ellipsis;  overflow: hidden;  white-space: nowrap;  line-height: 20px;}
 .sct_pv .sct_id {display:block;margin:0 0 5px}
 .sct_pv .sct_basic {margin:0 0 10px}
-.sct_pv .sct_cost {display:block;margin:0 0 10px;}
+.sct_pv .sct_cost {display:block;margin:0 0 10px;padding:0 5px}
 .sct_pv .sct_cost strike {display:block;margin:0 0 5px;color:#999;font-weight:normal}
 .sct_pv .sct_icon {margin:0 0 10px}
 /* ##### maint.(nn).skin.php, list.(nn).skin.php 공통 적용 끝 ##### */
