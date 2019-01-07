@@ -464,45 +464,46 @@ box-shadow: 0 0 6px rgba(0,0,0,0.2);}
 .sit_qa_pw {display:none;position:absolute;top:30px;left:175px;padding:10px;width:348px;border:1px solid #000;background:#fff;text-align:center}
 .sit_qa_pw span {display:block;margin:0 0 5px}
 
-#sit_qa_wbtn {margin:0 0 10px }
+#sit_qa_wbtn {margin:0 0 10px}
 #sit_qa_wbtn:after {display:block;visibility:hidden;clear:both;content:""}
-#sit_qa_wbtn .btn01{line-height:40px;width:49%;float:right;text-align:center;border-radius:3px}
+#sit_qa_wbtn .btn01 {line-height:40px;width:49%;float:right;text-align:center;border-radius:3px}
 #sit_qa_wbtn .qa_wr {line-height:40px;width:49%;float:left;text-align:center;background:#3a8afd;color:#fff;border: 1px solid #1c70e9;border-radius:3px;}
 
 /* 사용후기 모음 */
-#sps_sch {margin:10px 10px}
-#sps_sch a {display:block;padding:0 8px;height:40px;line-height:40px;vertical-align:top;border-radius:3px;color:#3059c7;font-weight:bold;border:1px solid #3059c7;text-decoration:none;text-align:center;margin: 5px 0}
-#sps_sch .sch_wr{background:#fff;border:1px solid #bdc2d8;position:relative;border-radius:3px}
+#sps_sch {margin:15px}
+#sps_sch a {display:inline-block;color:#3a8afd;font-weight:bold;border-bottom:1px solid #3a8afd;margin-top:10px}
+#sps_sch .sch_wr {position:relative;background:#fff;border:1px solid #d0d3db}
 #sps_sch .sch_wr:after {display:block;visibility:hidden;clear:both;content:""}
-#sps_sch select{border:0;background:#fff;margin:9px 0;height:20px;border-right:1px solid #ddd;float:left;width:40%}
-#sps_sch .sch_input{height:38px;border:0;padding:0;background-color:transparent;float:left;width:60%;padding:0 40px 0 10px}
-#sps_sch .sch_btn{height:38px;position:absolute;top:0;right:0;border:0;width:40px;background:none;font-size:15px}
+#sps_sch select {border:0;background:#fff;padding:9px 0;height:45px;border-right:1px solid #f8f8f8;float:left;width:40%}
+#sps_sch .sch_input {height:45px;border:0;padding:0;background-color:transparent;float:left;width:60%;padding:0 40px 0 10px}
+#sps_sch .sch_btn {position:absolute;top:0;right:0;width:45px;height:45px;border:0;background:none;font-size:15px}
 
 #sps {zoom:1}
-#sps ol {margin:10px;padding:0;border-top:1px solid #e9e9e9;list-style:none;}
-#sps li {position:relative;padding:10px;border-bottom:1px solid #ccc;background:#fff;margin: 0 0 5px}
-#sps li:after {display:block;visibility:hidden;clear:both;content:""}
+#sps>ol {margin:10px 0;padding:0;border-top:1px solid #f8f8f8;list-style:none}
+#sps>ol>li {position:relative;padding:10px;border-bottom:1px solid #e8e8e8;background:#fff}
+#sps>ol>li:after {display:block;visibility:hidden;clear:both;content:""}
 
-.sps_img{position:absolute;top:10px;left:10px;}
-.sps_img img{border-radius:50%;}
+.sps_img {position:absolute;top:10px;left:10px}
 .sps_img span {position:absolute;font-size:0;text-indent:-9999em;line-height:0;overflow:hidden}
 
-#sps dl {margin:5px 0 ; color: #888;  font-size: 0.917em;overflow:hidden}
-#sps dt {position:absolute;font-size:0;text-indent:-9999em;line-height:0;overflow:hidden}
-#sps dd {float:left;margin:0 10px 0 0 ;line-height:18px;height:18px }
-#sps dd img {position:relative;top:-2px}
+#sps ul {color:#888;font-size:0.917em;overflow:hidden}
+#sps li.sps_tit {margin-top:3px;font-weight:bold;color:#000;line-height:24px;font-size:1.083em}
+#sps li.sps_tit button {background:#fff;border:0;font-weight:bold}
+#sps li.sps_info {margin-top:5px} 
+#sps li.sps_info span {display:inline-block;float:left;line-height:12px}
+#sps li.sps_info .sps_if_wt {border-right:1px solid #eaeaea;padding-right:5px;margin-right:5px}
 
-.sps_section {margin-left:80px;display:block;}
+.sps_section {min-height:70px;margin-left:80px;display:block;}
 .sps_section .is_use_reply{background:url('../mobile/shop/img/use_reply.png') no-repeat;text-indent:30px;line-height:1.5em}
 .sps_section p {padding:0;width:100%}
 .sps_con_full {padding:0;height:auto !important}
-.sps_con_btn {margin:5px 0 0;}
-.sps_con_btn button {border: 1px solid #ddd;padding: 5px 8px;color: #666;font-size: 0.92em;margin: 5px 0;background: #fff;}
+
+.sps_con_btn button {}
 
 .sps_reply{margin-top:10px;padding-top:10px;border-top:1px dotted #bbb;position:relative}
 .sps_reply .sps_img {;width:50px;text-align:center}
 .sps_reply .sps_section h2{background:url('./img/use_reply.png') no-repeat 0 0;text-indent:30px;line-height:1.5em;}
-.sps_reply .sps_section{margin-left:70px;min-height:50px}
+.sps_reply .sps_section {margin-left:70px;min-height:50px}
 #sps_empty{text-align:center;color:#777;padding:50px 0}
 
 /* 상품문의 모음 */
