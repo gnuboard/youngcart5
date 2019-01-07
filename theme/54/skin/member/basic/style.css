@@ -182,7 +182,7 @@
 #login_info {}
 #login_info:after {display:block;visibility:hidden;clear:both;content:""}
 #login_info .login_if_auto {float:left}
-#login_info .login_if_auto label {vertical-align:baseline;padding-left:5px}
+#login_info .login_if_auto label {vertical-align:baseline;padding-left:20px}
 #login_info .login_if_lpl {float:right}
 #login_password_lost {display:inline-block;border:1px solid #d5d9dd;color:#3a8afd;border-radius:2px;padding:2px 5px;line-height:20px}
 

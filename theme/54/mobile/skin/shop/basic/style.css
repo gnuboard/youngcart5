@@ -464,45 +464,76 @@ box-shadow: 0 0 6px rgba(0,0,0,0.2);}
 .sit_qa_pw {display:none;position:absolute;top:30px;left:175px;padding:10px;width:348px;border:1px solid #000;background:#fff;text-align:center}
 .sit_qa_pw span {display:block;margin:0 0 5px}
 
-#sit_qa_wbtn {margin:0 0 10px }
+#sit_qa_wbtn {margin:0 0 10px}
 #sit_qa_wbtn:after {display:block;visibility:hidden;clear:both;content:""}
-#sit_qa_wbtn .btn01{line-height:40px;width:49%;float:right;text-align:center;border-radius:3px}
+#sit_qa_wbtn .btn01 {line-height:40px;width:49%;float:right;text-align:center;border-radius:3px}
 #sit_qa_wbtn .qa_wr {line-height:40px;width:49%;float:left;text-align:center;background:#3a8afd;color:#fff;border: 1px solid #1c70e9;border-radius:3px;}
 
 /* 사용후기 모음 */
-#sps_sch {margin:10px 10px}
-#sps_sch a {display:block;padding:0 8px;height:40px;line-height:40px;vertical-align:top;border-radius:3px;color:#3059c7;font-weight:bold;border:1px solid #3059c7;text-decoration:none;text-align:center;margin: 5px 0}
-#sps_sch .sch_wr{background:#fff;border:1px solid #bdc2d8;position:relative;border-radius:3px}
+#sps_sch {margin:15px}
+#sps_sch a {display:inline-block;color:#3a8afd;font-weight:bold;border-bottom:1px solid #3a8afd;margin-top:10px}
+#sps_sch .sch_wr {position:relative;background:#fff;border:1px solid #d0d3db}
 #sps_sch .sch_wr:after {display:block;visibility:hidden;clear:both;content:""}
-#sps_sch select{border:0;background:#fff;margin:9px 0;height:20px;border-right:1px solid #ddd;float:left;width:40%}
-#sps_sch .sch_input{height:38px;border:0;padding:0;background-color:transparent;float:left;width:60%;padding:0 40px 0 10px}
-#sps_sch .sch_btn{height:38px;position:absolute;top:0;right:0;border:0;width:40px;background:none;font-size:15px}
+#sps_sch select {border:0;background:#fff;padding:9px 0;height:45px;border-right:1px solid #f8f8f8;float:left;width:40%}
+#sps_sch .sch_input {height:45px;border:0;padding:0;background-color:transparent;float:left;width:60%;padding:0 40px 0 10px}
+#sps_sch .sch_btn {position:absolute;top:0;right:0;width:45px;height:45px;border:0;background:none;font-size:15px}
 
 #sps {zoom:1}
-#sps ol {margin:10px;padding:0;border-top:1px solid #e9e9e9;list-style:none;}
-#sps li {position:relative;padding:10px;border-bottom:1px solid #ccc;background:#fff;margin: 0 0 5px}
-#sps li:after {display:block;visibility:hidden;clear:both;content:""}
+#sps>ol {margin:10px 0;padding:0;border-top:1px solid #f8f8f8;list-style:none}
+#sps>ol>li {position:relative;padding:10px;border-bottom:1px solid #e8e8e8;background:#fff}
+#sps>ol>li:after {display:block;visibility:hidden;clear:both;content:""}
 
-.sps_img{position:absolute;top:10px;left:10px;}
-.sps_img img{border-radius:50%;}
+.sps_img {position:absolute;top:10px;left:10px}
 .sps_img span {position:absolute;font-size:0;text-indent:-9999em;line-height:0;overflow:hidden}
 
-#sps dl {margin:5px 0 ; color: #888;  font-size: 0.917em;overflow:hidden}
-#sps dt {position:absolute;font-size:0;text-indent:-9999em;line-height:0;overflow:hidden}
-#sps dd {float:left;margin:0 10px 0 0 ;line-height:18px;height:18px }
-#sps dd img {position:relative;top:-2px}
+.review_detail {margin-top:3px;border:0;background:transparent;font-weight:bold;color:#000;line-height:24px;font-size:1.083em}
 
-.sps_section {margin-left:80px;display:block;}
+.review_detail_cnt {display:none;position:fixed;width:100%;height:100%;top:0;left:0;z-index:999;background:rgba(0,0,0,0.1)}
+.review_detail_in {position:absolute;top:30%;left:0;width:100%;padding:10px;margin-top:-180px;}
+.review_detail_inner {position:relative;max-height:450px;background:#fff;text-align:left;overflow-y:auto;border-radius:3px;border:1px solid #dde7e9;border-radius:3px}
+.review_detail_inner h3 {padding:15px;border-bottom:1px solid #e8e8e8;font-size:1.4em}
+.review_cnt {padding:25px}
+.rd_cls {position:absolute;top:0;right:0;color:#b5b8bb;border:0;padding:18px 15px;font-size:16px;background:#fff}
+
+.review_tp_cnt {position:relative;padding:0 0 10px;margin-bottom:15px;border-bottom:1px solid #f1f1f1}
+.review_tp_cnt>span {font-size:1.2em;display:block;line-height:24px}
+.review_tp_cnt:after {display:block;visibility:hidden;clear:both;content:""}
+.review_tp_cnt .sps_opt_btn_more {position:absolute;top:0;right:0;border:0;padding:5px 5px 5px 10px;background:#fff;color:#c4c8cb;font-size:1.4em}
+.review_tp_cnt .sps_opt_li {display:none;position:absolute;top:40px;right:0;border:1px solid #b8bfc4;background:#fff}
+.review_tp_cnt .sps_opt_li:before {content:"";position:absolute;top:-8px;right:5px;width:0;height:0;border-style:solid;border-width:0 6px 8px 6px;border-color:transparent transparent #b8bfc4 transparent}
+.review_tp_cnt .sps_opt_li:after {content:"";position:absolute;top:-6px;right:5px;width:0;height:0;border-style:solid;border-width:0 6px 8px 6px;border-color:transparent transparent #fff transparent}
+.review_tp_cnt .sps_opt_li li {border-bottom:1px solid #f1f1f1;padding:10px !important;color:#6b757c}
+
+.review_summ {background:#fcfcfc;border:2px solid #efeff1;padding:10px}
+.review_summ:after {display:block;visibility:hidden;clear:both;content:""}
+.review_summ>img {float:left;margin-right:10px}
+.review_summ>p {display:inline-block;width:auto !important;float:left;line-height:24px}
+.review_summ>p span {display:block}
+.review_bt_cnt {margin:15px 0}
+.review_bt_cnt img {width:100%}
+
+.sps_reply {margin-top:10px;padding-top:10px;border-top:1px dotted #bbb}
+.sps_reply .sps_img {text-align:right;width:70px}
+.sps_reply .sps_section h2 {background:url('./img/use_reply.png') no-repeat 0 0;text-indent:30px;line-height:1.5em}
+
+.sps_info {margin-top:5px} 
+.sps_info span {display:inline-block;float:left;line-height:12px;color:#818181}
+.sps_info .sps_if_wt {border-right:1px solid #eaeaea;padding-right:5px;margin-right:5px}
+
+.sps_dl dd {display:inline-block;float:left}
+.sps_dl dd.sps_dd_wt {padding-right:5px;margin-right:5px;border-right:1px solid #eaeaea}
+
+.sps_section {min-height:70px;margin-left:80px;display:block;}
 .sps_section .is_use_reply{background:url('../mobile/shop/img/use_reply.png') no-repeat;text-indent:30px;line-height:1.5em}
 .sps_section p {padding:0;width:100%}
 .sps_con_full {padding:0;height:auto !important}
-.sps_con_btn {margin:5px 0 0;}
-.sps_con_btn button {border: 1px solid #ddd;padding: 5px 8px;color: #666;font-size: 0.92em;margin: 5px 0;background: #fff;}
+
+.sps_con_btn button {}
 
 .sps_reply{margin-top:10px;padding-top:10px;border-top:1px dotted #bbb;position:relative}
-.sps_reply .sps_img {;width:50px;text-align:center}
+.sps_reply .sps_img {width:50px;text-align:center}
 .sps_reply .sps_section h2{background:url('./img/use_reply.png') no-repeat 0 0;text-indent:30px;line-height:1.5em;}
-.sps_reply .sps_section{margin-left:70px;min-height:50px}
+.sps_reply .sps_section {margin-left:70px;min-height:50px}
 #sps_empty{text-align:center;color:#777;padding:50px 0}
 
 /* 상품문의 모음 */
@@ -588,40 +619,64 @@ box-shadow: 0 0 6px rgba(0,0,0,0.2);}
 #sit_sms_new .tbl_frm01 th {width:100px}
 
 /*쿠폰존 리스트*/
-.couponzone_list{margin:10px 10px ;background:#fff;border-bottom:1px solid #ccc;padding:20px}
-.couponzone_list h2{margin:0 0 5px;font-size:1.25em;}
-.couponzone_list p{margin:0 0 10px;}
-.couponzone_list ul{padding:0;margin:0;list-style:none;background:#fff}
+.couponzone_list {margin:10px 0;background:#fff;border-bottom:1px solid #ccc}
+.couponzone_list h2 {border-bottom:1px solid #efefef;padding:10px;line-height:30px;font-size:1.077em}
+.couponzone_list p {position:relative;text-align:left;color:#fff;line-height:18px;font-size:1.1em;background:#f2838f;margin:10px;padding:10px 20px;border-radius:5px;font-weight:bold}
+.couponzone_list p:before {content:"";position:absolute;top:0;left:0;width:5px;height:100%;border-radius:5px 0 0 5px;background:#da4453}
+
+.couponzone_list ul {padding:0 10px 10px;margin:0;list-style:none;background:#fff}
 .couponzone_list ul:after {display:block;visibility:hidden;clear:both;content:""}
-.couponzone_list ul li{padding:10px 0 ;line-height:1.2em;margin:5px 0}
+.couponzone_list ul li {line-height:1.2em;margin:0 0 10px}
+.couponzone_list ul li img {width:100%;height:auto;border-radius:3px 3px 0 0}
+.couponzone_list ul li .cp_inner {border:1px solid #ddd;border-radius:5px;
+-webkit-box-shadow:0px 1px 6px 0 #dedede;
+-moz-box-shadow:0px 1px 6px 0 #dedede;
+box-shadow:0px 1px 6px 0 #dedede
+}
 
-.couponzone_list ul li .coupon_img{}
-.couponzone_list ul li img{width:100%;height:auto}
+.couponzone_list ul li .coupon_img {position:relative;height:120px;overflow:hidden;border-bottom:1px dashed #ccc}
+.couponzone_list ul li .coupon_tit {position:absolute;top:0;left:0;width:100%;height:100%;padding-top:30px;text-align:center;font-weight:bold;text-overflow:ellipsis;overflow:hidden;white-space:nowrap}
+.couponzone_list ul li .coupon_tit span {display:inline-block;margin-bottom:5px}
+/*
+.couponzone_list ul li .coupon_tit{margin:10px 0 5px;font-size:1.083em;line-height:1.4em;font-weight:bold;}*/
 
-.couponzone_list ul li img{width:100%;height:auto}
-.couponzone_list ul li .coupon_img{}
-.couponzone_list ul li .coupon_tit{margin:10px 0 5px;font-size:1.083em;line-height:1.4em;font-weight:bold;}
-.couponzone_list ul li .coupon_date{margin: 5px 0px;font-size:0.92em;text-overflow:ellipsis;overflow:hidden;white-space:nowrap;color:#777}
-.couponzone_list ul li .coupon_target{margin: 5px 0px;font-size:0.92em;text-overflow:ellipsis;overflow:hidden;white-space:nowrap;color:#777}
-.couponzone_list ul li .coupon_target a{color:#777;text-decoration:underline}
-.couponzone_list ul li .coupon_point{margin: 5px 0px;font-size:0.92em;text-overflow:ellipsis;overflow:hidden;white-space:nowrap;color:#777}
-.couponzone_list ul li .coupon_btn{margin:10px 0 0;text-align:center}
-.couponzone_list ul li .coupon_btn .btn02{width:100%;height:35px;padding:0;font-weight:bold;background:#8183c3;border:0}
-.couponzone_list ul li .coupon_btn .btn02:hover{background:#5255cc;color:#fff}
-.couponzone_list ul li .coupon_btn .disabled {background: #ddd;border:1px;color:#999;border-color:#ddd}
-.couponzone_list ul li .coupon_btn .disabled:hover {background: #ddd;border:1px;color:#999;border-color:#ddd}
-.couponzone_list .no_coupon{padding: 100px 0;text-align:center;color:#999}
-#point_coupon li{height:250px;}
+.couponzone_list ul li .coupon_tit .cp_evt,
+.couponzone_list ul li .coupon_tit .cp_evt b {font-size:1.4em}
+.couponzone_list ul li .cp_cnt {padding:10px}
+.couponzone_list ul li .coupon_date {display:inline-block;float:right;padding:2px 3px;margin:5px 0px;font-size:0.92em;text-overflow:ellipsis;overflow:hidden;white-space:nowrap;color:#777}
+.couponzone_list ul li .coupon_target {display:inline-block;margin:5px 0px}
+.couponzone_list ul li .coupon_target>button {display:inline-block;max-width:125px;padding:2px 3px;font-size:0.92em;border:0;border-radius:3px;text-overflow:ellipsis;overflow:hidden;white-space:nowrap}
+.couponzone_list ul li .coupon_target .cp_1 {background:#edfbde;color:#8cc152}/*카테고리할인*/
+.couponzone_list ul li .coupon_target .cp_2 {background:#fbdef3;color:#c15293}/*개별상품할인*/
+.couponzone_list ul li .coupon_target .cp_3 {background:#fbf1de;color:#c18b52}/*주문금액할인*/
+.couponzone_list ul li .coupon_target .cp_4 {background:#f2defb;color:#7c52c1}/*배송비할인*/
+
+.couponzone_list ul li .coupon_info {display:none;position:absolute;min-width:235px;background:#fff;border:1px solid #000;padding:15px;z-index:99999}
+.couponzone_list ul li .coupon_info:after {display:block;visibility:hidden;clear:both;content:""}
+.couponzone_list ul li .coupon_info h4 {font-size:1.2em;margin-bottom:10px}
+.couponzone_list ul li .coupon_info ul {padding:0;margin:0;position:relative;border:0}
+.couponzone_list ul li .coupon_info li {width:auto;margin:0;float:inherit;color:#5e5e5e;line-height:18px}
+.couponzone_list ul li .coupon_info li a {text-decoration:underline;color:#5e5e5e}
+.couponzone_list ul li .coupon_info .coupon_info_cls {position:absolute;right:0;top:0;color:#c7c9cc;border:0;background:#fff;padding:10px;font-size:1.2em}
+
+.couponzone_list ul li .coupon_btn {text-align:center}
+.couponzone_list ul li .coupon_btn .btn02 {width:100%;height:42px;line-height:28px;margin-top:15px;border:0;color:#fff;background:#3a8afd;border-radius:5px;font-weight:bold}
+.couponzone_list ul li .coupon_btn .btn02:hover {background:#2176f1;color:#fff}
+.couponzone_list ul li .coupon_btn .disabled {background:#c6c6c6;border:1px;color:#fff;border-color:#c6c6c6}
+.couponzone_list ul li .coupon_btn .disabled:hover {background:#c6c6c6;border:1px;color:#fff;border-color:#c6c6c6}
+.couponzone_list .no_coupon {position:relative;padding:100px 0;text-align:center;color:#999}
+
+#point_coupon li {height:250px}
 
 
 @media (min-width: 640px)and (max-width:969px){
-    .couponzone_list ul li{width:50%;float:left;padding:10px}
-    .couponzone_list ul li:nth-child(2n+1){clear:both;}
+    .couponzone_list ul li {width:50%;float:left;padding:10px}
+    .couponzone_list ul li:nth-child(2n+1) {clear:both}
 
 }
 @media (min-width: 970px){
-    .couponzone_list ul li{width:25%;float:left;padding:10px}
-    .couponzone_list ul li:nth-child(4n+1){clear:both;}
+    .couponzone_list ul li {width:25%;float:left;padding:10px}
+    .couponzone_list ul li:nth-child(4n+1) {clear:both}
 
 }
 
