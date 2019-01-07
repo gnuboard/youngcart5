@@ -56,61 +56,81 @@ add_stylesheet('<link rel="stylesheet" href="'.G5_MSHOP_SKIN_URL.'/style.css">',
         </div>
 
         <section class="sps_section">
-            <!-- <h2><?php echo get_text($row['is_subject']); ?></h2> 
-
-            <dl class="sps_dl">
-                <dt>평가점수</dt>
-                <dd class="sps_star"><img src="<?php echo G5_SHOP_URL; ?>/img/s_star<?php echo $star; ?>.png" alt="별<?php echo $star; ?>개" width="80"></dd> 
-                <dt>작성자</dt>
-                <dd><i class="fa fa-user" aria-hidden="true"></i> <?php echo get_text($row['is_name']); ?></dd>
-                <dt>작성일</dt>
-                <dd><i class="fa fa-clock-o" aria-hidden="true"></i> <?php echo substr($row['is_time'],2,8); ?></dd>
-            </dl>-->
-            
-            <ul class="sps_ul">
-            	<li class="sps_star"><span class="sound_only">평가점수</span><img src="<?php echo G5_SHOP_URL; ?>/img/s_star<?php echo $star; ?>.png" alt="별<?php echo $star; ?>개" width="80"></li>
-            	<li class="sps_tit sps_con_btn"><button class="sps_con_<?php echo $i; ?>"><?php echo get_text($row['is_subject']); ?></button></li>	
-            	<li class="sps_info">
-            		<div>
-            			<span class="sound_only">작성자</span>
-		                <span class="sps_if_wt"><?php echo get_text($row['is_name']); ?></span>
-		                <span class="sound_only">작성일</span>
-		                <span><?php echo substr($row['is_time'],2,8); ?></span>
+			<div class="sps_star">
+				<span class="sound_only">평가점수</span><img src="<?php echo G5_SHOP_URL; ?>/img/s_star<?php echo $star; ?>.png" alt="별<?php echo $star; ?>개" width="80">
+			</div>
+			
+			
+			<div class="sps_con_btn">
+			<button class="sps_con_<?php echo $i; ?> review_detail"><?php echo get_text($row['is_subject']); ?></button>
+			<!-- 사용후기 자세히 시작 -->
+			<div class="review_detail_cnt">
+            	<div class="review_detail_in">
+            		<div class="review_detail_inner">
+            		<h3>사용후기</h3>
+            		<div class="review_cnt">
+            			<div class="review_tp_cnt">
+            				<span><?php echo get_text($row['is_subject']); ?></span>
+            				<dl class="sps_dl">
+				                <dt class="sound_only">작성자</dt>
+				                <dd class="sps_dd_wt"><?php echo $row['is_name']; ?></dd>
+				                <dt class="sound_only">작성일</dt>
+				                <dd><i class="fa fa-clock-o" aria-hidden="true"></i> <?php echo substr($row['is_time'],0,10); ?></dd>
+				            </dl>
+	            			<button class="sps_opt_btn_more"><span class="sound_only">글쓰기 옵션 더보기</span><i class="fa fa-ellipsis-v" aria-hidden="true"></i></button>
+	            			<ul class="sps_opt_li">
+	            				<li>수정</li>
+	            				<li>삭제</li>
+	            			</ul>
+            			</div>
+            			<div class="review_summ">
+            				<?php echo get_itemuselist_thumbnail($row['it_id'], $row['is_content'], 50, 50); ?>
+            				<p>
+            					<span>상품명입니다.</span>
+            					<span class="sound_only">평가점수</span><img src="<?php echo G5_URL; ?>/shop/img/s_star<?php echo $star; ?>.png" alt="별<?php echo $star; ?>개" width="80">
+            				</p>
+            			</div>
+            			
+            			<div id="sps_con_<?php echo $i; ?>" class="review_bt_cnt">
+			                <?php echo $is_content; // 사용후기 내용 ?>
+			                <?php
+			                if( !empty($row['is_reply_subject']) ){     //사용후기 답변이 있다면
+			                    $is_reply_content = get_view_thumbnail(conv_content($row['is_reply_content'], 1), $thumbnail_width);
+			                ?>
+			                <div class="sps_reply">
+			                    <div class="sps_img">
+			                        <a href="<?php echo $it_href; ?>">
+			                            <?php echo get_itemuselist_thumbnail($row['it_id'], $row['is_reply_content'], 50, 50); ?>
+			                            <span><?php echo $row2['it_name']; ?></span>
+			                        </a>
+			                    </div>
+			
+			                    <section>
+			                        <h2 class="is_use_reply"><?php echo get_text($row['is_reply_subject']); ?></h2>
+			                        <div class="sps_dl">
+			                            <?php echo $row['is_reply_name']; ?>
+			                        </div>
+			                        <div id="sps_con_<?php echo $i; ?>_reply" style="display:none;">
+			                            <?php echo $is_reply_content; // 사용후기 답변 내용 ?>
+			                        </div>
+			                    </section>
+			                </div>
+			                <?php } //end if ?>
+			            </div>
             		</div>
-            	</li>
-            </ul>
-
-            <div id="sps_con_<?php echo $i; ?>" style="display:none;">
-                <?php echo $is_content; // 사용후기 내용 ?>
-
-                <?php
-                if( !empty($row['is_reply_subject']) ){ //사용후기 답변이 있다면
-                    $is_reply_content = get_view_thumbnail(conv_content($row['is_reply_content'], 1), $thumbnail_width);
-                ?>
-                <div class="sps_reply">
-                    <div class="sps_img">
-                        <a href="<?php echo $it_href; ?>">
-                            <?php echo get_itemuselist_thumbnail($row['it_id'], $row['is_reply_content'], 50, 50); ?>
-                            <span><?php echo $row2['it_name']; ?></span>
-                        </a>
-                    </div>
-
-                    <section class="sps_section">
-                        <h2 class="is_use_reply"><?php echo get_text($row['is_reply_subject']); ?></h2>
-
-                        <dl class="sps_dl">
-                            <dt>작성자</dt>
-                            <dd><?php echo $row['is_reply_name']; ?></dd>
-                        </dl>
-
-                        <div id="sps_con_<?php echo $i; ?>_reply" style="display:none;">
-                            <?php echo $is_reply_content; // 사용후기 답변 내용 ?>
-                        </div>
-                    </section>
-                </div>
-                <?php } //end if ?>
-            </div>
-            <!-- <div class="sps_con_btn"><button class="sps_con_<?php echo $i; ?>">내용보기 <i class="fa fa-caret-down" aria-hidden="true"></i></button></div> -->
+            		<button class="rd_cls"><span class="sound_only">후기 상세보기 팝업 닫기</span><i class="fa fa-times" aria-hidden="true"></i></button>
+            		</div>
+            	</div>
+			</div>
+			<!-- 사용후기 자세히 끝 -->
+			</div>
+			
+			<div class="sps_info">
+    			<span class="sound_only">작성자</span>
+                <span class="sps_if_wt"><?php echo get_text($row['is_name']); ?></span>
+                <span class="sound_only">작성일</span>
+                <span><?php echo substr($row['is_time'],2,8); ?></span>
+    		</div>
         </section>
     </li>
 
@@ -123,25 +143,29 @@ add_stylesheet('<link rel="stylesheet" href="'.G5_MSHOP_SKIN_URL.'/style.css">',
 <?php echo get_paging($config['cf_mobile_pages'], $page, $total_page, "{$_SERVER['SCRIPT_NAME']}?$qstr&amp;page="); ?>
 
 <script>
-// $(function(){
-    // // 사용후기 더보기
-    // $(".sps_con_btn button").click(function(){
-        // var $con = $(this).parent().prev();
-        // if($con.is(":visible")) {
-            // $con.slideUp();
-            // $(this).html("내용보기 <i class=\"fa fa-caret-down\" aria-hidden=\"true\"></i>");
-        // } else {
-            // $(".sps_con_btn button").html("내용보기 <i class=\"fa fa-caret-down\" aria-hidden=\"true\"></i>");
-            // $("div[id^=sps_con]:visible").hide();
-            // $con.slideDown(
-                // function() {
-                    // // 이미지 리사이즈
-                    // $con.viewimageresize2();
-                // }
-            // );
-            // $(this).html("내용닫기 <i class=\"fa fa-caret-up\" aria-hidden=\"true\"></i>");
-        // }
-    // });
-// });
+$(function(){
+    // 사용후기 열기
+    $(".review_detail").on("click", function(){
+        $(this).parent("div").children(".review_detail_cnt").show();
+    });
+
+		
+    // 사용후기 닫기
+    $(document).mouseup(function (e){
+        var container = $(".review_detail_cnt");
+        if( container.has(e.target).length === 0)
+        container.hide();
+    });   
+});
+
+// 후기 상세 글쓰기 옵션
+$(".sps_opt_btn_more").on("click", function() {
+    $(".sps_opt_li").toggle();
+})
+
+// 후기 상세 글쓰기 닫기
+$('.rd_cls').click(function(){
+    $('.review_detail_cnt').hide();
+});
 </script>
 <!-- } 전체 상품 사용후기 목록 끝 -->
