@@ -21,7 +21,7 @@ if($is_kakaopay_use) {
 ?>
 
 <form name="forderform" id="forderform" method="post" action="<?php echo $order_action_url; ?>" autocomplete="off">
-<div id="sod_frm">
+<div id="sod_frm" class="sod_frm_pc">
     <!-- 주문상품 확인 시작 { -->
     <div class="tbl_head03 tbl_wrap od_prd_list">
         <table id="sod_list">
