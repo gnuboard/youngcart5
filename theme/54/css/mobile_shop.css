@@ -165,19 +165,18 @@ box-shadow:0 0 5px #eee}
 #sit_opt_added .sit_opt_prc {float:right;display:block;padding:0 3px;text-align:right;line-height:30px;font-size:1.183em;font-weight:bold}
 
 /* 장바구니 */
-#mod_option_frm {z-index:10000;position:fixed;top:10%;left:5%;width:90%;height:auto !important;height:80%;max-height:80%;border:1px solid #dde7e9;border-radius:3px;background:#fff;overflow-y:auto;overflow-x:none}x 3px}
-#mod_option_frm h2 {height:45px;line-height:45px;font-size:1.167em;background:#333;color:#fff;padding:0 15px}
+#mod_option_frm {z-index:10000;position:fixed;top:10%;left:5%;width:90%;height:auto !important;height:80%;max-height:80%;border:1px solid #dde7e9;border-radius:3px;background:#fff;overflow-y:auto;overflow-x:none}
+#mod_option_frm h2 {border-bottom: 1px solid #e8e8e8;padding: 0 20px;line-height: 50px;font-size: 1.25em;}
 #sod_bsk_list .mod_option_bg {content:"";position:fixed;left:0;top:0;width:100%;height:100%;background:rgba(0,0,0,0.1);display:block;z-index:9999}
 #mod_option_frm  #sit_sel_option{margin:15px }
 #mod_option_frm #sit_tot_price{margin:15px }
-#mod_option_frm  #sit_sel_option ul{;background:#f3f3f3;border:0 }
 #mod_option_frm h3{margin: 0 0 10px;color:#5772d5;}
 #mod_option_frm  .option_wr {margin:15px ; }
 #mod_option_frm  .option_wr label{margin: 0 0 5px;display:block}
 #mod_option_frm  .option_wr select{width:100%; height: 30px;border: 1px solid #d9d9d9;margin: 0 0 5px;}
 #mod_option_frm .btn_confirm{margin:15px ; }
 #mod_option_frm .btn_confirm .btn_submit{height:40px;font-size:1.167em;font-weight:bold;width:100%;}
-#mod_option_frm .btn_confirm .btn_close{position:absolute;top:0;right:0;width:45px;height:45px;border:0;background:none;color:#fff;font-size:1.25em}
+#mod_option_frm .btn_confirm .btn_close{position: absolute; top: 0; right: 0;width: 50px;height: 50px;border: 0;background: none;font-size: 1.25em;border-radius: 0;}
 
 #sod_bsk .btn_del_wr{margin:10px }
 #sod_bsk .sod_ta_wr{}
