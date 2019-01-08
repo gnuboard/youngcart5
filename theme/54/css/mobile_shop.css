@@ -302,13 +302,16 @@ box-shadow:inset 1px 1px 5px rgba(0,0,0,0.1);}
 #od_pay_sl h3{font-size:1.25em}
 
 /* 쿠폰 */
-#scp_list li {position:relative;padding:0}
-#scp_list .li_pd {position:relative;padding:10px}
-#scp_list .li_title {font-weight:bold;font-size:1.167em}
-#scp_list .pd_price {position:absolute;top:10px;right:10px}
-#scp_list .pd_price strong {color:#ff006c;font-size:1.5em}
-#scp_list .li_target {color:#666;margin:5px 0 0;background:#f3f3f3;border-top:1px dotted #ccc;padding:5px 10px}
-#scp_list .pd_date {float:right;color:#777}
+#scp_list {text-align:center;background:#fff}
+#scp_list .li_pd {position:relative;padding:10px}	#scp_list h1 {text-align:left}
+#scp_list .li_title {font-weight:bold;font-size:1.167em}	#scp_list ul:after {display:block;visibility:hidden;clear:both;content:""}
+#scp_list .pd_price {position:absolute;top:10px;right:10px}	#scp_list li {padding:15px;border-bottom:1px solid #ececec;text-align:left}
+#scp_list .pd_price strong {color:#ff006c;font-size:1.5em}	#scp_list .cou_top {margin-bottom:10px}
+#scp_list .li_target {color:#666;margin:5px 0 0;background:#f3f3f3;border-top:1px dotted #ccc;padding:5px 10px}	#scp_list .cou_tit {font-size:1.25em;font-weight:bold}
+#scp_list .pd_date {float:right;color:#777}	#scp_list .cou_pri {font-size:1.25em;color:#3a8afd;font-weight:bold;float:right}
+#scp_list .cou_target {color:#8cc152;background:#edfbde;padding:5px;line-height:20px;font-size:0.92em;border-radius:5px}
+#scp_list .cou_date {float:right;color:#888d92}
+#scp_list .btn_close {margin:20px auto}
 
 /* 배송지 목록 */
 #sod_addr {}

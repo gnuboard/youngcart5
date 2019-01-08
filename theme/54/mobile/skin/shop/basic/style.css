@@ -673,7 +673,8 @@ box-shadow:0px 1px 6px 0 #dedede
 .couponzone_list ul li .coupon_btn .btn02:hover {background:#2176f1;color:#fff}
 .couponzone_list ul li .coupon_btn .disabled {background:#c6c6c6;border:1px;color:#fff;border-color:#c6c6c6}
 .couponzone_list ul li .coupon_btn .disabled:hover {background:#c6c6c6;border:1px;color:#fff;border-color:#c6c6c6}
-.couponzone_list .no_coupon {position:relative;padding:100px 0;text-align:center;color:#999}
+.couponzone_list .no_coupon {position:relative;padding:100px 0;text-align:center;color:#999;background:none;font-weight:normal}
+.couponzone_list .no_coupon:before {background:none}
 
 #point_coupon li {height:250px}
 
