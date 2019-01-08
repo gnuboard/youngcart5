@@ -355,7 +355,7 @@ if($is_kakaopay_use) {
                     $result = sql_query($sql);
                     for($i=0; $row=sql_fetch_array($result); $i++) {
                         $val1 = $row['ad_name'].$sep.$row['ad_tel'].$sep.$row['ad_hp'].$sep.$row['ad_zip1'].$sep.$row['ad_zip2'].$sep.$row['ad_addr1'].$sep.$row['ad_addr2'].$sep.$row['ad_addr3'].$sep.$row['ad_jibeon'].$sep.$row['ad_subject'];
-                        $val2 = '<label for="ad_sel_addr_'.($i+1).'">최근배송지('.($row['ad_subject'] ? $row['ad_subject'] : $row['ad_name']).')</label>';
+                        $val2 = '<label for="ad_sel_addr_'.($i+1).'"><span></span>최근배송지('.($row['ad_subject'] ? $row['ad_subject'] : $row['ad_name']).')</label>';
                         $addr_list .= '<br><input type="radio" name="ad_sel_addr" value="'.get_text($val1).'" id="ad_sel_addr_'.($i+1).'"> '.PHP_EOL.$val2.PHP_EOL;
                     }
 
@@ -375,7 +375,7 @@ if($is_kakaopay_use) {
                 </li>
                 <?php if($is_member) { ?>
                 <li class="chk_box">
-                    <label for="ad_subject">배송지명</label>
+                    <label for="ad_subject" class="sound_only">배송지명</label>
                     <input type="text" name="ad_subject" id="ad_subject" class="frm_input" maxlength="20" placeholder="배송지명">
                     <input type="checkbox" name="ad_default" id="ad_default" value="1" class="selec_chk">
                     <label for="ad_default" class="ad_default"><span></span>기본배송지로 설정</label>

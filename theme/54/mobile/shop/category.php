@@ -117,7 +117,7 @@ function get_mshop_category($ca_id, $len)
 
         <ul id="cate_tnb">
             <li><a href="<?php echo G5_SHOP_URL; ?>/couponzone.php"><i class="fa fa-ticket"></i> 쿠폰존</a></li>
-            <li><a href="<?php echo G5_SHOP_URL; ?>/itemuselist"><i class="fa fa-camera"></i> 사용후기</a></li>
+            <li><a href="<?php echo G5_SHOP_URL; ?>/itemuselist.php"><i class="fa fa-camera"></i> 사용후기</a></li>
             <li><a href="<?php echo G5_BBS_URL; ?>/faq.php"><i class="fa fa-question"></i>FAQ</a></li>
             <li><a href="<?php echo G5_BBS_URL; ?>/qalist.php"><i class="fa fa-comments"></i>1:1문의</a></li>
             <li><a href="<?php echo G5_SHOP_URL; ?>/personalpay.php"><i class="fa fa-credit-card"></i>개인결제</a></li>

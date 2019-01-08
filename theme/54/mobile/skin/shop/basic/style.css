@@ -77,6 +77,7 @@
 .shop_icon_3 {background:#2dd49f}
 .shop_icon_4 {background:#556ee6}
 .shop_icon_5 {background:#ff5081}
+.shop_icon_coupon {background:#b169e1}
 
 
 .mli_btn button{background:url(img/mainlist_btn.gif) no-repeat; width:30px; height:30px;border:none;text-indent:-9999px}
@@ -86,7 +87,7 @@
 /* 상품 목록 스킨 10 */
 .sct_10{margin:10px }
 .sct_10 .sct_li {float:left;text-align:left;padding:5px ;margin-bottom:10px;}
-.sct_10 .sct_li .li_wr{position:relative;padding-bottom:5px}
+.sct_10 .sct_li .li_wr{position:relative}
 .sct_10 .sct_img{margin-bottom:10px;font-size:0}
 .sct_10 .sct_img img{width:100%;height:auto;}
 .sct_10 .sct_clear{clear:both}
@@ -96,20 +97,19 @@
 .sct_10 .sct_cost{margin:10px 0;font-weight:bold }
 .sct_10 .sct_sns_wrap {display:none;width:100%;height:100%;position:fixed;top:0;left:0;z-index:999}
 .sct_10 .sct_sns {position:absolute;top:50%;left:50%;background:#fff;text-align:center;width:245px;max-height:300px;margin-left:-125px;margin-top:-180px;overflow-y:auto;border-radius:5px;-webkit-box-shadow:1px 1px 18px rgba(0,0,0,0.2);-moz-box-shadow: 1px 1px 18px rgba(0,0,0,0.2);box-shadow: 1px 1px 18px rgba(0,0,0,0.2);border:1px solid #dde7e9;background:#fff;border-radius:3px}    
-.sct_10 .sct_sns h3 {padding:15px;border-bottom:1px solid #e8e8e8;text-align:left;font-size:}
+.sct_10 .sct_sns h3 {padding:15px;border-bottom:1px solid #e8e8e8;text-align:left;line-height:20px;font-size:1.077em}
 .sct_10 .sct_sns a {display:inline-block;border-radius:50%;width:50px;height:50px;line-height:25px;text-align:center;padding:13px 0;margin:20px 5px}
 .sct_10 .sct_sns .share-facebook {background:#415b92}
 .sct_10 .sct_sns .share-twitter {background:#35b3dc}
 .sct_10 .sct_sns .share-googleplus {background:#ea3838}
 .sct_10 .sct_sns img {width:24px}
 .sct_10 .sct_sns_bg {background:rgba(0,0,0,0.1);width:100%;height:100%}
-.sct_10 .sct_sns_cls {position:absolute;right:0;top:0;color:#b5b8bb;border:0;padding:12px 15px;font-size:16px;background:#fff}
+.sct_10 .sct_sns_cls {position:absolute;right:0;top:0;color:#b5b8bb;border:0;padding:12px 15px;font-size:16px;background:#fff;margin:0;height:50px}
 
-.sct_10 .sct_icon {margin:10px 0 }
-.sct_10 .sct_icon .shop_icon_4{padding: 0 5px;line-height:20px;position: absolute;top: 0;left: 0;background: #fb5861;color: #fff;font-size: 12px;border:0}
+.sct_10 .sct_icon {margin:0 0 10px}
 .li_more{text-align:center}
 
-.sct_10 .sct_op_btn {position:absolute;right:5px;bottom:10px}
+.sct_10 .sct_op_btn {position:absolute;right:5px;bottom:0}
 .sct_10 .sct_op_btn>button {border:0;width:25px;height:20px;font-size:1.25em;text-align:center;color:#949494;background:transparent}
 
 #item_load_msg{display:none}
@@ -117,7 +117,7 @@
 #btn_more_item{height: 43px;width:100%;border:1px solid #ddd;font-size:1.167em;color: #282828;line-height: 43px;background:none;}
 
 .sct_10_list li{border-bottom:1px solid #d9dde2;width:100%;padding:10px;text-align:left}
-.sct_10_list .li_wr {;min-height:130px;padding-left:120px;}
+.sct_10_list .li_wr {min-height:110px;padding-left:120px;}
 .sct_10_list .sct_sns_wrap {display:none;width:100%;height:100%;position:fixed;top:0;left:0;z-index:999}
 .sct_10_list .sct_sns {position:absolute;top:50%;left:50%;background:#fff;text-align:center;width:245px;max-height:300px;margin-left:-125px;margin-top:-180px;overflow-y:auto;border-radius:5px;-webkit-box-shadow:1px 1px 18px rgba(0,0,0,0.2);-moz-box-shadow: 1px 1px 18px rgba(0,0,0,0.2);box-shadow: 1px 1px 18px rgba(0,0,0,0.2);border:1px solid #dde7e9;background:#fff;border-radius:3px}    
 .sct_10_list .sct_sns h3 {padding:15px;border-bottom:1px solid #e8e8e8;text-align:left;font-size:}
@@ -136,7 +136,7 @@
 .sct_10_list .sct_txt{font-size:1.077em;margin:5px 0 ;line-height:1.5em}
 .sct_10_list .sct_cost{margin:5px 0;font-weight:bold}
 .sct_10_list .sct_sns{margin:10px 0}
-.sct_10_list .sct_op_btn {position:absolute;right:5px;bottom:10px}
+.sct_10_list .sct_op_btn {position:absolute;right:0px;bottom:0px}
 .sct_10_list .sct_op_btn>button {border:0;width:25px;height:20px;font-size:1.25em;text-align:center;color:#949494;background:transparent}
 
 /* 상품 목록 스킨 20 */
@@ -580,31 +580,39 @@ box-shadow: 0 0 6px rgba(0,0,0,0.2);}
 #sqa_empty{text-align:center;color:#777;padding:50px 0}
 
 /* 상품검색 */
-#ssch{margin:10px}
-#ssch_frm {border-bottom:1px solid #ccc;background:#fff;margin:10px 0}
+#ssch{margin:10px 0;position:relative}
+#ssch_frm {border-bottom:1px solid #ddd;background:#fff;margin:10px 0}
 #ssch_frm h2 {border-bottom:1px solid #ddd;padding:10px 15px;color:#666}
 #ssch_frm h2 span{font-size:1.25em;color:#000}
 #ssch_frm h2 strong{color:#d50c0c}
-#ssch_frm div{padding:10px 15px;line-height:30px;}
-#ssch_frm p{padding:15px; background:#f5f5f5;color:#737373}
+#ssch_frm div{padding:10px ;line-height:30px;}
+#ssch_frm p{margin:10px 0 0;line-height:20px;color:#1f58fd;font-size:0.923em}
+#ssch_frm .sch_wr{border-bottom:1px solid #e3e5e8;position:relative}
+#ssch_frm #ssch_q {border-radius:0;width:100%;font-weight:bold;font-size:1.077em}
+#ssch_frm .sch_submit{height:40px;padding:0 10px;font-weight:bold;position:absolute;top:10px;right:10px;border:0;background:none}
 #ssch_frm .ssch_input{height:30px;border:1px solid #bbb;padding:0 10px;margin:3px 0}
-#ssch_frm .btn_submit{height:30px;padding:0 10px;font-weight:bold}
+#ssch_frm .chk_box label{margin-right:10px}
+#ssch_frm .chk_box .frm_input{height:32px}
+
 #ssch_q{margin:0}
+#ssch_ov{position:absolute;top:-50px;right:10px;line-height:20px;color:#6f6f6f;font-size:0.923em}
 
-#ssch_cate {}
-#ssch_cate ul {margin:10px 0;border-bottom:1px solid #e9e9e9;list-style:none}
+#ssch_cate {text-align:center;width:100%;margin:10px 0}
+#ssch_cate ul {list-style:none;border-bottom:1px solid #d9dce3}
 #ssch_cate ul:after {display:block;visibility:hidden;clear:both;content:""}
-#ssch_cate li {border-right:1px solid #ddd;border-bottom:1px solid #ddd; background:#fff;float:left;width:50%;text-align:left;}
-#ssch_cate li a {text-decoration:none;display:block;color:#656565;padding:10px;position:relative;padding-right:25px;position:relative;line-height:20px}
-#ssch_cate a span {position:absolute;top:10px;right:10px;display:inline-block;line-height:20px;padding:0 5px;background:#eee;border-radius:10px;color:#777}
+#ssch_cate ul li {border-left:1px solid #f2f2f2;border-top:1px solid #f2f2f2; background:#fff;float:left;width:50%;text-align:left;}
+#ssch_cate ul li:nth-child(2n+1){clear:both;border-left:0}
+#ssch_cate a {text-decoration:none;display:block;color:#656565;padding:10px;position:relative;padding-right:25px;position:relative;line-height:20px}
+#ssch_cate a span{position:absolute;top:10px;right:10px;display:inline-block;line-height:20px;padding:0 5px;border-radius:10px;color:#999}
 
-#ssch_sort {background:#fff;border-bottom:1px solid #ccc}
+
+#ssch_sort {background:#fff;border-bottom:1px solid #ddd}
 #ssch_sort button{height:40px;line-height:40px;border:0;padding:0 10px;background:#fff}
 #ssch_sort ul:before{content: "";position: absolute;top: -8px;left: 30px;width: 0;border-style: solid;border-width: 0 6px 8px 6px;border-color: transparent transparent #bbb transparent;}
 #ssch_sort ul:after{content: "";position: absolute;top: -7px;left: 30px;width: 0;height: 0;border-style: solid;border-width: 0 6px 8px 6px;border-color: transparent transparent #fff transparent;}
 #ssch_sort ul {display:none;position:absolute;border:1px solid #bbb;z-index:99}
 #ssch_sort li {border-top:1px solid #eee}
-#ssch_sort li a{display:block;text-align:center;color:#333;background:#fff;border-color:#e9e9e9;font-size:0.917em;padding:5px 10px;line-height:20px}
+#ssch_sort li a{display:block;text-align:center;color:#333;background:#fff;border:0;font-size:0.917em;padding:5px 10px;line-height:20px}
 
 /*배송교환정보*/
 #sit_dvex h2 {position:absolute;font-size:0;text-indent:-9999em;line-height:0;overflow:hidden}
@@ -671,7 +679,8 @@ box-shadow:0px 1px 6px 0 #dedede
 .couponzone_list ul li .coupon_btn .btn02:hover {background:#2176f1;color:#fff}
 .couponzone_list ul li .coupon_btn .disabled {background:#c6c6c6;border:1px;color:#fff;border-color:#c6c6c6}
 .couponzone_list ul li .coupon_btn .disabled:hover {background:#c6c6c6;border:1px;color:#fff;border-color:#c6c6c6}
-.couponzone_list .no_coupon {position:relative;padding:100px 0;text-align:center;color:#999}
+.couponzone_list .no_coupon {position:relative;padding:100px 0;text-align:center;color:#999;background:none;font-weight:normal}
+.couponzone_list .no_coupon:before {background:none}
 
 #point_coupon li {height:250px}
 

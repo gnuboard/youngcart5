@@ -187,12 +187,12 @@ $cart_count = sql_num_rows($result);
         <input type="hidden" name="records" value="<?php echo $i; ?>">
         <button type="button" onclick="return form_check('buy');" class="btn_submit">주문하기</button>
 
+
+    </div>
+    <?php } ?>
         <?php if ($naverpay_button_js) { ?>
         <div class="naverpay-cart"><?php echo $naverpay_request_js.$naverpay_button_js; ?></div>
         <?php } ?>
-    </div>
-    <?php } ?>
-
 
     </div>
     </form>
