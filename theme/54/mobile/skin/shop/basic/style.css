@@ -71,6 +71,7 @@ box-shadow:0 1px 3px rgba(0,0,0,0.2)}
 .shop_icon_3 {background:#2dd49f}
 .shop_icon_4 {background:#556ee6}
 .shop_icon_5 {background:#ff5081}
+.shop_icon_coupon {background:#b169e1}
 
 
 .mli_btn button{background:url(img/mainlist_btn.gif) no-repeat; width:30px; height:30px;border:none;text-indent:-9999px}
@@ -80,7 +81,7 @@ box-shadow:0 1px 3px rgba(0,0,0,0.2)}
 /* 상품 목록 스킨 10 */
 .sct_10{margin:10px }
 .sct_10 .sct_li {float:left;text-align:left;padding:5px ;margin-bottom:10px;}
-.sct_10 .sct_li .li_wr{position:relative;padding-bottom:5px}
+.sct_10 .sct_li .li_wr{position:relative}
 .sct_10 .sct_img{margin-bottom:10px;font-size:0}
 .sct_10 .sct_img img{width:100%;height:auto;}
 .sct_10 .sct_clear{clear:both}
@@ -102,7 +103,7 @@ box-shadow:0 1px 3px rgba(0,0,0,0.2)}
 .sct_10 .sct_icon {margin:0 0 10px}
 .li_more{text-align:center}
 
-.sct_10 .sct_op_btn {position:absolute;right:5px;bottom:10px}
+.sct_10 .sct_op_btn {position:absolute;right:5px;bottom:0}
 .sct_10 .sct_op_btn>button {border:0;width:25px;height:20px;font-size:1.25em;text-align:center;color:#949494;background:transparent}
 
 #item_load_msg{display:none}
@@ -110,7 +111,7 @@ box-shadow:0 1px 3px rgba(0,0,0,0.2)}
 #btn_more_item{height: 43px;width:100%;border:1px solid #ddd;font-size:1.167em;color: #282828;line-height: 43px;background:none;}
 
 .sct_10_list li{border-bottom:1px solid #d9dde2;width:100%;padding:10px;text-align:left}
-.sct_10_list .li_wr {;min-height:130px;padding-left:120px;}
+.sct_10_list .li_wr {min-height:110px;padding-left:120px;}
 .sct_10_list .sct_sns_wrap {display:none;width:100%;height:100%;position:fixed;top:0;left:0;z-index:999}
 .sct_10_list .sct_sns {position:absolute;top:50%;left:50%;background:#fff;text-align:center;width:245px;max-height:300px;margin-left:-125px;margin-top:-180px;overflow-y:auto;border-radius:5px;-webkit-box-shadow:1px 1px 18px rgba(0,0,0,0.2);-moz-box-shadow: 1px 1px 18px rgba(0,0,0,0.2);box-shadow: 1px 1px 18px rgba(0,0,0,0.2);border:1px solid #dde7e9;background:#fff;border-radius:3px}    
 .sct_10_list .sct_sns h3 {padding:15px;border-bottom:1px solid #e8e8e8;text-align:left;font-size:}
@@ -129,7 +130,7 @@ box-shadow:0 1px 3px rgba(0,0,0,0.2)}
 .sct_10_list .sct_txt{font-size:1.077em;margin:5px 0 ;line-height:1.5em}
 .sct_10_list .sct_cost{margin:5px 0;font-weight:bold}
 .sct_10_list .sct_sns{margin:10px 0}
-.sct_10_list .sct_op_btn {position:absolute;right:5px;bottom:10px}
+.sct_10_list .sct_op_btn {position:absolute;right:0px;bottom:0px}
 .sct_10_list .sct_op_btn>button {border:0;width:25px;height:20px;font-size:1.25em;text-align:center;color:#949494;background:transparent}
 
 /* 상품 목록 스킨 20 */
