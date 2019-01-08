@@ -151,6 +151,7 @@ box-shadow:0 0 5px #eee}
 .sod_opt {padding:5px 10px 5px 35px}
 .sod_opt li {color:#777;margin:3px 0;line-height:1.3em}
 .sod_opt li:before {content:"옵션";display:inline-block;margin:1px 5px 2px 0;font-size:11px;padding:0 5px;border-radius:3px;background:#e2eaf6;line-height:20px;color:#3a8afd}
+.sod_opt .opt_name:before {content:"옵션";display:inline-block;margin:1px 5px 2px 0;font-size:11px;padding:0 5px;border-radius:3px;background:#e2eaf6;line-height:20px;color:#3a8afd}
 
 #sit_opt_added {margin:0;padding:0;border-bottom:0;background:#fff;list-style:none}
 #sit_opt_added li {padding:10px 15px;margin:5px 0;border:1px solid #e6e9ed;background:#f9f9f9;position:relative}
@@ -338,9 +339,13 @@ box-shadow:inset 1px 1px 5px rgba(0,0,0,0.1);}
 
 /* 주문상세내역 */
 #sod_list_inq {}
-.sod_fin_list .sod_ta_wr {padding:15px;background:#fff}
+#sod_list_inq .li_op_wr{padding-left:85px}
+#sod_list_inq .total_img{left:10px}
+#sod_list_inq .sod_opt{padding-left:10px}
+
+
 .sod_fin_list h2 {position:absolute;border:0;font-size:0;line-height:0;content:""}
-.sod_fin_list .prqty_stat {position:absolute;top:0;right:0;padding:3px 5px;background:#6583c5;color:#fff}
+.sod_fin_list .prqty_stat {display:inline-block;background: #edfbde; color: #8cc152;line-height: 24px;border-radius: 5px; border-radius: 5px;padding: 0 5px; font-weight: normal;font-size: 0.85em;margin:5px 0} 
 .sod_fin_list .li_opt {color:#777;margin:3px 0;line-height:1.3em;padding-right:50px}
 #sod_sts_wrap {margin:10px}
 #sod_sts_wrap .btn_wr {border-top:1px solid #bbb;text-align:center}
@@ -350,32 +355,38 @@ box-shadow:inset 1px 1px 5px rgba(0,0,0,0.1);}
 #sod_fin_legend:after {display:block;visibility:hidden;clear:both;content:""}
 #sod_fin_legend dt {float:left;width:20%}
 #sod_fin_legend dd {float:left;width:80%}
-#sod_fin_view {margin:10px}
-#sod_fin_view h2 {position:absolute;border:0;font-size:0;line-height:0;content:""}
-#sod_fin_view h3 {font-size:1.167em;margin:20px 0 10px}
 
-#sod_fin_no {margin:10px;border:2px solid #b9b9b9;background:#f3f3f3;color:#444;text-align:center;padding:10px}
+#sod_fin_pay,#sod_fin_orderer,#sod_fin_receiver,#sod_fin_receiver,#sod_fin_dvr{margin:10px;background:#fff;border:1px solid #e3e5e8}
+#sod_fin_view h2 {position:absolute;border:0;font-size:0;line-height:0;content:""}
+#sod_fin_view h3 {font-size:1.167em;padding:10px;border-bottom:1px solid #e3e5e8;line-height:1.5em}
+#sod_fin_view .odf_tbl {padding:5px}
+#sod_fin_view .odf_tbl .dvr_link{display:inline-block;line-height: 30px;color: #3a8afd;background: #fff;border: 1px solid #d4d6db;font-size: 0.93em;border-radius: 3px;padding:0 10px;}
+#sod_fin_view table {background:#fff;width:100%;border-collapse:collapse;padding:10px 0;border:0}
+#sod_fin_view table th {border:0;padding: 10px 0 10px 10px;text-align:left;width:100px;font-weight:normal}
+#sod_fin_view table td {border:0;padding: 10px;text-align:left}
+
+#sod_fin_no {margin:10px;border:2px solid #d6e2f4;background:#edf3fc;color:#5a81bd;border-radius:3px;padding:10px 15px}
 #sod_fin_no strong {font-size:1.167em}
 
 #sod_fin_tot {margin:10px}
 #sod_fin_tot h2 {font-size:1.167em;margin:20px 0 10px}
-#sod_fin_tot ul {margin:0;padding:0;list-style:none}
-#sod_fin_tot li {padding:10px;background:#38b2b9;border-bottom:1px solid #5ec2c7;color:#fff;zoom:1}
+#sod_fin_tot ul {background:#fff;border:1px solid #3a8afd;color:#000} 
+#sod_fin_tot li {padding:10px;zoom:1}
 #sod_fin_tot li:after {display:block;visibility:hidden;clear:both;content:""}
-#sod_fin_tot #alrdy {border-bottom:0 !important}
-#sod_fin_tot #alrdy .right {margin-top:10px;text-align:right;color:#f3f3f3;font-size:0.9em}
-#sod_fin_tot #alrdy .right p {position:relative}
+#sod_fin_tot #alrdy {background:#e5f0ff;font-weight:bold;border-top:1px solid #c6d7ef}
+#sod_fin_tot #alrdy .right {margin-top:10px;text-align:right;font-weight:normal;font-size:0.9em}
+#sod_fin_tot #alrdy .right p {position:relative;color:#333;margin:5px 0}
 #sod_fin_tot #alrdy .right .title {position:absolute;left:0;padding-left:8px}
 #sod_fin_tot strong {float:right}
 
 #sod_fin_cancel {margin:10px}
 #sod_fin_cancel h2 {position:absolute;border:0;font-size:0;line-height:0;content:""}
 #sod_fin_cancel h2 {position:absolute;font-size:0;line-height:0;overflow:hidden}
-#sod_fin_cancel button {height:40px;border:1px solid #5e6b6f;font-weight:bold;width:100%;background:none;color:#5e6b6f}
+#sod_fin_cancel button {height:40px;border:1px solid #ddd;font-weight:bold;width:100%;background:none;color:#282828;font-weight:normal}
 #sod_fin_cancel p {text-align:center;background:#ffe0e0;border:2px solid #d50c0c;padding:15px;color:#d50c0c;font-size:1.167em;font-weight:bold}
-#sod_fin_cancelfrm {display:none;margin:10px 0 0;text-align:center;background:#fff;padding:15px}
+#sod_fin_cancelfrm {display:none;position:relative;margin:10px 0 0;text-align:center;background:#fff;padding:15px 75px 15px 15px}
 #sod_fin_cancelfrm .frm_input {background:#fff;margin:0 0 5px;width:100%}
-#sod_fin_cancelfrm .btn_frmline {background:#5e6b6f;color:#fff;border:0;padding:10px;width:100%;cursor:pointer}
+#sod_fin_cancelfrm .btn_frmline {background:#5e6b6f;color:#fff;border:0;padding:10px;width:55px;cursor:pointer;position:absolute;top:15px;right:15px;height:40px}
 #sod_fin_test {padding:10px}
 
 
