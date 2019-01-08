@@ -30,21 +30,27 @@
 #sbn_side img {width:100%;height:auto}
 #sbn_side li {float:left;width:50%;padding:5px}
 
-/* 쇼핑몰 이벤트 */
-#sev {text-align:center;margin:10px}
-#sev .bx-wrapper {position:relative}
-#sev h2 {text-align:center;font-size:1.25em;display:inline-block;padding-bottom:5px;margin: 0 0 10px;border-bottom:2px solid #000;}
-#sev li img {width:100%}
-.sev_admin {margin:10px;text-align:right}
-.sev_admin .btn_admin {line-height:30px;padding:0 10px}
-#sev  .bx-pager-item {display:inline-block;margin:2px}
-#sev .bx-pager-link {display:inline-block;width:10px;height:10px;background:#fff;border-radius:5px;text-indent:-999px;overflow:hidden;
--webkit-box-shadow:0 1px 3px rgba(0,0,0,0.2);
--moz-box-shadow:0 1px 3px rgba(0,0,0,0.2);
-box-shadow:0 1px 3px rgba(0,0,0,0.2)}
-#sev .active {background:#555;width:18px}
-#sev_list {margin:10px}
-#sev_list #sct_sort {background:#fff}
+/*쇼핑몰 이벤트 */
+#sev {position:relative;margin:20px 0;text-align:center}
+#sev h2 {font-size:1.25em;text-align:left;margin:40px 10px 10px;line-height:1em}
+#sev .bx-wrapper {margin: 0 10px}
+#sev ul:after {display:block;visibility:hidden;clear:both;content:""}
+#sev .ev_li {width:100%;height:100%}
+#sev .ev_li .sev_img {display:grid}
+#sev .ev_li .sev_img img {width:100%;height:auto}
+#sev .ev_prd {border:1px solid #eaebed;border-bottom:1px solid #d8d8d8;text-align:center;padding:15px 10px;background:#fff}
+#sev .ev_prd li {position:relative;display:inline-block;width:33.333%;float:left;padding:0 5px;text-align:center}
+#sev .ev_prd li:after {display:block;visibility:hidden;clear:both;content:""}
+#sev .ev_prd .ev_prd_tit {display:block;color:#000;font-size:1.1em;margin-bottom:5px}
+#sev .ev_prd .ev_prd_img img {width:100%;height:auto}
+#sev .ev_prd .ev_txt_wr {float:left;max-width:139px;margin-left:10px}
+#sev .ev_prd .ev_prd_price {font-weight:bold;display:block;margin:5px 0 10px;font-size:1.25em;font-weight:bold}
+#sev .ev_prd .sev_more {color:#3a8afd;background:#fff;display:block;text-align:center}
+
+#sev .bx-pager {position:absolute;top:0;right:10px}
+#sev .bx-pager .bx-pager-item{display:inline-block;margin:5px}
+#sev .bx-pager .bx-pager-link{display:block;width:8px;height:8px;text-indent:-999px;overflow:hidden;background:#adadad;border-radius:5px}
+#sev .bx-pager .active{background:#000}
 
 /* ##### maint.(nn).skin.php, list.(nn).skin.php 공통 적용 시작 ##### */
 /* 공통 */
@@ -52,7 +58,7 @@ box-shadow:0 1px 3px rgba(0,0,0,0.2)}
 .sct_wrap:after {display:block;visibility:hidden;clear:both;content:""}
 .sct_wrap h2 {font-size:1.25em;margin:40px 10px 10px}
 
-.sct {margin: 10px 0 ;padding:0;list-style:none;zoom:1;clear:both;}
+.sct {margin: 10px 0 ;padding:0;list-style:none;zoom:1;clear:both}
 .sct:after {display:block;visibility:hidden;clear:both;content:""}
 .sct_li {position:relative}
 .sct_noitem {padding:50px 0;text-align:center}

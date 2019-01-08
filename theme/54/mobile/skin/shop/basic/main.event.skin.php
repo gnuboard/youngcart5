@@ -12,8 +12,7 @@ if(sql_num_rows($hresult)) {
 ?>
 <div id="sev">
     <h2>이벤트</h2>
-    <!-- <ul class="sev_slide"> -->
-    <ul>
+    <ul class="sev_slide">
     <?php
     for ($i=0; $row=sql_fetch_array($hresult); $i++)
     {
@@ -47,7 +46,7 @@ if(sql_num_rows($hresult)) {
             $item_href = G5_SHOP_URL.'/item.php?it_id='.$row2['it_id'];
 
             echo '<li class="ev_prd_'.$k.'">'.PHP_EOL;
-            echo '<span class="ev_prd_img">'.get_it_image($row2['it_id'], 110, 110, get_text($row2['it_name'])).'</span>'.PHP_EOL;
+            echo '<span class="ev_prd_img">'.get_it_image($row2['it_id'], 100, 100, get_text($row2['it_name'])).'</span>'.PHP_EOL;
             echo '</li>'.PHP_EOL;
         }
         if($k > 1) {
@@ -59,7 +58,6 @@ if(sql_num_rows($hresult)) {
             echo '<li class="no_prd">등록된 상품이 없습니다.</li>'.PHP_EOL;
             echo '</ul>'.PHP_EOL;
         }
-		//echo '<a href="'.$href.'" class="sev_more">더보기</a>'.PHP_EOL;
         echo '</div>'.PHP_EOL;
         echo '</li>'.PHP_EOL;
 
@@ -72,21 +70,12 @@ if(sql_num_rows($hresult)) {
 </div>
 
 <script>
-// $(document).ready(function(){
-    // $('.sev_slide').bxSlider({
-        // speed:800,
-        // slideWidth: 320,
-        // pager:true,
-        // controls:false,
-        // minSlides:1,
-        // maxSlides: 4,
-        // slideMargin: 5,
-        // onSliderLoad: function(){ 
-            // $(".sev_slide").css("visibility", "visible");
-        // }
-    // });
-// });
-
+$('.sev_slide').bxSlider({
+    minSlides: 1,
+    maxSlides: 1,
+    slideMargin:10,
+    controls: false
+});
 </script>
 
 
