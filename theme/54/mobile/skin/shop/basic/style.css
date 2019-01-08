@@ -17,10 +17,10 @@
 #main_bn{position:relative;text-align:center}
 #main_bn img{max-width:100%;height:auto}
 
-.btn_wr {background:rgba(0,0,0,0.5);display:inline-block;position:absolute;right:15px;bottom:15px;border-radius:30px;padding:3px 5px;width:100px}
-.btn_wr .pager-prev {margin-left:5px;font-weight:bold}
-.btn_wr .pager-next {margin-right:5px;font-weight:bold}
-.btn_wr .pager-prev, .btn_wr .pager-next, #slide-counter {float:left;display:inline-block;padding:5px;color:#fff}
+#main_bn .btn_wr {background:rgba(0,0,0,0.5);display:inline-block;position:absolute;right:15px;bottom:15px;border-radius:30px;padding:3px 5px;width:100px}
+#main_bn .btn_wr .pager-prev {margin-left:5px;font-weight:bold}
+#main_bn .btn_wr .pager-next {margin-right:5px;font-weight:bold}
+#main_bn .btn_wr .pager-prev, .btn_wr .pager-next, #slide-counter {float:left;display:inline-block;padding:5px;color:#fff}
 #slide-counter {margin:0 5px}
 
 /*사이드배너*/

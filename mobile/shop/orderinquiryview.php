@@ -45,9 +45,9 @@ if($od['od_pg'] == 'lg') {
         <ul id="sod_list_inq" class="sod_list">
             <?php
             for($i=0; $row=sql_fetch_array($result); $i++) {
-                $image_width = 80;
-                $image_height = 80;
-                $image = get_it_image($row['it_id'], 80, 80, '', '', $row['it_name']);
+                $image_width = 65;
+                $image_height = 65;
+                $image = get_it_image($row['it_id'], 65, 65, '', '', $row['it_name']);
 
                 // 옵션항목
                 $sql = " select ct_id, it_name, ct_option, ct_qty, ct_price, ct_point, ct_status, io_type, io_price
@@ -88,9 +88,7 @@ if($od['od_pg'] == 'lg') {
                 }
             ?>
             <li class="sod_li">
-                <div class="li_name">
-                    <a href="./item.php?it_id=<?php echo $row['it_id']; ?>"><strong><?php echo $row['it_name']; ?></strong></a>
-                </div>
+
                 <?php
                     for($k=0; $opt=sql_fetch_array($res); $k++) {
                         if($opt['io_type'])
@@ -101,13 +99,16 @@ if($od['od_pg'] == 'lg') {
                         $sell_price = $opt_price * $opt['ct_qty'];
                         $point = $opt['ct_point'] * $opt['ct_qty'];
                 ?>
+
                 <div class="li_op_wr">
-                    <div class="li_opt"><?php echo get_text($opt['ct_option']); ?></div>
+                    <div class="li_name">
+                        <a href="./item.php?it_id=<?php echo $row['it_id']; ?>"><strong><?php echo $row['it_name']; ?></strong></a>
+                    </div>
                     <a href="./item.php?it_id=<?php echo $row['it_id']; ?>" class="total_img"><?php echo $image; ?></a>
                     <span class="prqty_stat"><span class="sound_only">상태</span><?php echo $opt['ct_status']; ?></span>
 
-
                 </div>
+                <div class="sod_opt"><span class="opt_name"><?php echo get_text($opt['ct_option']); ?></span></div>
                 <div class="li_prqty">
                     <span class="prqty_price li_prqty_sp"><span>판매가 </span><?php echo number_format($opt_price); ?></span>
                     <span class="prqty_qty li_prqty_sp"><span>수량 </span><?php echo number_format($opt['ct_qty']); ?></span>

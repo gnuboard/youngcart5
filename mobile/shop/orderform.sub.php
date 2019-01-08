@@ -374,11 +374,11 @@ if($is_kakaopay_use) {
                     <div><?php echo $addr_list; ?></div>
                 </li>
                 <?php if($is_member) { ?>
-                <li>
+                <li class="chk_box">
                     <label for="ad_subject">배송지명</label>
                     <input type="text" name="ad_subject" id="ad_subject" class="frm_input" maxlength="20" placeholder="배송지명">
-                    <input type="checkbox" name="ad_default" id="ad_default" value="1">
-                    <label for="ad_default" class="ad_default">기본배송지로 설정</label>
+                    <input type="checkbox" name="ad_default" id="ad_default" value="1" class="selec_chk">
+                    <label for="ad_default" class="ad_default"><span></span>기본배송지로 설정</label>
                     
                 </li>
                 <?php
