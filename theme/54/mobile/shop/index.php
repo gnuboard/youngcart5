@@ -30,8 +30,6 @@ include_once(G5_THEME_MSHOP_PATH.'/shop.head.php');
     </div>
     <?php } ?>
 
-
-
     <?php if($default['de_mobile_type2_list_use']) { ?>
     <div class="sct_wrap">
         <h2><a href="<?php echo G5_SHOP_URL; ?>/listtype.php?type=2">추천상품</a></h2>
@@ -49,7 +47,6 @@ include_once(G5_THEME_MSHOP_PATH.'/shop.head.php');
         ?>
     </div>
     <?php } ?>
-
 
     <?php if($default['de_mobile_type3_list_use']) { ?>
     <div class="sct_wrap">
@@ -105,9 +102,6 @@ include_once(G5_THEME_MSHOP_PATH.'/shop.head.php');
         ?>
     </div>
     <?php } ?>
-
-
-
 
     <?php include_once(G5_MSHOP_SKIN_PATH.'/main.event.skin.php'); // 이벤트 ?>
 
