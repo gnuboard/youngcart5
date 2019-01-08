@@ -883,7 +883,10 @@ box-shadow:0 0 8px rgba(65,98,255,0.8)}
 .tooltip_txt i {font-size:1.2em;vertical-align:middle}
 
 
-/*개인결제 폼*/
+
+/*-- 개인결제 --*/
+
+/*모바일*/
 #m_sod_frm_orderer {margin:10px 0;border-top:1px solid #e7ebf1}
 #m_sod_frm_orderer h2 {position:absolute;font-size:0;text-indent:-9999em;line-height:0;overflow:hidden}
 #m_sod_frm_orderer ul {background:#fff;margin:15px 0;border-bottom:1px solid #ccc;padding:10px 15px}
@@ -896,6 +899,23 @@ box-shadow:0 0 8px rgba(65,98,255,0.8)}
 #m_pv_sod_frm .btn_confirm .btn_cancel {width:100%;height:45px;line-height:43px;font-size:1.167em;font-weight:bold;padding:0}
 #m_pv_sod_frm .pay_way {border-top:1px solid #e7ebf1}
 #m_pv_sod_frm .pay_way li {padding:5px 0}
+
+/*피씨에서 모바일*/
+.pesonal {background:#fff;border-top:1px solid #e7ebf1;border-bottom:1px solid #e3e5e8;margin:10px 0}
+.pesonal h2 {position:absolute;font-size:0;text-indent:-9999em;line-height:0;overflow:hidden}
+.pesonal .tbl_frm01 {padding:10px;margin:0}
+.pesonal tr {display:inline-block;width:100%;padding:0 5px;margin-bottom:20px}
+.pesonal th {display:block;width:auto;text-align:left;padding:10px 0;font-weight:bold;border:0}
+.pesonal td {display:block;padding:0;border:0}
+.pesonal td input {width:100%}
+.pesonal .half_tr {width:50%}
+.sod_right h2 {border-top:1px solid #e7ebf1;width:auto;text-align:left;padding:15px;font-weight:bold;background:#fff}
+#sod_frm_paysel {background:#fff;padding:0 15px 10px;border-bottom:1px solid #e3e5e8}
+#sod_frm_paysel li {padding:5px 0}
+.sod_right .btn_confirm {margin:10px}
+.sod_right .btn_submit, .sod_right .btn01 {width:100%;height:45px;font-size:1.167em;font-weight:bold;margin:5px 0;border-radius:4px;line-height:45px}
+
+
 /* input, radio */
 .selec_chk {position:absolute;top:0;left:0;width:0;height:0;opacity:0;outline:0;z-index:-1;overflow:hidden}
 .chk_box {position:relative}

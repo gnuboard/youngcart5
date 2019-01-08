@@ -46,7 +46,7 @@ if(sql_num_rows($hresult)) {
             $item_href = G5_SHOP_URL.'/item.php?it_id='.$row2['it_id'];
 
             echo '<li class="ev_prd_'.$k.'">'.PHP_EOL;
-            echo '<span class="ev_prd_img">'.get_it_image($row2['it_id'], 100, 100, get_text($row2['it_name'])).'</span>'.PHP_EOL;
+            echo '<span class="ev_prd_img">'.get_it_image($row2['it_id'], 300, 300, get_text($row2['it_name'])).'</span>'.PHP_EOL;
             echo '</li>'.PHP_EOL;
         }
         if($k > 1) {
