@@ -104,9 +104,6 @@ include_once(G5_THEME_MSHOP_PATH.'/shop.head.php');
     </div>
     <?php } ?>
 
-
-
-
     <?php include_once(G5_MSHOP_SKIN_PATH.'/main.event.skin.php'); // 이벤트 ?>
 
     <!-- 커뮤니티 최신글 시작 { -->
