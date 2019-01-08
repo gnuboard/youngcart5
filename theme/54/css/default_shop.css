@@ -210,11 +210,10 @@ box-shadow:0 2px 5px rgba(0,0,0,0.2)}
 #top_btn {position:absolute;bottom:0;left:0;border:0;border-top:1px solid #e5e7ea;margin-top:-25px;width:50px;height:50px;background:none;font-size:20px;color:#dedede}
 #top_btn:hover {border-color:#3059c7;background:#3059c7;color:#fff}
 
-
 /* 쇼핑몰 비회원 주문조회 */
 #mb_login_od_wr {margin:20px auto 0;border:1px solid #dde7e9;width:360px;background:#fff;text-align:center}
 #mb_login_od_wr h2 {font-size:1.25em;margin:20px 0 10px}
-#mb_login_od_wr #mb_login_od {padding:0 35px}
+/*#mb_login_od_wr #mb_login_od {padding:0 35px}*/
 #mb_login_od_wr .frm_input {width:100%;margin:10px 0 0}
 #mb_login_od_wr .btn_submit {width:100%;margin:10px 0 0;height:45px;font-weight:bold;font-size:1.25em}
 #mb_login_od_wr p {background:#f3f3f3;margin:20px 0 0;padding:15px 20px;line-height:1.5em}
@@ -227,11 +226,18 @@ box-shadow:0 2px 5px rgba(0,0,0,0.2)}
 #mb_login #sns_login .sns-icon:nth-child(odd) {margin-right:2%}
 #mb_login #sns_login .txt {font-size:0.95em;padding-left:5px !important;border-left:0 !important}
 
+/*쇼핑몰 비회원 구매*/
+#mb_login_notmb {width:360px;margin:30px auto;padding:20px 30px;background:#fff;border:1px solid #dde7e9}
+#mb_login_notmb h2 {font-size:1.25em;margin:10px 0;text-align:center}
+#mb_login_notmb p {text-align:left}
+#mb_login_notmb label {text-align:left}
+#guest_privacy {border:1px solid #ccc;text-align:left;line-height:1.6em;color:#666;background:#fafafa;padding:10px;height:150px;margin:10px 0;overflow-y:auto}
+#mb_login_notmb .btn_submit {display:block;text-align:center;margin-top:10px;line-height:45px}
+
 /* 쇼핑몰 로그인 */
 .mb_log_cate h2 {width:50%;float:left;padding:20px 0;text-align:center}
 .mb_log_cate .join {width:50%;float:left;padding:20px 0;text-align:center;background:#f7f7f7;color:#6e6e6e}
 .mb_log_cate:after {display:block;visibility:hidden;clear:both;content:""}
-
 
 /* 화면낭독기 사용자용 */
 #hd_login_msg {position:absolute;top:0;left:0;width:1px;height:1px;overflow:hidden}

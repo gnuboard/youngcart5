@@ -1,7 +1,7 @@
 @charset "utf-8";
 
 /* ### 기본 스타일 커스터마이징 시작 ### */
-.mbskin {position:relative;margin:100px auto 0;border:1px solid #dde7e9;width:360px;background:#fff;text-align:center}
+.mbskin {position:relative;margin:100px auto 0;border:1px solid #dde7e9;max-width:360px;background:#fff;text-align:center}
 .mbskin:after {right:10px;left:auto;
   -webkit-transform:skew(8deg) rotate(3deg);
     -moz-transform:skew(8deg) rotate(3deg);
@@ -149,18 +149,19 @@ box-shadow: 2px 2px 3px 0px rgba(0,0,0,0.2);}
 #login_info .login_if_lpl {float:right}
 #login_password_lost {display:inline-block;border:1px solid #d5d9dd;color:#3a8afd;border-radius:2px;padding:2px 5px;line-height:20px}
 
-#mb_login_notmb{background:#fff;border-bottom:1px solid #ccc;padding:20px;}
-#mb_login_notmb h2{font-size:1.25em;padding:10px;background:#f3f3f3}
-#mb_login_notmb p{border:0;padding:0;margin:10px;color:#}
-#guest_privacy p{border:1px solid #ddd;background:#fff;color:#666;min-height:20px;height:200px;padding:10px;text-align:left;overflow-y:auto;margin:10px 0}
-#mb_login_notmb .btn_submit{width:100%;display:block;height:40px;line-height:40px}
+#mb_login_notmb {max-width:360px;margin:30px auto;padding:20px 30px;background:#fff;border:1px solid #dde7e9}
+#mb_login_notmb h2 {font-size:1.25em;margin:10px 0;text-align:center}
+#mb_login_notmb p {text-align:left}
+#mb_login_notmb .chk_box {max-width:298px;word-break:keep-all}
+#mb_login_notmb label {text-align:left;line-height:20px}
+#guest_privacy {border:1px solid #ccc;text-align:left;line-height:1.6em;color:#666;background:#fafafa;padding:10px;height:150px;margin:10px 0;overflow-y:auto}
+#mb_login_notmb .btn_submit {display:block;text-align:center;margin-top:10px;line-height:45px;color:#fff}
 
-#mb_login_od_wr{background:#fff;border-bottom:1px solid #ccc;padding:20px;}
-#mb_login_od_wr p{border:0;text-align:left;}
-#mb_login_od_wr p strong{display:inline}
-#mb_login_odinfo{margin:10px 0 0 ;background:#f3f3f3;padding:10px}
-#mb_login_odinfo h2{font-size:1.167em}
-
+#mb_login_od_wr {max-width:360px;margin:30px auto;padding:20px 30px;background:#fff;border:1px solid #dde7e9}
+#mb_login_od_wr h2 {font-size:1.25em;margin:20px 0 10px}
+#mb_login_od_wr .frm_input {margin:10px 0 0;width:100%}
+#mb_login_od_wr p {background:#f3f3f3;margin:20px 0 0;padding:15px;line-height:1.5em}
+#mb_login_od_wr .btn_submit {width:100%;display:block;text-align:center;margin-top:10px;line-height:45px;color:#fff}
 
 /* 쪽지 */
 #memo_view_contents {}
