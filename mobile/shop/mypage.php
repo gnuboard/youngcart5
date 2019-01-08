@@ -45,8 +45,8 @@ for($k=0; $cp=sql_fetch_array($res); $k++) {
             </ul>
         </div>
         <ul class="my_pocou">
-        	<li class="my_cou"><i class="fa fa-ticket" aria-hidden="true"></i> 쿠폰<a href="<?php echo G5_SHOP_URL; ?>/coupon.php" target="_blank" class="win_coupon"><?php echo number_format($cp_count); ?></a></li>
-        	<li class="my_memo"><i class="fa fa-envelope-o" aria-hidden="true"></i> 쪽지<a href="<?php echo G5_BBS_URL ?>/memo.php" target="_blank" class="win_memo"><?php echo $memo_not_read ?></a></li>
+        	<li class="my_cou"><a href="<?php echo G5_SHOP_URL; ?>/coupon.php" target="_blank" class="win_coupon"><i class="fa fa-ticket" aria-hidden="true"></i> 쿠폰 <span><?php echo number_format($cp_count); ?></span></a></li>
+        	<li class="my_memo"><a href="<?php echo G5_BBS_URL ?>/memo.php" target="_blank" class="win_memo"><i class="fa fa-envelope-o" aria-hidden="true"></i>  쪽지<span><?php echo $memo_not_read ?></span></a></li>
         </ul>
         
         <div class="my_ov_btn">
