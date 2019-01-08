@@ -27,13 +27,13 @@ add_stylesheet('<link rel="stylesheet" href="'.G5_MSHOP_SKIN_URL.'/style.css">',
 <!-- } 상품 정렬 선택 끝 -->
 
 <script>
-        $(".btn_sort").click(function(){
-            $("#sct_sort ul").show();
-        });
-        $(document).mouseup(function (e){
-            var container = $("#sct_sort ul");
-            if( container.has(e.target).length === 0)
-            container.hide();
-        });
+$(".btn_sort").click(function(){
+    $("#sct_sort ul").show();
+});
+$(document).mouseup(function (e){
+    var container = $("#sct_sort ul");
+    if( container.has(e.target).length === 0)
+    container.hide();
+});
 
 </script>
