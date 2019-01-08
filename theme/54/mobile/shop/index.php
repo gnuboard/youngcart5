@@ -10,7 +10,6 @@ include_once(G5_THEME_MSHOP_PATH.'/shop.head.php');
 <script src="<?php echo G5_JS_URL; ?>/shop.mobile.main.js"></script>
 
 <?php echo display_banner('메인', 'mainbanner.10.skin.php'); ?>
-<?php echo display_banner('왼쪽', 'boxbanner.skin.php'); ?>
 
     <?php if($default['de_mobile_type1_list_use']) { ?>
     <div class="sct_wrap">
@@ -30,7 +29,7 @@ include_once(G5_THEME_MSHOP_PATH.'/shop.head.php');
     </div>
     <?php } ?>
 
-
+    <?php echo display_banner('왼쪽', 'boxbanner.skin.php'); ?>
 
     <?php if($default['de_mobile_type2_list_use']) { ?>
     <div class="sct_wrap">
@@ -49,7 +48,6 @@ include_once(G5_THEME_MSHOP_PATH.'/shop.head.php');
         ?>
     </div>
     <?php } ?>
-
 
     <?php if($default['de_mobile_type3_list_use']) { ?>
     <div class="sct_wrap">
