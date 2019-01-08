@@ -287,12 +287,21 @@
 
 /* 상품 상세보기 - 이미지 미리보기 */
 #sit_pvi {position:relative;margin:0;border-bottom:1px solid #e6e6e6;background:#fff;text-align:center}
-#sit_pvi .btn_wr {background:rgba(0,0,0,0.5);display:inline-block;position:absolute;left:50%;margin-left:-50px;bottom:15px;border-radius:30px;padding:3px 5px;width:100px}
+#sit_pvi .btn_wr {background:rgba(0,0,0,0.5);display:inline-block;position:absolute;left:50%;bottom:15px;border-radius:30px;padding:0 5px;width:100px;line-height:30px;margin-left:-50px}
 #sit_pvi .btn_wr .pager-prev {margin-left:5px;font-weight:bold}
 #sit_pvi .btn_wr .pager-next {margin-right:5px;font-weight:bold}
-#sit_pvi .btn_wr .pager-prev,#sit_pvi  .btn_wr .pager-next,#sit_pvi  #slide-counter {float:left;display:inline-block;padding:5px;color:#fff}
+#sit_pvi .btn_wr .pager-prev,#sit_pvi .btn_wr .pager-next, #slide-counter {float:left;display:inline-block;padding:0 5px;color:#fff}
 
 #sit_pvi img{max-width:100%;height:auto;text-align:center}
+#sit_pvi_nw h1 {position:absolute;font-size:0;text-indent:-9999em;line-height:0;overflow:hidden}
+#sit_pvi_nwbig {padding:10px 0;text-align:center}
+#sit_pvi_nwbig span {display:none}
+#sit_pvi_nwbig span.visible {display:inline}
+#sit_pvi_nw ul {text-align:center;margin:0 0 20px;padding:0 10px;list-style:none;zoom:1}
+#sit_pvi_nw ul:after {display:block;visibility:hidden;clear:both;content:""}
+#sit_pvi_nw li {display:inline-block;margin:3px}
+#sit_pvi_nw li img {width:60px;height:60px}
+
 /* 상품 상세보기 - 다른 상품 보기 */
 #sit_siblings {background:#fff;margin:0 ;text-align:center;position:relative}
 #sit_siblings:after {display:block;visibility:hidden;clear:both;content:""}
@@ -370,7 +379,7 @@
 box-shadow: 0 0 6px rgba(0,0,0,0.2);}
 #btn_option .sl_option {max-height:240px;overflow-y:auto;padding:10px }
 #btn_option h3{margin-bottom:10px}
-#btn_option .btn_close {position:absolute;top:-25px;left:50%;width:60px;height:25px;margin-left:-30px;border:1px solid #000;border-bottom:0;background:#fff}
+#btn_option .btn_close {position:absolute;top:-25px;left:50%;width:60px;height:25px;margin-left:-30px;border:1px solid #000;border-bottom:0;background:#fff;border-radius:3px 3px 0 0 }
 .btn_cart_op{width:100%;text-align:center;font-weight:bold}
 .btn_option_wr{position:fixed;bottom:0;left:0;width:100%;padding:10px;background:#fff;border-top:1px solid #000;z-index:88;
 -webkit-box-shadow:  0 0 9px rgba(0,0,0,0.2);
