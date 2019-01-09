@@ -104,7 +104,6 @@ if (!defined('_GNUBOARD_')) exit; // 개별 페이지 접근 불가
         ?>
     </div>
     <!-- } 검색결과 끝 -->
-
 </div>
 <!-- } 검색 끝 -->
 
@@ -132,7 +131,6 @@ $(function(){
         $(this).next(".tooltip").fadeOut();
     });
 });
-
 
 // 검색옵션
 $("#ssch_sort_all li a").click(function() {

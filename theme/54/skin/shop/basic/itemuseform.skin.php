@@ -15,7 +15,6 @@ add_stylesheet('<link rel="stylesheet" href="'.G5_SHOP_SKIN_URL.'/style.css">', 
     <input type="hidden" name="is_id" value="<?php echo $is_id; ?>">
 
     <div class="new_win_con form_01">
-
         <ul>
             <li>
                 <label for="is_subject" class="sound_only">제목<strong> 필수</strong></label>
@@ -58,11 +57,10 @@ add_stylesheet('<link rel="stylesheet" href="'.G5_SHOP_SKIN_URL.'/style.css">', 
         </ul>
 
         <div class="win_btn">
-            <input type="submit" value="작성완료" class="btn_submit">
+            <button type="submit" class="btn_submit">작성완료</button>
             <button type="button" onclick="self.close();" class="btn_close">닫기</button>
         </div>
     </div>
-
     </form>
 </div>
 

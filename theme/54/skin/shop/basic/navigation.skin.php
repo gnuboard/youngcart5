@@ -31,11 +31,6 @@ else
 add_stylesheet('<link rel="stylesheet" href="'.G5_SHOP_CSS_URL.'/style.css">', 0);
 ?>
 
-<!-- <div id="sct_location">
-    <a href='<?php echo G5_SHOP_URL; ?>/' class="sct_bg">HOME</a>
-    <?php echo $navigation; ?>
-</div> -->
-
 <div id="sct_location"> <!-- class="view_location" --> <!-- view_location는 리스트 말고 상품보기에서만 표시 -->
     <a href='<?php echo G5_SHOP_URL; ?>/' class="go_home"><span class="sound_only">메인으로</span><i class="fa fa-home" aria-hidden="true"></i></a>
     <i class="fa fa-angle-right" aria-hidden="true"></i>

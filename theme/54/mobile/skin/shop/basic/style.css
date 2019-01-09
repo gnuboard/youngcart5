@@ -317,7 +317,7 @@
 .sit_btn_opt {position:absolute;right:0;bottom:0}
 #btn_wish {float:left;position:relative;display:inline-block;padding-right:5px;color:#4b5259;width:35px;height:25px;text-align:center;font-size:1.25em;font-weight:bold}
 #btn_wish i {font-size:1.6em;font-weight:bold}
-#btn_wish .btn_wish_num {position:absolute;right:0;bottom:-2px;margin:0;padding:0 2px;height:17px;line-height:15px;border-radius:30px;background:#fff;color:#4b5259;font-size:0.75em}
+#btn_wish .btn_wish_num {position:absolute;right:0;bottom:-2px;margin:0;padding:0 2px;min-width:18px;height:17px;line-height:15px;border-radius:30px;background:#fff;color:#4b5259;font-size:0.75em}
 
 /* 상품 상세보기 - 간략정보 및 구매기능 */
 #sit_ov {position:relative;height:auto !important;padding:20px;border-bottom:1px solid #e9e9e9;background:#fff}

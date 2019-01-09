@@ -25,7 +25,6 @@ add_stylesheet('<link rel="stylesheet" href="'.G5_SHOP_CSS_URL.'/style.css">', 0
 <!-- } 관련상품 끝 -->
 <?php } ?>
 
-
 <section id="sit_info">
 	<div id="sit_tab">
 	    <ul class="tab_tit">
@@ -46,7 +45,6 @@ add_stylesheet('<link rel="stylesheet" href="'.G5_SHOP_CSS_URL.'/style.css">', 0
 	                <?php echo ($it['it_mobile_explan'] ? conv_content($it['it_mobile_explan'], 1) : conv_content($it['it_explan'], 1)); ?>
 	            </div>
 	            <?php } ?>
-	
 	
 	            <?php
 	            if ($it['it_info_value']) { // 상품 정보 고시
@@ -84,7 +82,6 @@ add_stylesheet('<link rel="stylesheet" href="'.G5_SHOP_CSS_URL.'/style.css">', 0
 	        <!-- 사용후기 시작 { -->
 	        <li id="sit_use">
 	            <h2>사용후기</h2>
-	
 	            <div id="itemuse"><?php include_once(G5_SHOP_PATH.'/itemuse.php'); ?></div>
 	        </li>
 	        <!-- } 사용후기 끝 -->
@@ -92,7 +89,6 @@ add_stylesheet('<link rel="stylesheet" href="'.G5_SHOP_CSS_URL.'/style.css">', 0
 	        <!-- 상품문의 시작 { -->
 	        <li id="sit_qa">
 	            <h2>상품문의</h2>
-	
 	            <div id="itemqa"><?php include_once(G5_SHOP_PATH.'/itemqa.php'); ?></div>
 	        </li>
 	        <!-- } 상품문의 끝 -->
@@ -114,11 +110,11 @@ add_stylesheet('<link rel="stylesheet" href="'.G5_SHOP_CSS_URL.'/style.css">', 0
 	            <!-- 교환 시작 { -->
 	            <div id="sit_ex" >
 	                <h3>교환</h3>
-	
 	                <?php echo conv_content($default['de_change_content'], 1); ?>
 	            </div>
 	            <!-- } 교환 끝 -->
 	            <?php } ?>
+	            
 	        </li>
 	        <!-- } 배송/교환  끝 -->
 	    </ul>
@@ -136,81 +132,80 @@ add_stylesheet('<link rel="stylesheet" href="'.G5_SHOP_CSS_URL.'/style.css">', 0
 	});
 	</script>
 	<div id="sit_buy" class="fix">
-	<div class="sit_buy_inner">
-        <!-- 선택옵션 시작 { -->
-        <section class="sit_side_option">
-            <h3>선택옵션</h3>
-            
-            <select class="s_it_option">
-            	<option>사이즈</option> <!-- 옵션명 -->
-            	<option>라지</option>
-            	<option>미디움</option>
-            	<option>스몰</option>
-            </select>
-
-            <select class="s_it_option">
-            	<option>색상</option> <!-- 옵션명 -->
-            	<option>무지개</option>
-            	<option>보라</option>
-            	<option>연두</option>
-            </select>
-        </section>
-        <!-- } 선택옵션 끝 -->
-
-        <!-- 추가옵션 시작 { -->
-        <section class="sit_side_option">
-            <h3>추가옵션</h3>
-            <select class="s_it_option">
-            	<option>햄스터</option>
-            	<option>고양이</option>
-            	<option>라마</option>
-            </select>
-        </section>
-        <!-- } 추가옵션 끝 -->
-
-        <!-- 선택된 옵션 시작 { -->
-        <section class="sit_sel_option">
-            <h3>선택된 옵션</h3>
-            <ul class="sit_opt_added">
-                <li>
-                    <div class="opt_name">
-                    	<span class="sit_opt_subj">SIZE:M / COLOR:그레이</span>
-                    </div>
-    				<div class="opt_count">
-    					<button type="button" class="sit_qty_minus"><i class="fa fa-minus" aria-hidden="true"></i><span class="sound_only">감소</span></button>
-    					<input type="text" name="ct_qty[1446772772][]" value="1" class="num_input" size="5">
-    					<button type="button" class="sit_qty_plus"><i class="fa fa-plus" aria-hidden="true"></i><span class="sound_only">증가</span></button>
-    					<span class="sit_opt_prc">+3,000원</span>
-    					<button type="button" class="sit_opt_del"><i class="fa fa-times" aria-hidden="true"></i><span class="sound_only">삭제</span></button>
-    				</div>
-                </li>
-                <li>
-                    <div class="opt_name">
-                    	<span class="sit_opt_subj">SIZE:M / COLOR:그레이</span>
-                    </div>
-    				<div class="opt_count">
-    					<button type="button" class="sit_qty_minus"><i class="fa fa-minus" aria-hidden="true"></i><span class="sound_only">감소</span></button>
-    					<input type="text" name="ct_qty[1446772772][]" value="1" class="num_input" size="5">
-    					<button type="button" class="sit_qty_plus"><i class="fa fa-plus" aria-hidden="true"></i><span class="sound_only">증가</span></button>
-    					<span class="sit_opt_prc">+3,000원</span>
-    					<button type="button" class="sit_opt_del"><i class="fa fa-times" aria-hidden="true"></i><span class="sound_only">삭제</span></button>
-    				</div>
-                </li>
-            </ul>
-        </section>
-        <!-- } 선택된 옵션 끝 -->
+		<div class="sit_buy_inner">
+	        <!-- 선택옵션 시작 { -->
+	        <section class="sit_side_option">
+	            <h3>선택옵션</h3>
+	            <select class="s_it_option">
+	            	<option>사이즈</option> <!-- 옵션명 -->
+	            	<option>라지</option>
+	            	<option>미디움</option>
+	            	<option>스몰</option>
+	            </select>
+	            <select class="s_it_option">
+	            	<option>색상</option> <!-- 옵션명 -->
+	            	<option>무지개</option>
+	            	<option>보라</option>
+	            	<option>연두</option>
+	            </select>
+	        </section>
+	        <!-- } 선택옵션 끝 -->
 	
-		<div class="sum_section">        
-	        <div class="sit_tot_price">
-	        	<span>총 금액</span>
-	        	<strong>34,000</strong> 원
-	        </div>
+	        <!-- 추가옵션 시작 { -->
+	        <section class="sit_side_option">
+	            <h3>추가옵션</h3>
+	            <select class="s_it_option">
+	            	<option>햄스터</option>
+	            	<option>고양이</option>
+	            	<option>라마</option>
+	            </select>
+	        </section>
+	        <!-- } 추가옵션 끝 -->
+	
+	        <!-- 선택된 옵션 시작 { -->
+	        <section class="sit_sel_option">
+	            <h3>선택된 옵션</h3>
+	            <ul class="sit_opt_added">
+	                <li>
+	                    <div class="opt_name">
+	                    	<span class="sit_opt_subj">SIZE:M / COLOR:그레이</span>
+	                    </div>
+	    				<div class="opt_count">
+	    					<button type="button" class="sit_qty_minus"><i class="fa fa-minus" aria-hidden="true"></i><span class="sound_only">감소</span></button>
+	    					<input type="text" name="ct_qty[1446772772][]" value="1" class="num_input" size="5">
+	    					<button type="button" class="sit_qty_plus"><i class="fa fa-plus" aria-hidden="true"></i><span class="sound_only">증가</span></button>
+	    					<span class="sit_opt_prc">+3,000원</span>
+	    					<button type="button" class="sit_opt_del"><i class="fa fa-times" aria-hidden="true"></i><span class="sound_only">삭제</span></button>
+	    				</div>
+	                </li>
+	                <li>
+	                    <div class="opt_name">
+	                    	<span class="sit_opt_subj">SIZE:M / COLOR:그레이</span>
+	                    </div>
+	    				<div class="opt_count">
+	    					<button type="button" class="sit_qty_minus"><i class="fa fa-minus" aria-hidden="true"></i><span class="sound_only">감소</span></button>
+	    					<input type="text" name="ct_qty[1446772772][]" value="1" class="num_input" size="5">
+	    					<button type="button" class="sit_qty_plus"><i class="fa fa-plus" aria-hidden="true"></i><span class="sound_only">증가</span></button>
+	    					<span class="sit_opt_prc">+3,000원</span>
+	    					<button type="button" class="sit_opt_del"><i class="fa fa-times" aria-hidden="true"></i><span class="sound_only">삭제</span></button>
+	    				</div>
+	                </li>
+	            </ul>
+	        </section>
+	        <!-- } 선택된 옵션 끝 -->
+		
+			<div class="sum_section">        
+		        <div class="sit_tot_price">
+		        	<span>총 금액</span>
+		        	<strong>34,000</strong> 원
+		        </div>
+				
+				<div class="sit_order_btn">
+					<button type="submit" onclick="document.pressed=this.value;" value="장바구니" class="sit_btn_cart">장바구니</button>
+		            <button type="submit" onclick="document.pressed=this.value;" value="바로구매" class="sit_btn_buy">바로구매</button> 
+		       </div>
+			</div>
 			
-			<div class="sit_order_btn">
-				<button type="submit" onclick="document.pressed=this.value;" value="장바구니" class="sit_btn_cart">장바구니</button>
-	            <button type="submit" onclick="document.pressed=this.value;" value="바로구매" class="sit_btn_buy">바로구매</button> 
-	       </div>
-		</div>
-    </div>   
+	    </div>   
 	</div>
 </section>

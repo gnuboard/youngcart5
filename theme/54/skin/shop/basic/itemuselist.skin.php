@@ -74,6 +74,7 @@ add_stylesheet('<link rel="stylesheet" href="'.G5_SHOP_SKIN_URL.'/style.css">', 
 	            </dl>
 	            
 	        	<button class="sps_con_<?php echo $i; ?> review_detail">내용보기</button>
+	        	
 	        	<!-- 사용후기 자세히 시작 -->
 	            <div class="review_detail_cnt">
 	            	<div class="review_detail_in">
@@ -133,7 +134,6 @@ add_stylesheet('<link rel="stylesheet" href="'.G5_SHOP_SKIN_URL.'/style.css">', 
 	        </div>
         </section>
     </li>
-
     <?php }
     if ($i > 0) echo '</ol>';
     if ($i == 0) echo '<p id="sps_empty">자료가 없습니다.</p>';
@@ -144,7 +144,6 @@ add_stylesheet('<link rel="stylesheet" href="'.G5_SHOP_SKIN_URL.'/style.css">', 
 
 <script>
 $(function(){
-
     // 사용후기 열기
     $(".review_detail").on("click", function(){
         $(this).parent("div").children(".review_detail_cnt").show();
@@ -156,7 +155,6 @@ $(function(){
         if( container.has(e.target).length === 0)
         container.hide();
     });
-    
 });
 
 // 후기 상세 글쓰기 옵션

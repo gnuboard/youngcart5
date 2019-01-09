@@ -35,7 +35,7 @@ $cart_action_url = G5_SHOP_URL.'/cartupdate.php';
         echo '<input type="hidden" name="act" value="buy">';
         echo '<input type="hidden" name="ct_chk['.$i.']" value="1">';
         echo '<input type="hidden" name="it_id['.$i.']" value="'.$row['it_id'].'">';
-        echo '<input type="hidden" name="it_name['.$i.']"  value="'.$it_name.'">';
+        echo '<input type="hidden" name="it_name['.$i.']" value="'.$it_name.'">';
 
         $i++;
     }   //end foreach
