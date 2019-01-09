@@ -318,11 +318,11 @@ add_javascript('<script src="'.G5_JS_URL.'/jquery.bxslider.js"></script>', 10);
         <?php } ?>
         <div id="sit_ov_btn">
             <?php if ($is_orderable) { ?>
-            <input type="submit" onclick="document.pressed=this.value;" value="장바구니" id="sit_btn_cart" class="btn">
-            <input type="submit" onclick="document.pressed=this.value;" value="바로구매" id="sit_btn_buy" class="btn_submit btn">
+            <input type="submit" onclick="document.pressed=this.value;" value="장바구니" id="sit_btn_cart">
+            <input type="submit" onclick="document.pressed=this.value;" value="바로구매" id="sit_btn_buy" class="btn_submit">
             <?php } ?>
             <?php if(!$is_orderable && $it['it_soldout'] && $it['it_stock_sms']) { ?>
-            <a href="javascript:popup_stocksms('<?php echo $it['it_id']; ?>');" id="sit_btn_buy">재입고알림</a>
+            <a href="javascript:popup_stocksms('<?php echo $it['it_id']; ?>');" id="sit_btn_phone">재입고알림</a>
             <?php } ?>
             <a href="javascript:item_wish(document.fitem, '<?php echo $it['it_id']; ?>');" id="sit_btn_wish"><span class="sound_only">위시리스트</span><i class="fa fa-heart-o" aria-hidden="true"></i></a>
             <?php if ($naverpay_button_js) { ?>

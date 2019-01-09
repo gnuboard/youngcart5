@@ -33,7 +33,8 @@ for ($i=0; $row=sql_fetch_array($result); $i++) {
         }
     }
 
-    if($i % $this->list_mod == 0)
+ 
+   if($i % $this->list_mod == 0)
         $li_clear = ' sct_clear';
     else
         $li_clear = '';
@@ -104,11 +105,12 @@ for ($i=0; $row=sql_fetch_array($result); $i++) {
     echo "</div></div>\n";
     // } 위시리스트 + 공유 버튼 끝
 
+     echo "</div>\n";
 
     if ($this->view_it_icon) {
         echo "<div class=\"sct_icon\">".item_icon($row)."</div>\n";
     }
-    echo "</div></li>\n";
+    echo "</li>\n";
 }
 
 if ($i > 0) echo "</ul>\n";
