@@ -1,7 +1,7 @@
 @charset "utf-8";
 
 /* aside:gnb */
-#gnb {margin-bottom:15px;background:#fff;border:1px solid #e8e8e8}
+#gnb {margin-bottom:15px;background:#fff;border:1px solid #e8e8e8;border-top:0}
 #gnb h2 {position:absolute;font-size:0;line-height:0;overflow:hidden}
 .gnb_1dli {position:relative;word-wrap:break-word}
 .gnb_1dli_on {color:#fff;text-decoration:none}

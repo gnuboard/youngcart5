@@ -171,7 +171,7 @@ box-shadow:0 2px 5px rgba(0,0,0,0.2)}
 #aside {float:left;margin:0 10px 0 0;width:265px;margin-right:20px}
 #side_pd {position:relative;border:1px solid #dde7e9;background:#fff;border-radius:3px;margin-bottom:15px}
 #side_pd h2 {border-bottom:1px solid #e8e8e8;padding:15px}
-#side_pd .bx-wrapper {padding-bottom:10px;min-height:400px}
+#side_pd .bx-wrapper {padding-bottom:10px;height:400px;overflow:hidden}
 #side_pd .bx-controls {display:inline-block;position:absolute;right:10px;top:12px}
 #side_pd .bx-prev {display:inline-block;width:20px;height:20px;text-indent:-9999em;background:url('../img/btn_prev.png') no-repeat}
 #side_pd .bx-next {display:inline-block;width:20px;height:20px;text-indent:-9999em;background:url('../img/btn_next.png') no-repeat}
@@ -764,7 +764,7 @@ margin-top:-150px;border:1px solid #dde7e9;border-radius:3px;background:#fff;ove
 .sod_right .sod_info_option .sod_ifop_tit {display:inline-block;float:left;width:50%;line-height:28px;text-align:left;font-weight:bold}
 .sod_right .sod_info_option .sod_ifop_tit .btn_frmline {width:auto;height:30px;color:#3a8afd;background:#fff;border:1px solid #d4d6db}
 .sod_right .sod_info_option .sod_ifop_tit .cp_cancel {width:auto;height:30px;border:1px solid #d4d6db;padding:0 5px;margin-left:5px;color:#b1b1b1;vertical-align:baseline}
-.sod_right .sod_info_option .sod_ifop_tit .od_coupon {position:relative;width:308px;margin:10px 0;background:#fff;z-index:999;border:1px solid #e2e4e7}
+.sod_right .sod_info_option .sod_ifop_tit .od_coupon {z-index:10000;position:absolute;top:50%;left:50%;min-width:300px;height:auto !important;height:500px;max-height:500px;margin-left:-200px;margin-top:-150px;border:1px solid #dde7e9;border-radius:3px;background:#fff;overflow-y:auto;overflow-x:none}
 .sod_right .sod_info_option .sod_ifop_tit .od_coupon>td {text-align:left}
 .sod_right .sod_info_option>td, .sod_right .sod_info_option .sod_ifop_t {display:inline-block;float:left;width:50%;line-height:28px;text-align:right}
 .sod_right .sod_info_option>td {text-align:right;padding:10px;height:30px}
