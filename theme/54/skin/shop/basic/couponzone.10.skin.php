@@ -138,19 +138,25 @@ add_stylesheet('<link rel="stylesheet" href="'.G5_SHOP_CSS_URL.'/style.css">', 0
         $coupon .= '<div class="coupon_tit"><span>'.$subj.'</span><br><span class="cp_evt"><b>1,900</b>원</span></div>'.PHP_EOL;
 		$coupon .= '</div>'.PHP_EOL;
 		$coupon .= '<div class="cp_cnt">'.PHP_EOL;
+
 		$coupon .= '<div class="coupon_target">'.PHP_EOL;
 		$coupon .= '<span class="sound_only">적용</span><button class="coupon_info_btn cp_2">'.$cp_target.' <i class="fa fa-angle-right" aria-hidden="true"></i></button>'.PHP_EOL;
+        
         $coupon .= '<div class="coupon_info">
         <h4>'.$cp_target.'</h4>
         <ul>
-        	<li>적용 : '.$cp_link.'</li>
-        	<li>최소금액 : <span class="cp_evt"><b>1,900</b>원</span></li>
+        <li>적용 : '.$cp_link.'</li>
+        <li>최소금액 : <span class="cp_evt"><b>1,900</b>원</span></li>
         </ul>
         <button class="coupon_info_cls"><i class="fa fa-times" aria-hidden="true"></i><span class="sound_only">닫기</span></button>
         </div>'.PHP_EOL;
-        $coupon .= '</div>'.PHP_EOL;		
+		
+        $coupon .= '</div>'.PHP_EOL;
+
 		$coupon .= '<div class="coupon_date"><span class="sound_only">기한</span>다운로드 후 '.number_format($row['cz_period']).'일</div>'.PHP_EOL;
 		$coupon .= '<div class="coupon_btn"><button type="button" class="coupon_download btn02'.$disabled.'" data-cid="'.$row['cz_id'].'">포인트 '.number_format($row['cz_point']).'점 차감</button></div>'.PHP_EOL;
+        
+        $coupon .= '</div>'.PHP_EOL;
         $coupon .= '</div>'.PHP_EOL;
         $coupon .= '</li>'.PHP_EOL;
     }

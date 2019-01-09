@@ -207,6 +207,9 @@
 #mb_login #sns_login .sns-icon:nth-child(odd) {margin-right:2%}
 #mb_login #sns_login .txt {font-size:0.95em;padding-left:5px !important;border-left:0 !important}
 
+#mb_login_odinfo h3 {position:absolute;font-size:0;line-height:0;overflow:hidden}
+
+
 /* 쪽지 */
 .memo_list {border-top:1px solid #ececec}
 .memo_list li {border-bottom:1px solid #ececec;background:#fff;padding:10px 15px;list-style:none;position:relative}
