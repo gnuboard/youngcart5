@@ -9,7 +9,7 @@ add_stylesheet('<link rel="stylesheet" href="'.G5_SHOP_SKIN_URL.'/style.css">', 
 add_javascript('<script src="'.G5_THEME_JS_URL.'/jquery.shop.list.js"></script>', 10);
 ?>
 
-<!-- 상품진열 40 시작 { -->
+<!-- 상품진열 30 시작 { -->
 <?php
 for ($i=1; $row=sql_fetch_array($result); $i++) {
     $href = get_pretty_url('shop', $row['it_id']);
@@ -29,7 +29,7 @@ for ($i=1; $row=sql_fetch_array($result); $i++) {
         }
    }
 
-	echo "<li class=\"sct_li{$sct_last}\" style=\"width:{$list_width}px;height:{$list_height}px\">\n";
+	echo "<li class=\"sct_li{$sct_last}\">\n";
 
     echo "<div class=\"sct_img\">\n";
 
@@ -84,7 +84,7 @@ for ($i=1; $row=sql_fetch_array($result); $i++) {
         echo "<div class=\"sct_cost\">\n";
 		
 		if ($this->view_it_cust_price && $row['it_cust_price']) {
-            echo "<strike>".display_price($row['it_cust_price'])."</strike>\n";
+            echo "<del>".display_price($row['it_cust_price'])."</del>\n";
         }
 		
         if ($this->view_it_price) {
@@ -129,7 +129,7 @@ if ($i > 1) echo "</ul>\n";
 
 if($i == 1) echo "<p class=\"sct_noitem\">등록된 상품이 없습니다.</p>\n";
 ?>
-<!-- } 상품진열40 끝 -->
+<!-- } 상품진열 30 끝 -->
 
 <script>
 //SNS 공유

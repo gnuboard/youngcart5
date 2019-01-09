@@ -67,7 +67,7 @@ for ($i=1; $row=sql_fetch_array($result); $i++) {
         echo "<div class=\"sct_cost\">\n";
 
         if ($this->view_it_cust_price && $row['it_cust_price']) {
-            echo "<strike>".display_price($row['it_cust_price'])."</strike>\n";
+            echo "<del>".display_price($row['it_cust_price'])."</del>\n";
         }
 
         if ($this->view_it_price) {
