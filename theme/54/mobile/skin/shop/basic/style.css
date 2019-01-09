@@ -393,12 +393,13 @@ box-shadow:0 0 6px rgba(0,0,0,0.2)}
 .sit_sel_btn {position:relative;top:-15px;right:-2px} /* 선택옵션용 추가 버튼 */
 .sit_sel_btn button {width:100%}
 
-#sit_ov_soldout {padding:20px;background:#fef5f7;color:#ff3061;font-weight:bold;text-align:center}
+#sit_ov_soldout {padding:20px;background:#fef5f7;color:#ff3061;font-weight:bold;text-align:center;margin-bottom:10px}
 #sit_ov_btn {margin:0;text-align:center;z-index:100}
 #sit_ov_btn:after {display:block;visibility:hidden;clear:both;content:""}
-#sit_btn_cart {float:left;width:39%;margin-right:1%;height:50px;border:1px solid #98a3b3;color:#000;background:#fff;font-weight:bold}
-#sit_btn_buy {float:left;width:39%;margin-right:1%;height:50px;font-weight:bold}
-#sit_btn_wish {float:left;width:20%;display:inline-block;height:50px;line-height:48px;text-align:center;font-size:1.25em;border:1px solid #b3b3b3;font-weight:bold;background:#fff}
+#sit_btn_cart {float:left;width:39%;margin-right:1%;line-height:50px;border:1px solid #98a3b3;color:#000;background:#fff;font-weight:bold;border-radius:3px}
+#sit_btn_buy {float:left;width:39%;margin-right:1%;line-height:50px;font-weight:bold}
+#sit_btn_phone {float:left;width:79%;margin-right:1%;line-height:50px;border:1px solid #3a8afd;color:#3a8afd;background:#fff;font-weight:bold;border-radius:3px}
+#sit_btn_wish {float:left;width:20%;display:inline-block;line-height:50px;text-align:center;font-size:1.25em;border:1px solid #b3b3b3;font-weight:bold;border-radius:3px;background:#fff}
 #sit_sel_option,#sit_tot_price {margin:10px 0;line-height:20px}
 #sit_tot_price {text-align:right}
 #sit_tot_price span {float:left}
@@ -707,3 +708,7 @@ box-shadow:0px 1px 6px 0 #dedede
   .couponzone_list ul li:nth-child(4n+1) {clear:both}
 }
 
+/*재입고알림*/
+#sit_sms_new .prd_name{background:#edf3fc;margin:0 0 10px;border:1px solid #d6e2f4;border-radius:5px}
+#sit_sms_new  strong{display:block;margin:15px 0 10px;}
+#sit_sms_new #sms_agree{text-align:left;padding:0 0 10px !important}
