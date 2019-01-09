@@ -791,7 +791,7 @@ background:url('img/select_arrow.png') no-repeat 96% 50%/* 화살표 아이콘 �
 #sqa_sch .sch_input {width:258px;height:38px;border:0;padding:0;background-color:transparent;float:left}
 #sqa_sch .sch_btn {height:38px;float:left;background:none;border:0;width:40px;font-size:15px}
 
-#sqa {zoom:1}
+#sqa {zoom:1;margin-bottom:20px}
 #sqa ol {margin:0;padding:0;list-style:none}
 #sqa li {position:relative;padding:15px 20px 15px 15px;border-bottom:1px solid #f0f0f0;background:#fff}
 #sqa li:after {display:block;visibility:hidden;clear:both;content:""}
