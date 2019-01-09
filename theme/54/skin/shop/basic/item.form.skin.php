@@ -266,7 +266,6 @@ add_stylesheet('<link rel="stylesheet" href="'.G5_SHOP_CSS_URL.'/style.css">', 0
 	            ?>
 	            <ul id="sit_opt_added">
 	                <li class="sit_opt_list">
-	                    
 	                    <input type="hidden" name="io_type[<?php echo $it_id; ?>][]" value="0">
 	                    <input type="hidden" name="io_id[<?php echo $it_id; ?>][]" value="">
 	                    <input type="hidden" name="io_value[<?php echo $it_id; ?>][]" value="<?php echo $it['it_name']; ?>">

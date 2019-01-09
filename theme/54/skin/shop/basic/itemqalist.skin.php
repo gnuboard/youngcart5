@@ -72,7 +72,6 @@ add_stylesheet('<link rel="stylesheet" href="'.G5_SHOP_SKIN_URL.'/style.css">', 
         if ($i == 0) echo '<ol>';
     ?>
     <li>
-
         <div class="sqa_img">
             <a href="<?php echo $it_href; ?>">
                 <?php echo get_it_image($row['it_id'], 50, 50); ?>
@@ -89,7 +88,6 @@ add_stylesheet('<link rel="stylesheet" href="'.G5_SHOP_SKIN_URL.'/style.css">', 
                 <dd><i class="fa fa-user" aria-hidden="true"></i> <?php echo $row['iq_name']; ?></dd>
                 <dt class="sound_only">작성일</dt>
                 <dd><i class="fa fa-clock-o" aria-hidden="true"></i> <?php echo substr($row['iq_time'],0,10); ?></dd>
-
             </dl>
 
             <div id="sqa_con_<?php echo $i; ?>" class="sqa_con" style="display:none;">

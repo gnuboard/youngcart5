@@ -332,7 +332,7 @@
 .sit_btn_opt {position:absolute;right:0;bottom:0}
 #btn_wish {float:left;position:relative;display:inline-block;padding-right:5px;color:#4b5259;width:35px;height:25px;text-align:center;font-size:1.25em;font-weight:bold}
 #btn_wish i {font-size:1.6em;font-weight:bold}
-#btn_wish .btn_wish_num {position:absolute;right:0;bottom:-2px;margin:0;padding:0 2px;height:17px;line-height:15px;border-radius:30px;background:#fff;color:#4b5259;font-size:0.75em}
+#btn_wish .btn_wish_num {position:absolute;right:0;bottom:-2px;margin:0;padding:0 2px;min-width:18px;height:17px;line-height:15px;border-radius:30px;background:#fff;color:#4b5259;font-size:0.75em}
 
 /* 상품 상세보기 - 간략정보 및 구매기능 */
 #sit_ov {position:relative;height:auto !important;padding:20px;border-bottom:1px solid #e9e9e9;background:#fff}
@@ -492,7 +492,7 @@ box-shadow: 0 0 6px rgba(0,0,0,0.2);}
 #sps_sch a {display:inline-block;color:#3a8afd;font-weight:bold;border-bottom:1px solid #3a8afd;margin-top:10px}
 #sps_sch .sch_wr {position:relative;background:#fff;border:1px solid #d0d3db}
 #sps_sch .sch_wr:after {display:block;visibility:hidden;clear:both;content:""}
-#sps_sch select {border:0;background:#fff;padding:9px 0;height:45px;border-right:1px solid #f8f8f8;float:left;width:40%}
+#sps_sch select {border:0;background:#fff;padding:9px 0;height:45px;border:1px solid #fff;border-right:1px solid #f8f8f8;float:left;width:40%}
 #sps_sch .sch_input {height:45px;border:0;padding:0;background-color:transparent;float:left;width:60%;padding:0 40px 0 10px}
 #sps_sch .sch_btn {position:absolute;top:0;right:0;width:45px;height:45px;border:0;background:none;font-size:15px}
 

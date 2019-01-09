@@ -94,7 +94,7 @@ for ($i=1; $row=sql_fetch_array($result); $i++) {
     }
 	
 	
-	// 위시리스트 + 공유 버튼 시작
+	// 위시리스트 + 공유 버튼 시작 {
 	echo "<div class=\"sct_op_btn\">\n";
 	echo "<button type=\"button\" class=\"btn_wish\" data-it_id=\"{$row['it_id']}\"><span class=\"sound_only\">위시리스트</span><i class=\"fa fa-heart-o\" aria-hidden=\"true\"></i></button>\n";
 	echo "<button type=\"button\" class=\"btn_share\"><span class=\"sound_only\">공유하기</span><i class=\"fa fa-share-alt\" aria-hidden=\"true\"></i></button>\n";
@@ -114,7 +114,7 @@ for ($i=1; $row=sql_fetch_array($result); $i++) {
     }
 	echo "<div class=\"sct_sns_bg\"></div>";
 	echo "</div></div>\n";
-	// 위시리스트 + 공유 버튼 끝
+	// } 위시리스트 + 공유 버튼 끝
 
 	echo "</div>\n";
 	
