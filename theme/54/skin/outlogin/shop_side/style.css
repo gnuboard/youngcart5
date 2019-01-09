@@ -1,7 +1,7 @@
 @charset "utf-8";
 
 /* 아웃로그인 스킨 */
-.s_ol {position:relative;margin-bottom:15px;border-bottom:1px solid #f6f6f6}
+.s_ol {position:relative;border-bottom:1px solid #f6f6f6}
 .s_ol h2 {width:115px;float:left;padding:15px 0;text-align:center}
 .s_ol .join {width:114px;float:left;padding:15px 0;text-align:center;background:#f7f7f7;color:#6e6e6e}
 .s_ol #s_ol_be_cate:after {display:block;visibility:hidden;clear:both;content:""}

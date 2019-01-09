@@ -16,10 +16,10 @@ add_stylesheet('<link rel="stylesheet" href="'.G5_SHOP_SKIN_URL.'/style.css">', 
 
     <div class="form_01 new_win_con">
         <ul>
-            <li>
+            <li class="chk_box">
                 <strong class="sound_only">옵션</strong>
-                <input type="checkbox" name="iq_secret" id="iq_secret" value="1" <?php echo $chk_secret; ?>>
-                <label for="iq_secret">비밀글</label> 
+                <input type="checkbox" name="iq_secret" id="iq_secret" value="1" <?php echo $chk_secret; ?> class="selec_chk">
+                <label for="iq_secret"><span></span>비밀글</label> 
             </li>
             <li>
                 <div class="form_left">
