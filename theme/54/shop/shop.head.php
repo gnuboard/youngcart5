@@ -218,7 +218,7 @@ $(function() {
     </div>
 	<?php } ?>
     <!-- 콘텐츠 시작 { -->
-    <div id="container">
+    <div id="container" class="콘테이너">
         <?php if ((!$bo_table || $w == 's' ) && !defined('_INDEX_')) { ?><div id="wrapper_title"><?php echo $g5['title'] ?></div><?php } ?>
         <!-- 글자크기 조정 display:none 되어 있음 시작 { -->
         <div id="text_size">

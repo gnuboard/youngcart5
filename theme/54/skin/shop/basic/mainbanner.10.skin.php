@@ -71,7 +71,6 @@ if ($i > 0) {
     </div>'.PHP_EOL;
 ?>
 </div>
-
 <script>
 jQuery(function($){
     var slider = $('.slide-wrap').show().bxSlider({
