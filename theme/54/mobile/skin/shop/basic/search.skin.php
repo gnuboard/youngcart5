@@ -36,10 +36,7 @@ if (!defined('_GNUBOARD_')) exit; // 개별 페이지 접근 불가
             <label for="ssch_qto" class="sound_only">최대 가격</label>
             <input type="text" name="qto" value="<?php echo $qto; ?>" id="ssch_qto" class="frm_input" size="6"> 원<br>
         </div>
-
         </form>
-
-
     </div>
     <!-- } 상세검색 항목 끝 -->
 

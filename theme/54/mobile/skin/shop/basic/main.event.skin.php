@@ -60,9 +60,7 @@ if(sql_num_rows($hresult)) {
         }
         echo '</div>'.PHP_EOL;
         echo '</li>'.PHP_EOL;
-
     }
-
     if ($i==0)
         echo '<li id="sev_empty">이벤트 없음</li>'.PHP_EOL;
     ?>

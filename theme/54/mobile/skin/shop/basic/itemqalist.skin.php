@@ -74,42 +74,39 @@ add_stylesheet('<link rel="stylesheet" href="'.G5_MSHOP_SKIN_URL.'/style.css">',
         if ($i == 0) echo '<ol>';
     ?>
     <li>
-
         <div class="sqa_img">
             <a href="<?php echo $it_href; ?>">
                 <?php echo get_it_image($row['it_id'], 60, 60); ?>
                 <span><?php echo $row['it_name']; ?></span>
-
             </a>
         </div>
 
         <section class="sqa_section">
             <h2><span class="<?php echo $iq_style; ?>"><?php echo $iq_stats; ?></span> <?php echo $iq_subject; ?></h2>
-
             <div class="sqa_info">
                 <span class="sound_only">작성자</span>
                 <span class="sqa_if_wt"><?php echo get_text($row['iq_name']); ?></span>
                 <span class="sound_only">작성일</span>
                 <span><?php echo substr($row['iq_time'],2,8); ?></span>
             </div>
-
         </section>
   
-            <div id="sqa_con_<?php echo $i; ?>" class="sqa_con" style="display:none;">
-                <div class="sit_qa_qaq">
-                    <strong class="sound_only">문의내용</strong>
-                    <span class="qa_alp">Q</span>
-                    <?php echo $iq_question; // 상품 문의 내용 ?>
-                </div>
-                <?php if(!$is_secret) { ?>
-                <div class="sit_qa_qaa">
-                     <strong class="sound_only">답변</strong>
-                    <span class="qa_alp">A</span>
-                    <?php echo $iq_answer; ?>
-                </div>
-                <?php } ?>
+        <div id="sqa_con_<?php echo $i; ?>" class="sqa_con" style="display:none;">
+            <div class="sit_qa_qaq">
+                <strong class="sound_only">문의내용</strong>
+                <span class="qa_alp">Q</span>
+                <?php echo $iq_question; // 상품 문의 내용 ?>
             </div>
-            <div class="sqa_con_btn"><button class="sqa_con_<?php echo $i; ?>"><span class="sound_only">내용보기</span><i class="fa fa-chevron-down" aria-hidden="true"></i></button></div>
+            <?php if(!$is_secret) { ?>
+            <div class="sit_qa_qaa">
+                 <strong class="sound_only">답변</strong>
+                <span class="qa_alp">A</span>
+                <?php echo $iq_answer; ?>
+            </div>
+            <?php } ?>
+        </div>
+        
+		<div class="sqa_con_btn"><button class="sqa_con_<?php echo $i; ?>"><span class="sound_only">내용보기</span><i class="fa fa-chevron-down" aria-hidden="true"></i></button></div>
 
     </li>
     <?php

@@ -111,8 +111,6 @@ $('.sct_30').bxSlider({
     slideMargin: 5,
     controls: false,
     infiniteLoop: false
-
 });
-
 </script>
 
