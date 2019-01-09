@@ -276,7 +276,6 @@ if($od['od_pg'] == 'lg') {
 
             <div  class="odf_tbl">
                 <table>
-  
                 <tbody>
                 <tr>
                     <th scope="row">주문번호</th>
