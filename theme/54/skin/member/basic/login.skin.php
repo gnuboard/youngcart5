@@ -95,6 +95,7 @@ add_stylesheet('<link rel="stylesheet" href="'.$member_skin_url.'/style.css">', 
         </fieldset>
 
         <section id="mb_login_odinfo">
+        	<h3>비회원 주문조회 안내</h3>
             <p>메일로 발송해드린 주문서의 <strong>주문번호</strong> 및 주문 시 입력하신 <strong>비밀번호</strong>를 정확히 입력해주십시오.</p>
         </section>
 
