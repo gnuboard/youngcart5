@@ -109,12 +109,8 @@ $('.sct_30').bxSlider({
     minSlides: 2,
     maxSlides: 8,
     slideMargin: 5,
-    controls: false,
-<<<<<<< HEAD
-    infiniteLoop: false
-=======
+    controls: false
 
->>>>>>> dc29fb5b4ccd6faf34e059c7dbcaedae11e42066
 });
 </script>
 
