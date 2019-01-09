@@ -15,7 +15,7 @@ add_stylesheet('<link rel="stylesheet" href="'.G5_MSHOP_SKIN_URL.'/style.css">',
     <input type="hidden" name="is_id" value="<?php echo $is_id; ?>">
     <input type="hidden" name="is_mobile_shop" value="1">
 
-    <div class="form_01">
+    <div class="form_01 chk_box">
 
         <ul>
             <li>
@@ -31,27 +31,27 @@ add_stylesheet('<link rel="stylesheet" href="'.G5_MSHOP_SKIN_URL.'/style.css">',
                 <ul id="sit_use_write_star">
                     <li>
                         <input type="radio" name="is_score" value="5" id="is_score10" <?php echo ($is_score==5)?'checked="checked"':''; ?>>
-                        <label for="is_score10">매우만족</label>
+                        <label for="is_score10"><span></span>매우만족</label>
                         <img src="<?php echo G5_SHOP_URL; ?>/img/s_star5.png" width="90">
                     </li>
                     <li>
                         <input type="radio" name="is_score" value="4" id="is_score8" <?php echo ($is_score==4)?'checked="checked"':''; ?>>
-                        <label for="is_score8">만족</label>
+                        <label for="is_score8"><span></span>만족</label>
                         <img src="<?php echo G5_SHOP_URL; ?>/img/s_star4.png" width="90">
                     </li>
                     <li>
                         <input type="radio" name="is_score" value="3" id="is_score6" <?php echo ($is_score==3)?'checked="checked"':''; ?>>
-                        <label for="is_score6">보통</label>
+                        <label for="is_score6"><span></span>보통</label>
                         <img src="<?php echo G5_SHOP_URL; ?>/img/s_star3.png" width="90">
                     </li>
                     <li>
                         <input type="radio" name="is_score" value="2" id="is_score4" <?php echo ($is_score==2)?'checked="checked"':''; ?>>
-                        <label for="is_score4">불만</label>
+                        <label for="is_score4"><span></span>불만</label>
                         <img src="<?php echo G5_SHOP_URL; ?>/img/s_star2.png" width="90">
                     </li>
                     <li>
                         <input type="radio" name="is_score" value="1" id="is_score2" <?php echo ($is_score==1)?'checked="checked"':''; ?>>
-                        <label for="is_score2">매우불만</label>
+                        <label for="is_score2"><span></span>매우불만</label>
                         <img src="<?php echo G5_SHOP_URL; ?>/img/s_star1.png" width="90">
                     </li>
                     </ul>

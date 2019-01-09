@@ -276,10 +276,7 @@ if($od['od_pg'] == 'lg') {
 
             <div  class="odf_tbl">
                 <table>
-                <colgroup>
-                    <col class="grid_2">
-                    <col>
-                </colgroup>
+  
                 <tbody>
                 <tr>
                     <th scope="row">주문번호</th>
@@ -472,10 +469,7 @@ if($od['od_pg'] == 'lg') {
 
             <div  class="odf_tbl">
                 <table>
-                <colgroup>
-                    <col class="grid_2">
-                    <col>
-                </colgroup>
+           
                 <tbody>
                 <tr>
                     <th scope="row">이 름</th>
@@ -508,10 +502,7 @@ if($od['od_pg'] == 'lg') {
 
             <div  class="odf_tbl">
                 <table>
-                <colgroup>
-                    <col class="grid_2">
-                    <col>
-                </colgroup>
+   
                 <tbody>
                 <tr>
                     <th scope="row">이 름</th>
@@ -557,10 +548,7 @@ if($od['od_pg'] == 'lg') {
 
             <div  class="odf_tbl">
                 <table>
-                <colgroup>
-                    <col class="grid_2">
-                    <col>
-                </colgroup>
+
                 <tbody>
                 <?php
                 if ($od['od_invoice'] && $od['od_delivery_company'])
@@ -584,7 +572,7 @@ if($od['od_pg'] == 'lg') {
                 {
                 ?>
                 <tr>
-                    <td class="empty_table" colspan="2">아직 배송하지 않았거나 배송정보를 입력하지 못하였습니다.</td>
+                    <td class="empty_table">아직 배송하지 않았거나 배송정보를 입력하지 못하였습니다.</td>
                 </tr>
                 <?php
                 }
@@ -661,10 +649,7 @@ if($od['od_pg'] == 'lg') {
         <form method="post" action="http://devadmin.kcp.co.kr/Modules/Noti/TEST_Vcnt_Noti_Proc.jsp" target="_blank">
         <table>
         <caption>모의입금처리</caption>
-        <colgroup>
-            <col class="grid_2">
-            <col>
-        </colgroup>
+
         <tbody>
         <tr>
             <th scope="col"><label for="e_trade_no">KCP 거래번호</label></th>

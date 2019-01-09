@@ -60,7 +60,6 @@ if ($i > 0) {
 	
 	echo '<div class="btn_wr"><a href="#" class="pager-prev"><i class="fa fa-angle-left"></i></a><div id="slide-counter"></div><a href="#" class="pager-next"><i class="fa fa-angle-right"></i></a> </div>'.PHP_EOL;
 
-    echo '</div>'.PHP_EOL;
 ?>
 </div>
 

@@ -81,12 +81,14 @@ if(defined('G5_THEME_SHOP_PATH')) {
             <div class="inquiry_name">
                 <?php echo $ct_name; ?>
             </div>
-            <div class="inquiry_price">
-                <?php echo display_price($row['od_receipt_price']); ?>
+            <div class="inq_wr">
+                <div class="inquiry_price">
+                    <?php echo display_price($row['od_receipt_price']); ?>
+                </div>
+                <div class="inv_status"><?php echo $od_status; ?></div>
             </div>
             <div class="inquiry_inv">
                 <?php echo $od_invoice; ?>
-                <span class="inv_status"><?php echo $od_status; ?></span>
             </div>
         </li>
 
