@@ -58,8 +58,13 @@ if(sql_num_rows($hresult)) {
             echo '<li class="no_prd">등록된 상품이 없습니다.</li>'.PHP_EOL;
             echo '</ul>'.PHP_EOL;
         }
+<<<<<<< HEAD
         echo '</div>'.PHP_EOL;
         echo '</li>'.PHP_EOL;
+=======
+        echo '</div></li>'.PHP_EOL;
+
+>>>>>>> dc29fb5b4ccd6faf34e059c7dbcaedae11e42066
     }
     if ($i==0)
         echo '<li id="sev_empty">이벤트 없음</li>'.PHP_EOL;
@@ -75,8 +80,6 @@ $('.sev_slide').bxSlider({
     controls: false
 });
 </script>
-
-
 <?php
 }
 ?>

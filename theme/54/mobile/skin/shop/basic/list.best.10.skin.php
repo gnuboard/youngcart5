@@ -39,6 +39,10 @@ if($this->total_count > 0) {
             echo get_it_image($row['it_id'], $this->img_width, $this->img_height, '', '', stripslashes($row['it_name'])).PHP_EOL;
         }
 
+        if ($this->href) {
+            echo '</a></div>'.PHP_EOL;
+        }
+
         if ($this->view_it_id) {
             echo '<div class="sct_id">&lt;'.stripslashes($row['it_id']).'&gt;</div>'.PHP_EOL;
         }
