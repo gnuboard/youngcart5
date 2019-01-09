@@ -111,7 +111,6 @@ $cart_count = sql_num_rows($result);
         <li class="sod_li">
             <input type="hidden" name="it_id[<?php echo $i; ?>]"    value="<?php echo $row['it_id']; ?>">
             <input type="hidden" name="it_name[<?php echo $i; ?>]"  value="<?php echo get_text($row['it_name']); ?>">
-            
 
             <div class="li_op_wr">
                 <div class="li_chk chk_box">
@@ -130,8 +129,6 @@ $cart_count = sql_num_rows($result);
                 <span class="total_point li_prqty_sp"><span>적립포인트 </span><strong><?php echo number_format($sum['point']); ?></strong></span>
             </div>
              <div class="total_price total_span"><span>소계 </span><strong><?php echo number_format($sell_price); ?></strong>원</div>
-
-
         </li>
 
         <?php
@@ -152,7 +149,6 @@ $cart_count = sql_num_rows($result);
         <button type="button" onclick="return form_check('seldelete');" class="btn01">선택삭제</button>
         <button type="button" onclick="return form_check('alldelete');" class="btn01">비우기</button>
     </div>
-
 
     <?php if ($i == 0) { ?>
     <div class="go_shopping"><a href="<?php echo G5_SHOP_URL; ?>/" class="btn01">쇼핑 계속하기</a></div>
@@ -186,17 +182,13 @@ $cart_count = sql_num_rows($result);
         <input type="hidden" name="act" value="">
         <input type="hidden" name="records" value="<?php echo $i; ?>">
         <button type="button" onclick="return form_check('buy');" class="btn_submit">주문하기</button>
-
-
     </div>
     <?php } ?>
         <?php if ($naverpay_button_js) { ?>
         <div class="naverpay-cart"><?php echo $naverpay_request_js.$naverpay_button_js; ?></div>
         <?php } ?>
-
     </div>
     </form>
-
 </div>
 
 <script>

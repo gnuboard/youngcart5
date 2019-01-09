@@ -57,7 +57,6 @@ for ($i=0; $row=sql_fetch_array($result); $i++) {
         echo "<div class=\"sct_star\"><img src=\"\" alt=\"별점 4점\"></div>\n";
     }
 
-
     if ($this->view_it_id) {
         echo "<div class=\"sct_id\">&lt;".stripslashes($row['it_id'])."&gt;</div>\n";
     }
@@ -82,10 +81,8 @@ for ($i=0; $row=sql_fetch_array($result); $i++) {
         echo display_price(get_price($row), $row['it_tel_inq'])."\n";
         echo "</div>\n";
     }
-
-
         
-    // 위시리스트 + 공유 버튼 시작
+    // 위시리스트 + 공유 버튼 시작 {
     echo "<div class=\"sct_op_btn\">\n";
     echo "<button type=\"button\" class=\"btn_wish\" data-it_id=\"{$row['it_id']}\"><span class=\"sound_only\">위시리스트</span><i class=\"fa fa-heart-o\" aria-hidden=\"true\"></i></button>\n";
     echo "<button type=\"button\" class=\"btn_share\"><span class=\"sound_only\">공유하기</span><i class=\"fa fa-share-alt\" aria-hidden=\"true\"></i></button>\n";
@@ -105,7 +102,7 @@ for ($i=0; $row=sql_fetch_array($result); $i++) {
     }
     echo "<div class=\"sct_sns_bg\"></div>";
     echo "</div></div>\n";
-    // 위시리스트 + 공유 버튼 끝
+    // } 위시리스트 + 공유 버튼 끝
 
 
     if ($this->view_it_icon) {

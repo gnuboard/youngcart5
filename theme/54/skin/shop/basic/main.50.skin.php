@@ -39,7 +39,7 @@ for ($i=1; $row=sql_fetch_array($result); $i++) {
 	echo "<div class=\"sct_cnt\">\n"; 
 	
 	// 평점 이미지 표시해주세요
-	echo "<span class=\"sound_only\">고객평점</span><img src=\"<?php echo G5_SHOP_URL; ?>/img/s_star<?php echo $star_score?>.png\" class=\"xx\" alt=\"별 4개\" class=\"sit_star\" width=\"100\">\n";
+	echo "<span class=\"sound_only\">고객평점</span><img src=\"\" alt=\"별 4개\" class=\"sit_star\" width=\"100\">\n";
        
     if ($this->href) {
         echo "<div class=\"sct_txt\"><a href=\"{$this->href}{$row['it_id']}\">\n";
@@ -58,7 +58,7 @@ for ($i=1; $row=sql_fetch_array($result); $i++) {
         echo "<div class=\"sct_cost\">\n";
 
         if ($this->view_it_cust_price && $row['it_cust_price']) {
-            echo "<strike>".display_price($row['it_cust_price'])."</strike>\n";
+           echo "<span class=\"sct_dict\">".display_price($row['it_cust_price'])."</span>\n";
         }
 
         if ($this->view_it_price) {

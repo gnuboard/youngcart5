@@ -57,12 +57,9 @@ add_javascript('<script src="'.G5_JS_URL.'/jquery.bxslider.js"></script>', 10);
             <strong id="sit_title"><?php echo stripslashes($it['it_name']); ?></strong>
             <?php if($it['it_basic']) { ?><p id="sit_desc"><?php echo $it['it_basic']; ?></p><?php } ?>
             <?php if($is_orderable) { ?>
-            <p id="sit_opt_info">
-                상품 선택옵션 <?php echo $option_count; ?> 개, 추가옵션 <?php echo $supply_count; ?> 개
-            </p>
+            <p id="sit_opt_info">상품 선택옵션 <?php echo $option_count; ?> 개, 추가옵션 <?php echo $supply_count; ?> 개</p>
             <?php } ?>
 
-                
             <div id="sit_star_sns">
                 <?php
                 $sns_title = get_text($it['it_name']).' | '.get_text($config['cf_title']);
@@ -150,7 +147,6 @@ add_javascript('<script src="'.G5_JS_URL.'/jquery.bxslider.js"></script>', 10);
                     <td><?php echo display_price($it['it_cust_price']); ?></td>
                 </tr>
                 <?php } ?>
-
                 <tr>
                     <th scope="row">판매가격</th>
                     <td>
@@ -241,13 +237,12 @@ add_javascript('<script src="'.G5_JS_URL.'/jquery.bxslider.js"></script>', 10);
         </div>
         <!-- } 다른 상품 보기 끝 -->
     </section>
-
-       
 </div>
 
 <div class="btn_option_wr">
     <button type="button" class="btn_cart_op btn_submit btn">구매하기</button>
- </div>
+</div>
+ 
 <div id="btn_option">
     <div class="sl_option">
         <?php
@@ -369,7 +364,6 @@ $(function (){
             </div>
             <?php } ?>
 
-
             <?php
             if ($it['it_info_value']) { // 상품 정보 고시
                 $info_data = unserialize(stripslashes($it['it_info_value']));
@@ -401,12 +395,11 @@ $(function (){
                 }
             } //if
             ?>
-
         </li>
+        
         <!-- 사용후기 시작 { -->
         <li id="sit_use">
             <h2>사용후기</h2>
-
             <div id="itemuse"><?php include_once(G5_SHOP_PATH.'/itemuse.php'); ?></div>
         </li>
         <!-- } 사용후기 끝 -->
@@ -414,7 +407,6 @@ $(function (){
         <!-- 상품문의 시작 { -->
         <li id="sit_qa">
             <h2>상품문의</h2>
-
             <div id="itemqa"><?php include_once(G5_SHOP_PATH.'/itemqa.php'); ?></div>
         </li>
         <!-- } 상품문의 끝 -->
@@ -423,14 +415,13 @@ $(function (){
         <!-- 배송정보 시작 { -->
         <li id="sit_dvex">
             <h2>배송/교환정보</h2>
+            
             <div id="sit_dvr">
                 <h3>배송정보</h3>
-
                 <?php echo conv_content($default['de_baesong_content'], 1); ?>
             </div>
             <!-- } 배송정보 끝 -->
             <?php } ?>
-
 
             <?php if ($default['de_change_content']) { // 교환/반품 내용이 있다면 ?>
             <!-- 교환/반품 시작 { -->
@@ -477,7 +468,6 @@ $(function (){
 </section>
 <!-- } 관련상품 끝 -->
 <?php } ?>
-
 
 <script>
 $(window).bind("pageshow", function(event) {

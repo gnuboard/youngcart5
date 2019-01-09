@@ -15,8 +15,12 @@ add_stylesheet('<link rel="stylesheet" href="'.G5_MSHOP_SKIN_URL.'/style.css">',
     <input type="hidden" name="is_id" value="<?php echo $is_id; ?>">
     <input type="hidden" name="is_mobile_shop" value="1">
 
+<<<<<<< HEAD
+    <div class="form_01">
+=======
     <div class="form_01 chk_box">
 
+>>>>>>> dc29fb5b4ccd6faf34e059c7dbcaedae11e42066
         <ul>
             <li>
                 <label for="is_subject" class="sound_only">제목</label>
@@ -54,14 +58,13 @@ add_stylesheet('<link rel="stylesheet" href="'.G5_MSHOP_SKIN_URL.'/style.css">',
                         <label for="is_score2"><span></span>매우불만</label>
                         <img src="<?php echo G5_SHOP_URL; ?>/img/s_star1.png" width="90">
                     </li>
-                    </ul>
-                
+				</ul>
             </li>
         </ul>
     </div>
 
     <div class="win_btn">
-        <input type="submit" value="작성완료" class="btn_submit">
+        <button type="submit" class="btn_submit">작성완료</button>
         <button type="button" onclick="self.close();" class="btn_close">닫기</button>
     </div>
 

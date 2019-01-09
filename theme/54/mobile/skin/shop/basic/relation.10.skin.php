@@ -80,8 +80,6 @@ if($i == 0) echo "<p class=\"sct_noitem\">등록된 관련상품이 없습니다
 ?>
 <!-- } 상품진열 10 끝 -->
 
-
-
 <script>
 $('.srl_10').bxSlider({
     slideWidth: 200,
@@ -91,6 +89,5 @@ $('.srl_10').bxSlider({
     controls: false,
     infiniteLoop: false
 });
-
 </script>
 

@@ -16,7 +16,6 @@ add_stylesheet('<link rel="stylesheet" href="'.G5_MSHOP_SKIN_URL.'/style.css">',
     <input type="hidden" name="is_mobile_shop" value="1">
 
     <div class="form_01">
-       
         <ul>
             <li>
                 <span class="sound_only">옵션</span>
@@ -43,7 +42,7 @@ add_stylesheet('<link rel="stylesheet" href="'.G5_MSHOP_SKIN_URL.'/style.css">',
     </div>
 
     <div class="win_btn">
-        <input type="submit" value="작성완료" class="btn_submit">
+        <button type="submit" class="btn_submit">작성완료</button>
         <button type="button" onclick="self.close();" class="btn_close">닫기</button>
     </div>
     </form>
