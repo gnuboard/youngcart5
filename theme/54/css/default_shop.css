@@ -538,6 +538,15 @@ box-shadow:0 1px 10px rgba(0,0,0,.1)}
 #sidx_img {margin:0 0 20px}
 #sidx_img img {max-width:100%;height:auto}
 
+
+/* 상품 메일 추천하기 */
+#sit_rec_new {}
+#sit_rec_new th,
+#sit_rec_new td {display:block;width:100%}
+#sit_rec_new th {text-align:left;margin-top:20px;margin-bottom:5px}
+#sit_rec_new textarea {width:100%;min-height:100px}
+#sit_rec_new .win_btn {margin:20px 0}
+
 /* 마이페이지 */
 #smb_my {position:relative;margin-bottom:30px}
 #smb_my:after {display:block;visibility:hidden;clear:both;content:""}
