@@ -109,8 +109,7 @@ $('.sct_30').bxSlider({
     minSlides: 2,
     maxSlides: 8,
     slideMargin: 5,
-    controls: false,
-
+    controls: false
 });
 
 </script>

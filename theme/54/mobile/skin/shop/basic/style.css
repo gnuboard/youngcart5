@@ -473,7 +473,7 @@ box-shadow: 0 0 6px rgba(0,0,0,0.2);}
 .sit_qa_p {margin:0 0 10px;background:#fff;padding:0 10px;background:#fbfbff;}
 .sit_qa_p strong {position:absolute;font-size:0;text-indent:-9999em;line-height:0;overflow:hidden}
 .sit_qa_p span.sit_alp{position:absolute;top:10px;left:0;color:#bbb;font-size:1.5em;font-weight:bold;width:25px;height:25px;line-height:25px;display:inline-block;border-radius:15px;text-align:center;}
-.sit_qa_qaq,.sit_qa_qaa {padding:15px 0 10px 30px;position:relative;min-height:70px}
+.sit_qa_qaq,.sit_qa_qaa {padding:15px 0 15px 30px;position:relative;min-height:70px}
 .sit_qa_qaa {border-top:1px dotted #eee}
 .sit_qa_qaa  span.sit_alp{}
 .sit_qa_con textarea {display:none}
