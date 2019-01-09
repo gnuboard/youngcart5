@@ -301,7 +301,6 @@
 #sit_pvi_nw li {display:inline-block;margin:3px}
 #sit_pvi_nw li img {width:60px;height:60px}
 
->>>>>>> dc29fb5b4ccd6faf34e059c7dbcaedae11e42066
 /* 상품 상세보기 - 다른 상품 보기 */
 #sit_siblings {background:#fff;margin:0 ;text-align:center;position:relative}
 #sit_siblings:after {display:block;visibility:hidden;clear:both;content:""}
