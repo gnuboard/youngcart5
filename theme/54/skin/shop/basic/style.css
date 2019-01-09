@@ -186,7 +186,7 @@
 .sct_10 .sct_txt {border-bottom:1px solid #d9dde2;font-size:1.1em;margin:10px 0;padding-bottom:10px}
 .sct_10 .sct_basic {margin-bottom:5px;color:#6e7f88}
 .sct_10 .sct_cost {margin:5px 0 10px;font-size:1.25em;font-weight:bold}
-.sct_10 .sct_cost del {font-weight:normal;display:block;font-size:0.85em;color:#858a8d}
+.sct_10 .sct_dict {text-decoration:line-through;font-weight:normal;display:block;font-size:0.85em;color:#858a8d}
 
 .sct_10 .sct_sns_wrap {display:none;width:100%;height:100%;position:fixed;top:0;left:0;z-index:999}
 .sct_10 .sct_sns {position:absolute;top:50%;left:50%;background:#fff;text-align:center;width:245px;max-height:300px;margin-left:-125px;margin-top:-180px;overflow-y:auto;border-radius:5px;-webkit-box-shadow:1px 1px 18px rgba(0,0,0,0.2);-moz-box-shadow: 1px 1px 18px rgba(0,0,0,0.2);box-shadow: 1px 1px 18px rgba(0,0,0,0.2);border:1px solid #dde7e9;background:#fff;border-radius:3px}    
@@ -215,7 +215,7 @@
 .sct_20 .sct_txt {padding:10px;background:#f2f5f9}
 .sct_20 .sct_basic {padding:0 10px 5px;background:#f2f5f9;line-height:1.5em}
 .sct_20 .sct_cost {display:block;padding:0 10px 10px;background:#f2f5f9;font-weight:bold}
-.sct_20 .sct_cost del {display:block;margin:0 0 5px;color:#999;font-weight:normal}
+.sct_20 .sct_dict {text-decoration:line-through;display:block;margin:0 0 5px;color:#999;font-weight:normal}
 .sct_20 .sct_sns {position:absolute;bottom:10px;right:10px}
 
 /* 상품 목록 스킨 30 */
@@ -230,7 +230,7 @@
 .sct_30 .sct_txt {display:inline-block;margin:0 0 20px}
 .sct_30 .sct_basic {margin:0 0 15px;padding:0;line-height:1.5em}
 .sct_30 .sct_cost {display:block;margin:0 0 10px;font-weight:bold}
-.sct_30 .sct_cost del {display:block;margin:0 0 5px;color:#999;font-weight:normal}
+.sct_30 .sct_dict {text-decoration:line-through;display:block;margin:0 0 5px;color:#999;font-weight:normal}
 .sct_30 .sct_sns {position:absolute;bottom:20px;right:10px}
 
 /* 상품 목록 스킨 40 */
@@ -254,7 +254,7 @@
 .sct_40 .sct_txt {font-size:1.1em;margin:10px 0;padding-bottom:10px}
 .sct_40 .sct_basic {margin-bottom:5px;color:#6e7f88}
 .sct_40 .sct_cost {margin:5px 0 10px;font-size:1.25em;font-weight:bold}
-.sct_40 .sct_cost del {font-weight:normal;display:block;font-size:0.85em;color:#858a8d}
+.sct_40 .sct_dict {text-decoration:line-through;font-weight:normal;display:block;font-size:0.85em;color:#858a8d}
 
 .sct_40 .sct_sns_wrap {display:none;width:100%;height:100%;position:fixed;top:0;left:0;z-index:999}
 .sct_40 .sct_sns {position:absolute;top:50%;left:50%;background:#fff;text-align:center;width:245px;max-height:300px;margin-left:-125px;margin-top:-180px;overflow-y:auto;border-radius:5px;-webkit-box-shadow:1px 1px 18px rgba(0,0,0,0.2);-moz-box-shadow: 1px 1px 18px rgba(0,0,0,0.2);box-shadow: 1px 1px 18px rgba(0,0,0,0.2);border:1px solid #dde7e9;background:#fff;border-radius:3px}    
@@ -284,7 +284,7 @@
 .sct_pv .sct_id {display:block;margin:0 0 5px}
 .sct_pv .sct_basic {margin:0 0 10px}
 .sct_pv .sct_cost {display:block;margin:5px 0 10px;font-size:1.25em;font-weight:bold}
-.sct_pv .sct_cost del {display:block;margin:0 0 5px;color:#999;font-weight:normal}
+.sct_pv .sct_dict {text-decoration:line-through;display:block;margin:0 0 5px;color:#999;font-weight:normal}
 .sct_pv .sct_sns {}
 
 /* 메인 상품 목록 스킨 10 */
@@ -308,7 +308,7 @@
 .smt_10 .sct_txt {border-bottom:1px solid #d9dde2;font-size:1.1em;margin:10px 0;padding-bottom:10px}
 .smt_10 .sct_basic {margin-bottom:5px;color:#6e7f88}
 .smt_10 .sct_cost {margin:5px 0 10px;font-size:1.25em;font-weight:bold}
-.smt_10 .sct_cost del {font-weight:normal;display:block;font-size:0.85em;color:#858a8d}
+.smt_10 .sct_dict {text-decoration:line-through;font-weight:normal;display:block;font-size:0.85em;color:#858a8d}
 
 .smt_10 .sct_sns_wrap {display:none;width:100%;height:100%;position:fixed;top:0;left:0;z-index:999}
 .smt_10 .sct_sns {position:absolute;top:50%;left:50%;background:#fff;text-align:center;width:245px;max-height:300px;margin-left:-125px;margin-top:-180px;overflow-y:auto;border-radius:5px;-webkit-box-shadow:1px 1px 18px rgba(0,0,0,0.2);-moz-box-shadow: 1px 1px 18px rgba(0,0,0,0.2);box-shadow: 1px 1px 18px rgba(0,0,0,0.2);border:1px solid #dde7e9;background:#fff;border-radius:3px}    
@@ -345,7 +345,7 @@
 .smt_20 .sct_txt {border-bottom:1px solid #d9dde2;font-size:1.1em;margin:10px 0;padding-bottom:10px}
 .smt_20 .sct_basic {margin-bottom:5px;color:#6e7f88}
 .smt_20 .sct_cost {margin:5px 0 10px;font-size:1.25em;font-weight:bold}
-.smt_20 .sct_cost del {font-weight:normal;display:block;font-size:0.85em;color:#858a8d}
+.smt_20 .sct_dict {text-decoration:line-through;display:block;font-size:0.85em;color:#858a8d}
 
 .smt_20 .sct_sns {margin-bottom:10px} 
 .smt_20 .sct_sns a {display:inline-block;border-radius:50%;width:30px;height:30px;line-height:28px;margin-right:5px;text-align:center}
