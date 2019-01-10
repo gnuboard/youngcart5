@@ -111,6 +111,11 @@ include_once(G5_THEME_MSHOP_PATH.'/shop.head.php');
         <?php echo latest('theme/shop_basic', 'notice', 3, 30); ?>
     </section>
 
+
+<script>
+    $("#container").addClass("idx-container");
+</script>
+
 <?php
 include_once(G5_THEME_MSHOP_PATH.'/shop.tail.php');
 ?>

@@ -75,10 +75,22 @@ include_once(G5_LIB_PATH.'/latest.lib.php');
         $("#hd_sch").show();
     });
 
-    
     $("#hd_sch .btn_close").on("click", function() {
         $("#hd_sch").hide();
     });
+
+    //타이틀 영역고정
+    $( document ).ready( function() {
+    var jbOffset = $( '#container').offset();
+    $( window ).scroll( function() {
+        if ( $( document ).scrollTop() > jbOffset.top ) {
+            $( '#container').addClass( 'fixed' );
+        }
+        else {
+            $( '#container').removeClass( 'fixed' );
+        }
+    });
+})
    </script>
 </header>
 
