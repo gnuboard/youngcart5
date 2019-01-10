@@ -14,7 +14,6 @@ include_once(G5_THEME_SHOP_PATH.'/shop.head.php');
 <!-- 메인이미지 시작 { -->
 <?php echo display_banner('메인', 'mainbanner.10.skin.php'); ?>
 <!-- } 메인이미지 끝 -->
-</div>
 
 <?php if($default['de_type1_list_use']) { ?>
 <!-- 히트상품 시작 { -->
