@@ -29,7 +29,7 @@
 .btn_member_mn .profile_name {display:inline-block;max-width:70px;line-height:34px;vertical-align: bottom;text-overflow:ellipsis;overflow:hidden;white-space:nowrap}
 .btn_member_mn i {display:inline-block;margin-left:5px;font-size:1.2em;font-weight:bold}
 .btn_member_mn_on {background:#fff;color:#000;border:1px solid #d0d0d0;border-bottom:0}
-.member_mn {display:none;position:absolute;right:0;width:150px;background:#fff;z-index:99;border:1px solid #d0d0d0;border-top:0}
+.member_mn {display:none;position:absolute;left:0;width:150px;background:#fff;z-index:99;border:1px solid #d0d0d0;border-top:0}
 
 #ol_after {}
 #ol_after_private {text-align:left}

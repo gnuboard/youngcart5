@@ -291,11 +291,11 @@ box-shadow:inset 1px 1px 5px rgba(0,0,0,0.1);}
 .od_coupon h3{border-bottom: 1px solid #e8e8e8;padding: 0 20px;line-height: 50px;font-size: 1.25em;}
 .od_coupon .tbl_head02{}
 .od_coupon .tbl_head02 .btn_frmline {background:#3b67c2;color:#fff;border:0;padding:0 5px;line-height:25px }
-.od_coupon .tbl_head02 td{text-align:left}
-.od_coupon .tbl_head02 th{width:auto !important}
-.od_coupon .tbl_head02 .td_mngsmall{width:60px;text-align:center}
-.od_coupon .tbl_head02 .td_numbig{width:80px;text-align:right}
-.od_coupon .btn_confirm{margin:20px ; }
+.od_coupon .tbl_head02 td {text-align:left}
+.od_coupon .tbl_head02 th {width:auto !important}
+.od_coupon .tbl_head02 .td_mngsmall {width:60px;text-align:center}
+.od_coupon .tbl_head02 .td_numbig {width:80px;text-align:right}
+.od_coupon .btn_confirm {margin:20px}
 .od_coupon .btn_confirm .btn_submit{height:40px;font-size:1.167em;font-weight:bold;width:100%;}
 .od_coupon .btn_confirm .btn_close{position: absolute;top: 0;right: 0;width: 50px;height: 50px;border: 0;background: none;font-size: 1.25em;border-radius: 0;}
 
@@ -382,7 +382,7 @@ box-shadow:inset 1px 1px 5px rgba(0,0,0,0.1);}
 #sod_fin_tot {margin:10px}
 #sod_fin_tot h2 {font-size:1.167em;margin:20px 0 10px}
 #sod_fin_tot ul {background:#fff;border:1px solid #3a8afd;color:#000} 
-#sod_fin_tot li {padding:10px;zoom:1}
+#sod_fin_tot li {padding:10px;line-height:25px;zoom:1}
 #sod_fin_tot li:after {display:block;visibility:hidden;clear:both;content:""}
 #sod_fin_tot #alrdy {background:#e5f0ff;font-weight:bold;border-top:1px solid #c6d7ef}
 #sod_fin_tot #alrdy .right {margin-top:10px;text-align:right;font-weight:normal;font-size:0.9em}
@@ -400,7 +400,6 @@ box-shadow:inset 1px 1px 5px rgba(0,0,0,0.1);}
 #sod_fin_cancelfrm .btn_frmline {background:#5e6b6f;color:#fff;border:0;padding:10px;width:55px;cursor:pointer;position:absolute;top:15px;right:15px;height:40px}
 #sod_fin_test {padding:10px}
 
-
 /* 마이페이지 */
 #smb_my_ov {position:relative;background:#fff;margin-right:20px}
 #smb_my_ov h2 {position:absolute;font-size:0;text-indent:-9999em;line-height:0;overflow:hidden}
@@ -413,13 +412,11 @@ box-shadow:inset 1px 1px 5px rgba(0,0,0,0.1);}
 
 #smb_my_ov .my_name img {width:45px;border-radius:50%}
 #smb_my_ov .my_name .my_ov_name {display:inline-block;margin-bottom:10px;line-height:28px}
-
 #smb_my_ov .my_name a.smb_info {color:#3a8afd}
 #smb_my_ov .smb_my_act {position:absolute;right:15px;top:20px;display:inline-block}
 #smb_my_ov .smb_my_act li {display:inline-block;font-size:0.92em}
 #smb_my_ov .smb_my_act li a {line-height:28px;height:30px;vertical-align:middle;padding:0 5px;margin:0;border-radius:3px}
 #smb_my_ov .smb_my_act li a.btn_logout {display:inline-block;border:1px solid #4f93fd;color:#4f93fd}
-
 
 #smb_my {}
 #smb_my .btn_more {display:block;height:43px;margin:15px;background:#eee;font-size:1.167em;color:#7f7e7e;line-height:43px;text-align:center;border-radius:3px}
@@ -642,8 +639,7 @@ a.btn_admin:focus, a.btn_admin:hover {}
 .list_01 li {background:#fff;border-radius:3px;margin:10px 0;padding:10px 15px;
 -webkit-box-shadow: 0 1px 4px #cbd1df;
 -moz-box-shadow: 0 1px 4px #cbd1df;
-box-shadow:0 1px 4px #cbd1df;
-}
+box-shadow:0 1px 4px #cbd1df;}
 
 /* 기본폼 */
 .form_01{margin:10px}
@@ -804,7 +800,7 @@ box-shadow:0 0 8px rgba(65,98,255,0.8)}
 #sod_frm_paysel .kakaopay_icon{background:url('../../../img/kakao.png') no-repeat 0 3px;width:74px;display:inline-block;overflow:hidden;text-indent:-999px;background-size:35px auto}
 #sod_frm_paysel .samsung_pay{background:url('../../../img/samsungpay.png') no-repeat 0 3px;width:106px;display:inline-block;overflow:hidden;text-indent:-999px}
 
- #sod_bsk_tot {border:1px solid #3a8afd}
+#sod_bsk_tot {border:1px solid #3a8afd}
  #sod_bsk_tot:after {display:block;visibility:hidden;clear:both;content:""}
 .sod_info li {position:relative;float:left;background:#fff;width:33.333%;height:70px;text-align:center;border-bottom:1px solid #e7ebf1;padding:15px 0}
 .sod_info li:after {display:block;visibility:hidden;clear:both;content:""}

@@ -1,4 +1,4 @@
-@charset "utf-8";
+#sit_tab@charset "utf-8";
 
 /* aside:gnb */
 #gnb {margin-bottom:15px;background:#fff;border:1px solid #e8e8e8;border-top:0}
@@ -388,8 +388,8 @@
 #sit_rel h2 {font-size:1.6em;margin:0 0 30px;text-align:center}
 #sit_rel .bx-wrapper {margin:0 auto}
 #sit_rel .bx-controls-direction {position:absolute;top:25px;right:35px}
-#sit_rel .bx-prev {display:inline-block;width:30px;height:30px;border:1px solid #dee3eb;border-top:0;text-indent:-999px;overflow:hidden;background:url('img/select_arrow.png') no-repeat 50% 50%;background-size:50%;-webkit-transform:rotate(90deg);-moz-transform:rotate(90deg)}
-#sit_rel .bx-next {display:inline-block;width:30px;height:30px;border:1px solid #dee3eb;text-indent:-999px;overflow:hidden;background:url('img/select_arrow.png') no-repeat 50% 50%;background-size:50%;-webkit-transform:rotate(-90deg);-moz-transform:rotate(-90deg)}
+#sit_rel .bx-prev {display:inline-block;width:30px;height:30px;border:1px solid #dee3eb;text-indent:-999px;overflow:hidden;background:url('img/select_arrow_prev.png') no-repeat 50% 50%;border-right:0}
+#sit_rel .bx-next {display:inline-block;width:30px;height:30px;border:1px solid #dee3eb;text-indent:-999px;overflow:hidden;background:url('img/select_arrow_next.png') no-repeat 50% 50%;}
 .scr_10 li img {width:100%;height:auto}
 .scr_10 .sct_txt {display:block;margin:5px 0;font-size:1.1em}
 .scr_10 .sct_cost {margin:5px 0;font-size:1.25em;font-weight:bold}
@@ -576,7 +576,7 @@ background:url('img/select_arrow.png') no-repeat 96% 50%/* 화살표 아이콘 �
 #sit_info {display:inline-flex;position:relative;width:100%;min-height:600px;margin-top:20px;margin-bottom:30px;border:1px solid #e8e8e8;background:#fff}
 #sit_info:after {display:block;visibility:hidden;clear:both;content:""}
 
-#sit_tab {width:928px;display:able-cell}
+#sit_tab {width:928px;display:table-cell}
 #sit_tab:after {display:block;visibility:hidden;clear:both;content:""}
 #sit_tab .tab_tit {border-bottom:1px solid #e8e8e8;background:#fff;padding:0 10px}
 #sit_tab .tab_tit:after {display:block;visibility:hidden;clear:both;content:""}
@@ -587,8 +587,8 @@ background:url('img/select_arrow.png') no-repeat 96% 50%/* 화살표 아이콘 �
 #sit_tab .tab_con {background:#fff;padding:15px}
 #sit_tab .item_use_count, #sit_tab .item_qa_count {display:inline-block;min-width:20px;height:20px;font-size:0.75em;line-height:20px;padding:0 5px;background:#eee;border-radius:10px;color:#777}
 
-#sit_buy {display:table-cell;width:270px;border-left:1px solid #e8e8e8}
-.sit_buy_inner {position:relative;top:0 !important}
+#sit_buy {display:table-cell;width:270px;border-left:1px solid #e8e8e8;vertical-align:top}}
+.sit_buy_inner {position:relative;top:0 !important;vertical-align:top}
 .sit_side_option {padding:15px 15px 10px;border-bottom:1px solid #ebeff3}
 .sit_side_option h3 {margin-bottom:10px}
 .sit_side_option label {display:block;margin:0 0 5px;color:#666}

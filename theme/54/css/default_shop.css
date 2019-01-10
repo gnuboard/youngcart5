@@ -51,6 +51,11 @@ border:1px solid #558ab7 !important;
 #container_wr,
 #ft_wr {width:1200px}
 
+/*safari*/
+input, textarea {
+  -webkit-appearance: none;
+  -webkit-border-radius: 0;
+}
 
 /* 팝업레이어 */
 #hd_pop {z-index:1000;position:relative;margin:0 auto;width:1200px;height:0}
@@ -670,7 +675,7 @@ margin-top:-150px;border:1px solid #dde7e9;border-radius:3px;background:#fff;ove
 .option_wr select {width:100%;border:1px solid #d4d4d4;height:48px}
 
 #sit_opt_added {margin:0;padding:0;border-bottom:0;list-style:none}
-#sit_opt_added li {padding:10px;background:#fff;border:1px solid #e6e9ed;margin:10px 0;position:relative}
+#sit_opt_added li {padding:10px 15px;background:#f9f9f9;border:1px solid #e6e9ed;margin:10px 0;position:relative}
 #sit_opt_added li:after {display:block;visibility:hidden;clear:both;content:""}
 #sit_opt_added li .opt_name {line-height:28px;font-weight:bold}
 #sit_opt_added li .opt_count {}
@@ -985,6 +990,7 @@ margin-top:-150px;border:1px solid #dde7e9;border-radius:3px;background:#fff;ove
 #sod_fin_cancel .sod_fin_c_btn {height:50px;border:1px solid #bababa;border-radius:3px;font-weight:bold;width:100%;background:none;color:#5e6b6f}
 #sod_fin_cancel .sod_fin_c_btn:hover {background:#fff}
 #sod_fin_cancel h2 {padding:15px;border-bottom:1px solid #e8e8e8;text-align:left}
+#sod_fin_cancel p {text-align:center;background:#ffe0e0;border:2px solid #d50c0c;padding:15px;color:#d50c0c;font-size:1.167em;font-weight:bold}
 
 #sod_cancel_pop {display:none;width:100%;height:100%;position:fixed;top:0;left:0;z-index:999}
 #sod_fin_cancelfrm {position:absolute;top:50%;left:50%;background:#fff;text-align:center;width:245px;max-height:300px;margin-left:-125px;margin-top:-180px;overflow-y:auto;border-radius:5px;-webkit-box-shadow:1px 1px 18px rgba(0,0,0,0.2);-moz-box-shadow: 1px 1px 18px rgba(0,0,0,0.2);box-shadow: 1px 1px 18px rgba(0,0,0,0.2);border:1px solid #dde7e9;background:#fff;border-radius:3px}    
