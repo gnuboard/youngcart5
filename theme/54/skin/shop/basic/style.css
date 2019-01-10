@@ -388,8 +388,8 @@
 #sit_rel h2 {font-size:1.6em;margin:0 0 30px;text-align:center}
 #sit_rel .bx-wrapper {margin:0 auto}
 #sit_rel .bx-controls-direction {position:absolute;top:25px;right:35px}
-#sit_rel .bx-prev {display:inline-block;width:30px;height:30px;border:1px solid #dee3eb;text-indent:-999px;overflow:hidden;background:url('img/select_arrow_prev.png') no-repeat 50% 50%;border-right:0}
-#sit_rel .bx-next {display:inline-block;width:30px;height:30px;border:1px solid #dee3eb;text-indent:-999px;overflow:hidden;background:url('img/select_arrow_next.png') no-repeat 50% 50%;}
+#sit_rel .bx-prev {display:inline-block;width:30px;height:30px;border:1px solid #dee3eb;border-right:0;text-indent:-999px;overflow:hidden;background:url('img/select_arrow_left.png') no-repeat 50% 50%}
+#sit_rel .bx-next {display:inline-block;width:30px;height:30px;border:1px solid #dee3eb;text-indent:-999px;overflow:hidden;background:url('img/select_arrow_right.png') no-repeat 50% 50%}
 .scr_10 li img {width:100%;height:auto}
 .scr_10 .sct_txt {display:block;margin:5px 0;font-size:1.1em}
 .scr_10 .sct_cost {margin:5px 0;font-size:1.25em;font-weight:bold}

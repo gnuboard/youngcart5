@@ -189,8 +189,8 @@ box-shadow:0 2px 5px rgba(0,0,0,0.2)}
 
 #idx_hit {overflow:hidden}
 #idx_hit:after {display:block;visibility:hidden;clear:both;content:""}
-#idx_hit .owl-prev {position:absolute;top:50%;left:0;width:36px;height:36px;margin-top:-20px;text-indent:-9999em;background:url('../img/btn_idx_hit.png') no-repeat;-webkit-transform:rotate(180deg);-moz-transform:rotate(180deg)}
-#idx_hit .owl-next {position:absolute;top:50%;right:0;width:36px;height:36px;margin-top:-20px;text-indent:-9999px;background:url('../img/btn_idx_hit.png ') no-repeat}
+#idx_hit .owl-prev {position:absolute;top:50%;left:0;width:36px;height:36px;margin-top:-20px;text-indent:-9999em;background:url('../img/btn_idx_left.png') no-repeat}
+#idx_hit .owl-next {position:absolute;top:50%;right:0;width:36px;height:36px;margin-top:-20px;text-indent:-9999px;background:url('../img/btn_idx_right.png') no-repeat}
 
 
 .sale_prd h2 {font-size:1.167em;margin:20px 0 10px}
