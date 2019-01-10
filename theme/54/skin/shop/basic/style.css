@@ -14,7 +14,7 @@
 
 .gnb_1dli_on .gnb_1dam {text-decoration:none}
 .gnb_2dul {display:none;z-index:1000;position:absolute;border:1px solid #e8e8e8;padding:10px}
-.gnb_1dli_over .gnb_2dul, .gnb_1dli_over2 .gnb_2dul {display:inline-block;top:0;left:275px;width:200px;background:#fff}
+.gnb_1dli_over .gnb_2dul, .gnb_1dli_over2 .gnb_2dul {display:inline-block;top:0;left:263px;width:200px;background:#fff}
 .gnb_1dli_over .gnb_2dul:after, .gnb_1dli_over2 .gnb_2dul:after {content:"";position:absolute;top:10px;left:-6px;display:inline-block;width:0;height:0;border-top:6px solid transparent;border-bottom:6px solid transparent;border-right:6px solid #fff}
 .gnb_1dli_over .gnb_2dul:before, .gnb_1dli_over2 .gnb_2dul:before {content:"";position:absolute;top:9px;left:-7px;display:inline-block;width:0;height:0;border-top:7px solid transparent;border-bottom:7px solid transparent;border-right:7px solid #e8e8e8}
 

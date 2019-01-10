@@ -1005,9 +1005,6 @@ margin-top:-150px;border:1px solid #dde7e9;border-radius:3px;background:#fff;ove
 #scash_apply button {padding:10px;border:0;background:#565e60;color:#fff}
 #scash_copy {text-align:center}
 
-/* 공지사항 및 커뮤니티 새글 */
-#sidx_lat h2 {position:absolute;font-size:0;line-height:0;overflow:hidden}
-
 /* 배너 인덱스 출력 */
 #sbn_idx {}
 

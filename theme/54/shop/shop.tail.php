@@ -43,7 +43,6 @@ $admin = get_admin("super");
 	    
 	    <!-- 커뮤니티 최신글 시작 { -->
         <section id="sidx_lat">
-            <h2>커뮤니티 최신글</h2>
             <?php echo latest('theme/notice', 'notice', 5, 30); ?>
         </section>
         <!-- } 커뮤니티 최신글 끝 -->
