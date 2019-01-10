@@ -99,7 +99,7 @@ input, textarea {
 #cate_tnb:after {display:block;visibility:hidden;clear:both;content:""}
 #cate_tnb li {border-bottom:1px solid #efefef;float:left;width:50%;line-height:43px;padding:0 10px 0 50px;position:relative}
 #cate_tnb li:nth-child(2n+1) {clear:both;border-right:1px solid #efefef}
-#cate_tnb li i {position:absolute;top:0;left:0;width:50px;text-align:center;color:#a5a8ac;line-height:42px}
+#cate_tnb li i {position:absolute;top:0;left:0;width:50px;text-align:center;color:#a5a8ac;line-height:42px;font-size:16px}
 
 /* 중간 레이아웃 */
 #container {padding:0 0 10px}
