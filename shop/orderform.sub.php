@@ -352,7 +352,7 @@ if($is_kakaopay_use) {
                         $val1 = $row['ad_name'].$sep.$row['ad_tel'].$sep.$row['ad_hp'].$sep.$row['ad_zip1'].$sep.$row['ad_zip2'].$sep.$row['ad_addr1'].$sep.$row['ad_addr2'].$sep.$row['ad_addr3'].$sep.$row['ad_jibeon'].$sep.$row['ad_subject'];
                         
                         $addr_list .= '<input type="radio" name="ad_sel_addr" value="'.get_text($val1).'" id="ad_sel_addr_def">'.PHP_EOL;
-                        $addr_list .= '<label for="ad_sel_addr_def">기본배송지</label>'.PHP_EOL;
+                        $addr_list .= '<label for="ad_sel_addr_def"><span></span>기본배송지</label>'.PHP_EOL;
                     }
 
                     // 최근배송지
@@ -603,7 +603,7 @@ if($is_kakaopay_use) {
             <h2>결제수단</h2>
             <?php
             if (!$default['de_card_point'])
-                echo '<p class="tooltip_txt"><i class="fa fa-info-circle" aria-hidden="true"></i><strong>무통장입금</strong> 이외의 결제 수단으로 결제하시는 경우 포인트를 적립해드리지 않습니다.</p>';
+                echo '<p class="tooltip_txt"><i class="fa fa-info-circle" aria-hidden="true"></i> <strong>무통장입금</strong> 이외의 결제 수단으로 결제하시는 경우 포인트를 적립해드리지 않습니다.</p>';
 
             $multi_settle = 0;
             $checked = '';
