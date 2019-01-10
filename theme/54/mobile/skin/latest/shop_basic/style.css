@@ -2,7 +2,7 @@
 
 /* 최근게시물 스킨 (latest) */
 .lt {position:relative;margin:40px 10px 20px;border:1px solid #dde7e9;background:#fff;position:relative}
-.lt h2{font-size:1.25em;padding:10px 15px;line-height:27px;border-bottom:1px solid #e8e8e8;margin:0}
+.lt h2{font-size:1.25em;padding:10px 15px;line-height:27px;border-bottom:1px solid #e8e8e8;margin:0;text-align:left}
 .lt ul {margin:0 0 10px;padding:0 15px;list-style:none}
 .lt li{text-align:left;margin:0 0 1px;line-height:40px;;border-top:1px solid #e5ecee}
 .lt li:first-child{border-top:0}

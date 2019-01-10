@@ -6,7 +6,7 @@ add_stylesheet('<link rel="stylesheet" href="'.G5_MSHOP_SKIN_URL.'/style.css">',
 ?>
 
 
-<div id="main_bn">
+
 <?php
 $max_width = $max_height = 0;
 $bn_first_class = ' class="bn_first"';
@@ -18,7 +18,7 @@ for ($i=0; $row=sql_fetch_array($result); $i++)
 {
     $main_banners[] = $row;
 
-    if ($i==0) echo '<ul class="slide-wrap">'.PHP_EOL;
+    if ($i==0) echo '<div id="main_bn"><ul class="slide-wrap">'.PHP_EOL;
     //print_r2($row);
     // 테두리 있는지
     $bn_border  = ($row['bn_border']) ? ' class="sbn_border"' : '';;
@@ -58,9 +58,9 @@ if ($i > 0) {
     echo '</ul>'.PHP_EOL;
 	
 	echo '<div class="btn_wr"><a href="#" class="pager-prev"><i class="fa fa-angle-left"></i></a><div id="slide-counter"></div><a href="#" class="pager-next"><i class="fa fa-angle-right"></i></a> </div>'.PHP_EOL;
-
+ 	echo '</div>'.PHP_EOL;
 ?>
-</div>
+
 
 <script>
 jQuery(function($){

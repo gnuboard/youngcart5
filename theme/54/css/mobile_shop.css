@@ -2,7 +2,7 @@
 
 /* 초기화 */
 html {overflow-y:scroll}
-body {margin:0;padding:0;font-size:0.813em;height:100%;font-family:sans-serif;background:#f8f8f8;min-width:320px;-webkit-text-size-adjust: none; }
+body {margin:0;padding:0;font-size:0.813em;height:100%;font-family:HelveticaNeue-Light,AppleSDGothicNeo-Light,'Malgun Gothic','맑은 고딕',sans-serif;;background:#f8f8f8;min-width:320px;-webkit-text-size-adjust: none; }
 html, h1, h2, h3, h4, h5, h6, form, fieldset {margin:0;padding:0;border:0}
 h1, h2, h3, h4, h5, h6 {font-size:1em}
 article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section {display:block}
@@ -10,9 +10,9 @@ header ul, nav ul, footer ul {margin:0;padding:0;list-style:none}
 legend {position:absolute;font-size:0;line-height:0;text-indent:-9999em;overflow:hidden}
 label, input, button, select {vertical-align:middle}
 input, button {margin:0;padding:0;font-size:1em}
-button,input[type=submit] {cursor:pointer}
+button,input[type=submit] {cursor:pointer;font-family:HelveticaNeue-Light,AppleSDGothicNeo-Light,'Malgun Gothic','맑은 고딕',sans-serif}
 input[type=text], input[type=password], input[type=submit], input[type=image], button {-webkit-appearance:none}
-textarea, select {font-size:1em;font-family:sans-serif}
+textarea, select {font-size:1em;font-family:HelveticaNeue-Light,AppleSDGothicNeo-Light,'Malgun Gothic','맑은 고딕',sans-serif}
 textarea {border-radius:0;-webkit-appearance:none}
 select{background:#fff}
 p {margin:0;padding:0;word-break:break-all}
@@ -204,7 +204,6 @@ box-shadow: 0 0 6px rgba(0,0,0,0.2);}
 #sod_bsk_act .btn_submit{height:45px;font-size:1.167em;font-weight:bold;width:100%;border-radius:3px}
 #sod_bsk_act .total{position:absolute;top:0;left:0;width:50%;padding:10px;text-align:left;color:#717171;line-height:20px;}
 #sod_bsk_act .total strong{display:block;color:#000;font-size:1.154em;line-height:25px}
-
 .naverpay-cart{text-align:center;padding:10px}
 
 /* 주문서 작성 */
@@ -236,8 +235,8 @@ box-shadow: 0 0 6px rgba(0,0,0,0.2);}
 .odf_list  textarea{border: 1px solid #ccc;background: #fff;color: #000;vertical-align: middle;border-radius: 3px;padding: 5px;width:100%;height:70px;
 -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075);
 -moz-box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075);
-box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075);
-}
+box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075);}
+
 #m_sod_frm_paysel {margin:10px 0;}
 #m_sod_frm_paysel h3{background:#fff;padding:15px 10px ;border:1px solid #e3e5e8;border-bottom:0}
 #m_sod_frm_paysel ul {margin:0 0;background:#fff;padding:10px;border:1px solid #e3e5e8}
@@ -364,7 +363,7 @@ box-shadow:inset 1px 1px 5px rgba(0,0,0,0.1);}
 #sod_sts_wrap .btn_wr {border-top:1px solid #bbb;text-align:center}
 #sod_sts_explan_open {padding:0 10px;height:30px;border:1px solid #bbb;border-top:1px solid #e6e6e6;margin-top:-1px;color:#333;background:none}
 #sod_sts_explan {display:none}
-#sod_fin_legend {background:#fff;margin:0 0 10px;padding:10px;line-height:20px}
+#sod_fin_legend {background:#edf3fc;border:1px solid #d6e2f4;border-radius:3px;margin:0 0 10px;padding:10px;line-height:20px;color:#3967ac}
 #sod_fin_legend:after {display:block;visibility:hidden;clear:both;content:""}
 #sod_fin_legend dt {float:left;width:20%}
 #sod_fin_legend dd {float:left;width:80%}
@@ -435,7 +434,7 @@ box-shadow:inset 1px 1px 5px rgba(0,0,0,0.1);}
 #smb_my_ov .my_pocou li a span{display:inline-block;float:right;color:#fff;overflow:hidden;white-space:nowrap;text-overflow:clip;padding:0 5px;line-height:20px;border-radius:35px;font-weight:normal;font-size:0.846em}
 #smb_my_ov .my_pocou li.my_cou a span{background:#a352c1}
 #smb_my_ov .my_pocou li.my_memo a span{background:#ff8b77}
-#smb_my_ov .my_pocou li i {color:#8c9eb0}
+#smb_my_ov .my_pocou li i {color:#8c9eb0;font-size:16px}
 
 #smb_my_ov .my_info {display:none;clear:both;width:100%;margin-top:-1px;background:#fff;padding:5px 20px 20px;border-bottom:1px solid #e6e6e6}
 #smb_my_ov .my_info:after {display:block;visibility:hidden;clear:both;content:''}
@@ -780,6 +779,7 @@ box-shadow:0 0 8px rgba(65,98,255,0.8)}
 #sod_bsk_act .naverpay-cart {margin-top:15px;clear:both;position:static}
 
 /*PC 주문서*/
+
 #sod_frm .tbl_head03{padding:0;background:none}
 #sod_frm .tbl_head03 .sod_opt {padding:5px 0}
 #sod_frm_orderer .tbl_frm01,#sod_frm_taker .tbl_frm01{background:#fff;padding:10px 0;margin:0}
@@ -883,10 +883,7 @@ box-shadow:0 0 8px rgba(65,98,255,0.8)}
 .tooltip_txt:before {content:"";position:absolute;top:0;left:0;width:5px;height:50px;border-radius:5px 0 0 5px;background:#da4453}
 .tooltip_txt i {font-size:1.2em;vertical-align:middle}
 
-
-
 /*-- 개인결제 --*/
-
 /*모바일*/
 #m_sod_frm_orderer {margin:10px 0;border-top:1px solid #e7ebf1}
 #m_sod_frm_orderer h2 {position:absolute;font-size:0;text-indent:-9999em;line-height:0;overflow:hidden}
@@ -914,7 +911,6 @@ box-shadow:0 0 8px rgba(65,98,255,0.8)}
 #sod_frm_paysel li {padding:5px 0}
 .sod_right .btn_confirm {margin:10px}
 .sod_right .btn_submit, .sod_right .btn01 {width:100%;height:45px;font-size:1.167em;font-weight:bold;margin:5px 0;border-radius:4px;line-height:45px}
-
 
 /* input, radio */
 .selec_chk {position:absolute;top:0;left:0;width:0;height:0;opacity:0;outline:0;z-index:-1;overflow:hidden}

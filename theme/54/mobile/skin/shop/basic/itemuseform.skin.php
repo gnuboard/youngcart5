@@ -15,12 +15,7 @@ add_stylesheet('<link rel="stylesheet" href="'.G5_MSHOP_SKIN_URL.'/style.css">',
     <input type="hidden" name="is_id" value="<?php echo $is_id; ?>">
     <input type="hidden" name="is_mobile_shop" value="1">
 
-<<<<<<< HEAD
-    <div class="form_01">
-=======
     <div class="form_01 chk_box">
-
->>>>>>> dc29fb5b4ccd6faf34e059c7dbcaedae11e42066
         <ul>
             <li>
                 <label for="is_subject" class="sound_only">제목</label>
