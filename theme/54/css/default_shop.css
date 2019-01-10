@@ -716,18 +716,16 @@ margin-top:-150px;border:1px solid #dde7e9;border-radius:3px;background:#fff;ove
 .sod_left {display:inline-block;float:left;width:840px;margin-right:20px;vertical-align:top}
 
 /* 주문서 작성  - 주문하시는 분 */
-#sod_frm_orderer .tbl_frm01 {padding:20px 10px}
-#sod_frm_orderer .tbl_frm01 tr {display:inline-block;width:100%;padding:0 10px}
-#sod_frm_orderer .tbl_frm01 tr.half_tr {width:50%}
-#sod_frm_orderer .tbl_frm01 th {display:block;width:auto;text-align:left;padding:10px 0}
-#sod_frm_orderer .tbl_frm01 td {display:block;padding:0}
-#sod_frm_orderer .tbl_frm01 td input {width:100%}
-#sod_frm_orderer .tbl_frm01 td .addr input {width:20%}
-#sod_frm_orderer .tbl_frm01 td .addr button {background:#434a54;color:#fff;width:128px;height:45px;border:0;border-radius:3px}
+#sod_frm .tbl_frm01 {padding:20px 10px}
+#sod_frm .tbl_frm01 th,#sod_frm .tbl_frm01 td {text-align:left;padding:10px;vertical-align:top}
+#sod_frm .tbl_frm01 th{padding:0px 10px}
+#sod_frm .tbl_frm01 td input {width:100%}
+#sod_frm .tbl_frm01 td .addr input {width:20%}
+#sod_frm .tbl_frm01 td .addr button {background:#434a54;color:#fff;width:128px;height:45px;border:0;border-radius:3px}
 
 /* 주문서 작성  - 받으시는 분 */
 #sod_frm_taker .tbl_frm01 {padding:20px 10px}
-#sod_frm_taker .tbl_frm01 .choice_place {display:block;background:#edf3fc;padding:10px 15px;border:1px solid #d1ddee;margin:0 10px}
+#sod_frm_taker .tbl_frm01 .choice_place {display:block;background:#edf3fc;padding:10px 15px;border:1px solid #d1ddee;margin:0 10px 10px}
 #sod_frm_taker .tbl_frm01 .choice_place:after {display:block;visibility:hidden;clear:both;content:""}
 #sod_frm_taker .tbl_frm01 .choice_place .chk_box {float:left;display:inline-block;width:85%;line-height:30px}
 #sod_frm_taker .tbl_frm01 .choice_tit {float:left;display:inline-block;width:15% !important;line-height:30px}
@@ -736,11 +734,6 @@ margin-top:-150px;border:1px solid #dde7e9;border-radius:3px;background:#fff;ove
 #sod_frm_taker .tbl_frm01 .choice_place label {margin-left:10px}
 #sod_frm_taker .tbl_frm01 .btn_frmline {width:80px;height:30px;line-height:28px;background:#fff;border:1px solid #d4d6db;color:#606060;text-align:center;float:right}
 
-#sod_frm_taker .tbl_frm01 tr {display:inline-block;width:100%;padding:0 10px}
-#sod_frm_taker .tbl_frm01 tr.half_tr {width:50%;float:left}
-#sod_frm_taker .tbl_frm01 tr.half_tr:nth-child(2n+1) {clear:both}
-#sod_frm_taker .tbl_frm01 th {display:block;width:auto;text-align:left;padding:10px 0}
-#sod_frm_taker .tbl_frm01 td {display:block;padding:0}
 #sod_frm_taker .tbl_frm01 td input {width:100%}
 #sod_frm_taker .tbl_frm01 td .addr input {width:20%}
 #sod_frm_taker .tbl_frm01 td .addr button {background:#434a54;color:#fff;width:128px;height:45px;border:0;border-radius:3px}
@@ -841,7 +834,7 @@ margin-top:-150px;border:1px solid #dde7e9;border-radius:3px;background:#fff;ove
 .display_setup_message {margin:0 0 10px;padding:15px;border:1px solid #fccdff;background:#ffeef9}
 .display_setup_message strong {display:block;margin:0 0 10px}
 
-#sod_frm_taker label {display:inline-block}
+#sod_frm_taker label {display:inline-block;font-weight:normal}
 #sod_frm_same {margin:0 0 10px}
 #sod_frm #od_memo {height:50px}
 

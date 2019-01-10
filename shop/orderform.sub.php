@@ -255,35 +255,34 @@ if($is_kakaopay_use) {
             <div class="tbl_frm01 tbl_wrap">
                 <table>
                 <tbody>
-                <tr class="half_tr">
-                    <th scope="row"><label for="od_name">이름<strong class="sound_only"> 필수</strong></label></th>
-                    <td><input type="text" name="od_name" value="<?php echo get_text($member['mb_name']); ?>" id="od_name" required class="frm_input required" maxlength="20"></td>
-                </tr>
-
-                <?php if (!$is_member) { // 비회원이면 ?>
-                <tr class="half_tr">
-                    <th scope="row">
-                    	<label for="od_pwd">비밀번호</label>
+                <tr>
+                    <th scope="col"><label for="od_name">이름<strong class="sound_only"> 필수</strong></label></th>
+                    <th scope="col">
+                    	<?php if (!$is_member) { // 비회원이면 ?>
+                        <label for="od_pwd">비밀번호</label>
                     	<button type="button" class="tooltip_icon"><i class="fa fa-question-circle-o" aria-hidden="true"></i><span class="sound_only">설명보기</span></button>
-                        <span class="tooltip">영,숫자 3~20자 (주문서 조회시 필요)</span>
+                        <span class="tooltip">영,숫자 3~20자 (주문서 조회시 필요)</span> 
+                        <?php } ?>
                     </th>
-                    <td>
-                        <input type="password" name="od_pwd" id="od_pwd" required class="frm_input required" maxlength="20">
-                    </td>
                 </tr>
-                <?php } ?>
+                <tr>
+                    <td><input type="text" name="od_name" value="<?php echo get_text($member['mb_name']); ?>" id="od_name" required class="frm_input required" maxlength="20"></td>
+                    <td><?php if (!$is_member) { // 비회원이면 ?><input type="password" name="od_pwd" id="od_pwd" required class="frm_input required" maxlength="20"><?php } ?></td>
+                </tr>
 
-                <tr class="half_tr">
-                    <th scope="row"><label for="od_tel">전화번호<strong class="sound_only"> 필수</strong></label></th>
-                    <td><input type="text" name="od_tel" value="<?php echo get_text($member['mb_tel']); ?>" id="od_tel" required class="frm_input required" maxlength="20"></td>
+                <tr>
+                    <th scope="col"><label for="od_tel">전화번호<strong class="sound_only"> 필수</strong></label></th>
+                    <th scope="col"><label for="od_hp">핸드폰</label></th>
                 </tr>
-                <tr class="half_tr">
-                    <th scope="row"><label for="od_hp">핸드폰</label></th>
+                <tr>
+                    <td><input type="text" name="od_tel" value="<?php echo get_text($member['mb_tel']); ?>" id="od_tel" required class="frm_input required" maxlength="20"></td>
                     <td><input type="text" name="od_hp" value="<?php echo get_text($member['mb_hp']); ?>" id="od_hp" class="frm_input" maxlength="20"></td>
                 </tr>
                 <tr>
-                    <th scope="row">주소</th>
-                    <td>
+                    <th scope="col" colspan="2">주소</th>
+                </tr>
+                <tr>
+                    <td colspan="2">
                     	<div class="addr">
                         	<label for="od_zip" class="sound_only">우편번호<strong class="sound_only"> 필수</strong></label>
                         	<input type="text" name="od_zip" value="<?php echo $member['mb_zip1'].$member['mb_zip2']; ?>" id="od_zip" required class="frm_input required" size="8" maxlength="6" placeholder="우편번호">
@@ -300,8 +299,10 @@ if($is_kakaopay_use) {
                     </td>
                 </tr>
                 <tr>
-                    <th scope="row"><label for="od_email">E-mail<strong class="sound_only"> 필수</strong></label></th>
-                    <td><input type="text" name="od_email" value="<?php echo $member['mb_email']; ?>" id="od_email" required class="frm_input required" size="35" maxlength="100"></td>
+                    <th scope="col" colspan="2"><label for="od_email">E-mail<strong class="sound_only"> 필수</strong></label></th>
+                </tr>
+                <tr>
+                    <td colspan="2"><input type="text" name="od_email" value="<?php echo $member['mb_email']; ?>" id="od_email" required class="frm_input required" size="35" maxlength="100"></td>
                 </tr>
 
                 <?php if ($default['de_hope_date_use']) { // 배송희망일 사용 ?>
@@ -376,7 +377,7 @@ if($is_kakaopay_use) {
                 } else {
                     // 주문자와 동일
                     $addr_list .= '<input type="checkbox" name="ad_sel_addr" value="same" id="ad_sel_addr_same">'.PHP_EOL;
-                    $addr_list .= '<label for="ad_sel_addr_same">주문자와 동일</label>'.PHP_EOL;
+                    $addr_list .= '<label for="ad_sel_addr_same"><span></span>주문자와 동일</label>'.PHP_EOL;
                 }
                 ?>
                 <div class="choice_place">
@@ -388,33 +389,38 @@ if($is_kakaopay_use) {
                 
                 <table>
                 <tbody>
-                <?php if($is_member) { ?>
-                <tr class="half_tr">
-                    <th scope="row"><label for="ad_subject">배송지명</label></th>
+                
+                <tr>
+                    <th scope="col"><label for="od_b_name">이름<strong class="sound_only"> 필수</strong></label></th>
+                    <th scope="col"><?php if($is_member) { ?><label for="ad_subject">배송지명</label><?php } ?></th> 
+                </tr>
+                
+                <tr>
+
+                    <td><input type="text" name="od_b_name" id="od_b_name" required class="frm_input required" maxlength="20"></td>
                     <td>
+                        <?php if($is_member) { ?>
                         <input type="text" name="ad_subject" id="ad_subject" class="frm_input" maxlength="20">
                         <div class="ad_choice chk_box">
 	                        <input type="checkbox" name="ad_default" id="ad_default" value="1" class="selec_chk">
 	                        <label for="ad_default"><span></span><b>기본배송지로 설정</b></label>
-                        </div>
+                        </div> 
+                        <?php } ?>
                     </td>
                 </tr>
-                <?php } ?>
-                <tr class="half_tr">
-                    <th scope="row"><label for="od_b_name">이름<strong class="sound_only"> 필수</strong></label></th>
-                    <td><input type="text" name="od_b_name" id="od_b_name" required class="frm_input required" maxlength="20"></td>
+                <tr>
+                    <th scope="col"><label for="od_b_tel">전화번호<strong class="sound_only"> 필수</strong></label></th>
+                    <th scope="col"><label for="od_b_hp">핸드폰</label></th>
                 </tr>
-                <tr class="half_tr">
-                    <th scope="row"><label for="od_b_tel">전화번호<strong class="sound_only"> 필수</strong></label></th>
+                <tr>
                     <td><input type="text" name="od_b_tel" id="od_b_tel" required class="frm_input required" maxlength="20"></td>
-                </tr>
-                <tr class="half_tr">
-                    <th scope="row"><label for="od_b_hp">핸드폰</label></th>
                     <td><input type="text" name="od_b_hp" id="od_b_hp" class="frm_input" maxlength="20"></td>
                 </tr>
                 <tr>
-                    <th scope="row">주소</th>
-                    <td id="sod_frm_addr">
+                    <th scope="col" colspan="2">주소</th>
+                </tr>
+                <tr>
+                    <td id="sod_frm_addr" colspan="2">
                     	<div class="addr">
                         	<label for="od_b_zip" class="sound_only">우편번호<strong class="sound_only"> 필수</strong></label>
                         	<input type="text" name="od_b_zip" id="od_b_zip" required class="frm_input required" size="8" maxlength="6" placeholder="우편번호">
@@ -431,8 +437,10 @@ if($is_kakaopay_use) {
                     </td>
                 </tr>
                 <tr>
-                    <th scope="row"><label for="od_memo">전하실말씀</label></th>
-                    <td><textarea name="od_memo" id="od_memo"></textarea></td>
+                    <th scope="col" colspan="2"><label for="od_memo">전하실말씀</label></th>
+                </tr>
+                <tr>
+                    <td colspan="2"><textarea name="od_memo" id="od_memo"></textarea></td>
                 </tr>
                 </tbody>
                 </table>
