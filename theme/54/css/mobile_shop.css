@@ -223,7 +223,7 @@ box-shadow: 0 0 6px rgba(0,0,0,0.2);}
 #sod_frm_taker h2,#sod_frm_orderer h2{margin:0 0 10px;font-size:1.25em}
 .odf_list li{}
 .odf_list label,.odf_list strong{display:block;margin:7px 0 5px;color:#444;font-weight:normal}
-.odf_list .frm_input{width:100%;margin:0 0 5px}
+.odf_list .frm_input{width:100%;margin:0 0 7px}
 .odf_list .dlv_slt {background:#edf3fc;position:relative;border:1px solid #d1ddee;margin:5px 0;padding:10px}
 .odf_list .dlv_slt strong{margin:0 ;font-weight:bold;line-height:30px}
 .odf_list .dlv_slt div label{display:inline-block;margin:3px 0;color:#000}
@@ -778,6 +778,7 @@ box-shadow:0 0 8px rgba(65,98,255,0.8)}
 
 #sod_frm .tbl_head03{padding:0;background:none}
 #sod_frm .tbl_head03 .sod_opt {padding:5px 0}
+#sod_frm_orderer .odpw_info{display:block;margin:0 0 7px;color:#3a8afd}  
 #sod_frm_orderer .tbl_frm01,#sod_frm_taker .tbl_frm01{background:#fff;padding:10px 0;margin:0}
 #sod_frm_taker .choice_place{background:#edf3fc;margin:10px;padding:10px;border:1px solid #d1ddee}
 #sod_frm_taker .choice_tit{display:block;font-weight:bold;margin:0 0 5px}
@@ -868,6 +869,10 @@ box-shadow:0 0 8px rgba(65,98,255,0.8)}
 .sod_frm_pc #sod_frm_paysel {padding:0;}
 .sod_frm_pc #settle_bank {padding:10px;}
 
+.sod_frm_pc #sod_frm_orderer .tbl_frm01 th{text-align:left}
+.sod_frm_pc #sod_frm_taker .tbl_frm01 th{text-align:left}
+.sod_frm_pc td .frm_input{width:100%}
+.sod_frm_pc td #od_zip ,.sod_frm_pc td #od_b_zip{width:auto}
 /* 팁 */
 .tooltip_icon {display:inline-block;vertical-align:middle;color:#b3b5b8;border:0;font-size:1.4em;background:transparent;cursor:pointer}
 .tooltip_icon:hover {color:#448bf5}

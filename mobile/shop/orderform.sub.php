@@ -241,8 +241,8 @@ if($is_kakaopay_use) {
 
 <div id="sod_frm" class="sod_frm_mobile">
     <form name="forderform" method="post" action="<?php echo $order_action_url; ?>" autocomplete="off">
-    <input type="hidden" name="od_price"    value="<?php echo $tot_sell_price; ?>">
-    <input type="hidden" name="org_od_price"    value="<?php echo $tot_sell_price; ?>">
+    <input type="hidden" name="od_price" value="<?php echo $tot_sell_price; ?>">
+    <input type="hidden" name="org_od_price" value="<?php echo $tot_sell_price; ?>">
     <input type="hidden" name="od_send_cost" value="<?php echo $send_cost; ?>">
     <input type="hidden" name="od_send_cost2" value="0">
     <input type="hidden" name="item_coupon" value="0">
@@ -251,7 +251,7 @@ if($is_kakaopay_use) {
 
     <?php echo $content; ?>
 
-    <section id="sod_frm_orderer" >
+    <section id="sod_frm_orderer">
         <h2>주문하시는 분</h2>
 
         <div class="odf_list">
@@ -265,7 +265,7 @@ if($is_kakaopay_use) {
                 <li>
                     <label for="od_pwd" class="sound_only">비밀번호 필수</label>
                     <input type="password" name="od_pwd" id="od_pwd" required class="frm_input required" maxlength="20" placeholder="비밀번호">
-                    영,숫자 3~20자 (주문서 조회시 필요)
+                    <span class="odpw_info">영,숫자 3~20자 (주문서 조회시 필요)</span>
                     
                 </li>
                 <?php } ?>
