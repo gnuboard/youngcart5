@@ -23,25 +23,32 @@ require_once(G5_SHOP_PATH.'/'.$default['de_pg_service'].'/orderform.1.php');
             <tbody>
             <?php if(trim($pp['pp_content'])) { ?>
             <tr>
-                <th>상세내용</th>
-                <td><?php echo conv_content($pp['pp_content'], 0); ?></td>
+                <th scope="col" colspan="2">상세내용</th>
+            </tr>
+            <tr>
+                <td colspan="2"><?php echo conv_content($pp['pp_content'], 0); ?></td>
             </tr>
             <?php } ?>
             <tr>
-                <th>결제금액</th>
-                <td><?php echo display_price($pp['pp_price']); ?></td>
+                <th scope="col" colspan="2">결제금액</th>
             </tr>
-            <tr class="half_tr">
-                <th scope="row"><label for="pp_name">이름<strong class="sound_only"> 필수</strong></label></th>
+
+            <tr>
+                <td colspan="2"><?php echo display_price($pp['pp_price']); ?></td>
+            </tr>
+            <tr>
+                <th scope="col"><label for="pp_name">이름<strong class="sound_only"> 필수</strong></label></th>
+                <th scope="col"><label for="pp_hp">휴대폰</label></th>
+            </tr>
+            <tr>
                 <td><input type="text" name="pp_name" value="<?php echo get_text($pp['pp_name']); ?>" id="pp_name" required class="required frm_input"></td>
-            </tr>
-            <tr class="half_tr">
-                <th scope="row"><label for="pp_hp">휴대폰</label></th>
                 <td><input type="text" name="pp_hp" value="<?php echo get_text($member['mb_hp']); ?>" id="pp_hp" required class="required frm_input"></td>
             </tr>
             <tr>
-                <th scope="row"><label for="pp_email">이메일<strong class="sound_only"> 필수</strong></label></th>
-                <td><input type="text" name="pp_email" value="<?php echo $member['mb_email']; ?>" id="pp_email" required class="required frm_input" size="30"></td>
+                <th scope="col" colspan="2"><label for="pp_email">이메일<strong class="sound_only"> 필수</strong></label></th>
+            </tr>
+            <tr>
+                <td colspan="2"><input type="text" name="pp_email" value="<?php echo $member['mb_email']; ?>" id="pp_email" required class="required frm_input" size="30"></td>
             </tr>
             </tbody>
             </table>

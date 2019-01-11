@@ -1083,10 +1083,9 @@ html.no-overflowscrolling #sc_coupon_frm, html.no-overflowscrolling #od_coupon_f
 /* 개인결제 */
 .pesonal {background:#fff;border:1px solid #e3e5e8;margin-bottom:30px}
 .pesonal h2 {border-bottom:1px solid #e2e4e7;font-size:1.167em;padding:20px}
-.pesonal .tbl_frm01 {padding:20px 10px;margin:0}
-.pesonal tr {display:inline-block;width:100%;padding:0 10px;margin-bottom:20px}
-.pesonal th {display:block;width:auto;text-align:left;padding:10px 0;font-weight:bold}
-.pesonal td {display:block;padding:0}
+.pesonal .tbl_frm01 {padding:20px 10px;margin:0;}
+.pesonal th {text-align:left;}
+.pesonal td {text-align:left;font-weight:bold}
 .pesonal td input {width:100%}
 .pesonal .half_tr {width:50%}
 
