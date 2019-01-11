@@ -47,7 +47,7 @@ add_stylesheet('<link rel="stylesheet" href="'.G5_SHOP_SKIN_URL.'/style.css">', 
         if ($i == 0) echo '<ol>';
     ?>
     <li>
-        <section class="sps_img">
+        <div class="sps_img">
         	<div class="sps_img_inner">
 	            <a href="<?php echo $it_href; ?>">
 	                <?php echo get_itemuselist_thumbnail($row['it_id'], $row['is_content'], 100, 100); ?>
@@ -55,9 +55,9 @@ add_stylesheet('<link rel="stylesheet" href="'.G5_SHOP_SKIN_URL.'/style.css">', 
 	            </a>
 	            <button class="prd_detail"><i class="fa fa-camera" aria-hidden="true"></i><span class="sound_only">후기 상세보기</span></button>
 			</div>            
-		</section>
+		</div>
 
-        <section class="sps_section">
+        <div class="sps_section">
         	<span class="sound_only">평가점수</span>
             <span><img src="<?php echo G5_URL; ?>/shop/img/s_star<?php echo $star; ?>.png" alt="별<?php echo $star; ?>개" width="80"></span>
                 
@@ -132,7 +132,7 @@ add_stylesheet('<link rel="stylesheet" href="'.G5_SHOP_SKIN_URL.'/style.css">', 
 	            </div>
 	            <!-- 사용후기 자세히 끝 -->
 	        </div>
-        </section>
+        </div>
     </li>
     <?php }
     if ($i > 0) echo '</ol>';
