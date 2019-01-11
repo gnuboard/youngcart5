@@ -22,13 +22,9 @@ add_stylesheet('<link rel="stylesheet" href="'.$new_skin_url.'/style.css">', 0);
         <option value="c">코멘트만
     </select>
     <label for="mb_id" class="sound_only">검색어<strong class="sound_only"> 필수</strong></label>
-    <?php if ($is_admin) {  // 만약 관리자이면 회원 아이디로 검색 ?>
     <input type="text" name="mb_id" value="<?php echo $mb_id ?>" id="mb_id" required class="frm_input" size="40">
-    <?php } else {      // 일반 회원이거나 비회원이면 회원 닉네임으로 검색 ?>
-    <input type="text" name="mb_nick" value="<?php echo get_text($mb_nick); ?>" id="mb_id" required class="frm_input" size="40">
-    <?php } ?>
     <button type="submit" class="btn_submit"><i class="fa fa-search" aria-hidden="true"></i> 검색</button>
-    <p><?php echo $is_admin ? '회원 아이디만 검색 가능' : '회원 닉네임만 검색 가능'; ?></p>
+    <p>회원 아이디만 검색 가능</p>
     </form>
     <script>
     /* 셀렉트 박스에서 자동 이동 해제
@@ -53,14 +49,22 @@ add_stylesheet('<link rel="stylesheet" href="'.$new_skin_url.'/style.css">', 0);
 <input type="hidden" name="page"     value="<?php echo $page; ?>">
 <input type="hidden" name="pressed"  value="">
 
+<?php if ($is_admin) { ?>
+<div class="admin_new_btn">
+    <button type="submit" onclick="document.pressed=this.title" title="선택삭제" class="btn_b01 btn"><i class="fa fa-trash-o" aria-hidden="true"></i><span class="sound_only">선택삭제</span></button>
+</div>
+<?php } ?>
 <div class="tbl_head01 tbl_wrap">
     <table>
     <thead>
     <tr>
         <?php if ($is_admin) { ?>
-        <th scope="col">
-            <label for="all_chk" class="sound_only">목록 전체</label>
-            <input type="checkbox" id="all_chk">
+        <th scope="col" class="chk_box">
+        	<input type="checkbox" id="all_chk" class="selec_chk">
+            <label for="all_chk">
+            	<span></span>
+				<b class="sound_only">목록 전체</b>
+            </label>
         </th>
         <?php } ?>
         <th scope="col">그룹</th>
@@ -81,9 +85,12 @@ add_stylesheet('<link rel="stylesheet" href="'.$new_skin_url.'/style.css">', 0);
     ?>
     <tr>
         <?php if ($is_admin) { ?>
-        <td class="td_chk">
-            <label for="chk_bn_id_<?php echo $i; ?>" class="sound_only"><?php echo $num?>번</label>
-            <input type="checkbox" name="chk_bn_id[]" value="<?php echo $i; ?>" id="chk_bn_id_<?php echo $i; ?>">
+        <td class="td_chk chk_box">
+            <input type="checkbox" name="chk_bn_id[]" value="<?php echo $i; ?>" id="chk_bn_id_<?php echo $i; ?>" class="selec_chk">
+            <label for="chk_bn_id_<?php echo $i; ?>">
+            	<span></span>
+            	<b class="sound_only"><?php echo $num?>번</b>
+            </label>
             <input type="hidden" name="bo_table[<?php echo $i; ?>]" value="<?php echo $list[$i]['bo_table']; ?>">
             <input type="hidden" name="wr_id[<?php echo $i; ?>]" value="<?php echo $list[$i]['wr_id']; ?>">
         </td>
@@ -103,8 +110,10 @@ add_stylesheet('<link rel="stylesheet" href="'.$new_skin_url.'/style.css">', 0);
     </table>
 </div>
 
+<?php echo $write_pages ?>
+
 <?php if ($is_admin) { ?>
-<div class="sir_bw02 sir_bw">
+<div class="admin_new_btn">
     <button type="submit" onclick="document.pressed=this.title" title="선택삭제" class="btn_b01 btn"><i class="fa fa-trash-o" aria-hidden="true"></i><span class="sound_only">선택삭제</span></button>
 </div>
 <?php } ?>
@@ -143,6 +152,4 @@ function fnew_submit(f)
 }
 </script>
 <?php } ?>
-
-<?php echo $write_pages ?>
 <!-- } 전체게시물 목록 끝 -->
