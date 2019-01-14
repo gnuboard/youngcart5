@@ -120,7 +120,7 @@ input, textarea {
 
 /*사이드 메뉴*/
 #side_menu {height:100%;position:fixed;top:0;right:0;background:#fff;border-left:1px solid #e5e7ea;z-index:120;padding-left:50px;-webkit-box-shadow: 0 1px 5px #d6d6d6;
--moz-box-shadow:0 1px 5px #d6d6d6);
+-moz-box-shadow:0 1px 5px #d6d6d6;
 box-shadow:0 1px 5px #d6d6d6}
 
 #quick {position:absolute;top:50%;left:0;width:50px;margin-top:-157.5px}
@@ -887,7 +887,8 @@ margin-top:-150px;border:1px solid #dde7e9;border-radius:3px;background:#fff;ove
 #sod_addr .td_mng .mng_btn {width:100%;margin:2px 0}
 
 /* 주문내역 */
-#sod_v {}
+#sod_v {margin-bottom:30px}
+#sod_v:after {display:block;visibility:hidden;clear:both;content:''}
 #sod_v td {text-align:center}
 #sod_v td a {font-weight:bold}
 #sod_v .basic_tbl {text-align:center}
