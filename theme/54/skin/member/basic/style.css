@@ -240,7 +240,7 @@
 #memo_view_contents h2 {position:absolute;font-size:0;line-height:0;overflow:hidden}
 #memo_view_ul {margin:0;list-style:none;background:#f6f6f6}
 #memo_view_ul:after {display:block;visibility:hidden;clear:both;content:""}
-.memo_view_li {position:relative;/*padding:10px;float:left;width:50%*/}
+.memo_view_li {position:relative}
 
 .memo_view_li .profile_img img {display:none}
 .memo_from {position:relative;background:#fff;border-bottom:1px solid #ececec;padding:15px 20px}
@@ -251,8 +251,8 @@
 .memo_from li.memo_view_nick a {font-weight:bold !important}
 .memo_from li.memo_view_date {display:block;color:#555;line-height:24px}
 .memo_from li.memo_op_btn {position:absolute}
-.memo_from li.list_btn {right:53px;}
-.memo_from li.del_btn {right:15px;padding}
+.memo_from li.list_btn {right:53px}
+.memo_from li.del_btn {right:15px}
 .memo_from:after {display:block;visibility:hidden;clear:both;content:""}
 
 .memo_btn {width:100%}
