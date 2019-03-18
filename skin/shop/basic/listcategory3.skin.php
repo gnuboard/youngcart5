@@ -13,7 +13,7 @@ while ($row=sql_fetch_array($result)) {
         $sct_ct_here = 'sct_ct_here';
     else
         $sct_ct_here = '';
-    $str .= '<li><a href="./list.php?ca_id='.$row['ca_id'].'" class="'.$sct_ct_here.'">'.$row['ca_name'].'</a></li>';
+    $str .= '<li><a href="'.shop_category_url($row['ca_id']).'" class="'.$sct_ct_here.'">'.$row['ca_name'].'</a></li>';
     $exists = true;
 }
 

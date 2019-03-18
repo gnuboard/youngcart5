@@ -98,7 +98,7 @@ include_once('./_head.php');
                 $continue_ca_id = $row['ca_id'];
             }
 
-            $a1 = '<a href="./item.php?it_id='.$row['it_id'].'" class="prd_name"><b>';
+            $a1 = '<a href="'.shop_item_url($row['it_id']).'" class="prd_name"><b>';
             $a2 = '</b></a>';
             $image = get_it_image($row['it_id'], 80, 80);
 
@@ -142,7 +142,7 @@ include_once('./_head.php');
             </td> 
             
             <td  class="td_prd">
-                <div class="sod_img"><a href="./item.php?it_id=<?php echo $row['it_id']; ?>"><?php echo $image; ?></a></div>
+                <div class="sod_img"><a href="<?php echo shop_item_url($row['it_id']); ?>"><?php echo $image; ?></a></div>
                 <div class="sod_name">
                     <input type="hidden" name="it_id[<?php echo $i; ?>]"    value="<?php echo $row['it_id']; ?>">
                     <input type="hidden" name="it_name[<?php echo $i; ?>]"  value="<?php echo get_text($row['it_name']); ?>">
@@ -209,7 +209,7 @@ include_once('./_head.php');
         <input type="hidden" name="url" value="./orderform.php">
         <input type="hidden" name="records" value="<?php echo $i; ?>">
         <input type="hidden" name="act" value="">
-        <a href="<?php echo G5_SHOP_URL; ?>/list.php?ca_id=<?php echo $continue_ca_id; ?>" class="btn01">쇼핑 계속하기</a>
+        <a href="<?php echo shop_category_url($continue_ca_id); ?>" class="btn01">쇼핑 계속하기</a>
         <button type="button" onclick="return form_check('buy');" class="btn_submit"><i class="fa fa-credit-card" aria-hidden="true"></i> 주문하기</button>
 
         <?php if ($naverpay_button_js) { ?>
