@@ -101,45 +101,42 @@ if($_REQUEST['P_STATUS'] != '00') {
     set_session('P_HASH', $hash);
 }
 
-$g5['title'] = 'KG 이니시스 결제';
-$g5['body_script'] = ' onload="setPAYResult();"';
-include_once(G5_PATH.'/head.sub.php');
+$params = array();
+$exclude = array('res_cd', 'P_HASH', 'P_TYPE', 'P_AUTH_DT', 'P_VACT_BANK', 'P_AUTH_NO');
 
-$exclude = array('res_cd', 'P_HASH', 'P_TYPE', 'P_AUTH_DT', 'P_AUTH_NO', 'P_HPP_CORP', 'P_APPL_NUM', 'P_VACT_NUM', 'P_VACT_NAME', 'P_VACT_BANK', 'P_CARD_ISSUER', 'P_UNAME');
+foreach($data as $key=>$value) {
+    if(!empty($exclude) && in_array($key, $exclude))
+        continue;
 
-echo '<form name="forderform" method="post" action="'.$order_action_url.'" autocomplete="off">'.PHP_EOL;
-
-echo make_order_field($data, $exclude);
-
-echo '<input type="hidden" name="res_cd"        value="'.$PAY['P_STATUS'].'">'.PHP_EOL;
-echo '<input type="hidden" name="P_HASH"        value="'.$hash.'">'.PHP_EOL;
-echo '<input type="hidden" name="P_TYPE"        value="'.$PAY['P_TYPE'].'">'.PHP_EOL;
-echo '<input type="hidden" name="P_AUTH_DT"     value="'.$PAY['P_AUTH_DT'].'">'.PHP_EOL;
-echo '<input type="hidden" name="P_AUTH_NO"     value="'.$PAY['P_AUTH_NO'].'">'.PHP_EOL;
-echo '<input type="hidden" name="P_HPP_CORP"    value="'.$PAY['P_HPP_CORP'].'">'.PHP_EOL;
-echo '<input type="hidden" name="P_APPL_NUM"    value="'.$PAY['P_APPL_NUM'].'">'.PHP_EOL;
-echo '<input type="hidden" name="P_VACT_NUM"    value="'.$PAY['P_VACT_NUM'].'">'.PHP_EOL;
-echo '<input type="hidden" name="P_VACT_NAME"   value="'.iconv_utf8($PAY['P_VACT_NAME']).'">'.PHP_EOL;
-echo '<input type="hidden" name="P_VACT_BANK"   value="'.$BANK_CODE[$PAY['P_VACT_BANK_CODE']].'">'.PHP_EOL;
-echo '<input type="hidden" name="P_CARD_ISSUER" value="'.$CARD_CODE[$PAY['P_CARD_ISSUER_CODE']].'">'.PHP_EOL;
-echo '<input type="hidden" name="P_UNAME"       value="'.iconv_utf8($PAY['P_UNAME']).'">'.PHP_EOL;
-
-echo '</form>'.PHP_EOL;
-?>
-
-<div id="show_progress">
-    <span style="display:block; text-align:center;margin-top:120px"><img src="<?php echo G5_MOBILE_URL; ?>/shop/img/loading.gif" alt=""></span>
-    <span style="display:block; text-align:center;margin-top:10px; font-size:14px">주문완료 중입니다. 잠시만 기다려 주십시오.</span>
-</div>
-
-<script type="text/javascript">
-function setPAYResult() {
-    setTimeout( function() {
-        document.forderform.submit();
-    }, 300);
+    if(is_array($value)) {
+        foreach($value as $k=>$v) {
+            $_POST[$key][$k] = $params[$key][$k] = clean_xss_tags(strip_tags($v));
+        }
+    } else {
+        $_POST[$key] = $params[$key] = clean_xss_tags(strip_tags($value));
+    }
 }
-</script>
 
-<?php
-include_once(G5_PATH.'/tail.sub.php');
+$res_cd = $_POST['res_cd'] = $PAY['P_STATUS'];
+$P_HASH = $_POST['P_HASH'] = $hash;
+$P_TYPE = $_POST['P_TYPE'] = $PAY['P_TYPE'];
+$P_AUTH_DT = $_POST['P_AUTH_DT'] = $PAY['P_AUTH_DT'];
+$P_AUTH_NO = $_POST['P_AUTH_NO'] = $PAY['P_AUTH_NO'];
+$P_HPP_CORP = $_POST['P_HPP_CORP'] = $PAY['P_HPP_CORP'];
+$P_APPL_NUM = $_POST['P_APPL_NUM'] = $PAY['P_APPL_NUM'];
+$P_VACT_NUM = $_POST['P_VACT_NUM'] = $PAY['P_VACT_NUM'];
+$P_VACT_NAME = $_POST['P_VACT_NAME'] = iconv_utf8($PAY['P_VACT_NAME']);
+$P_VACT_BANK = $_POST['P_VACT_BANK'] = $BANK_CODE[$PAY['P_VACT_BANK_CODE']];
+$P_CARD_ISSUER = $_POST['P_CARD_ISSUER'] = $CARD_CODE[$PAY['P_CARD_ISSUER_CODE']];
+$P_UNAME = $_POST['P_UNAME'] = iconv_utf8($PAY['P_UNAME']);
+
+$check_keys = array('od_name', 'od_tel', 'od_pwd', 'od_hp', 'od_zip', 'od_addr1', 'od_addr2', 'od_addr3', 'od_addr_jibeon', 'od_email', 'ad_default', 'ad_subject', 'od_hope_date', 'od_b_name', 'od_b_tel', 'od_b_hp', 'od_b_zip', 'od_b_addr1', 'od_b_addr2', 'od_b_addr3', 'od_b_addr_jibeon', 'od_memo', 'od_settle_case', 'max_temp_point', 'od_temp_point', 'od_send_cost', 'od_send_cost2', 'od_bank_account', 'od_deposit_name', 'od_test', 'od_ip');
+
+foreach($check_keys as $key){
+    $$key = isset($params[$key]) ? $params[$key] : '';
+}
+
+include_once( G5_MSHOP_PATH.'/orderformupdate.php' );
+
+exit;
 ?>
