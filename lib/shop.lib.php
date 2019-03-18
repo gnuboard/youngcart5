@@ -991,14 +991,14 @@ function get_item_options($it_id, $subject, $is_div='')
 
                 if($is_div === 'div') {
                     $str .= '<div class="get_item_options">'.PHP_EOL;
-                    $str .= '<label for="it_option_'.$seq.'">'.$subj[$i].'</label>'.PHP_EOL;
+                    //$str .= '<label for="it_option_'.$seq.'">'.$subj[$i].'</label>'.PHP_EOL;
                 } else {
                     $str .= '<tr>'.PHP_EOL;
-                    $str .= '<th><label for="it_option_'.$seq.'">'.$subj[$i].'</label></th>'.PHP_EOL;
+                    //$str .= '<th><label for="it_option_'.$seq.'">'.$subj[$i].'</label></th>'.PHP_EOL;
                 }
 
                 $select = '<select id="it_option_'.$seq.'" class="it_option"'.$disabled.'>'.PHP_EOL;
-                $select .= '<option value="">선택</option>'.PHP_EOL;
+                $select .= '<option value="">'.$subj[$i].'</option>'.PHP_EOL;
                 for($k=0; $k<$opt_count; $k++) {
                     $opt_val = $opt[$k];
                     if(strlen($opt_val)) {
@@ -1106,14 +1106,14 @@ function get_item_supply($it_id, $subject, $is_div='')
             $seq = $i + 1;
             if($is_div === 'div') {
                 $str .= '<div class="get_item_supply">'.PHP_EOL;
-                $str .= '<label for="it_supply_'.$seq.'">'.$subj[$i].'</label>'.PHP_EOL;
+                //$str .= '<label for="it_supply_'.$seq.'">'.$subj[$i].'</label>'.PHP_EOL;
             } else {
                 $str .= '<tr>'.PHP_EOL;
                 $str .= '<th><label for="it_supply_'.$seq.'">'.$subj[$i].'</label></th>'.PHP_EOL;
             }
 
             $select = '<select id="it_supply_'.$seq.'" class="it_supply">'.PHP_EOL;
-            $select .= '<option value="">선택</option>'.PHP_EOL;
+            $select .= '<option value="">'.$subj[$i].'</option>'.PHP_EOL;
             for($k=0; $k<$opt_count; $k++) {
                 $opt_val = $opt[$k];
                 if($opt_val) {
@@ -1471,7 +1471,7 @@ function item_icon($it)
         $icon .= '<span class="shop_icon shop_icon_3">최신</span>';
 
     if ($it['it_type4'])
-        $icon .= '<span class="shop_icon shop_icon_4">BEST</span>';
+        $icon .= '<span class="shop_icon shop_icon_4">인기</span>';
 
     if ($it['it_type5'])
         $icon .= '<span class="shop_icon shop_icon_5">할인</span>';
@@ -1490,10 +1490,6 @@ function item_icon($it)
     $row = sql_fetch($sql);
     if($row['cnt'])
         $icon .= '<span class="shop_icon shop_icon_coupon">쿠폰</span>';
-
-    // 품절
-    if (is_soldout($it['it_id']))
-        $icon .= '<br><span class="shop_icon_soldout">Sold Out</span>';
 
     $icon .= '</span>';
 

@@ -61,12 +61,12 @@ $.fn.listType = function(type)
             list_height = img_height +2;
 
             $(this).css({
-                paddingTop : list_top_pad+"px",
-                paddingRight: list_right_pad+"px",
-                paddingBottom: list_bottom_pad+"px",
-                paddingLeft: list_left_pad+"px",
+                //paddingTop : list_top_pad+"px",
+                //paddingRight: list_right_pad+"px",
+                //paddingBottom: list_bottom_pad+"px",
+                //paddingLeft: list_left_pad+"px",
                 //width: list_width+"px",
-                height: list_height+"px"
+                //height: list_height+"px"
             });
         });
 
