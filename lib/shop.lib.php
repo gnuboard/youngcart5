@@ -2434,7 +2434,6 @@ function cart_item_clean()
     sql_query($sql);
 }
 
-
 // 임시주문 데이터로 주문 필드 생성
 function make_order_field($data, $exclude)
 {
@@ -2454,6 +2453,47 @@ function make_order_field($data, $exclude)
     }
 
     return $field;
+}
+
+// 주문요청기록 로그를 남깁니다.
+function add_order_post_log($msg='', $code='error'){
+    global $g5, $member;
+    
+    if( empty($_POST) ) return;
+
+    $post_data = base64_encode(serialize($_POST));
+    $od_id = get_session('ss_order_id');
+
+    if( $code === 'delete' ){
+        sql_query(" delete from {$g5['g5_shop_post_log_table']} where (oid = '$od_id' and mb_id = '{$member['mb_id']}') OR ol_datetime < '".date('Y-m-d H:i:s', strtotime('-15 day', G5_SERVER_TIME))."' ", false);
+        return;
+    }
+
+    $sql = "insert into `{$g5['g5_shop_post_log_table']}`
+            set oid = '$od_id',
+            mb_id = '{$member['mb_id']}',
+            post_data = '$post_data',
+            ol_code = '$code',
+            ol_msg = '$msg',
+            ol_datetime = '".G5_TIME_YMDHIS."',
+            ol_ip = '{$_SERVER['REMOTE_ADDR']}'";
+
+    if( $result = sql_query($sql, false) ){
+        sql_query(" delete from {$g5['g5_shop_post_log_table']} where ol_datetime < '".date('Y-m-d H:i:s', strtotime('-15 day', G5_SERVER_TIME))."' ", false);
+    } else {
+        if(!sql_query(" DESC {$g5['g5_shop_post_log_table']} ", false)) {
+            sql_query(" CREATE TABLE IF NOT EXISTS `{$g5['g5_shop_post_log_table']}` (
+                          `oid` bigint(20) unsigned NOT NULL,
+                          `mb_id` varchar(255) NOT NULL DEFAULT '',
+                          `post_data` text NOT NULL,
+                          `ol_code` varchar(255) NOT NULL DEFAULT '',
+                          `ol_msg` varchar(255) NOT NULL DEFAULT '',
+                          `ol_datetime` datetime NOT NULL DEFAULT '0000-00-00 00:00:00',
+                          `ol_ip` varchar(25) NOT NULL DEFAULT '',
+                          PRIMARY KEY (`oid`)
+                        ) ENGINE=MyISAM DEFAULT CHARSET=utf8; ", false);
+        }
+    }
 }
 
 //이니시스의 삼성페이 또는 L.pay 결제가 활성화 되어 있는지 체크합니다.
