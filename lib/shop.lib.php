@@ -254,6 +254,8 @@ class item_list
     function run() {
 
         global $g5, $config, $member, $default;
+        
+        $list = array();
 
         if ($this->query) {
 
@@ -309,7 +311,21 @@ class item_list
                 $row2 = sql_fetch($sql2);
                 $this->total_count = $row2['cnt'];
             }
+        }
 
+        if( isset($result) && $result ){
+            while ($row=sql_fetch_array($result)) {
+                
+                if( isset($row['it_seo_title']) && ! $row['it_seo_title'] ){
+                    shop_seo_title_update($row['it_id']);
+                }
+
+                $list[] = $row;
+            }
+
+            if(function_exists('sql_data_seek')){
+                sql_data_seek($result, 0);
+            }
         }
 
         $file = $this->list_skin;
@@ -328,7 +344,6 @@ class item_list
         }
     }
 }
-
 
 // 장바구니 건수 검사
 function get_cart_count($cart_id)
@@ -389,8 +404,7 @@ function get_it_image($it_id, $width, $height=0, $anchor=false, $img_id='', $img
     if(!$it_id || !$width)
         return '';
 
-    $sql = " select it_id, it_img1, it_img2, it_img3, it_img4, it_img5, it_img6, it_img7, it_img8, it_img9, it_img10 from {$g5['g5_shop_item_table']} where it_id = '$it_id' ";
-    $row = sql_fetch($sql);
+    $row = get_shop_item($it_id, true);
 
     if(!$row['it_id'])
         return '';
@@ -435,7 +449,7 @@ function get_it_image($it_id, $width, $height=0, $anchor=false, $img_id='', $img
     $img .= '>';
 
     if($anchor)
-        $img = '<a href="'.G5_SHOP_URL.'/item.php?it_id='.$it_id.'">'.$img.'</a>';
+        $img = $img = '<a href="'.shop_item_url($it_id).'">'.$img.'</a>';
 
     return $img;
 }
@@ -977,14 +991,14 @@ function get_item_options($it_id, $subject, $is_div='')
 
                 if($is_div === 'div') {
                     $str .= '<div class="get_item_options">'.PHP_EOL;
-                    $str .= '<label for="it_option_'.$seq.'">'.$subj[$i].'</label>'.PHP_EOL;
+                    //$str .= '<label for="it_option_'.$seq.'">'.$subj[$i].'</label>'.PHP_EOL;
                 } else {
                     $str .= '<tr>'.PHP_EOL;
-                    $str .= '<th><label for="it_option_'.$seq.'">'.$subj[$i].'</label></th>'.PHP_EOL;
+                    //$str .= '<th><label for="it_option_'.$seq.'">'.$subj[$i].'</label></th>'.PHP_EOL;
                 }
 
                 $select = '<select id="it_option_'.$seq.'" class="it_option"'.$disabled.'>'.PHP_EOL;
-                $select .= '<option value="">선택</option>'.PHP_EOL;
+                $select .= '<option value="">'.$subj[$i].'</option>'.PHP_EOL;
                 for($k=0; $k<$opt_count; $k++) {
                     $opt_val = $opt[$k];
                     if(strlen($opt_val)) {
@@ -1092,14 +1106,14 @@ function get_item_supply($it_id, $subject, $is_div='')
             $seq = $i + 1;
             if($is_div === 'div') {
                 $str .= '<div class="get_item_supply">'.PHP_EOL;
-                $str .= '<label for="it_supply_'.$seq.'">'.$subj[$i].'</label>'.PHP_EOL;
+                //$str .= '<label for="it_supply_'.$seq.'">'.$subj[$i].'</label>'.PHP_EOL;
             } else {
                 $str .= '<tr>'.PHP_EOL;
                 $str .= '<th><label for="it_supply_'.$seq.'">'.$subj[$i].'</label></th>'.PHP_EOL;
             }
 
             $select = '<select id="it_supply_'.$seq.'" class="it_supply">'.PHP_EOL;
-            $select .= '<option value="">선택</option>'.PHP_EOL;
+            $select .= '<option value="">'.$subj[$i].'</option>'.PHP_EOL;
             for($k=0; $k<$opt_count; $k++) {
                 $opt_val = $opt[$k];
                 if($opt_val) {
@@ -1430,7 +1444,7 @@ function relation_item($it_id, $width, $height, $rows=3)
 
         $img = get_it_image($row['it_id'], $width, $height);
 
-        $str .= '<li class="sct_rel_li"><a href="'.G5_SHOP_URL.'/item.php?it_id='.$row['it_id'].'" class="sct_rel_a">'.$img.'</a></li>';
+        $str .= '<li class="sct_rel_li"><a href="'.get_pretty_url('shop', $row['it_id']).'" class="sct_rel_a">'.$img.'</a></li>';
     }
 
     if($i > 0)
@@ -1457,7 +1471,7 @@ function item_icon($it)
         $icon .= '<span class="shop_icon shop_icon_3">최신</span>';
 
     if ($it['it_type4'])
-        $icon .= '<span class="shop_icon shop_icon_4">BEST</span>';
+        $icon .= '<span class="shop_icon shop_icon_4">인기</span>';
 
     if ($it['it_type5'])
         $icon .= '<span class="shop_icon shop_icon_5">할인</span>';
@@ -1476,10 +1490,6 @@ function item_icon($it)
     $row = sql_fetch($sql);
     if($row['cnt'])
         $icon .= '<span class="shop_icon shop_icon_coupon">쿠폰</span>';
-
-    // 품절
-    if (is_soldout($it['it_id']))
-        $icon .= '<br><span class="shop_icon_soldout">Sold Out</span>';
 
     $icon .= '</span>';
 
