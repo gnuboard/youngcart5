@@ -27,16 +27,15 @@ add_stylesheet('<link rel="stylesheet" href="'.G5_SHOP_CSS_URL.'/style.css">', 0
 
         switch($row['cp_method']) {
             case '0':
-                $sql3 = " select it_id, it_name from {$g5['g5_shop_item_table']} where it_id = '{$row['cp_target']}' ";
-                $row3 = sql_fetch($sql3);
+                $row3 = get_shop_item($row['cp_target'], true);
 				$cp_target = '개별상품할인';
-                $cp_link ='<a href="./item.php?it_id='.$row3['it_id'].'">'.get_text($row3['it_name']).'</a>';
+                $cp_link ='<a href="'.shop_item_url($row3['it_id']).'">'.get_text($row3['it_name']).'</a>';
                 break;
             case '1':
                 $sql3 = " select ca_id, ca_name from {$g5['g5_shop_category_table']} where ca_id = '{$row['cp_target']}' ";
                 $row3 = sql_fetch($sql3);
                 $cp_target = '카테고리할인';
-                $cp_link = '<a href="./list.php?ca_id='.$row3['ca_id'].'">'.get_text($row3['ca_name']).'</a>';
+                $cp_link = '<a href="'.shop_category_url($row3['ca_id']).'">'.get_text($row3['ca_name']).'</a>';
                 break;
             case '2':
                 $cp_target = '주문금액할인';
@@ -108,8 +107,7 @@ add_stylesheet('<link rel="stylesheet" href="'.G5_SHOP_CSS_URL.'/style.css">', 0
 
         switch($row['cp_method']) {
             case '0':
-                $sql3 = " select it_id, it_name from {$g5['g5_shop_item_table']} where it_id = '{$row['cp_target']}' ";
-                $row3 = sql_fetch($sql3);
+                $row3 = get_shop_item($row['cp_target'], true);
 				$cp_link = '<a href="./item.php?it_id='.$row3['it_id'].'">'.get_text($row3['it_name']).'</a>';
                 $cp_target = '개별상품할인';
                 break;

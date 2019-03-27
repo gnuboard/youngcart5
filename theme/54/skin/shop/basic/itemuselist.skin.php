@@ -41,8 +41,8 @@ add_stylesheet('<link rel="stylesheet" href="'.G5_SHOP_SKIN_URL.'/style.css">', 
 
         $is_content = get_view_thumbnail(conv_content($row['is_content'], 1), $thumbnail_width);
 
-        $row2 = sql_fetch(" select it_name from {$g5['g5_shop_item_table']} where it_id = '{$row['it_id']}' ");
-        $it_href = G5_SHOP_URL."/item.php?it_id={$row['it_id']}";
+        $row2 = get_shop_item($row['it_id'], true);
+        $it_href = shop_item_url($row['it_id']);
 
         if ($i == 0) echo '<ol>';
     ?>
@@ -50,7 +50,7 @@ add_stylesheet('<link rel="stylesheet" href="'.G5_SHOP_SKIN_URL.'/style.css">', 
         <div class="sps_img">
         	<div class="sps_img_inner">
 	            <a href="<?php echo $it_href; ?>">
-	                <?php echo get_itemuselist_thumbnail($row['it_id'], $row['is_content'], 100, 100); ?>
+	                <?php echo get_it_image($row['it_id'], 100, 100); ?>
 	                <span><?php echo $row2['it_name']; ?></span>
 	            </a>
 	            <button class="prd_detail"><i class="fa fa-camera" aria-hidden="true"></i><span class="sound_only">후기 상세보기</span></button>
@@ -61,9 +61,9 @@ add_stylesheet('<link rel="stylesheet" href="'.G5_SHOP_SKIN_URL.'/style.css">', 
         	<span class="sound_only">평가점수</span>
             <span><img src="<?php echo G5_URL; ?>/shop/img/s_star<?php echo $star; ?>.png" alt="별<?php echo $star; ?>개" width="80"></span>
                 
-            <span class="sps_pd_name">상품명</span>
+            <span class="sps_pd_name"><?php echo get_text($row2['it_name']); ?></span>
             <span class="sps_rv_tit"><?php echo get_text($row['is_subject']); ?></span>
-            <span class="sps_rv_thum"><?php echo get_itemuselist_thumbnail($row['it_id'], $row['is_content'], 60, 60); ?></span>
+            <span class="sps_rv_thum"><?php echo get_itemuse_thumb($row['is_content'], 60, 60); ?></span>
 
 	        <div class="sps_con_btn">
 	        	<dl class="sps_dl">
@@ -88,15 +88,10 @@ add_stylesheet('<link rel="stylesheet" href="'.G5_SHOP_SKIN_URL.'/style.css">', 
 					                <dt class="sound_only">작성일</dt>
 					                <dd><i class="fa fa-clock-o" aria-hidden="true"></i> <?php echo substr($row['is_time'],0,10); ?></dd>
 					            </dl>
-		            			<button class="sps_opt_btn_more"><span class="sound_only">글쓰기 옵션 더보기</span><i class="fa fa-ellipsis-v" aria-hidden="true"></i></button>
-		            			<ul class="sps_opt_li">
-		            				<li>수정</li>
-		            				<li>삭제</li>
-		            			</ul>
 	            			</div>
 	            			<div class="review_summ">
 	            				<?php echo get_itemuselist_thumbnail($row['it_id'], $row['is_content'], 50, 50); ?>
-	            				<span>상품명입니다.</span>
+	            				<span><?php echo get_text($row2['it_name']); ?></span>
 	            				<span class="sound_only">평가점수</span><img src="<?php echo G5_URL; ?>/shop/img/s_star<?php echo $star; ?>.png" alt="별<?php echo $star; ?>개" width="80">
 	            			</div>
 	            			
@@ -156,11 +151,6 @@ $(function(){
         container.hide();
     });
 });
-
-// 후기 상세 글쓰기 옵션
-$(".sps_opt_btn_more").on("click", function() {
-    $(".sps_opt_li").toggle();
-})
 
 // 후기 상세 글쓰기 닫기
 $('.rd_cls').click(function(){

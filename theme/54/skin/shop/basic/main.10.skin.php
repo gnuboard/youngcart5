@@ -7,7 +7,15 @@ add_stylesheet('<link rel="stylesheet" href="'.G5_SHOP_SKIN_URL.'/style.css">', 
 
 <!-- 상품진열 10 시작 { -->
 <?php
-for ($i=1; $row=sql_fetch_array($result); $i++) {
+$i=0;
+foreach((array) $list as $row){
+
+    if( empty($row) ) continue;
+    $i++;
+
+    $item_link_href = shop_item_url($row['it_id']);
+    $star_score = $row['it_use_avg'] ? (int) get_star($row['it_use_avg']) : '';
+
     if ($this->list_mod >= 2) { // 1줄 이미지 : 2개 이상
         if ($i%$this->list_mod == 0) $sct_last = 'sct_last'; // 줄 마지막
         else if ($i%$this->list_mod == 1) $sct_last = 'sct_clear'; // 줄 첫번째
@@ -15,7 +23,7 @@ for ($i=1; $row=sql_fetch_array($result); $i++) {
     } else { // 1줄 이미지 : 1개
         $sct_last = 'sct_clear';
     }
-
+    
     if ($i == 1) {
         if ($this->css) {
             echo "<ul class=\"{$this->css}\">\n";
@@ -29,7 +37,7 @@ for ($i=1; $row=sql_fetch_array($result); $i++) {
     echo "<div class=\"sct_img\">\n";
 
     if ($this->href) {
-        echo "<a href=\"{$this->href}{$row['it_id']}\">\n";
+        echo "<a href=\"{$item_link_href}\">\n";
     }
 
     if ($this->view_it_img) {
@@ -46,13 +54,13 @@ for ($i=1; $row=sql_fetch_array($result); $i++) {
         echo "<div class=\"sct_id\">&lt;".stripslashes($row['it_id'])."&gt;</div>\n";
     }
 	
-	//별점
-	if ($this->href) {
-        echo "<div class=\"sct_star\"><img src=\"\" alt=\"별점 4점\"></div>\n";
+	// 사용후기 평점표시
+	if ($this->view_star && $star_score) {
+        echo "<div class=\"sct_star\"><img src=\"".G5_SHOP_URL."/img/s_star".$star_score.".png\" alt=\"별점 ".$star_score."점\"></div>\n";
     }
 	
     if ($this->href) {
-        echo "<div class=\"sct_txt\"><a href=\"{$this->href}{$row['it_id']}\">\n";
+        echo "<div class=\"sct_txt\"><a href=\"{$item_link_href}\">\n";
     }
 
     if ($this->view_it_name) {

@@ -116,59 +116,64 @@ for($k=0; $cp=sql_fetch_array($res); $k++) {
 	    <!-- 최근 위시리스트 시작 { -->
 	    <section id="smb_my_wish">
 	        <h2>최근 위시리스트</h2>
-            <ul>
-            <?php
-            $sql = " select *
-                       from {$g5['g5_shop_wish_table']} a,
-                            {$g5['g5_shop_item_table']} b
-                      where a.mb_id = '{$member['mb_id']}'
-                        and a.it_id  = b.it_id
-                      order by a.wi_id desc
-                      limit 0, 8 ";
-            $result = sql_query($sql);
-            for ($i=0; $row = sql_fetch_array($result); $i++)
-            {
-                $image = get_it_image($row['it_id'], 100, 100, true);
-            ?>
+            <form name="fwishlist" method="post" action="./cartupdate.php">
+            <input type="hidden" name="act" value="multi">
+            <input type="hidden" name="sw_direct" value="">
+            <input type="hidden" name="prog" value="wish">
+                <ul>
+                <?php
+                $sql = " select *
+                           from {$g5['g5_shop_wish_table']} a,
+                                {$g5['g5_shop_item_table']} b
+                          where a.mb_id = '{$member['mb_id']}'
+                            and a.it_id  = b.it_id
+                          order by a.wi_id desc
+                          limit 0, 8 ";
+                $result = sql_query($sql);
+                for ($i=0; $row = sql_fetch_array($result); $i++)
+                {
+                    $image = get_it_image($row['it_id'], 100, 100, true);
+                ?>
 
-            <li>
-            	<div class="smb_my_chk">
-                    <?php if(is_soldout($row['it_id'])) { //품절검사 ?> 품절
-                    <?php } else { //품절이 아니면 체크할수 있도록한다 ?>
-                    <div class="chk_box">
-                    	<input type="checkbox" name="chk_it_id[<?php echo $i; ?>]" value="1" id="chk_it_id_<?php echo $i; ?>" onclick="out_cd_check(this, '<?php echo $out_cd; ?>');" class="selec_chk">
-                    	<label for="chk_it_id_<?php echo $i; ?>"><span></span><b class="sound_only"><?php echo $row['it_name']; ?></b></label>
+                <li>
+                    <div class="smb_my_chk">
+                        <?php if(is_soldout($row['it_id'])) { //품절검사 ?> 품절
+                        <?php } else { //품절이 아니면 체크할수 있도록한다 ?>
+                        <div class="chk_box">
+                            <input type="checkbox" name="chk_it_id[<?php echo $i; ?>]" value="1" id="chk_it_id_<?php echo $i; ?>" onclick="out_cd_check(this, '<?php echo $out_cd; ?>');" class="selec_chk">
+                            <label for="chk_it_id_<?php echo $i; ?>"><span></span><b class="sound_only"><?php echo $row['it_name']; ?></b></label>
+                        </div>
+                        <?php } ?>
+                        <input type="hidden" name="it_id[<?php echo $i; ?>]" value="<?php echo $row['it_id']; ?>">
+                        <input type="hidden" name="io_type[<?php echo $row['it_id']; ?>][0]" value="0">
+                        <input type="hidden" name="io_id[<?php echo $row['it_id']; ?>][0]" value="">
+                        <input type="hidden" name="io_value[<?php echo $row['it_id']; ?>][0]" value="<?php echo $row['it_name']; ?>">
+                        <input type="hidden" name="ct_qty[<?php echo $row['it_id']; ?>][0]" value="1">
                     </div>
-                    <?php } ?>
-                    <input type="hidden" name="it_id[<?php echo $i; ?>]" value="<?php echo $row['it_id']; ?>">
-                    <input type="hidden" name="io_type[<?php echo $row['it_id']; ?>][0]" value="0">
-                    <input type="hidden" name="io_id[<?php echo $row['it_id']; ?>][0]" value="">
-                    <input type="hidden" name="io_value[<?php echo $row['it_id']; ?>][0]" value="<?php echo $row['it_name']; ?>">
-                    <input type="hidden" name="ct_qty[<?php echo $row['it_id']; ?>][0]" value="1">
+                    <div class="smb_my_img"><?php echo $image; ?></div>
+                    <div class="smb_my_tit"><a href="./item.php?it_id=<?php echo $row['it_id']; ?>"><?php echo stripslashes($row['it_name']); ?></a></div>
+                    <div class="smb_my_price">500,000</div>
+                    <div class="smb_my_date"><?php echo $row['wi_time']; ?></div>
+                    <a href="./wishupdate.php?w=d&amp;wi_id=<?php echo $row['wi_id']; ?>" class="wish_del"><i class="fa fa-trash" aria-hidden="true"></i><span class="sound_only">삭제</span></a>
+                </li>
+
+                <?php
+                }
+
+                if ($i == 0)
+                    echo '<li class="empty_li">보관 내역이 없습니다.</li>';
+                ?>
+                </ul>
+        
+                <div class="smb_my_more">
+                    <a href="./wishlist.php">더보기</a>
                 </div>
-                <div class="smb_my_img"><?php echo $image; ?></div>
-                <div class="smb_my_tit"><a href="./item.php?it_id=<?php echo $row['it_id']; ?>"><?php echo stripslashes($row['it_name']); ?></a></div>
-                <div class="smb_my_price">500,000</div>
-                <div class="smb_my_date"><?php echo $row['wi_time']; ?></div>
-                <a href="./wishupdate.php?w=d&amp;wi_id=<?php echo $row['wi_id']; ?>" class="wish_del"><i class="fa fa-trash" aria-hidden="true"></i><span class="sound_only">삭제</span></a>
-            </li>
-
-            <?php
-            }
-
-            if ($i == 0)
-                echo '<li class="empty_li">보관 내역이 없습니다.</li>';
-            ?>
-            </ul>
-	
-	        <div class="smb_my_more">
-	            <a href="./wishlist.php">더보기</a>
-	        </div>
-	        
-	        <div id="smb_ws_act">
-		        <button type="submit" class="btn01" onclick="return fwishlist_check(document.fwishlist,'');">장바구니</button>
-		        <button type="submit" class="btn02" onclick="return fwishlist_check(document.fwishlist,'direct_buy');">주문하기</button>
-		    </div>
+                
+                <div id="smb_ws_act">
+                    <button type="submit" class="btn01" onclick="return fwishlist_check(document.fwishlist,'');">장바구니</button>
+                    <button type="submit" class="btn02" onclick="return fwishlist_check(document.fwishlist,'direct_buy');">주문하기</button>
+                </div>
+            </form>
 	    </section>
 	    <!-- } 최근 위시리스트 끝 -->
 	</div>
@@ -186,6 +191,50 @@ $(function() {
 function member_leave()
 {
     return confirm('정말 회원에서 탈퇴 하시겠습니까?')
+}
+
+function out_cd_check(fld, out_cd)
+{
+    if (out_cd == 'no'){
+        alert("옵션이 있는 상품입니다.\n\n상품을 클릭하여 상품페이지에서 옵션을 선택한 후 주문하십시오.");
+        fld.checked = false;
+        return;
+    }
+
+    if (out_cd == 'tel_inq'){
+        alert("이 상품은 전화로 문의해 주십시오.\n\n장바구니에 담아 구입하실 수 없습니다.");
+        fld.checked = false;
+        return;
+    }
+}
+
+function fwishlist_check(f, act)
+{
+    var k = 0;
+    var length = f.elements.length;
+
+    for(i=0; i<length; i++) {
+        if (f.elements[i].checked) {
+            k++;
+        }
+    }
+
+    if(k == 0)
+    {
+        alert("상품을 하나 이상 체크 하십시오");
+        return false;
+    }
+
+    if (act == "direct_buy")
+    {
+        f.sw_direct.value = 1;
+    }
+    else
+    {
+        f.sw_direct.value = 0;
+    }
+
+    return true;
 }
 </script>
 <!-- } 마이페이지 끝 -->

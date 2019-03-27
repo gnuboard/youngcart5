@@ -69,19 +69,19 @@
 /* 메인배너 */
 #main_bn {border:1px solid #e3e5e8;position:relative;margin:20px 0 40px}
 #main_bn:after {display:block;visibility:hidden;clear:both;content:""}
-#main_bn .slide-wrap {display:none;padding:0;margin:0}
+#main_bn .slide-wrap {padding:0;margin:0}
 #main_bn .slide-wrap img {max-width:100%;height:auto}
-#main_bn .bx-controls {display:none}
-#main_bn #bx_pager {background:#fff;border-top:1px solid #e3e5e8}
-#main_bn #bx_pager ul:after {display:block;visibility:hidden;clear:both;content:""}
-#main_bn #bx_pager li {float:left;position:relative;width:20%;border-left:1px solid #e3e5e8;text-align:center;line-height:45px;font-size:1.2em}
-#main_bn #bx_pager li:first-child {border-left:0}
-#main_bn #bx_pager li a {display:block}
-#main_bn #bx_pager li a:after {content:"";position:absolute;top:0;left:0;width:100%;height:2px;background:#e3e5e8}
-#main_bn #bx_pager li a.active {color:#3a8afd}
-#main_bn #bx_pager li a.active:after {background:#3a8afd;top:-1px}
+#main_bn .owl_pager {background:#fff;border-top:1px solid #e3e5e8}
+#main_bn .owl_pager ul:after {display:block;visibility:hidden;clear:both;content:""}
+#main_bn .owl_pager li {float:left;position:relative;width:20%;border-left:1px solid #e3e5e8;text-align:center;line-height:45px;font-size:1.2em}
+#main_bn .owl_pager li:first-child {border-left:0}
+#main_bn .owl_pager li a {display:block}
+#main_bn .owl_pager li a:after {content:"";position:absolute;top:0;left:0;width:100%;height:2px;background:#e3e5e8}
+#main_bn .owl_pager li.active a {color:#3a8afd}
+#main_bn .owl_pager li.active a:after {background:#3a8afd;top:-1px}
 
 .btn_wr {background:rgba(0,0,0,0.5);display:inline-block;position:absolute;right:20px;bottom:65px;border-radius:30px;padding:3px 5px}
+#main_bn .btn_wr{z-index:2}
 .btn_wr .pager-prev {margin-left:5px;font-weight:bold}
 .btn_wr .pager-next {margin-right:5px;font-weight:bold}
 .btn_wr .pager-prev, .btn_wr .pager-next, #slide-counter {float:left;display:inline-block;padding:5px;color:#fff}
@@ -302,6 +302,7 @@
 .smt_10 .sct_img a {display:block}
 .smt_10 .sct_cart {display:none;position:absolute;left:0;bottom:0;border:0;width:100%;padding:15px 0;background:#000;background:rgba(0,0,0,0.5);color:#fff;font-size:1em;font-weight:bold}
 .smt_10 .sct_img:hover .sct_cart {display:block}
+.smt_10 .sct_li.overlay .sct_cart{display:none !important}
 .smt_10 .sct_cart i {display:inline-block;margin-right:5px;font-size:1.2em}
 .smt_10 .sct_disc {position:absolute;right:15px;bottom:15px;background:red;color:#fff;padding:0 8px;line-height:24px;font-weight:bold;font-size:1.2em;background:#000;background:rgba(0,0,0,0.5)}
 
