@@ -234,6 +234,9 @@ jQuery(function ($){
         if( isset($it_id) && isset($it) && isset($it['it_id']) && $it_id === $it['it_id']){
             $container_class[] = 'is_item';
         }
+        if( defined('IS_SHOP_SEARCH') && IS_SHOP_SEARCH ){
+            $container_class[] = 'is_search';
+        }
     ?>
     <div id="container" class="<?php echo implode(' ', $container_class);?>">
         <?php if ((!$bo_table || $w == 's' ) && !defined('_INDEX_')) { ?><div id="wrapper_title"><?php echo $g5['title'] ?></div><?php } ?>

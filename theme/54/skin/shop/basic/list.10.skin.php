@@ -12,7 +12,7 @@ add_javascript('<script src="'.G5_THEME_JS_URL.'/jquery.shop.list.js"></script>'
 <?php
 $i = 0;
 
-$this->view_star = true;    // 별점을 강제로 출력
+$this->view_star = (method_exists($this, 'view_star')) ? $this->view_star : true;
 
 foreach((array) $list as $row){
     if( empty($row) ) continue;

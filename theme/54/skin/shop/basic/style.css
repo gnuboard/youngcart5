@@ -486,7 +486,7 @@
 .sit_admin a {line-height:35px;padding:0 10px}
 .sit_empty {padding:60px 0;text-align:center}
 
-.is_item #wrapper_title{display:none}
+.is_search #wrapper_title, .is_item #wrapper_title{display:none}
 
 /* 상품 상세보기 - 개요 */
 #sit_ov_from {background:#fff;border-bottom:1px solid #e3e3e3;clear:both}
@@ -916,7 +916,7 @@ box-shadow:0px 1px 6px 0 #dedede
 }
 .couponzone_list ul li .coupon_img {position:relative;height:98px;overflow:hidden;border-bottom:1px dashed #ccc}
 .couponzone_list ul li .coupon_tit {position:absolute;top:0;left:0;width:100%;height:98px;padding-top:30px;text-align:center;font-weight:bold;text-overflow:ellipsis;overflow:hidden;white-space:nowrap}
-.couponzone_list ul li .coupon_tit span {display:inline-block}
+.couponzone_list ul li .coupon_tit strong {display:inline-block;font-size:1.3em}
 .couponzone_list ul li .coupon_tit .cp_evt,
 .couponzone_list ul li .coupon_tit .cp_evt b {font-size:1.4em}
 .couponzone_list ul li .cp_cnt {padding:10px}
