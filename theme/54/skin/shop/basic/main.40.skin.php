@@ -67,7 +67,7 @@ foreach((array) $list as $row){
 
 	// 사용후기 평점표시
 	if ($this->view_star && $star_score) {
-        echo "<div class=\"sct_star\"><span class=\"sound_only\">고객평점</span><img src=\"".G5_SHOP_URL."/img/s_star".$star_score.".png\" alt=\"별점 ".$star_score."점\"></div>\n";
+        echo "<div class=\"sct_star\"><span class=\"sound_only\">고객평점</span><img src=\"".G5_SHOP_URL."/img/s_star".$star_score.".png\" alt=\"별점 ".$star_score."점\" class=\"sit_star\"></div>\n";
     }
 	
     if ($this->view_it_id) {

@@ -5,9 +5,7 @@ if (!defined("_GNUBOARD_")) exit; // 개별 페이지 접근 불가
 add_stylesheet('<link rel="stylesheet" href="'.G5_SHOP_SKIN_URL.'/style.css">', 0);
 add_javascript('<script src="'.G5_JS_URL.'/owlcarousel/owl.carousel.min.js"></script>', 10);
 add_stylesheet('<link rel="stylesheet" href="'.G5_JS_URL.'/owlcarousel/owl.carousel.min.css">', 10);
-?>
 
-<?php
 $max_width = $max_height = 0;
 $bn_first_class = ' class="bn_first"';
 $bn_slide_btn = '';
@@ -107,6 +105,7 @@ jQuery(function($){
         autoHeight:true,
         autoplay:true,
         autoplayTimeout:5000,   // 5000은 5초
+        autoplayHoverPause:true,
         dotsContainer: '.carousel-custom-dots',
         onChanged:function(event){
             owl_show_page(event);
@@ -116,7 +115,6 @@ jQuery(function($){
     // Custom Navigation Events
     $(document).on("click", ".carousel-custom-dots a", function(e){
         e.preventDefault();
-        
         owl.trigger('to.owl.carousel', [$(this).parent().index(), 300]);
     });
 
@@ -127,10 +125,8 @@ jQuery(function($){
 
     $(document).on("click", ".btn_wr .pager-prev", function(e){
         e.preventDefault();
-
-        console.log( this );
         owl.trigger('prev.owl.carousel');
-    })
+    });
 });
 </script>
 <?php

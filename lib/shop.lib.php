@@ -1917,13 +1917,21 @@ function is_used_coupon($mb_id, $cp_id)
 }
 
 // 품절상품인지 체크
-function is_soldout($it_id)
+function is_soldout($it_id, $is_cache=false)
 {
     global $g5;
 
+    static $cache = array();
+
+    $it_id = preg_replace('/[^a-z0-9_]/i', '', $it_id);
+    $key = md5($it_id);
+
+    if( $is_cache && isset($cache[$key]) ){
+        return $cache[$key];
+    }
+
     // 상품정보
-    $sql = " select it_soldout, it_stock_qty from {$g5['g5_shop_item_table']} where it_id = '$it_id' ";
-    $it = sql_fetch($sql);
+    $it = get_shop_item($it_id, $is_cache);
 
     if($it['it_soldout'] || $it['it_stock_qty'] <= 0)
         return true;
@@ -1961,6 +1969,8 @@ function is_soldout($it_id)
         if($stock_qty <= 0)
             $soldout = true;
     }
+    
+    $cache[$key] = $soldout;
 
     return $soldout;
 }

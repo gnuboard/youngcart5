@@ -18,8 +18,15 @@ add_stylesheet('<link rel="stylesheet" href="'.G5_MSHOP_SKIN_URL.'/style.css">',
 <?php
 $li_width = intval(100 / $this->list_mod);
 $li_width_style = ' style="width:'.$li_width.'%;"';
+$i=0;
 
-for ($i=0; $row=sql_fetch_array($result); $i++) {
+foreach((array) $list as $row){
+
+    if( empty($row) ) continue;
+
+    $item_link_href = shop_item_url($row['it_id']);
+    $star_score = $row['it_use_avg'] ? (int) get_star($row['it_use_avg']) : '';
+
     if ($i == 0) {
         if ($this->css) {
             echo "<ul class=\"{$this->css}\">\n";
@@ -35,7 +42,7 @@ for ($i=0; $row=sql_fetch_array($result); $i++) {
     echo "<li class=\"sct_li{$li_clear}\"$li_width_style><div class=\"li_wr is_view_type_list\">\n";
 
     if ($this->href) {
-        echo "<div class=\"sct_img\"><a href=\"{$this->href}{$row['it_id']}\">\n";
+        echo "<div class=\"sct_img\"><a href=\"{$item_link_href}\">\n";
     }
 
     if ($this->view_it_img) {
@@ -46,9 +53,9 @@ for ($i=0; $row=sql_fetch_array($result); $i++) {
         echo "</a></div>\n";
     }
 
-   //별점
-    if ($this->href) {
-        echo "<div class=\"sct_star\"><img src=\"\" alt=\"별점 4점\"></div>\n";
+	// 사용후기 평점표시
+	if ($this->view_star && $star_score) {
+        echo "<div class=\"sct_star\"><img src=\"".G5_SHOP_URL."/img/s_star".$star_score.".png\" alt=\"별점 ".$star_score."점\" class=\"sit_star\"></div>\n";
     }
 
     if ($this->view_it_id) {
@@ -85,7 +92,7 @@ for ($i=0; $row=sql_fetch_array($result); $i++) {
         echo "<div class=\"sct_sns_wrap\">";
         if ($this->view_sns) {
             $sns_top = $this->img_height + 10;
-            $sns_url  = get_pretty_url('shop', $row['it_id']);
+            $sns_url  = $item_link_href;
             $sns_title = get_text($row['it_name']).' | '.get_text($config['cf_title']);
             echo "<div class=\"sct_sns\">";
             echo "<h3>SNS 공유</h3>";
@@ -106,6 +113,8 @@ for ($i=0; $row=sql_fetch_array($result); $i++) {
         echo "<div class=\"sct_icon\">".item_icon($row)."</div>\n";
     }
     echo "</li>\n";
+
+    $i++;
 }
 
 if ($i > 0) echo "</ul>\n";

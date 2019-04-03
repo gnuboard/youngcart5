@@ -69,6 +69,7 @@ $(function(){
     $list->set_view('it_price', true);
     $list->set_view('it_icon', true);
     $list->set_view('sns', true);
+    $list->set_view('star', true);
     echo $list->run();
     ?>
 </section>
@@ -91,6 +92,7 @@ $(function(){
     $list->set_view('it_price', true);
     $list->set_view('it_icon', true);
     $list->set_view('sns', true);
+    $list->set_view('star', true);
     echo $list->run();
     ?>
 </section>
@@ -115,6 +117,7 @@ $(function(){
     $list->set_view('it_price', true);
     $list->set_view('it_icon', true);
     $list->set_view('sns', true);
+    $list->set_view('star', true);
     echo $list->run();
     ?>
 </section>

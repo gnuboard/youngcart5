@@ -151,8 +151,8 @@ for($k=0; $cp=sql_fetch_array($res); $k++) {
                         <input type="hidden" name="ct_qty[<?php echo $row['it_id']; ?>][0]" value="1">
                     </div>
                     <div class="smb_my_img"><?php echo $image; ?></div>
-                    <div class="smb_my_tit"><a href="./item.php?it_id=<?php echo $row['it_id']; ?>"><?php echo stripslashes($row['it_name']); ?></a></div>
-                    <div class="smb_my_price">500,000</div>
+                    <div class="smb_my_tit"><a href="<?php echo shop_item_url($row['it_id']); ?>"><?php echo stripslashes($row['it_name']); ?></a></div>
+                    <div class="smb_my_price"><?php echo display_price(get_price($row), $row['it_tel_inq']); ?></div>
                     <div class="smb_my_date"><?php echo $row['wi_time']; ?></div>
                     <a href="./wishupdate.php?w=d&amp;wi_id=<?php echo $row['wi_id']; ?>" class="wish_del"><i class="fa fa-trash" aria-hidden="true"></i><span class="sound_only">삭제</span></a>
                 </li>

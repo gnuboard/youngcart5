@@ -22,7 +22,7 @@ add_stylesheet('<link rel="stylesheet" href="'.G5_MSHOP_SKIN_URL.'/style.css">',
             $tv_it_idx = $tv_idx - ($i - 1);
             $tv_it_id = get_session("ss_tv[$tv_it_idx]");
 
-            $rowx = sql_fetch(" select * from {$g5['g5_shop_item_table']} where it_id = '$tv_it_id' ");
+            $rowx = get_shop_item($tv_it_id, true);
             if(!$rowx['it_id'])
                 continue;
 

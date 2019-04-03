@@ -174,7 +174,7 @@ jQuery(function ($){
         } else if( $this.hasClass("btn_sm_cl3") ){
             $(".side_mn_wr3").show();
         } else if( $this.hasClass("btn_sm_cl4") ){
-            $(".side_mn_wr2").show();
+            $(".side_mn_wr4").show();
         }
     });
 
@@ -229,7 +229,13 @@ jQuery(function ($){
     </div>
 	<?php } ?>
     <!-- 콘텐츠 시작 { -->
-    <div id="container">
+    <?php
+        $container_class = array();
+        if( isset($it_id) && isset($it) && isset($it['it_id']) && $it_id === $it['it_id']){
+            $container_class[] = 'is_item';
+        }
+    ?>
+    <div id="container" class="<?php echo implode(' ', $container_class);?>">
         <?php if ((!$bo_table || $w == 's' ) && !defined('_INDEX_')) { ?><div id="wrapper_title"><?php echo $g5['title'] ?></div><?php } ?>
         <!-- 글자크기 조정 display:none 되어 있음 시작 { -->
         <div id="text_size">
