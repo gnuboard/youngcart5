@@ -13,8 +13,8 @@ jQuery(function ($) {
 
     mainCart.add_wishitem = function(el) {
 
-        var $el   = $(el);
-        var it_id = $el.data("it_id");
+        var $el   = $(el),
+            it_id = $el.data("it_id");
 
         if(!it_id) {
             alert("상품코드가 올바르지 않습니다.");
@@ -29,7 +29,8 @@ jQuery(function ($) {
                     alert(error.replace(/\\n/g, "\n"));
                     return false;
                 }
-
+                
+                mainCart.update_wish_side();
                 alert("상품을 위시리스트에 담았습니다.");
                 return;
             }
@@ -110,16 +111,71 @@ jQuery(function ($) {
                     alert(data.error);
                     return false;
                 }
+                
+                mainCart.update_cart_side();
 
                 alert("상품을 장바구니에 담았습니다.");
             },
             error : function(request, status, error){
-                gnusmmt.add_cart_after(frm);
+                mainCart.add_cart_after(frm);
                 alert('false ajax :'+request.responseText);
             }
         });
 
         return false;
+    }
+
+    // 5.4 버전의 기본테마의 사이드바의 장바구니를 새로고침합니다.
+    mainCart.update_cart_side = function(){
+        var ajax_url = g5_theme_shop_url || g5_shop_url;
+
+        $.ajax({
+            url: ajax_url + "/ajax.action.php",
+            type: "GET",
+            data: {"action":"refresh_cart"},
+            dataType: "html",
+            async: true,
+            cache: false,
+            success: function(data, textStatus) {
+                var inner_html = $(data).filter(".sbsk").html(),
+                    cart_count = $(data).find(".cart-count").text();
+                
+                $(".qk_con_wr .sbsk").html(inner_html);
+                $(".hd_login .shop_cart .count").text(cart_count);
+            },
+            error : function(request, status, error){
+                alert("false ajax :"+request.responseText);
+            }
+        });
+
+        return true;
+    }
+
+    mainCart.update_wish_side = function(){
+        var ajax_url = g5_theme_shop_url || g5_shop_url;
+        
+        if (typeof g5_is_member == "undefined" || ! g5_is_member) {
+            return false;
+        }
+
+        $.ajax({
+            url: ajax_url + "/ajax.action.php",
+            type: "GET",
+            data: {"action":"refresh_wish"},
+            dataType: "html",
+            async: true,
+            cache: false,
+            success: function(data, textStatus) {
+                var inner_html = $(data).filter(".side-wish").html();
+                
+                $(".qk_con_wr .side-wish").html(inner_html);
+            },
+            error : function(request, status, error){
+                alert("false ajax :"+request.responseText);
+            }
+        });
+
+        return true;
     }
 
     mainCart.add_cart_after = function(frm){

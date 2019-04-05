@@ -86,17 +86,23 @@ function get_shop_category_array($is_cache=false){
     $result = sql_query(get_shop_category_sql('', 2));
 
     for($i=0; $row=sql_fetch_array($result); $i++) {
+
+        $row['url'] = shop_category_url($row['ca_id']);
         $categories[$row['ca_id']]['text'] = $row;
         
         if( $row['ca_id'] ){
             $result2 = sql_query(get_shop_category_sql($row['ca_id'], 4));
 
             for($j=0; $row2=sql_fetch_array($result2); $j++) {
+
+                $row2['url'] = shop_category_url($row2['ca_id']);
                 $categories[$row['ca_id']][$row2['ca_id']]['text'] = $row2;
                 
                 if( $row2['ca_id'] ){
                     $result3 = sql_query(get_shop_category_sql($row2['ca_id'], 6));
                     for($k=0; $row3=sql_fetch_array($result3); $k++) {
+
+                        $row3['url'] = shop_category_url($row3['ca_id']);
                         $categories[$row['ca_id']][$row2['ca_id']][$row3['ca_id']]['text'] = $row3;
                     }
                 }   //end if
