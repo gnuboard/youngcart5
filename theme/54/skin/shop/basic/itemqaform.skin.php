@@ -9,7 +9,7 @@ add_stylesheet('<link rel="stylesheet" href="'.G5_SHOP_SKIN_URL.'/style.css">', 
 <div id="sit_qa_write" class="new_win">
     <h1 id="win_title">상품문의 쓰기</h1>
 
-    <form name="fitemqa" method="post" action="./itemqaformupdate.php" onsubmit="return fitemqa_submit(this);" autocomplete="off">
+    <form name="fitemqa" method="post" action=<?php echo G5_SHOP_URL;?>"/itemqaformupdate.php" onsubmit="return fitemqa_submit(this);" autocomplete="off">
     <input type="hidden" name="w" value="<?php echo $w; ?>">
     <input type="hidden" name="it_id" value="<?php echo $it_id; ?>">
     <input type="hidden" name="iq_id" value="<?php echo $iq_id; ?>">

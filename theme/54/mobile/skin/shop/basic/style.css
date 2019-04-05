@@ -17,7 +17,7 @@
 #main_bn {position:relative;text-align:center}
 #main_bn .slide-wrap{display:none}
 #main_bn img {max-width:100%;height:auto}
-#main_bn .btn_wr {background:rgba(0,0,0,0.5);display:inline-block;position:absolute;right:15px;bottom:15px;border-radius:30px;padding:0;width:100px;line-height:30px}
+#main_bn .btn_wr {background:rgba(0,0,0,0.5);display:inline-block;position:absolute;z-index:1;right:15px;bottom:15px;border-radius:30px;padding:0;width:100px;line-height:30px}
 #main_bn .btn_wr .pager-prev {float:left;display:inline-block;padding:0;color:#fff;width:25px}
 #main_bn .btn_wr .pager-next {float:right;display:inline-block;padding:0;color:#fff;width:25px}
 #main_bn #slide-counter {margin:0;width:50px;float:left;display:inline-block;padding:0;color:#fff}

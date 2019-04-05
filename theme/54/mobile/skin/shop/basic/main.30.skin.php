@@ -3,6 +3,7 @@ if (!defined("_GNUBOARD_")) exit; // 개별 페이지 접근 불가
 
 // add_stylesheet('css 구문', 출력순서); 숫자가 작을 수록 먼저 출력됨
 add_stylesheet('<link rel="stylesheet" href="'.G5_MSHOP_SKIN_URL.'/style.css">', 0);
+add_javascript('<script src="'.G5_JS_URL.'/jquery.bxslider.js"></script>', 10);
 ?>
 
 <?php if($config['cf_kakao_js_apikey']) { ?>
@@ -18,8 +19,15 @@ add_stylesheet('<link rel="stylesheet" href="'.G5_MSHOP_SKIN_URL.'/style.css">',
 <?php
 $li_width = intval(100 / $this->list_mod);
 $li_width_style = ' style="width:'.$li_width.'%;"';
+$i=0;
 
-for ($i=0; $row=sql_fetch_array($result); $i++) {
+foreach((array) $list as $row){
+
+    if( empty($row) ) continue;
+
+    $item_link_href = shop_item_url($row['it_id']);
+    $star_score = $row['it_use_avg'] ? (int) get_star($row['it_use_avg']) : '';
+
     if ($i == 0) {
         if ($this->css) {
             echo "<ul class=\"{$this->css}\">\n";
@@ -37,7 +45,7 @@ for ($i=0; $row=sql_fetch_array($result); $i++) {
     echo "<div class=\"li_wr\">\n";
 
     if ($this->href) {
-        echo "<div class=\"sct_img\"><a href=\"{$this->href}{$row['it_id']}\">\n";
+        echo "<div class=\"sct_img\"><a href=\"{$item_link_href}\">\n";
     }
 
     if ($this->view_it_img) {
@@ -50,9 +58,9 @@ for ($i=0; $row=sql_fetch_array($result); $i++) {
 
     echo "<div class=\"sct_txt_wr\">\n";
 
- 	//별점
-	if ($this->href) {
-        echo "<div class=\"sct_star\"><img src=\"\" alt=\"별점 4점\"></div>\n";
+	// 사용후기 평점표시
+	if ($this->view_star && $star_score) {
+        echo "<div class=\"sct_star\"><img src=\"".G5_SHOP_URL."/img/s_star".$star_score.".png\" alt=\"별점 ".$star_score."점\" class=\"sit_star\"></div>\n";
     }
 
     if ($this->view_it_id) {
@@ -79,7 +87,7 @@ for ($i=0; $row=sql_fetch_array($result); $i++) {
 
     if ($this->view_sns) {
         $sns_top = $this->img_height + 10;
-        $sns_url  = G5_SHOP_URL.'/item.php?it_id='.$row['it_id'];
+        $sns_url  = $item_link_href;
         $sns_title = get_text($row['it_name']).' | '.get_text($config['cf_title']);
         echo "<div class=\"sct_sns\" style=\"top:{$sns_top}px\">";
         echo get_sns_share_link('facebook', $sns_url, $sns_title, G5_MSHOP_SKIN_URL.'/img/facebook.png');
@@ -93,6 +101,8 @@ for ($i=0; $row=sql_fetch_array($result); $i++) {
     echo "</div>\n";
 
     echo "</li>\n";
+
+    $i++;
 }
 
 if ($i > 0) echo "</ul>\n";

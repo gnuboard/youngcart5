@@ -76,13 +76,13 @@ if (!defined('_GNUBOARD_')) exit; // 개별 페이지 접근 불가
             $list->set_query(" select * $sql_common $sql_where {$order_by} limit $from_record, $items ");
             $list->set_is_page(true);
             $list->set_view('it_img', true);
-            $list->set_view('it_id', true);
             $list->set_view('it_name', true);
             $list->set_view('it_basic', true);
             $list->set_view('it_cust_price', false);
             $list->set_view('it_price', true);
             $list->set_view('it_icon', true);
             $list->set_view('sns', true);
+            $list->set_view('star', true);
             echo $list->run();
         }
         else

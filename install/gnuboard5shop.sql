@@ -837,6 +837,24 @@ CREATE TABLE IF NOT EXISTS `g5_shop_item_stocksms` (
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `g5_shop_order_post_log`
+--
+
+DROP TABLE IF EXISTS `g5_shop_order_post_log`;
+CREATE TABLE IF NOT EXISTS `g5_shop_order_post_log` (
+  `oid` bigint(20) unsigned NOT NULL,
+  `mb_id` varchar(255) NOT NULL DEFAULT '',
+  `post_data` text NOT NULL,
+  `ol_code` varchar(255) NOT NULL DEFAULT '',
+  `ol_msg` varchar(255) NOT NULL DEFAULT '',
+  `ol_datetime` datetime NOT NULL DEFAULT '0000-00-00 00:00:00',
+  `ol_ip` varchar(25) NOT NULL DEFAULT '',
+  PRIMARY KEY (`oid`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `g5_shop_inicis_log`
 --
 
