@@ -76,11 +76,6 @@ add_stylesheet('<link rel="stylesheet" href="'.G5_MSHOP_SKIN_URL.'/style.css">',
 					                <dt class="sound_only">작성일</dt>
 					                <dd><i class="fa fa-clock-o" aria-hidden="true"></i> <?php echo substr($row['is_time'],0,10); ?></dd>
 					            </dl>
-		            			<button class="sps_opt_btn_more"><span class="sound_only">글쓰기 옵션 더보기</span><i class="fa fa-ellipsis-v" aria-hidden="true"></i></button>
-		            			<ul class="sps_opt_li">
-		            				<li>수정</li>
-		            				<li>삭제</li>
-		            			</ul>
 	            			</div>
 	            			
 	            			<div class="review_summ">

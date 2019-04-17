@@ -150,7 +150,7 @@ add_stylesheet('<link rel="stylesheet" href="'.G5_JS_URL.'/owlcarousel/owl.carou
 jQuery(function ($){
 	$(".btn_member_mn").on("click", function() {
         $(".member_mn").toggle();
-        $(".btn_member_mn").toggleClass("btn_member_mn_on")
+        $(".btn_member_mn").toggleClass("btn_member_mn_on");
     });
     
     var active_class = "btn_sm_on",
@@ -184,10 +184,15 @@ jQuery(function ($){
     });
 
     $(document).mouseup(function (e){
-        var container = $(quick_container);
+        var container = $(quick_container),
+            mn_container = $(".shop_login");
         if( container.has(e.target).length === 0){
             container.hide();
             $(side_btn_el).removeClass(active_class);
+        }
+        if( mn_container.has(e.target).length === 0){
+            $(".member_mn").hide();
+            $(".btn_member_mn").removeClass("btn_member_mn_on");
         }
     });
 

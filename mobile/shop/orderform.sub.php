@@ -880,7 +880,7 @@ $(function() {
     $(document).on("click", ".cp_cancel", function() {
         coupon_cancel($(this).closest("li"));
         calculate_total_price();
-        $("#cp_frm").remove();
+        cp_form_close();
         $(this).closest("li").find(".cp_btn").text("쿠폰적용").removeClass("cp_mod").focus();
         $(this).remove();
     });

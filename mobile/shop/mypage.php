@@ -15,18 +15,7 @@ $g5['title'] = '마이페이지';
 include_once(G5_MSHOP_PATH.'/_head.php');
 
 // 쿠폰
-$cp_count = 0;
-$sql = " select cp_id
-            from {$g5['g5_shop_coupon_table']}
-            where mb_id IN ( '{$member['mb_id']}', '전체회원' )
-              and cp_start <= '".G5_TIME_YMD."'
-              and cp_end >= '".G5_TIME_YMD."' ";
-$res = sql_query($sql);
-
-for($k=0; $cp=sql_fetch_array($res); $k++) {
-    if(!is_used_coupon($member['mb_id'], $cp['cp_id']))
-        $cp_count++;
-}
+$cp_count = get_shop_member_coupon_count($member['mb_id'], true);
 ?>
 
 <div id="smb_my">
@@ -125,7 +114,7 @@ for($k=0; $cp=sql_fetch_array($res); $k++) {
                 <!-- 상품명, 날짜를 노출하려면 주석을 지우세요. -->
                 <!--
                 <div class="wish_info">
-                    <a href="./item.php?it_id=<?php echo $row['it_id']; ?>" class="info_link"><?php echo stripslashes($row['it_name']); ?></a>
+                    <a href="<?php echo get_shop_item($row['it_id']); ?>" class="info_link"><?php echo stripslashes($row['it_name']); ?></a>
                      <span class="info_date"><?php echo substr($row['wi_time'], 2, 8); ?></span>
                 </div>
                 -->
