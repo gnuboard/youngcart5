@@ -78,8 +78,8 @@ add_stylesheet('<link rel="stylesheet" href="'.G5_JS_URL.'/owlcarousel/owl.carou
 				<?php echo outlogin('theme/shop_basic'); // 아웃로그인 ?>	
 			</li>
 			<li class="shop_cart"><a href="<?php echo G5_SHOP_URL; ?>/cart.php"><i class="fa fa-shopping-cart" aria-hidden="true"></i><span class="sound_only">장바구니</span><span class="count"><?php echo get_boxcart_datas_count(); ?></span></a></li>
-            <?php } else {  ?>
-            <li class="login"><a href="<?php echo G5_BBS_URL ?>/login.php">로그인</a></li>
+            <?php } else { ?>
+            <li class="login"><a href="<?php echo G5_BBS_URL ?>/login.php?url=<?php echo $urlencode; ?>">로그인</a></li>
             <?php }  ?>
         </ul>
     </div>

@@ -133,79 +133,200 @@ add_stylesheet('<link rel="stylesheet" href="'.G5_SHOP_CSS_URL.'/style.css">', 0
 	</script>
 	<div id="sit_buy" class="fix">
 		<div class="sit_buy_inner">
+	        <?php if($option_item) {    // 선택옵션이 있다면 ?>
 	        <!-- 선택옵션 시작 { -->
 	        <section class="sit_side_option">
 	            <h3>선택옵션</h3>
-	            <select class="s_it_option">
-	            	<option>사이즈</option> <!-- 옵션명 -->
-	            	<option>라지</option>
-	            	<option>미디움</option>
-	            	<option>스몰</option>
-	            </select>
-	            <select class="s_it_option">
-	            	<option>색상</option> <!-- 옵션명 -->
-	            	<option>무지개</option>
-	            	<option>보라</option>
-	            	<option>연두</option>
-	            </select>
+	            <?php // 선택옵션
+	            echo str_replace(array('class="get_item_options"', 'id="it_option_', 'class="it_option"'), array('class="get_side_item_options"', 'id="it_side_option_', 'class="it_side_option"'), $option_item);
+	            ?>
 	        </section>
 	        <!-- } 선택옵션 끝 -->
-	
+	        <?php } // end if?>
+
+            <?php if($supply_item) {    // 추가옵션이 있다면 ?>
 	        <!-- 추가옵션 시작 { -->
 	        <section class="sit_side_option">
 	            <h3>추가옵션</h3>
-	            <select class="s_it_option">
-	            	<option>햄스터</option>
-	            	<option>고양이</option>
-	            	<option>라마</option>
-	            </select>
+	            <?php // 추가옵션
+	            echo str_replace(array('id="it_supply_', 'class="it_supply"'), array('id="it_side_supply_', 'class="it_side_supply"'), $supply_item);
+	            ?>
 	        </section>
 	        <!-- } 추가옵션 끝 -->
-	
+	        <?php } // end if?>
+            
+            <?php if ($is_orderable) { ?>
 	        <!-- 선택된 옵션 시작 { -->
 	        <section class="sit_sel_option">
 	            <h3>선택된 옵션</h3>
 	            <ul class="sit_opt_added">
-	                <li>
-	                    <div class="opt_name">
-	                    	<span class="sit_opt_subj">SIZE:M / COLOR:그레이</span>
-	                    </div>
-	    				<div class="opt_count">
-	    					<button type="button" class="sit_qty_minus"><i class="fa fa-minus" aria-hidden="true"></i><span class="sound_only">감소</span></button>
-	    					<input type="text" name="ct_qty[1446772772][]" value="1" class="num_input" size="5">
-	    					<button type="button" class="sit_qty_plus"><i class="fa fa-plus" aria-hidden="true"></i><span class="sound_only">증가</span></button>
-	    					<span class="sit_opt_prc">+3,000원</span>
-	    					<button type="button" class="sit_opt_del"><i class="fa fa-times" aria-hidden="true"></i><span class="sound_only">삭제</span></button>
-	    				</div>
-	                </li>
-	                <li>
-	                    <div class="opt_name">
-	                    	<span class="sit_opt_subj">SIZE:M / COLOR:그레이</span>
-	                    </div>
-	    				<div class="opt_count">
-	    					<button type="button" class="sit_qty_minus"><i class="fa fa-minus" aria-hidden="true"></i><span class="sound_only">감소</span></button>
-	    					<input type="text" name="ct_qty[1446772772][]" value="1" class="num_input" size="5">
-	    					<button type="button" class="sit_qty_plus"><i class="fa fa-plus" aria-hidden="true"></i><span class="sound_only">증가</span></button>
-	    					<span class="sit_opt_prc">+3,000원</span>
-	    					<button type="button" class="sit_opt_del"><i class="fa fa-times" aria-hidden="true"></i><span class="sound_only">삭제</span></button>
-	    				</div>
-	                </li>
-	            </ul>
+                    <?php if( !$option_item ){ ?>
+                    <li>
+                        <div class="opt_name">
+                            <span class="sit_opt_subj"><?php echo $it['it_name']; ?></span>
+                        </div>
+                        <div class="opt_count">
+                            <label for="ct_qty_<?php echo $i; ?>" class="sound_only">수량</label>
+                            <button type="button" class="sit_qty_minus"><i class="fa fa-minus" aria-hidden="true"></i><span class="sound_only">감소</span></button>
+                            <input type="text" name="ct_copy_qty[<?php echo $it_id; ?>][]" value="<?php echo $it['it_buy_min_qty']; ?>" id="ct_qty_<?php echo $i; ?>" class="num_input" size="5">
+                            <button type="button" class="sit_qty_plus"><i class="fa fa-plus" aria-hidden="true"></i><span class="sound_only">증가</span></button>
+                            <span class="sit_opt_prc">+0원</span>
+                        </div>
+                    </li>
+                    <?php } ?>
+                </ul>
 	        </section>
 	        <!-- } 선택된 옵션 끝 -->
-		
+
 			<div class="sum_section">        
-		        <div class="sit_tot_price">
-		        	<span>총 금액</span>
-		        	<strong>34,000</strong> 원
-		        </div>
+		        <div class="sit_tot_price"></div>
 				
 				<div class="sit_order_btn">
 					<button type="submit" onclick="document.pressed=this.value;" value="장바구니" class="sit_btn_cart">장바구니</button>
 		            <button type="submit" onclick="document.pressed=this.value;" value="바로구매" class="sit_btn_buy">바로구매</button> 
 		       </div>
 			</div>
+            <?php } ?>
 			
 	    </div>   
 	</div>
 </section>
+
+<script>
+jQuery(function($){
+    var change_name = "ct_copy_qty";
+
+    $(document).on("select_it_option_change", "select.it_option", function(e, $othis) {
+        var value = $othis.val(),
+            change_id = $othis.attr("id").replace("it_option_", "it_side_option_");
+        
+        if( $("#"+change_id).length ){
+            $("#"+change_id).val(value).attr("selected", "selected");
+        }
+    });
+
+    $(document).on("select_it_option_post", "select.it_option", function(e, $othis, idx, sel_count, data) {
+        var value = $othis.val(),
+            change_id = $othis.attr("id").replace("it_option_", "it_side_option_");
+        
+        $("select.it_side_option").eq(idx+1).empty().html(data).attr("disabled", false);
+
+        // select의 옵션이 변경됐을 경우 하위 옵션 disabled
+        if( (idx+1) < sel_count) {
+            $("select.it_side_option:gt("+(idx+1)+")").val("").attr("disabled", true);
+        }
+    });
+
+    $(document).on("add_sit_sel_option", "#sit_sel_option", function(e, opt) {
+        
+        opt = opt.replace('name="ct_qty[', 'name="'+change_name+'[');
+
+        var $opt = $(opt);
+        $opt.removeClass("sit_opt_list");
+        $("input[type=hidden]", $opt).remove();
+
+        $(".sit_sel_option .sit_opt_added").append($opt);
+
+    });
+
+    $(document).on("price_calculate", "#sit_tot_price", function(e, total) {
+
+        $(".sum_section .sit_tot_price").empty().html("<span>총 금액 </span><strong>"+number_format(String(total))+"</strong> 원");
+
+    });
+
+    $(".sit_side_option").on("change", "select.it_side_option", function(e) {
+        var idx = $("select.it_side_option").index($(this)),
+            value = $(this).val();
+
+        if( value ){
+            if (typeof(option_add) != "undefined"){
+                option_add = true;
+            }
+
+            $("select.it_option").eq(idx).val(value).attr("selected", "selected").trigger("change");
+        }
+    });
+
+    $(".sit_side_option").on("change", "select.it_side_supply", function(e) {
+        var value = $(this).val();
+
+        if( value ){
+            if (typeof(supply_add) != "undefined"){
+                supply_add = true;
+            }
+
+            $("select.it_supply").val(value).attr("selected", "selected").trigger("change");
+        }
+    });
+
+    $(".sit_opt_added").on("click", "button", function(e){
+        e.preventDefault();
+
+        var $this = $(this),
+            mode = $this.text(),
+            $sit_sel_el = $("#sit_sel_option"),
+            li_parent_index = $this.closest('li').index();
+        
+        if( ! $sit_sel_el.length ){
+            alert("el 에러");
+            return false;
+        }
+
+        switch(mode) {
+            case "증가":
+                $sit_sel_el.find("li").eq(li_parent_index).find(".sit_qty_plus").trigger("click");
+                break;
+            case "감소":
+                $sit_sel_el.find("li").eq(li_parent_index).find(".sit_qty_minus").trigger("click");
+                break;
+            case "삭제":
+                $sit_sel_el.find("li").eq(li_parent_index).find(".sit_opt_del").trigger("click");
+                break;
+        }
+
+    });
+
+    $(document).on("sit_sel_option_success", "#sit_sel_option li button", function(e, $othis, mode, this_qty) {
+        var ori_index = $othis.closest('li').index();
+
+        switch(mode) {
+            case "증가":
+            case "감소":
+                $(".sit_opt_added li").eq(ori_index).find("input[name^=ct_copy_qty]").val(this_qty);
+                break;
+            case "삭제":
+                $(".sit_opt_added li").eq(ori_index).remove();
+                break;
+        }
+    });
+
+    $(document).on("change_option_qty", "input[name^=ct_qty]", function(e, $othis, val, force_val) {
+        var $this = $(this),
+            ori_index = $othis.closest('li').index(),
+            this_val = force_val ? force_val : val;
+
+        $(".sit_opt_added").find("li").eq(ori_index).find("input[name^="+change_name+"]").val(this_val);
+    });
+
+    $(".sit_opt_added").on("keyup paste", "input[name^="+change_name+"]", function(e) {
+         var $this = $(this),
+             val= $this.val(),
+             this_index = $("input[name^="+change_name+"]").index(this);
+
+         $("input[name^=ct_qty]").eq(this_index).val(val).trigger("keyup");
+    });
+
+    $(".sit_order_btn").on("click", "button", function(e){
+        e.preventDefault();
+
+        var $this = $(this);
+
+        if( $this.hasClass("sit_btn_cart") ){
+            $("#sit_ov_btn .sit_btn_cart").trigger("click");
+        } else if ( $this.hasClass("sit_btn_buy") ) {
+            $("#sit_ov_btn .sit_btn_buy").trigger("click");
+        }
+    });
+});
+</script>

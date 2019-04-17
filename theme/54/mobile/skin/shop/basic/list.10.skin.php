@@ -24,7 +24,8 @@ $li_width = ($is_gallery_list === 'gallery') ? intval(100 / $this->list_mod) : 1
 $li_width_style = ' style="width:'.$li_width.'%;"';
 $ul_sct_class = ($is_gallery_list === 'gallery') ? 'sct_10' : 'sct_10_list';
 
-for ($i=0; $row=sql_fetch_array($result); $i++) {
+$i = 0;
+foreach((array) $list as $row){
     if ($i == 0) {
         if ($this->css) {
             echo "<ul id=\"sct_wrap\" class=\"{$this->css}\">\n";
@@ -92,7 +93,7 @@ for ($i=0; $row=sql_fetch_array($result); $i++) {
         echo "<div class=\"sct_sns_wrap\">";
         if ($this->view_sns) {
             $sns_top = $this->img_height + 10;
-            $sns_url  = get_pretty_url('shop', $row['it_id']);
+            $sns_url  = shop_item_url($row['it_id']);
             $sns_title = get_text($row['it_name']).' | '.get_text($config['cf_title']);
             echo "<div class=\"sct_sns\">";
             echo "<h3>SNS 공유</h3>";
@@ -114,6 +115,8 @@ for ($i=0; $row=sql_fetch_array($result); $i++) {
         echo "<div class=\"sct_icon\">".item_icon($row)."</div>\n";
     }
     echo "</li>\n";
+
+    $i++;
 }
 
 if ($i > 0) echo "</ul>\n";

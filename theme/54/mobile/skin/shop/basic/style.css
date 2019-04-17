@@ -698,8 +698,6 @@ box-shadow:0px 1px 6px 0 #dedede
 .couponzone_list .no_coupon {position:relative;padding:100px 0;text-align:center;color:#999;background:none;font-weight:normal}
 .couponzone_list .no_coupon:before {background:none}
 
-#point_coupon li {height:250px}
-
 @media (min-width:640px)and (max-width:969px) {
  .couponzone_list ul li {width:50%;float:left;padding:10px}
  .couponzone_list ul li:nth-child(2n+1) {clear:both}

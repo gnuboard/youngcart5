@@ -560,6 +560,7 @@
 
 .sit_option {padding:10px 0;margin:10px 0 0}
 .sit_option label {display:block;margin:0 0 5px;color:#666}
+.sit_option label.label-title{display:none}
 .sit_option select {width:100%;margin:0 0 10px;height:50px;padding:0 10px;border:1px solid #cdcdcd;
 -webkit-appearance:none; /* 화살표 없애기 for chrome*/
 -moz-appearance:none;    /* 화살표 없애기 for firefox*/
@@ -621,6 +622,7 @@ background:url('img/select_arrow.png') no-repeat 96% 50%/* 화살표 아이콘 �
 .sit_side_option {padding:15px 15px 10px;border-bottom:1px solid #ebeff3}
 .sit_side_option h3 {margin-bottom:10px}
 .sit_side_option label {display:block;margin:0 0 5px;color:#666}
+.sit_side_option label.label-title{display:none}
 .sit_side_option select {width:100%;margin:0 0 10px;height:50px;padding:0 10px;border:1px solid #cdcdcd;
 -webkit-appearance:none; /* 화살표 없애기 for chrome*/
 -moz-appearance:none;    /* 화살표 없애기 for firefox*/

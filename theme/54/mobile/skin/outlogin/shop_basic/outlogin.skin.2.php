@@ -28,11 +28,11 @@ add_stylesheet('<link rel="stylesheet" href="'.$outlogin_skin_url.'/style.css">'
         <li id="ol_after_memo">
             <a href="<?php echo G5_BBS_URL ?>/memo.php" target="_blank">
                 <i class="fa fa-envelope" aria-hidden="true"></i>쪽지
-                <strong><?php echo $memo_not_read ?></strong>
+                <strong><?php echo $memo_not_read; ?></strong>
             </a>
         </li>
 
-        <li><a href="<?php echo G5_SHOP_URL ?>/coupon.php" target="_blank" class="win_coupon"><i class="fa fa-ticket" aria-hidden="true"></i>쿠폰<strong><?php echo number_format($cp_count); ?></strong></a></li>
+        <li><a href="<?php echo G5_SHOP_URL ?>/coupon.php" target="_blank" class="win_coupon"><i class="fa fa-ticket" aria-hidden="true"></i>쿠폰<strong><?php echo number_format(get_shop_member_coupon_count($member['mb_id'], true)); ?></strong></a></li>
     </ul>
 
 </aside>

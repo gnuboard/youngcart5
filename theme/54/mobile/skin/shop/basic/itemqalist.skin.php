@@ -56,7 +56,7 @@ add_stylesheet('<link rel="stylesheet" href="'.G5_MSHOP_SKIN_URL.'/style.css">',
             $iq_question = get_view_thumbnail(conv_content($row['iq_question'], 1), $thumbnail_width);
         }
 
-        $it_href = G5_SHOP_URL.'/item.php?it_id='.$row['it_id'];
+        $it_href = shop_item_url($row['it_id']);
 
         if ($row['iq_answer'])
         {

@@ -776,6 +776,24 @@ if( is_inicis_simple_pay() ){   //삼성페이 사용시
 <script>
 var zipcode = "";
 
+function od_coupon_close(){
+    var $coupon_frm = jQuery("#od_coupon_frm");
+    if ( $coupon_frm.parent(".od_coupon_wrap").length ){
+        $coupon_frm.parent(".od_coupon_wrap").remove();
+    } else {
+        $coupon_frm.remove();
+    }
+}
+
+function cp_form_close(){
+    var $cp_frm = jQuery("#cp_frm");
+    if ( $cp_frm.parent(".od_coupon_wrap").length ){
+        $cp_frm.parent(".od_coupon_wrap").remove();
+    } else {
+        $cp_frm.remove();
+    }
+}
+
 $(function() {
     var $cp_btn_el;
     var $cp_row_el;
@@ -783,7 +801,7 @@ $(function() {
     $(".cp_btn").click(function() {
         $cp_btn_el = $(this);
         $cp_row_el = $(this).closest("li");
-        $("#cp_frm").remove();
+        cp_form_close();
         var it_id = $cp_btn_el.closest("li").find("input[name^=it_id]").val();
 
         $.post(
@@ -830,7 +848,7 @@ $(function() {
                 return false;
             } else {
                 coupon_cancel($cp_dup_el);
-                $("#cp_frm").remove();
+                cp_form_close();
                 $cp_dup_el.find(".cp_btn").text("쿠폰적용").removeClass("cp_mod").focus();
                 $cp_dup_el.find(".cp_cancel").remove();
             }
@@ -848,14 +866,14 @@ $(function() {
         $cp_row_el.find("input[name^=cp_price]").val(price);
 
         calculate_total_price();
-        $("#cp_frm").remove();
+        cp_form_close();
         $cp_btn_el.text("변경").addClass("cp_mod").focus();
         if(!$cp_row_el.find(".cp_cancel").size())
             $cp_btn_el.after("<button type=\"button\" class=\"cp_cancel\">취소</button>");
     });
 
     $(document).on("click", "#cp_close", function() {
-        $("#cp_frm").remove();
+        cp_form_close();
         $cp_btn_el.focus();
     });
 
@@ -868,7 +886,7 @@ $(function() {
     });
 
     $("#od_coupon_btn").click(function() {
-        $("#od_coupon_frm").remove();
+        od_coupon_close();
         var $this = $(this);
         var price = parseInt($("input[name=org_od_price]").val()) - parseInt($("input[name=item_coupon]").val());
         if(price <= 0) {
@@ -915,14 +933,14 @@ $(function() {
         $("#od_cp_price").text(number_format(String(price)));
         $("#sc_cp_price").text(0);
         calculate_order_price();
-        $("#od_coupon_frm").remove();
+        od_coupon_close();
         $("#od_coupon_btn").text("변경").focus();
         if(!$("#od_coupon_cancel").size())
             $("#od_coupon_btn").after("<button type=\"button\" id=\"od_coupon_cancel\" class=\"cp_cancel1\">취소</button>");
     });
 
     $(document).on("click", "#od_coupon_close", function() {
-        $("#od_coupon_frm").remove();
+        od_coupon_close();
         $("#od_coupon_btn").focus();
     });
 
@@ -936,7 +954,7 @@ $(function() {
         $("#od_cp_price").text(0);
         $("#sc_cp_price").text(0);
         calculate_order_price();
-        $("#od_coupon_frm").remove();
+        od_coupon_close();
         $("#od_coupon_btn").text("쿠폰적용").focus();
         $(this).remove();
         $("#sc_coupon_btn").text("쿠폰적용");

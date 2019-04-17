@@ -59,38 +59,52 @@ include_once(G5_LIB_PATH.'/latest.lib.php');
 
 
     <script>
+    jQuery(function($){
+        $( document ).ready( function() {
+            
+            function catetory_menu_fn( is_open ){
+                var $cagegory = $("#category");
 
-    $("#btn_hdcate").on("click", function() {
-        $("#category").show();
-    });
+                if( is_open ){
+                    $cagegory.show();
+                    $("body").addClass("is_hidden");
+                } else {
+                    $cagegory.hide();
+                    $("body").removeClass("is_hidden");
+                }
+            }
 
-    $(".menu_close").on("click", function() {
-        $(".menu").hide();
-    });
-    $(".cate_bg").on("click", function() {
-        $(".menu").hide();
-    });
+            $(document).on("click", "#btn_hdcate", function(e) {
+                // 오픈
+                catetory_menu_fn(1);
+            }).on("click", ".menu_close", function(e) {
+                // 숨김
+                catetory_menu_fn(0);
+            }).on("click", ".cate_bg", function(e) {
+                // 숨김
+                catetory_menu_fn(0);
+            });
 
-    $("#btn_hdsch").on("click", function() {
-        $("#hd_sch").show();
-    });
+            $("#btn_hdsch").on("click", function() {
+                $("#hd_sch").show();
+            });
 
-    $("#hd_sch .btn_close").on("click", function() {
-        $("#hd_sch").hide();
+            $("#hd_sch .btn_close").on("click", function() {
+                $("#hd_sch").hide();
+            });
+            
+            //타이틀 영역고정
+            var jbOffset = $( '#container').offset();
+            $( window ).scroll( function() {
+                if ( $( document ).scrollTop() > jbOffset.top ) {
+                    $( '#container').addClass( 'fixed' );
+                }
+                else {
+                    $( '#container').removeClass( 'fixed' );
+                }
+            });
+        });
     });
-
-    //타이틀 영역고정
-    $( document ).ready( function() {
-    var jbOffset = $( '#container').offset();
-    $( window ).scroll( function() {
-        if ( $( document ).scrollTop() > jbOffset.top ) {
-            $( '#container').addClass( 'fixed' );
-        }
-        else {
-            $( '#container').removeClass( 'fixed' );
-        }
-    });
-})
    </script>
 </header>
 

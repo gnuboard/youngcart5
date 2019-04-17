@@ -92,10 +92,10 @@ function add_shop_mod_rewrite_rules($get_path_url, $base_path, $return_string=fa
 
     $add_rules = array();
     
-    $add_rules[] = 'RewriteRule ^shop/list-([0-9a-z]+)$  '.G5_SHOP_DIR.'/list.php?ca_id=$1&rewrite=1  [L]';
-    $add_rules[] = 'RewriteRule ^shop/type-([0-9a-z]+)$  '.G5_SHOP_DIR.'/listtype.php?type=$1&rewrite=1  [L]';
-    $add_rules[] = 'RewriteRule ^shop/([0-9a-zA-Z_]+)$  '.G5_SHOP_DIR.'/item.php?it_id=$1&rewrite=1  [L]';
-    $add_rules[] = 'RewriteRule ^shop/([^/]+)/$  '.G5_SHOP_DIR.'/item.php?it_seo_title=$1&rewrite=1  [L]';
+    $add_rules[] = 'RewriteRule ^shop/list-([0-9a-z]+)$  '.G5_SHOP_DIR.'/list.php?ca_id=$1&rewrite=1  [QSA,L]';
+    $add_rules[] = 'RewriteRule ^shop/type-([0-9a-z]+)$  '.G5_SHOP_DIR.'/listtype.php?type=$1&rewrite=1  [QSA,L]';
+    $add_rules[] = 'RewriteRule ^shop/([0-9a-zA-Z_]+)$  '.G5_SHOP_DIR.'/item.php?it_id=$1&rewrite=1  [QSA,L]';
+    $add_rules[] = 'RewriteRule ^shop/([^/]+)/$  '.G5_SHOP_DIR.'/item.php?it_seo_title=$1&rewrite=1  [QSA,L]';
 
     return implode("\n", $add_rules);
 

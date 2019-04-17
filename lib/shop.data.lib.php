@@ -19,6 +19,19 @@ function get_shop_item($it_id, $is_cache=false, $add_query=''){
     return $item;
 }
 
+function get_shop_item_with_category($it_id, $seo_title='', $add_query=''){
+    
+    global $g5, $default;
+
+    if( $seo_title ){
+        $sql = " select a.*, b.ca_name, b.ca_use from {$g5['g5_shop_item_table']} a, {$g5['g5_shop_category_table']} b where a.it_seo_title = '".sql_real_escape_string(generate_seo_title($seo_title))."' and a.ca_id = b.ca_id $add_query";
+    } else {
+        $sql = " select a.*, b.ca_name, b.ca_use from {$g5['g5_shop_item_table']} a, {$g5['g5_shop_category_table']} b where a.it_id = '$it_id' and a.ca_id = b.ca_id $add_query";
+    }
+    
+    return sql_fetch($sql);
+}
+
 function get_shop_navigation_data($is_cache, $ca_id, $ca_id2='', $ca_id3=''){
     
     $all_categories = get_shop_category_array($is_cache);
@@ -125,4 +138,37 @@ function get_shop_category_sql($ca_id, $len){
     return $sql;
 }
 
+function get_shop_member_coupon_count($mb_id='', $is_cache=false){
+    global $g5, $member;
+
+    static $cache = array();
+
+    $key = md5($mb_id);
+
+    if( $is_cache && isset($cache[$key]) ){
+        return $cache[$key];
+    }
+
+    if( !$mb_id ){
+        $mb_id = $member['mb_id'];
+    }
+
+    // 쿠폰
+    $cp_count = 0;
+    $sql = " select cp_id
+                from {$g5['g5_shop_coupon_table']}
+                where mb_id IN ( '{$mb_id}', '전체회원' )
+                  and cp_start <= '".G5_TIME_YMD."'
+                  and cp_end >= '".G5_TIME_YMD."' ";
+    $res = sql_query($sql);
+
+    for($k=0; $cp=sql_fetch_array($res); $k++) {
+        if(!is_used_coupon($mb_id, $cp['cp_id']))
+            $cp_count++;
+    }
+
+    $cache[$key] = $cp_count;
+
+    return $cp_count;
+}
 ?>

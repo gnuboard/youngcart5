@@ -935,7 +935,6 @@ function title_sort($col, $type=0)
     return "{$_SERVER['SCRIPT_NAME']}?$q1&amp;$q2&amp;page=$page";
 }
 
-
 // 세션값을 체크하여 이쪽에서 온것이 아니면 메인으로
 function session_check()
 {
@@ -945,9 +944,8 @@ function session_check()
         gotourl(G5_SHOP_URL);
 }
 
-
 // 상품 선택옵션
-function get_item_options($it_id, $subject, $is_div='')
+function get_item_options($it_id, $subject, $is_div='', $is_first_option_title='')
 {
     global $g5;
 
@@ -991,14 +989,17 @@ function get_item_options($it_id, $subject, $is_div='')
 
                 if($is_div === 'div') {
                     $str .= '<div class="get_item_options">'.PHP_EOL;
-                    //$str .= '<label for="it_option_'.$seq.'">'.$subj[$i].'</label>'.PHP_EOL;
+                    $str .= '<label for="it_option_'.$seq.'" class="label-title">'.$subj[$i].'</label>'.PHP_EOL;
                 } else {
                     $str .= '<tr>'.PHP_EOL;
-                    //$str .= '<th><label for="it_option_'.$seq.'">'.$subj[$i].'</label></th>'.PHP_EOL;
+                    $str .= '<th><label for="it_option_'.$seq.'" class="label-title">'.$subj[$i].'</label></th>'.PHP_EOL;
                 }
 
                 $select = '<select id="it_option_'.$seq.'" class="it_option"'.$disabled.'>'.PHP_EOL;
-                $select .= '<option value="">'.$subj[$i].'</option>'.PHP_EOL;
+
+                $first_option_title = $is_first_option_title ? $subj[$i] : '선택';
+
+                $select .= '<option value="">'.$first_option_title.'</option>'.PHP_EOL;
                 for($k=0; $k<$opt_count; $k++) {
                     $opt_val = $opt[$k];
                     if(strlen($opt_val)) {
@@ -1055,9 +1056,8 @@ function get_item_options($it_id, $subject, $is_div='')
     return $str;
 }
 
-
 // 상품 추가옵션
-function get_item_supply($it_id, $subject, $is_div='')
+function get_item_supply($it_id, $subject, $is_div='', $is_first_option_title='')
 {
     global $g5;
 
@@ -1106,14 +1106,16 @@ function get_item_supply($it_id, $subject, $is_div='')
             $seq = $i + 1;
             if($is_div === 'div') {
                 $str .= '<div class="get_item_supply">'.PHP_EOL;
-                //$str .= '<label for="it_supply_'.$seq.'">'.$subj[$i].'</label>'.PHP_EOL;
+                $str .= '<label for="it_supply_'.$seq.'" class="label-title">'.$subj[$i].'</label>'.PHP_EOL;
             } else {
                 $str .= '<tr>'.PHP_EOL;
                 $str .= '<th><label for="it_supply_'.$seq.'">'.$subj[$i].'</label></th>'.PHP_EOL;
             }
+            
+            $first_option_title = $is_first_option_title ? $subj[$i] : '선택';
 
             $select = '<select id="it_supply_'.$seq.'" class="it_supply">'.PHP_EOL;
-            $select .= '<option value="">'.$subj[$i].'</option>'.PHP_EOL;
+            $select .= '<option value="">'.$first_option_title.'</option>'.PHP_EOL;
             for($k=0; $k<$opt_count; $k++) {
                 $opt_val = $opt[$k];
                 if($opt_val) {
@@ -1134,7 +1136,6 @@ function get_item_supply($it_id, $subject, $is_div='')
 
     return $str;
 }
-
 
 function print_item_options($it_id, $cart_id)
 {

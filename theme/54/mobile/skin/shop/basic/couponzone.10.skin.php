@@ -14,6 +14,7 @@ add_stylesheet('<link rel="stylesheet" href="'.G5_SHOP_CSS_URL.'/style.css">', 0
     $result = sql_query($sql);
 
     $coupon = '';
+    $coupon_info_class = '';
 
     for($i=0; $row=sql_fetch_array($result); $i++) {
         if(!$row['cz_file'])
@@ -27,22 +28,25 @@ add_stylesheet('<link rel="stylesheet" href="'.G5_SHOP_CSS_URL.'/style.css">', 0
 
         switch($row['cp_method']) {
             case '0':
-                $sql3 = " select it_id, it_name from {$g5['g5_shop_item_table']} where it_id = '{$row['cp_target']}' ";
-                $row3 = sql_fetch($sql3);
+                $row3 = get_shop_item($row['cp_target'], true);
 				$cp_target = '개별상품할인';
-                $cp_link ='<a href="./item.php?it_id='.$row3['it_id'].'">'.get_text($row3['it_name']).'</a>';
+                $cp_link ='<a href="'.shop_item_url($row3['it_id']).'" target="_blank">'.get_text($row3['it_name']).'</a>';
+                $coupon_info_class = 'cp_2';
                 break;
             case '1':
                 $sql3 = " select ca_id, ca_name from {$g5['g5_shop_category_table']} where ca_id = '{$row['cp_target']}' ";
                 $row3 = sql_fetch($sql3);
                 $cp_target = '카테고리할인';
-                $cp_link = '<a href="./list.php?ca_id='.$row3['ca_id'].'">'.get_text($row3['ca_name']).'</a>';
+                $cp_link = '<a href="'.shop_category_url($row3['ca_id']).'" target="_blank">'.get_text($row3['ca_name']).'</a>';
+                $coupon_info_class = 'cp_1';
                 break;
             case '2':
-                $cp_target = '주문금액할인';
+                $cp_link = $cp_target = '주문금액할인';
+                $coupon_info_class = 'cp_3';
                 break;
             case '3':
-                $cp_target = '배송비할인';
+                $cp_link = $cp_target = '배송비할인';
+                $coupon_info_class = 'cp_4';
                 break;
         }
 
@@ -51,20 +55,27 @@ add_stylesheet('<link rel="stylesheet" href="'.G5_SHOP_CSS_URL.'/style.css">', 0
         if(is_coupon_downloaded($member['mb_id'], $row['cz_id']))
             $disabled = ' disabled';
 
+        // $row['cp_type'] 값이 있으면 % 이며 없으면 원 입니다.
+        $print_cp_price = $row['cp_type'] ? '<b>'.$row['cp_price'].'</b> %' : '<b>'.number_format($row['cp_price']).'</b> 원';
+
         $coupon .= '<li>'.PHP_EOL;
 		$coupon .= '<div class="cp_inner">'.PHP_EOL;
         $coupon .= '<div class="coupon_img"><img src="'.str_replace(G5_PATH, G5_URL, $img_file).'" alt="'.$subj.'">'.PHP_EOL;
-        $coupon .= '<div class="coupon_tit"><span>'.$subj.'</span><br><span class="cp_evt"><b>1,900</b>원</span></div>'.PHP_EOL;
+        $coupon .= '<div class="coupon_tit"><span>'.$subj.'</span><br><span class="cp_evt">'.$print_cp_price.'</span></div>'.PHP_EOL;
 		$coupon .= '</div>'.PHP_EOL;
 		$coupon .= '<div class="cp_cnt">'.PHP_EOL;
         $coupon .= '<div class="coupon_target">'.PHP_EOL;
-        $coupon .= '<span class="sound_only">적용</span><button class="coupon_info_btn cp_2">'.$cp_target.' <i class="fa fa-angle-right" aria-hidden="true"></i></button>'.PHP_EOL;
+        $coupon .= '<span class="sound_only">적용</span><button class="coupon_info_btn '.$coupon_info_class.'">'.$cp_target.' <i class="fa fa-angle-right" aria-hidden="true"></i></button>'.PHP_EOL;
         $coupon .= '<div class="coupon_info">
         <h4>'.$cp_target.'</h4>
         <ul>
-        	<li>적용 : '.$cp_link.'</li>
-        	<li>최소금액 : <span class="cp_evt"><b>1,900</b>원</span></li>
-        </ul>
+        	<li>적용 : '.$cp_link.'</li>';
+
+        if( $row['cp_minimum'] ){   // 쿠폰에 최소주문금액이 있다면
+        	$coupon .= '<li>최소주문금액 : <span class="cp_evt"><b>'.number_format($row['cp_minimum']).'</b>원</span></li>';
+        }
+
+        $coupon .= '</ul>
         <button class="coupon_info_cls"><i class="fa fa-times" aria-hidden="true"></i><span class="sound_only">닫기</span></button>
         </div>'.PHP_EOL;
         $coupon .= '</div>'.PHP_EOL;
@@ -95,6 +106,7 @@ add_stylesheet('<link rel="stylesheet" href="'.G5_SHOP_CSS_URL.'/style.css">', 0
     $result = sql_query($sql);
 
     $coupon = '';
+    $coupon_info_class = '';
 
     for($i=0; $row=sql_fetch_array($result); $i++) {
         if(!$row['cz_file'])
@@ -108,22 +120,25 @@ add_stylesheet('<link rel="stylesheet" href="'.G5_SHOP_CSS_URL.'/style.css">', 0
 
         switch($row['cp_method']) {
             case '0':
-                $sql3 = " select it_id, it_name from {$g5['g5_shop_item_table']} where it_id = '{$row['cp_target']}' ";
-                $row3 = sql_fetch($sql3);
-				$cp_link = '<a href="./item.php?it_id='.$row3['it_id'].'">'.get_text($row3['it_name']).'</a>';
+                $row3 = get_shop_item($row['cp_target'], true);
+				$cp_link = '<a href="'.shop_item_url($row3['it_id']).'" target="_blank">'.get_text($row3['it_name']).'</a>';
                 $cp_target = '개별상품할인';
+                $coupon_info_class = 'cp_2';
                 break;
             case '1':
                 $sql3 = " select ca_id, ca_name from {$g5['g5_shop_category_table']} where ca_id = '{$row['cp_target']}' ";
                 $row3 = sql_fetch($sql3);
-                $cp_link = '<a href="./list.php?ca_id='.$row3['ca_id'].'">'.get_text($row3['ca_name']).'</a>';
+                $cp_link = '<a href="'.shop_category_url($row3['ca_id']).'" target="_blank">'.get_text($row3['ca_name']).'</a>';
                 $cp_target = '카테고리할인';
+                $coupon_info_class = 'cp_1';
                 break;
             case '2':
-                $cp_target = '주문금액할인';
+                $cp_link = $cp_target = '주문금액할인';
+                $coupon_info_class = 'cp_3';
                 break;
             case '3':
-                $cp_target = '배송비할인';
+                $cp_link = $cp_target = '배송비할인';
+                $coupon_info_class = 'cp_4';
                 break;
         }
 
@@ -132,20 +147,27 @@ add_stylesheet('<link rel="stylesheet" href="'.G5_SHOP_CSS_URL.'/style.css">', 0
         if(is_coupon_downloaded($member['mb_id'], $row['cz_id']))
             $disabled = ' disabled';
 
+        // $row['cp_type'] 값이 있으면 % 이며 없으면 원 입니다.
+        $print_cp_price = $row['cp_type'] ? '<b>'.$row['cp_price'].'</b> %' : '<b>'.number_format($row['cp_price']).'</b> 원';
+
         $coupon .= '<li>'.PHP_EOL;
 		$coupon .= '<div class="cp_inner">'.PHP_EOL;
         $coupon .= '<div class="coupon_img"><img src="'.str_replace(G5_PATH, G5_URL, $img_file).'" alt="'.$subj.'">'.PHP_EOL;
-        $coupon .= '<div class="coupon_tit"><span>'.$subj.'</span><br><span class="cp_evt"><b>1,900</b>원</span></div>'.PHP_EOL;
+        $coupon .= '<div class="coupon_tit"><span>'.$subj.'</span><br><span class="cp_evt">'.$print_cp_price.'</span></div>'.PHP_EOL;
 		$coupon .= '</div>'.PHP_EOL;
 		$coupon .= '<div class="cp_cnt">'.PHP_EOL;
 		$coupon .= '<div class="coupon_target">'.PHP_EOL;
-		$coupon .= '<span class="sound_only">적용</span><button class="coupon_info_btn cp_2">'.$cp_target.' <i class="fa fa-angle-right" aria-hidden="true"></i></button>'.PHP_EOL;
+		$coupon .= '<span class="sound_only">적용</span><button class="coupon_info_btn '.$coupon_info_class.'">'.$cp_target.' <i class="fa fa-angle-right" aria-hidden="true"></i></button>'.PHP_EOL;
         $coupon .= '<div class="coupon_info">
         <h4>'.$cp_target.'</h4>
         <ul>
-        	<li>적용 : '.$cp_link.'</li>
-        	<li>최소금액 : <span class="cp_evt"><b>1,900</b>원</span></li>
-        </ul>
+        	<li>적용 : '.$cp_link.'</li>';
+
+        if( $row['cp_minimum'] ){   // 쿠폰에 최소주문금액이 있다면
+        	$coupon .= '<li>최소주문금액 : <span class="cp_evt"><b>'.number_format($row['cp_minimum']).'</b>원</span></li>';
+        }
+
+        $coupon .= '</ul>
         <button class="coupon_info_cls"><i class="fa fa-times" aria-hidden="true"></i><span class="sound_only">닫기</span></button>
         </div>'.PHP_EOL;
         $coupon .= '</div>'.PHP_EOL;		

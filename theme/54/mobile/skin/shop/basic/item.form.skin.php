@@ -63,7 +63,7 @@ add_javascript('<script src="'.G5_JS_URL.'/jquery.bxslider.js"></script>', 10);
             <div id="sit_star_sns">
                 <?php
                 $sns_title = get_text($it['it_name']).' | '.get_text($config['cf_title']);
-                $sns_url  = G5_SHOP_URL.'/item.php?it_id='.$it['it_id'];
+                $sns_url  = shop_item_url($it['it_id']);
 
                 if ($score = get_star_image($it['it_id'])) { ?>
                 <span class="sound_only">고객평점 <?php echo $score?>개</span>
