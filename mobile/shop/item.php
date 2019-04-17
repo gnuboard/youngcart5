@@ -116,7 +116,7 @@ if ($default['de_mobile_rel_list_use']) {
 
 // 상품품절체크
 if(G5_SOLDOUT_CHECK)
-    $is_soldout = is_soldout($it['it_id']);
+    $is_soldout = is_soldout($it['it_id'], true);
 
 // 주문가능체크
 $is_orderable = true;

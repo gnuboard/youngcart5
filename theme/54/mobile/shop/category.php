@@ -13,6 +13,8 @@ function get_mshop_category($ca_id, $len)
 
     return $sql;
 }
+
+$mshop_categories = get_shop_category_array(true);
 ?>
 
 <div id="category" class="menu">
@@ -20,38 +22,46 @@ function get_mshop_category($ca_id, $len)
         <?php echo outlogin('theme/shop_basic'); // 외부 로그인 ?>
 
         <div class="content">
-            
             <?php
-            $mshop_ca_href = G5_SHOP_URL.'/list.php?ca_id=';
-            $mshop_ca_res1 = sql_query(get_mshop_category('', 2));
-            for($i=0; $mshop_ca_row1=sql_fetch_array($mshop_ca_res1); $i++) {
+            $i = 0;
+            foreach($mshop_categories as $cate1){
+                if( empty($cate1) ) continue;
+
+                $mshop_ca_row1 = $cate1['text'];
                 if($i == 0)
                     echo '<ul class="cate">'.PHP_EOL;
             ?>
                 <li>
-                    <a href="<?php echo $mshop_ca_href.$mshop_ca_row1['ca_id']; ?>"><?php echo get_text($mshop_ca_row1['ca_name']); ?></a>
+                    <a href="<?php echo $mshop_ca_row1['url']; ?>"><?php echo get_text($mshop_ca_row1['ca_name']); ?></a>
                     <?php
-                    $mshop_ca_res2 = sql_query(get_mshop_category($mshop_ca_row1['ca_id'], 4));
-                    if(sql_num_rows($mshop_ca_res2))
+                    if( count($cate1) > 1 )
                         echo '<button class="sub_ct_toggle ct_op">'.get_text($mshop_ca_row1['ca_name']).' 하위분류 열기</button>'.PHP_EOL;
 
-                    for($j=0; $mshop_ca_row2=sql_fetch_array($mshop_ca_res2); $j++) {
+                    $j=0;
+                    foreach($cate1 as $key=>$cate2){
+                        if( empty($cate2) || $key === 'text' ) continue;
+                        
+                        $mshop_ca_row2 = $cate2['text'];
                         if($j == 0)
                             echo '<ul class="sub_cate sub_cate1">'.PHP_EOL;
                     ?>
                         <li>
-                            <a href="<?php echo $mshop_ca_href.$mshop_ca_row2['ca_id']; ?>"><?php echo get_text($mshop_ca_row2['ca_name']); ?></a>
+                            <a href="<?php echo $mshop_ca_row2['url']; ?>"><?php echo get_text($mshop_ca_row2['ca_name']); ?></a>
                             <?php
                             $mshop_ca_res3 = sql_query(get_mshop_category($mshop_ca_row2['ca_id'], 6));
-                            if(sql_num_rows($mshop_ca_res3))
+                            if( count($cate2) > 1 )
                                 echo '<button type="button" class="sub_ct_toggle ct_op">'.get_text($mshop_ca_row2['ca_name']).' 하위분류 열기</button>'.PHP_EOL;
-
-                            for($k=0; $mshop_ca_row3=sql_fetch_array($mshop_ca_res3); $k++) {
+                            
+                            $k = 0;
+                            foreach($cate2 as $cate3_key=>$cate3){
+                                if( empty($cate2) || $cate3_key === 'text' ) continue;
+                                
+                                $mshop_ca_row3 = $cate3['text'];
                                 if($k == 0)
                                     echo '<ul class="sub_cate sub_cate2">'.PHP_EOL;
                             ?>
                                 <li>
-                                    <a href="<?php echo $mshop_ca_href.$mshop_ca_row3['ca_id']; ?>"><?php echo get_text($mshop_ca_row3['ca_name']); ?></a>
+                                    <a href="<?php echo $mshop_ca_row3['url']; ?>"><?php echo get_text($mshop_ca_row3['ca_name']); ?></a>
                                     <?php
                                     $mshop_ca_res4 = sql_query(get_mshop_category($mshop_ca_row3['ca_id'], 8));
                                     if(sql_num_rows($mshop_ca_res4))
@@ -90,6 +100,7 @@ function get_mshop_category($ca_id, $len)
                                     ?>
                                 </li>
                             <?php
+                            $k++;
                             }
 
                             if($k > 0)
@@ -97,6 +108,7 @@ function get_mshop_category($ca_id, $len)
                             ?>
                         </li>
                     <?php
+                    $j++;
                     }
 
                     if($j > 0)
@@ -104,7 +116,8 @@ function get_mshop_category($ca_id, $len)
                     ?>
                 </li>
             <?php
-            }
+            $i++;
+            }   // end for
 
             if($i > 0)
                 echo '</ul>'.PHP_EOL;
@@ -126,7 +139,7 @@ function get_mshop_category($ca_id, $len)
     </div>
 </div>
 <script>
-$(function (){
+jQuery(function ($){
 
     $("button.sub_ct_toggle").on("click", function() {
         var $this = $(this);
@@ -150,8 +163,5 @@ $(function (){
             $sub_ul.toggle();
         }
     });
-
-
-     
 });
 </script>

@@ -20,7 +20,7 @@ foreach((array) $list as $row){
     $item_link_href = shop_item_url($row['it_id']);     // 상품링크
     $star_score = $row['it_use_avg'] ? (int) get_star($row['it_use_avg']) : '';     //사용자후기 평균별점
     $list_mod = $this->list_mod;    // 분류관리에서 1줄당 이미지 수 값 또는 파일에서 지정한 가로 수
-    $is_soldout = is_soldout($row['it_id']);   // 품절인지 체크
+    $is_soldout = is_soldout($row['it_id'], true);   // 품절인지 체크
 
     $classes = array();
 

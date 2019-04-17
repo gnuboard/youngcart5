@@ -16,7 +16,7 @@ add_stylesheet('<link rel="stylesheet" href="'.G5_SHOP_SKIN_URL.'/style.css">', 
     {
         if( !$row['it_id'] ) continue;
         
-        $item = get_shop_item($row['it_id']);
+        $item = get_shop_item($row['it_id'], true);
         
         if( !$item['it_id'] ) continue;
 

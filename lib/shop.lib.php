@@ -495,10 +495,7 @@ function get_it_imageurl($it_id)
 {
     global $g5;
 
-    $sql = " select it_img1, it_img2, it_img3, it_img4, it_img5, it_img6, it_img7, it_img8, it_img9, it_img10
-                from {$g5['g5_shop_item_table']}
-                where it_id = '$it_id' ";
-    $row = sql_fetch($sql);
+    $row = get_shop_item($it_id, true);
     $filepath = '';
 
     for($i=1; $i<=10; $i++) {
@@ -2011,8 +2008,7 @@ function shop_member_cert_check($id, $type)
     switch($type)
     {
         case 'item':
-            $sql = " select ca_id, ca_id2, ca_id3 from {$g5['g5_shop_item_table']} where it_id = '$id' ";
-            $it = sql_fetch($sql);
+            $it = get_shop_item($id, true);
 
             $seq = '';
             for($i=0; $i<3; $i++) {
@@ -2148,7 +2144,7 @@ function get_view_today_items($is_cache=false)
         $tv_it_idx = $tv_idx - ($i - 1);
         $tv_it_id = get_session("ss_tv[$tv_it_idx]");
 
-        $rowx = sql_fetch(" select * from {$g5['g5_shop_item_table']} where it_id = '$tv_it_id' ");
+        $rowx = get_shop_item($tv_it_id, true);
         if(!$rowx['it_id'])
             continue;
         
@@ -2222,6 +2218,7 @@ function get_wishlist_datas($mb_id, $is_cache=false)
         return $cache[$mb_id];
     }
 
+    $cache[$mb_id] = array();
     $sql  = " select a.it_id, b.it_name from {$g5['g5_shop_wish_table']} a, {$g5['g5_shop_item_table']} b ";
     $sql .= " where a.mb_id = '".$mb_id."' and a.it_id  = b.it_id order by a.wi_id desc ";
     $result = sql_query($sql);

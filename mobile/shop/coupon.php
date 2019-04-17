@@ -45,8 +45,7 @@ $result = sql_query($sql);
         } else if($row['cp_method'] == 3) {
             $cp_target = '배송비 할인';
         } else {
-            $sql = " select it_name from {$g5['g5_shop_item_table']} where it_id = '{$row['cp_target']}' ";
-            $it = sql_fetch($sql);
+            $it = get_shop_item($row['cp_target'], true);
             $cp_target = $it['it_name'].' 상품할인';
         }
 

@@ -5,10 +5,7 @@ $g5['title'] = '상품 재입고 알림 (SMS)';
 include_once(G5_PATH.'/head.sub.php');
 
 // 상품정보
-$sql = " select it_id, it_name, it_soldout, it_stock_sms
-            from {$g5['g5_shop_item_table']}
-            where it_id = '$it_id' ";
-$it = sql_fetch($sql);
+$it = get_shop_item($it_id, true);
 
 if(!$it['it_id'])
     alert_close('상품정보가 존재하지 않습니다.');

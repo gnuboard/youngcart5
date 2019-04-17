@@ -106,8 +106,7 @@ for($i=0; $i<$count; $i++) {
     }
 
     // 상품정보
-    $sql = " select * from {$g5['g5_shop_item_table']} where it_id = '$it_id' ";
-    $it = sql_fetch($sql);
+    $it = get_shop_item($it_id, true);
     if(!$it['it_id'])
         return_error2json('상품정보가 존재하지 않습니다.');
 

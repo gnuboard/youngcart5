@@ -8,8 +8,7 @@ if($is_guest)
 $pattern = '#[/\'\"%=*\#\(\)\|\+\&\!\$~\{\}\[\]`;:\?\^\,]#';
 $it_id  = preg_replace($pattern, '', $_POST['it_id']);
 $sw_direct = $_POST['sw_direct'];
-$sql = " select it_id, ca_id, ca_id2, ca_id3 from {$g5['g5_shop_item_table']} where it_id = '$it_id' ";
-$it = sql_fetch($sql);
+$it = get_shop_item($it_id, true);
 
 // 상품 총 금액
 if($sw_direct)

@@ -1,7 +1,7 @@
 <?php
 if (!defined("_GNUBOARD_")) exit; // 개별 페이지 접근 불가
 
-$navi_datas = array();
+$navi_datas = $ca_ids = array();
 $is_item_view = (isset($it_id) && isset($it) && isset($it['it_id']) && $it_id === $it['it_id']) ? true : false;
 
 if( !$is_item_view && $ca_id ){
@@ -12,11 +12,11 @@ if( !$is_item_view && $ca_id ){
         'ca_id3' => substr($ca_id,0,6),
         );
 } else if( $is_item_view && isset($it) && is_array($it) ) {
-    $navi_datas = get_shop_navigation_data(true, $it['ca_id'], $it['ca_id2'], $it['ca_id3']);
+    $navi_datas = get_shop_navigation_data(true, $it['ca_id']);
     $ca_ids = array(
-        'ca_id' => $it['ca_id'],
-        'ca_id2' => $it['ca_id2'],
-        'ca_id3' => $it['ca_id3'],
+        'ca_id' => substr($it['ca_id'],0,2),
+        'ca_id2' => substr($it['ca_id'],0,4),
+        'ca_id3' => substr($it['ca_id'],0,6)
         );
 }
 

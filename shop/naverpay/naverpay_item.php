@@ -25,8 +25,7 @@ echo '<?xml version="1.0" encoding="UTF-8"?>';
 <response>
 <?php
 foreach($itemIds as $it_id) {
-    $sql = " select * from {$g5['g5_shop_item_table']} where it_id = '$it_id' ";
-    $it = sql_fetch($sql);
+    $it = get_shop_item($it_id, true);
     if(!$it['it_id'])
         continue;
 
