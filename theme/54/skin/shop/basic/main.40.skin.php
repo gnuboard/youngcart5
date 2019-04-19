@@ -1,12 +1,11 @@
 <?php
 if (!defined('_GNUBOARD_')) exit; // 개별 페이지 접근 불가
-include_once(G5_THEME_LIB_PATH.'/theme.lib.php');
 
 // add_stylesheet('css 구문', 출력순서); 숫자가 작을 수록 먼저 출력됨
 add_stylesheet('<link rel="stylesheet" href="'.G5_SHOP_SKIN_URL.'/style.css">', 0);
 
 // 관련상품 스킨은 사품을 한줄에 하나만 표시하며 해당 상품에 관련상품이 등록되어 있는 경우 기본으로 7개까지 노출합니다.
-add_javascript('<script src="'.G5_THEME_JS_URL.'/jquery.shop.list.js"></script>', 10);
+add_javascript('<script src="'.G5_THEME_JS_URL.'/theme.shop.list.js"></script>', 10);
 ?>
 
 <!-- 상품진열 40 시작 { -->
@@ -59,7 +58,10 @@ foreach((array) $list as $row){
 	echo "<div class=\"cart-layer\"></div>\n";
     
 	if ($this->view_it_icon) {
-        echo item_icon2($row);
+        // 품절
+        if (is_soldout($row['it_id'], true)) {
+            echo '<span class="shop_icon_soldout"><span class="soldout_txt">SOLD OUT</span></span>';
+        }
     }
     echo "</div>\n";
 	

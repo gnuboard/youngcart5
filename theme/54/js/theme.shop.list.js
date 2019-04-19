@@ -22,8 +22,8 @@ jQuery(function ($) {
         }
 
         $.post(
-            g5_theme_shop_url + "/ajax.wishupdate.php",
-            { it_id: it_id },
+            g5_theme_shop_url + "/ajax.action.php",
+            { it_id: it_id, action : "wish_update" },
             function(error) {
                 if(error != "OK") {
                     alert(error.replace(/\\n/g, "\n"));
@@ -95,9 +95,9 @@ jQuery(function ($) {
         $frm.find("input[name^=io_id]").val(id);
         $frm.find("input[name^=io_value]").val(option);
         $frm.find("input[name^=io_price]").val(price);
-
+        
         $.ajax({
-            url: frm.action,
+            url: $(frm).attr("action"),
             type: "POST",
             data: $(frm).serialize(),
             dataType: "json",
@@ -206,10 +206,11 @@ jQuery(function ($) {
         $("li.sct_li").not($sct_li).removeClass(overclass);
 
         $.ajax({
-            url: g5_theme_shop_url+"/ajax.itemoption.php",
+            url: g5_theme_shop_url+"/ajax.action.php",
             type: "POST",
             data: {
-                "it_id" : it_id
+                "it_id" : it_id,
+                "action" : "get_item_option"
             },
             dataType: "json",
             async: true,

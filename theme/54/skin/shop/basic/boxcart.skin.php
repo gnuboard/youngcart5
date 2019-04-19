@@ -57,10 +57,11 @@ jQuery(function ($) {
         var $wrap = $(this).closest("li");
 
         $.ajax({
-            url: g5_theme_shop_url+"/ajax.cartdelete.php",
+            url: g5_theme_shop_url+"/ajax.action.php",
             type: "POST",
             data: {
-                "it_id" : it_id
+                "it_id" : it_id,
+                "action" : "cart_delete"
             },
             dataType: "json",
             async: true,

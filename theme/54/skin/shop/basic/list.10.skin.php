@@ -5,7 +5,7 @@ if (!defined('_GNUBOARD_')) exit; // 개별 페이지 접근 불가
 add_stylesheet('<link rel="stylesheet" href="'.G5_SHOP_SKIN_URL.'/style.css">', 0);
 
 // 장바구니 또는 위시리스트 ajax 스크립트
-add_javascript('<script src="'.G5_THEME_JS_URL.'/jquery.shop.list.js"></script>', 10);
+add_javascript('<script src="'.G5_THEME_JS_URL.'/theme.shop.list.js"></script>', 10);
 ?>
 
 <!-- 상품진열 10 시작 { -->
@@ -64,7 +64,10 @@ foreach((array) $list as $row){
 	echo "<div class=\"cart-layer\"></div>\n";
 	
 	if ($this->view_it_icon) {
-        echo item_icon2($row);
+        // 품절
+        if (is_soldout($row['it_id'], true)) {
+            echo '<span class="shop_icon_soldout"><span class="soldout_txt">SOLD OUT</span></span>';
+        }
     }
     echo "</div>\n";
 	
