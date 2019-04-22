@@ -69,7 +69,7 @@ $cart_count = sql_num_rows($result);
                 $continue_ca_id = $row['ca_id'];
             }
 
-            $a1 = '<a href="./item.php?it_id='.$row['it_id'].'"><strong>';
+            $a1 = '<a href="'.shop_item_url($row['it_id']).'"><strong>';
             $a2 = '</strong></a>';
             $image_width = 65;
             $image_height = 65;

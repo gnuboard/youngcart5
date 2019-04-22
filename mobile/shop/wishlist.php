@@ -44,9 +44,9 @@ include_once(G5_MSHOP_PATH.'/_head.php');
     ?>
 
         <li>
-            <div class="wish_img"><a href="<?php echo G5_SHOP_URL; ?>/item.php?it_id=<?php echo $row['it_id']; ?>"><?php echo $image; ?></a></div>
+            <div class="wish_img"><a href="<?php echo shop_item_url($row['it_id']); ?>"><?php echo $image; ?></a></div>
             <div class="wish_info">
-                <a href="<?php echo G5_SHOP_URL; ?>/item.php?it_id=<?php echo $row['it_id']; ?>" class="wish_prd"><?php echo stripslashes($row['it_name']); ?></a>
+                <a href="<?php echo shop_item_url($row['it_id']); ?>" class="wish_prd"><?php echo stripslashes($row['it_name']); ?></a>
                 <span class="info_price">123,000원</span>
                 <span class="info_date"><?php echo substr($row['wi_time'], 2, 17); ?></span>
             

@@ -740,10 +740,10 @@ box-shadow:0 0 8px rgba(65,98,255,0.8)}
 .pg_wrap {clear:both;display:block;padding:10px 0;text-align:center}
 .pg_wrap:after {display:block;visibility:hidden;clear:both;content:""} 
 .pg {text-align:center}
-.pg_page, .pg_current {display:inline-block;vertical-align:middle;background:#eee;border:1px solid #eee}
+.pg_page, .pg_current, .qa_page {display:inline-block;vertical-align:middle;background:#eee;border:1px solid #eee}
 .pg a:focus, .pg a:hover {text-decoration:none}
-.pg_page {color:#959595;font-size:1.083em;height:30px;line-height:28px;padding:0 5px;min-width:30px;text-decoration:none;border-radius:3px}
-.pg_page:hover {background-color:#fafafa}
+.pg_page,.qa_page {color:#959595;font-size:1.083em;height:30px;line-height:28px;padding:0 5px;min-width:30px;text-decoration:none;border-radius:3px}
+.pg_page:hover,.qa_page:hover {background-color:#fafafa}
 .pg_start {text-indent:-999px;overflow:hidden;background:url('../img/btn_first.gif') no-repeat 50% 50% #eee;padding:0;border:1px solid #eee}
 .pg_prev {text-indent:-999px;overflow:hidden;background:url('../img/btn_prev.gif') no-repeat 50% 50% #eee;padding:0;border:1px solid #eee}
 .pg_end {text-indent:-999px;overflow:hidden;background:url('../img/btn_end.gif') no-repeat 50% 50% #eee;padding:0;border:1px solid #eee}

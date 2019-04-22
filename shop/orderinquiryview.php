@@ -145,7 +145,7 @@ if($od['od_pg'] == 'lg') {
 	                <td headers="th_itopt" class="td_prd">
 	                	<div class="sod_img"><?php echo $image; ?></div>
 	                	<div class="sod_name">
-		                	<a href="./item.php?it_id=<?php echo $row['it_id']; ?>"><?php echo $row['it_name']; ?></a><br>
+		                	<a href="<?php echo shop_item_url($row['it_id']); ?>"><?php echo $row['it_name']; ?></a><br>
 		                	<div class="sod_opt"><?php echo get_text($opt['ct_option']); ?></div>
 	                	</div>
 	                </td>

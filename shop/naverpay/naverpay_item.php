@@ -59,7 +59,7 @@ foreach($itemIds as $it_id) {
 <name><![CDATA[<?php echo $it['ec_mall_pid']; ?>]]></name>
 <?php } ?>
 <name><![CDATA[<?php echo $name; ?>]]></name>
-<url><?php echo G5_SHOP_URL.'/item.php?it_id='.$it_id; ?></url>
+<url><?php echo shop_item_url($it_id); ?></url>
 <description><![CDATA[<?php echo $description; ?>]]></description>
 <image><?php echo $image; ?></image>
 <thumb><?php echo $image; ?></thumb>

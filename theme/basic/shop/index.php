@@ -46,6 +46,7 @@ $(function(){
 	    loop:true,
 	    nav:true,
 	    autoplay:true,
+        autoplayHoverPause:true,
 	    responsive:{
 	        1000:{items:5}
 	    }

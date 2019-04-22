@@ -102,9 +102,9 @@ if($od['od_pg'] == 'lg') {
 
                 <div class="li_op_wr">
                     <div class="li_name">
-                        <a href="./item.php?it_id=<?php echo $row['it_id']; ?>"><strong><?php echo $row['it_name']; ?></strong></a>
+                        <a href="<?php echo shop_item_url($row['it_id']); ?>"><strong><?php echo $row['it_name']; ?></strong></a>
                     </div>
-                    <a href="./item.php?it_id=<?php echo $row['it_id']; ?>" class="total_img"><?php echo $image; ?></a>
+                    <a href="<?php echo shop_item_url($row['it_id']); ?>" class="total_img"><?php echo $image; ?></a>
                     <span class="prqty_stat"><span class="sound_only">상태</span><?php echo $opt['ct_status']; ?></span>
 
                 </div>

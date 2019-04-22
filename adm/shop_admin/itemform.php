@@ -279,7 +279,7 @@ if(!sql_query(" select it_skin from {$g5['g5_shop_item_table']} limit 1", false)
                 <?php } else { ?>
                     <input type="hidden" name="it_id" value="<?php echo $it['it_id']; ?>">
                     <span class="frm_ca_id"><?php echo $it['it_id']; ?></span>
-                    <a href="<?php echo G5_SHOP_URL; ?>/item.php?it_id=<?php echo $it_id; ?>" class="btn_frmline">상품확인</a>
+                    <a href="<?php echo shop_item_url($it_id); ?>" class="btn_frmline">상품확인</a>
                     <a href="<?php echo G5_ADMIN_URL; ?>/shop_admin/itemuselist.php?sfl=a.it_id&amp;stx=<?php echo $it_id; ?>" class="btn_frmline">사용후기</a>
                     <a href="<?php echo G5_ADMIN_URL; ?>/shop_admin/itemqalist.php?sfl=a.it_id&amp;stx=<?php echo $it_id; ?>" class="btn_frmline">상품문의</a>
                 <?php } ?>
@@ -1674,7 +1674,7 @@ $(function(){
 
 <div class="btn_fixed_top">
     <a href="./itemlist.php?<?php echo $qstr; ?>" class="btn btn_02">목록</a>
-    <a href="<?php echo G5_SHOP_URL ;?>/item.php?it_id=<?php echo $it_id ;?>" class="btn_02  btn">상품보기</a>
+    <a href="<?php echo shop_item_url($it_id); ?>" class="btn_02  btn">상품보기</a>
     <input type="submit" value="확인" class="btn_submit btn" accesskey="s">
 </div>
 </form>
