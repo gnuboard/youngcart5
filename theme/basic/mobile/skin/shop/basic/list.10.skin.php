@@ -22,9 +22,10 @@ if(!$is_gallery_list){
 }
 $li_width = ($is_gallery_list === 'gallery') ? intval(100 / $this->list_mod) : 100;
 $li_width_style = ' style="width:'.$li_width.'%;"';
-$ul_sct_class = ($is_gallery_list === 'gallery') ? 'sct_10' : 'sct_20';
+$ul_sct_class = ($is_gallery_list === 'gallery') ? 'sct_10' : 'sct_10_list';
 
-for ($i=0; $row=sql_fetch_array($result); $i++) {
+$i = 0;
+foreach((array) $list as $row){
     if ($i == 0) {
         if ($this->css) {
             echo "<ul id=\"sct_wrap\" class=\"{$this->css}\">\n";
@@ -33,7 +34,8 @@ for ($i=0; $row=sql_fetch_array($result); $i++) {
         }
     }
 
-    if($i % $this->list_mod == 0)
+ 
+   if($i % $this->list_mod == 0)
         $li_clear = ' sct_clear';
     else
         $li_clear = '';
@@ -52,6 +54,10 @@ for ($i=0; $row=sql_fetch_array($result); $i++) {
         echo "</a></div>\n";
     }
 
+   //별점
+    if ($this->href) {
+        echo "<div class=\"sct_star\"><img src=\"\" alt=\"별점 4점\"></div>\n";
+    }
 
     if ($this->view_it_id) {
         echo "<div class=\"sct_id\">&lt;".stripslashes($row['it_id'])."&gt;</div>\n";
@@ -69,25 +75,48 @@ for ($i=0; $row=sql_fetch_array($result); $i++) {
         echo "</a></div>\n";
     }
 
+	if ($this->view_it_basic && $row['it_basic']) {
+        echo "<div class=\"sct_basic\">".stripslashes($row['it_basic'])."</div>\n";
+    }
     if ($this->view_it_price) {
         echo "<div class=\"sct_cost\">\n";
         echo display_price(get_price($row), $row['it_tel_inq'])."\n";
         echo "</div>\n";
     }
-
-    if ($this->view_sns) {
-        $sns_top = $this->img_height + 10;
-        $sns_url  = G5_SHOP_URL.'/item.php?it_id='.$row['it_id'];
-        $sns_title = get_text($row['it_name']).' | '.get_text($config['cf_title']);
-        echo "<div class=\"sct_sns\" style=\"top:{$sns_top}px\">";
-        echo get_sns_share_link('facebook', $sns_url, $sns_title, G5_MSHOP_SKIN_URL.'/img/facebook.png');
-        echo get_sns_share_link('twitter', $sns_url, $sns_title, G5_MSHOP_SKIN_URL.'/img/twitter.png');
-        echo get_sns_share_link('googleplus', $sns_url, $sns_title, G5_MSHOP_SKIN_URL.'/img/gplus.png');
-        echo get_sns_share_link('kakaotalk', $sns_url, $sns_title, G5_MSHOP_SKIN_URL.'/img/sns_kakao.png');
+        
+    // 위시리스트 + 공유 버튼 시작 {
+    echo "<div class=\"sct_op_btn\">\n";
+        echo "<button type=\"button\" class=\"btn_wish\" data-it_id=\"{$row['it_id']}\"><span class=\"sound_only\">위시리스트</span><i class=\"fa fa-heart-o\" aria-hidden=\"true\"></i></button>\n";
+       if ($this->view_sns) {
+           echo "<button type=\"button\" class=\"btn_share\"><span class=\"sound_only\">공유하기</span><i class=\"fa fa-share-alt\" aria-hidden=\"true\"></i></button>\n";
+        }
+        echo "<div class=\"sct_sns_wrap\">";
+        if ($this->view_sns) {
+            $sns_top = $this->img_height + 10;
+            $sns_url  = shop_item_url($row['it_id']);
+            $sns_title = get_text($row['it_name']).' | '.get_text($config['cf_title']);
+            echo "<div class=\"sct_sns\">";
+            echo "<h3>SNS 공유</h3>";
+            echo get_sns_share_link('facebook', $sns_url, $sns_title, G5_SHOP_SKIN_URL.'/img/facebook.png');
+            echo get_sns_share_link('twitter', $sns_url, $sns_title, G5_SHOP_SKIN_URL.'/img/twitter.png');
+            echo get_sns_share_link('googleplus', $sns_url, $sns_title, G5_SHOP_SKIN_URL.'/img/gplus.png');
+            echo "<button type=\"button\" class=\"sct_sns_cls\"><span class=\"sound_only\">닫기</span><i class=\"fa fa-times\" aria-hidden=\"true\"></i></button>";
+            echo "</div>\n";
+        }
+        echo "<div class=\"sct_sns_bg\"></div>";
         echo "</div>\n";
-    }
+    echo "</div>\n";
+    // } 위시리스트 + 공유 버튼 끝
 
-    echo "</div></li>\n";
+
+     echo "</div>\n";
+
+    if ($this->view_it_icon) {
+        echo "<div class=\"sct_icon\">".item_icon($row)."</div>\n";
+    }
+    echo "</li>\n";
+
+    $i++;
 }
 
 if ($i > 0) echo "</ul>\n";
@@ -108,10 +137,10 @@ jQuery(function($){
         var $ul_sct = $("ul.sct");
 
         if(type == "gallery") {
-            $ul_sct.removeClass("sct_20").addClass("sct_10")
+            $ul_sct.removeClass("sct_10_list").addClass("sct_10")
             .find(".sct_li").attr({"style":"width:"+li_width+"%"});
         } else {
-            $ul_sct.removeClass("sct_10").addClass("sct_20")
+            $ul_sct.removeClass("sct_10").addClass("sct_10_list")
             .find(".sct_li").removeAttr("style");
         }
         
@@ -130,5 +159,15 @@ jQuery(function($){
         }
     });
 });
+
+//SNS 공유
+$(function (){
+	$(".btn_share").on("click", function() {
+		$(this).parent("div").children(".sct_sns_wrap").show();
+	});
+    $('.sct_sns_bg, .sct_sns_cls').click(function(){
+	    $('.sct_sns_wrap').hide();
+	});
+});		
 </script>
 <?php } ?>

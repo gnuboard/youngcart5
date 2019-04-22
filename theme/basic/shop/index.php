@@ -15,11 +15,9 @@ include_once(G5_THEME_SHOP_PATH.'/shop.head.php');
 <?php echo display_banner('메인', 'mainbanner.10.skin.php'); ?>
 <!-- } 메인이미지 끝 -->
 
-
-
 <?php if($default['de_type1_list_use']) { ?>
 <!-- 히트상품 시작 { -->
-<section class="sct_wrap">
+<section id="idx_hit" class="sct_wrap">
     <header>
         <h2><a href="<?php echo G5_SHOP_URL; ?>/listtype.php?type=1">히트상품</a></h2>
     </header>
@@ -34,10 +32,48 @@ include_once(G5_THEME_SHOP_PATH.'/shop.head.php');
     $list->set_view('it_price', true);
     $list->set_view('it_icon', true);
     $list->set_view('sns', true);
+    $list->set_view('star', true);
     echo $list->run();
     ?>
 </section>
 <!-- } 히트상품 끝 -->
+<?php } ?>
+
+<script>
+//히트상품
+$(function(){    
+	$('#idx_hit .smt_40').owlCarousel({
+	    loop:true,
+	    nav:true,
+	    autoplay:true,
+	    responsive:{
+	        1000:{items:5}
+	    }
+	})
+});
+</script>
+
+<?php if($default['de_type3_list_use']) { ?>
+<!-- 최신상품 시작 { -->
+<section class="sct_wrap">
+    <header>
+        <h2><a href="<?php echo G5_SHOP_URL; ?>/listtype.php?type=3">최신상품</a></h2>
+    </header>
+    <?php
+    $list = new item_list();
+    $list->set_type(3);
+    $list->set_view('it_id', false);
+    $list->set_view('it_name', true);
+    $list->set_view('it_basic', true);
+    $list->set_view('it_cust_price', true);
+    $list->set_view('it_price', true);
+    $list->set_view('it_icon', true);
+    $list->set_view('sns', true);
+    $list->set_view('star', true);
+    echo $list->run();
+    ?>
+</section>
+<!-- } 최신상품 끝 -->
 <?php } ?>
 
 <?php if($default['de_type2_list_use']) { ?>
@@ -56,6 +92,7 @@ include_once(G5_THEME_SHOP_PATH.'/shop.head.php');
     $list->set_view('it_price', true);
     $list->set_view('it_icon', true);
     $list->set_view('sns', true);
+    $list->set_view('star', true);
     echo $list->run();
     ?>
 </section>
@@ -63,28 +100,6 @@ include_once(G5_THEME_SHOP_PATH.'/shop.head.php');
 <?php } ?>
 
 <?php include_once(G5_SHOP_SKIN_PATH.'/boxevent.skin.php'); // 이벤트 ?>
-
-<?php if($default['de_type3_list_use']) { ?>
-<!-- 최신상품 시작 { -->
-<section class="sct_wrap">
-    <header>
-        <h2><a href="<?php echo G5_SHOP_URL; ?>/listtype.php?type=3">최신상품</a></h2>
-    </header>
-    <?php
-    $list = new item_list();
-    $list->set_type(3);
-    $list->set_view('it_id', false);
-    $list->set_view('it_name', true);
-    $list->set_view('it_basic', true);
-    $list->set_view('it_cust_price', true);
-    $list->set_view('it_price', true);
-    $list->set_view('it_icon', true);
-    $list->set_view('sns', true);
-    echo $list->run();
-    ?>
-</section>
-<!-- } 최신상품 끝 -->
-<?php } ?>
 
 <?php if($default['de_type5_list_use']) { ?>
 <!-- 할인상품 시작 { -->
@@ -102,13 +117,16 @@ include_once(G5_THEME_SHOP_PATH.'/shop.head.php');
     $list->set_view('it_price', true);
     $list->set_view('it_icon', true);
     $list->set_view('sns', true);
+    $list->set_view('star', true);
     echo $list->run();
     ?>
 </section>
 <!-- } 할인상품 끝 -->
 <?php } ?>
 
-
+<script>
+$("#wrapper").addClass("wrap_idx");
+</script>
 
 <?php
 include_once(G5_THEME_SHOP_PATH.'/shop.tail.php');
