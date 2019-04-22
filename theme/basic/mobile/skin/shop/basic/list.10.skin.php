@@ -3,6 +3,9 @@ if (!defined("_GNUBOARD_")) exit; // 개별 페이지 접근 불가
 
 // add_stylesheet('css 구문', 출력순서); 숫자가 작을 수록 먼저 출력됨
 add_stylesheet('<link rel="stylesheet" href="'.G5_MSHOP_SKIN_URL.'/style.css">', 0);
+
+// 장바구니 또는 위시리스트 ajax 스크립트
+add_javascript('<script src="'.G5_THEME_JS_URL.'/theme.shop.list.js"></script>', 10);
 ?>
 
 <?php if(!defined('G5_IS_SHOP_AJAX_LIST') && $config['cf_kakao_js_apikey']) { ?>
@@ -26,6 +29,11 @@ $ul_sct_class = ($is_gallery_list === 'gallery') ? 'sct_10' : 'sct_10_list';
 
 $i = 0;
 foreach((array) $list as $row){
+    if( empty($row) ) continue;
+
+    $item_link_href = shop_item_url($row['it_id']);     // 상품링크
+    $star_score = $row['it_use_avg'] ? (int) get_star($row['it_use_avg']) : '';     //사용자후기 평균별점
+
     if ($i == 0) {
         if ($this->css) {
             echo "<ul id=\"sct_wrap\" class=\"{$this->css}\">\n";
@@ -43,7 +51,7 @@ foreach((array) $list as $row){
     echo "<li class=\"sct_li{$li_clear}\"$li_width_style><div class=\"li_wr is_view_type_list\">\n";
 
     if ($this->href) {
-        echo "<div class=\"sct_img\"><a href=\"{$this->href}{$row['it_id']}\">\n";
+        echo "<div class=\"sct_img\"><a href=\"{$item_link_href}\">\n";
     }
 
     if ($this->view_it_img) {
@@ -54,9 +62,9 @@ foreach((array) $list as $row){
         echo "</a></div>\n";
     }
 
-   //별점
-    if ($this->href) {
-        echo "<div class=\"sct_star\"><img src=\"\" alt=\"별점 4점\"></div>\n";
+	// 사용후기 평점표시
+	if ($this->view_star && $star_score) {
+        echo "<div class=\"sct_star\"><span class=\"sound_only\">고객평점</span><img src=\"".G5_SHOP_URL."/img/s_star".$star_score.".png\" alt=\"별점 ".$star_score."점\" class=\"sit_star\"></div>\n";
     }
 
     if ($this->view_it_id) {
@@ -64,7 +72,7 @@ foreach((array) $list as $row){
     }
 
     if ($this->href) {
-        echo "<div class=\"sct_txt\"><a href=\"{$this->href}{$row['it_id']}\" class=\"sct_a\">\n";
+        echo "<div class=\"sct_txt\"><a href=\"{$item_link_href}\" class=\"sct_a\">\n";
     }
 
     if ($this->view_it_name) {
@@ -93,7 +101,7 @@ foreach((array) $list as $row){
         echo "<div class=\"sct_sns_wrap\">";
         if ($this->view_sns) {
             $sns_top = $this->img_height + 10;
-            $sns_url  = shop_item_url($row['it_id']);
+            $sns_url  = $item_link_href;
             $sns_title = get_text($row['it_name']).' | '.get_text($config['cf_title']);
             echo "<div class=\"sct_sns\">";
             echo "<h3>SNS 공유</h3>";
@@ -158,16 +166,14 @@ jQuery(function($){
             shop_list_type_fn("list");
         }
     });
-});
 
-//SNS 공유
-$(function (){
-	$(".btn_share").on("click", function() {
+    //SNS 공유
+	$(document).on("click", ".btn_share", function(e) {
 		$(this).parent("div").children(".sct_sns_wrap").show();
-	});
-    $('.sct_sns_bg, .sct_sns_cls').click(function(){
+	})
+    .on("click", ".sct_sns_bg, .sct_sns_cls", function(e) {
 	    $('.sct_sns_wrap').hide();
 	});
-});		
+});
 </script>
 <?php } ?>
