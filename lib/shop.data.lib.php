@@ -90,7 +90,7 @@ function get_shop_category_array($is_cache=false){
 
     static $categories = array();
     
-    $categories = apply_replace('get_shop_category_array', $categories, $is_cache);
+    $categories = run_replace('get_shop_category_array', $categories, $is_cache);
 
     if( $is_cache && !empty($categories) ){
         return $categories;
