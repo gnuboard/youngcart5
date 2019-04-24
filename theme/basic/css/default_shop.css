@@ -244,6 +244,7 @@ box-shadow:0 2px 5px rgba(0,0,0,0.2)}
 .mb_log_cate h2 {width:50%;float:left;padding:20px 0;text-align:center}
 .mb_log_cate .join {width:50%;float:left;padding:20px 0;text-align:center;background:#f7f7f7;color:#6e6e6e}
 .mb_log_cate:after {display:block;visibility:hidden;clear:both;content:""}
+.mbskin .chk_box input[type="checkbox"] + label span{position:relative}
 
 /* 화면낭독기 사용자용 */
 #hd_login_msg {position:absolute;top:0;left:0;width:1px;height:1px;overflow:hidden}
