@@ -18,7 +18,7 @@ function shop_item_url($it_id){
         return get_pretty_url('shop', $it_id);
     }
 
-    return G5_SHOP_URL.'/item.php?it_id='.urlencode($ca_id);
+    return G5_SHOP_URL.'/item.php?it_id='.urlencode($it_id);
 }
 
 function shop_category_url($ca_id){
