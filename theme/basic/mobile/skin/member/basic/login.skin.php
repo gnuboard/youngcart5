@@ -7,37 +7,39 @@ add_stylesheet('<link rel="stylesheet" href="'.$member_skin_url.'/style.css">', 
 
 <div id="mb_login" class="mbskin">
     <h1><?php echo $g5['title'] ?></h1>
-	<div class="mb_log_cate">
-    	<h2><span class="sound_only">회원</span>로그인</h2>
-    	<a href="<?php echo G5_BBS_URL ?>/register.php" class="join">회원가입</a>
-    </div>
+
     <form name="flogin" action="<?php echo $login_action_url ?>" onsubmit="return flogin_submit(this);" method="post" id="flogin">
     <input type="hidden" name="url" value="<?php echo $login_url ?>">
 
-    <fieldset id="login_frm">
-    	<legend>회원로그인</legend>
+    <div id="login_frm">
         <label for="login_id" class="sound_only">아이디<strong class="sound_only"> 필수</strong></label>
         <input type="text" name="mb_id" id="login_id" placeholder="아이디" required class="frm_input required" maxLength="20">
         <label for="login_pw" class="sound_only">비밀번호<strong class="sound_only"> 필수</strong></label>
         <input type="password" name="mb_password" id="login_pw" placeholder="비밀번호" required class="frm_input required" maxLength="20">
-        <button type="submit" class="btn_submit">로그인</button>
         
-        <div id="login_info">
-        	<div class="login_if_auto chk_box">
-            	<input type="checkbox" name="auto_login" id="login_auto_login" class="selec_chk">
-            	<label for="login_auto_login"><span></span> 자동로그인</label>
-            </div>
-            <div class="login_if_lpl">
-            	<a href="<?php echo G5_BBS_URL ?>/password_lost.php" target="_blank" id="login_password_lost">정보찾기</a>
-            </div>
+        <div id="login_info" class="chk_box">
+            <input type="checkbox" name="auto_login" id="login_auto_login" class="selec_chk">
+            <label for="login_auto_login"><span></span> 자동로그인</label>
         </div>
-    </fieldset> 
-	</form>
-    <?php @include_once(get_social_skin_path().'/social_login.skin.php'); // 소셜로그인 사용시 소셜로그인 버튼 ?>
-</div>
+		<button type="submit" class="btn_submit">로그인</button>
+    </div>
 
-<?php // 쇼핑몰 사용시 여기부터 ?>
-<?php if ($default['de_level_sell'] == 1) { // 상품구입 권한 ?>
+    <?php
+    // 소셜로그인 사용시 소셜로그인 버튼
+    @include_once(get_social_skin_path().'/social_login.skin.php');
+    ?>
+
+    <section class="mb_login_join">
+        <h2>회원로그인 안내</h2>
+        <div>
+            <a href="<?php echo G5_BBS_URL ?>/password_lost.php" target="_blank" id="login_password_lost">회원정보찾기</a>
+            <a href="./register.php">회원 가입</a>
+        </div>
+    </section>
+    </form>
+
+    <?php // 쇼핑몰 사용시 여기부터 ?>
+    <?php if ($default['de_level_sell'] == 1) { // 상품구입 권한 ?>
 
 	<!-- 주문하기, 신청하기 -->
 	<?php if (preg_match("/orderform.php/", $url)) { ?>
@@ -101,6 +103,7 @@ add_stylesheet('<link rel="stylesheet" href="'.$member_skin_url.'/style.css">', 
 
 	<?php } ?>
 	<?php // 쇼핑몰 사용시 여기까지 반드시 복사해 넣으세요 ?>
+</div>
 
 <script>
 $(function(){
