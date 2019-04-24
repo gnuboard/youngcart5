@@ -765,7 +765,7 @@ box-shadow:0 0 8px rgba(65,98,255,0.8)}
 /*쇼핑몰레이아웃*/
 #mb_login .btn_submit {}
 #bo_list,#bo_cate {margin-top:10px !important}
-#fregisterform {margin:10px}
+#fregisterform {}
 #bo_w .btn_submit, #bo_w a.btn_cancel {padding:8px 7px}
 #bo_w {padding:10px}
 #fqalist {padding:0 10px}

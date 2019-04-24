@@ -216,6 +216,11 @@ box-shadow:0 2px 5px rgba(0,0,0,0.2)}
 #top_btn {position:absolute;bottom:0;left:0;border:0;border-top:1px solid #e5e7ea;margin-top:-25px;width:50px;height:50px;background:none;font-size:20px;color:#dedede}
 #top_btn:hover {border-color:#3059c7;background:#3059c7;color:#fff}
 
+/* 쇼핑몰 회원가입 */
+#container .register{margin-bottom:30px}
+#register_form .register_form_inner{background:#fff}
+.register #register_form{background-color:initial}
+
 /* 쇼핑몰 비회원 주문조회 */
 #mb_login_od_wr {margin:20px auto 0;border:1px solid #dde7e9;width:360px;background:#fff;text-align:center}
 #mb_login_od_wr h2 {font-size:1.25em;margin:20px 0 10px}
