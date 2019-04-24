@@ -31,19 +31,18 @@ include_once(G5_LIB_PATH.'/popular.lib.php');
     ?>
     <div id="tnb">
     	<div class="inner">
+            <?php if(G5_COMMUNITY_USE) { ?>
+    		<ul id="hd_define">
+    			<li class="active"><a href="<?php echo G5_URL ?>/">커뮤니티</a></li>
+    			<li><a href="<?php echo G5_SHOP_URL ?>/">쇼핑몰</a></li>
+    		</ul>
+            <?php } ?>
 			<ul id="hd_qnb">
 	            <li><a href="<?php echo G5_BBS_URL ?>/faq.php">FAQ</a></li>
 	            <li><a href="<?php echo G5_BBS_URL ?>/qalist.php">Q&A</a></li>
 	            <li><a href="<?php echo G5_BBS_URL ?>/new.php">새글</a></li>
 	            <li><a href="<?php echo G5_BBS_URL ?>/current_connect.php" class="visit">접속자<strong class="visit-num"><?php echo connect('theme/basic'); // 현재 접속자수, 테마의 스킨을 사용하려면 스킨을 theme/basic 과 같이 지정  ?></strong></a></li>
 	        </ul>
-
-            <?php if(G5_COMMUNITY_USE) { ?>
-            <ul>
-                <li class="tnb_left tnb_shop"><a href="<?php echo G5_SHOP_URL; ?>/"><i class="fa fa-shopping-bag" aria-hidden="true"></i> 쇼핑몰</a></li>
-                <li class="tnb_left tnb_community"><a href="<?php echo G5_URL; ?>/"><i class="fa fa-home" aria-hidden="true"></i> 커뮤니티</a></li>
-                <?php } ?>
-            </ul>
 		</div>
     </div>
     <div id="hd_wrapper">

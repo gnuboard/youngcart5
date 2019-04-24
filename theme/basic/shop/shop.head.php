@@ -31,7 +31,7 @@ add_stylesheet('<link rel="stylesheet" href="'.G5_JS_URL.'/owlcarousel/owl.carou
     	<div class="inner">
     		<ul id="hd_define">
     			<li><a href="<?php echo G5_URL ?>/">커뮤니티</a></li>
-    			<li><a href="<?php echo G5_SHOP_URL ?>/">쇼핑몰</a></li>
+    			<li class="active"><a href="<?php echo G5_SHOP_URL ?>/">쇼핑몰</a></li>
     		</ul>
 			<ul id="hd_qnb">
 	            <li><a href="<?php echo G5_BBS_URL ?>/faq.php">FAQ</a></li>
@@ -176,9 +176,7 @@ jQuery(function ($){
         } else if( $this.hasClass("btn_sm_cl4") ){
             $(".side_mn_wr4").show();
         }
-    });
-
-    $(".con_close").on("click", function(){
+    }).on("click", ".con_close", function(e){
         $(quick_container).hide();
         $(side_btn_el).removeClass(active_class);
     });
