@@ -200,53 +200,64 @@ jQuery(function ($){
     });
 });
 </script>
-
+<?php
+    $wrapper_class = array();
+    if( defined('G5_IS_COMMUNITY_PAGE') && G5_IS_COMMUNITY_PAGE ){
+        $wrapper_class[] = 'is_community';
+    }
+?>
 <!-- 전체 콘텐츠 시작 { -->
-<div id="wrapper">
-	<?php if(defined('_INDEX_')) { ?>
-    <div id="aside">
-    	<?php include_once(G5_SHOP_SKIN_PATH.'/boxcategory.skin.php'); // 상품분류 ?>
-        <?php if($default['de_type4_list_use']) { ?>
-        <!-- 인기상품 시작 { -->
-        <section id="side_pd">
-            <h2><a href="<?php echo G5_SHOP_URL; ?>/listtype.php?type=4">인기상품</a></h2>
-            <?php
-            $list = new item_list();
-            $list->set_type(4);
-            $list->set_view('it_id', false);
-            $list->set_view('it_name', true);
-            $list->set_view('it_basic', false);
-            $list->set_view('it_cust_price', false);
-            $list->set_view('it_price', true);
-            $list->set_view('it_icon', false);
-            $list->set_view('sns', false);
-            $list->set_view('star', true);
-            echo $list->run();
-            ?>
-        </section>
-        <!-- } 인기상품 끝 -->
-        <?php } ?>
-		
-		<?php echo display_banner('왼쪽', 'boxbanner.skin.php'); ?>
-        <?php echo poll('theme/shop_basic'); // 설문조사 ?>
-    </div>
-	<?php } ?>
-    <!-- 콘텐츠 시작 { -->
-    <?php
-        $container_class = array();
-        if( isset($it_id) && isset($it) && isset($it['it_id']) && $it_id === $it['it_id']){
-            $container_class[] = 'is_item';
-        }
-        if( defined('IS_SHOP_SEARCH') && IS_SHOP_SEARCH ){
-            $container_class[] = 'is_search';
-        }
-    ?>
-    <div id="container" class="<?php echo implode(' ', $container_class);?>">
-        <?php if ((!$bo_table || $w == 's' ) && !defined('_INDEX_')) { ?><div id="wrapper_title"><?php echo $g5['title'] ?></div><?php } ?>
-        <!-- 글자크기 조정 display:none 되어 있음 시작 { -->
-        <div id="text_size">
-            <button class="no_text_resize" onclick="font_resize('container', 'decrease');">작게</button>
-            <button class="no_text_resize" onclick="font_default('container');">기본</button>
-            <button class="no_text_resize" onclick="font_resize('container', 'increase');">크게</button>
+<div id="wrapper" class="<?php echo implode(' ', $wrapper_class); ?>">
+    <!-- #container 시작 { -->
+    <div id="container">
+
+        <?php if(defined('_INDEX_')) { ?>
+        <div id="aside">
+            <?php include_once(G5_SHOP_SKIN_PATH.'/boxcategory.skin.php'); // 상품분류 ?>
+            <?php if($default['de_type4_list_use']) { ?>
+            <!-- 인기상품 시작 { -->
+            <section id="side_pd">
+                <h2><a href="<?php echo shop_type_url('4'); ?>">인기상품</a></h2>
+                <?php
+                $list = new item_list();
+                $list->set_type(4);
+                $list->set_view('it_id', false);
+                $list->set_view('it_name', true);
+                $list->set_view('it_basic', false);
+                $list->set_view('it_cust_price', false);
+                $list->set_view('it_price', true);
+                $list->set_view('it_icon', false);
+                $list->set_view('sns', false);
+                $list->set_view('star', true);
+                echo $list->run();
+                ?>
+            </section>
+            <!-- } 인기상품 끝 -->
+            <?php } ?>
+            
+            <?php echo display_banner('왼쪽', 'boxbanner.skin.php'); ?>
+            <?php echo poll('theme/shop_basic'); // 설문조사 ?>
         </div>
-        <!-- } 글자크기 조정 display:none 되어 있음 끝 -->
+        <?php } // end if ?>
+        <?php
+            $content_class = array('shop-content');
+            if( isset($it_id) && isset($it) && isset($it['it_id']) && $it_id === $it['it_id']){
+                $content_class[] = 'is_item';
+            }
+            if( defined('IS_SHOP_SEARCH') && IS_SHOP_SEARCH ){
+                $content_class[] = 'is_search';
+            }
+            if( defined('_INDEX_') && _INDEX_ ){
+                $content_class[] = 'is_index';
+            }
+        ?>
+        <!-- .shop-content 시작 { -->
+        <div class="<?php echo implode(' ', $content_class); ?>">
+            <?php if ((!$bo_table || $w == 's' ) && !defined('_INDEX_')) { ?><div id="wrapper_title"><?php echo $g5['title'] ?></div><?php } ?>
+            <!-- 글자크기 조정 display:none 되어 있음 시작 { -->
+            <div id="text_size">
+                <button class="no_text_resize" onclick="font_resize('container', 'decrease');">작게</button>
+                <button class="no_text_resize" onclick="font_default('container');">기본</button>
+                <button class="no_text_resize" onclick="font_resize('container', 'increase');">크게</button>
+            </div>
+            <!-- } 글자크기 조정 display:none 되어 있음 끝 -->

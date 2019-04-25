@@ -83,11 +83,11 @@
 #scomm li a:hover {color:#be334a}
 
 /* 메인배너 */
-#main_bn {border:1px solid #e3e5e8;position:relative;margin:20px 0 40px}
+#main_bn {border:1px solid #e3e5e8;position:relative;margin:19px 0 30px}
 #main_bn:after {display:block;visibility:hidden;clear:both;content:""}
 #main_bn .slide-wrap {padding:0;margin:0}
 #main_bn .slide-wrap img {max-width:100%;height:auto}
-#main_bn .owl_pager {background:#fff;border-top:1px solid #e3e5e8}
+#main_bn .owl_pager {position:absolute;bottom:0px;left:0;width:100%;background:#fff;border-top:1px solid #e3e5e8}
 #main_bn .owl_pager ul:after {display:block;visibility:hidden;clear:both;content:""}
 #main_bn .owl_pager li {float:left;position:relative;width:20%;border-left:1px solid #e3e5e8;text-align:center;line-height:45px;font-size:1.2em}
 #main_bn .owl_pager li:first-child {border-left:0}
@@ -141,10 +141,10 @@
 /* ##### main(nn).skin.php, list.(nn).skin.php 공통 적용 시작 ##### */
 
 /* 공통 */
-.sct_wrap {position:relative;margin:0 0 30px}
+.sct_wrap {position:relative;margin:0 0 20px}
 .sct_wrap .sctrl {position:absolute;top:0;right:0} /* 애니메이션 효과 사용 시 재생 정지 버튼 등 */
 .sct_wrap:after {display:block;visibility:hidden;clear:both;content:""}
-.sct_wrap header {margin:0 0 20px}
+.sct_wrap header {padding:10px 0 20px}
 .sct_wrap header:after {display:block;visibility:hidden;clear:both;content:""}
 .sct_wrap h2 {float:left;font-size:1.5em;margin:0 0 10px 0;display:inline-block;line-height:1em}
 .sct_wrap h2:after {display:block;visibility:hidden;clear:both;content:""}

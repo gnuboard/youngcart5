@@ -107,6 +107,11 @@ include_once(G5_LIB_PATH.'/latest.lib.php');
     });
    </script>
 </header>
-
-<div id="container">
+<?php
+    $container_class = array();
+    if( defined('G5_IS_COMMUNITY_PAGE') && G5_IS_COMMUNITY_PAGE ){
+        $container_class[] = 'is_community';
+    }
+?>
+<div id="container" class="<?php echo implode(' ', $container_class); ?>">
     <?php if ((!$bo_table || $w == 's' ) && !defined('_INDEX_')) { ?><h1 id="container_title"><a href="javascript:history.back()" class="btn_back"><i class="fa fa-chevron-left" aria-hidden="true"></i><span class="sound_only">뒤로</span></a> <?php echo $g5['title'] ?></h1><?php } ?>

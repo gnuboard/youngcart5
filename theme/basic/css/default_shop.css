@@ -2,7 +2,7 @@
 
 /* 초기화 */
 html {overflow-y:scroll}
-body {margin:0;padding:0;font-size:0.75em;font-family:'Malgun Gothic', dotum, sans-serif;background:#f6f6f6}
+body {margin:0;padding:0;font-size:0.75em;font-family:'Malgun Gothic', dotum, sans-serif}
 html, h1, h2, h3, h4, h5, h6, form, fieldset, img {margin:0;padding:0;border:0}
 h1, h2, h3, h4, h5, h6 {font-size:1em;font-family:'Malgun Gothic', dotum, sans-serif}
 article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section {display:block}
@@ -165,7 +165,9 @@ box-shadow:0 2px 5px rgba(0,0,0,0.2)}
 
 
 /* 중간 레이아웃 */
-#wrapper {z-index:5;margin:0 auto;width:1200px;position:relative}
+/* #wrapper {z-index:5;margin:0 auto;width:1200px;position:relative} */
+#wrapper {z-index:5;position:relative;width:100%;background:#f6f6f6}
+#wrapper.is_community{background:#fff}
 #wrapper:after {display:block;visibility:hidden;clear:both;content:""}
 #wrapper_title {padding:20px 0;font-size:2em;font-weight:bold}
 
@@ -173,7 +175,7 @@ box-shadow:0 2px 5px rgba(0,0,0,0.2)}
 .lt_wr:nth-child(2n+1) {clear:both}
 
 /* aside + wrapper */
-#aside {float:left;margin:0 10px 0 0;width:265px;margin-right:20px}
+#aside {position:absolute;top:0;left:0;margin:0 10px 0 0;width:265px}
 #side_pd {position:relative;border:1px solid #dde7e9;background:#fff;border-radius:3px;margin-bottom:15px}
 #side_pd h2 {border-bottom:1px solid #e8e8e8;padding:15px}
 #side_pd .bx-wrapper {padding-bottom:10px;height:400px;overflow:hidden}
@@ -181,11 +183,11 @@ box-shadow:0 2px 5px rgba(0,0,0,0.2)}
 #side_pd .bx-prev {display:inline-block;width:20px;height:20px;text-indent:-9999em;background:url('../img/btn_prev.png') no-repeat}
 #side_pd .bx-next {display:inline-block;width:20px;height:20px;text-indent:-9999em;background:url('../img/btn_next.png') no-repeat}
 
-.wrap_idx {}
-.wrap_idx #container {float:left;width:915px}
-
-#container {position:relative;width:100%;min-height:500px;height:auto !important;height:500px}
+#container {position:relative;margin:0 auto;width:1200px;min-height:500px;height:auto !important}
 #container:after {display:block;visibility:hidden;clear:both;content:""}
+#container .shop-content {position:relative;padding:1px 0}
+#container .is_index {margin-left:285px}
+.shop-content #bo_v{margin-top:20px}
 
 #idx_hit {overflow:hidden}
 #idx_hit:after {display:block;visibility:hidden;clear:both;content:""}
@@ -250,6 +252,13 @@ box-shadow:0 2px 5px rgba(0,0,0,0.2)}
 .mb_log_cate .join {width:50%;float:left;padding:20px 0;text-align:center;background:#f7f7f7;color:#6e6e6e}
 .mb_log_cate:after {display:block;visibility:hidden;clear:both;content:""}
 .mbskin .chk_box input[type="checkbox"] + label span{position:relative}
+
+/* 새글 */
+.is_community .tbl_head01 td {color:#666;padding:10px 5px;border-top:1px solid #ecf0f1;border-bottom:1px solid #ecf0f1;border-left:0 none;line-height:1.4em;height:60px;word-break:break-all}
+
+/* 글쓰기 및 글보기 */
+.is_community .chk_box input[type="checkbox"] + label span{top:2px;left:0}
+.is_community .bo_fx{margin-bottom:20px}
 
 /* 화면낭독기 사용자용 */
 #hd_login_msg {position:absolute;top:0;left:0;width:1px;height:1px;overflow:hidden}

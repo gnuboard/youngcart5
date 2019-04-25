@@ -16,14 +16,14 @@ for ($i=0; $row=sql_fetch_array($result); $i++)
 {
     $main_banners[] = $row;
 
-    if ($i==0) echo '<div id="main_bn"><div class="main_banner_owl owl-carousel">'.PHP_EOL;
-    //print_r2($row);
     // 테두리 있는지
     $bn_border  = ($row['bn_border']) ? ' class="sbn_border"' : '';;
     // 새창 띄우기인지
     $bn_new_win = ($row['bn_new_win']) ? ' target="_blank"' : '';
 
     $bimg = G5_DATA_PATH.'/banner/'.$row['bn_id'];
+    $item_html = '';
+
     if (file_exists($bimg))
     {
         $banner = '';
@@ -38,18 +38,22 @@ for ($i=0; $row=sql_fetch_array($result); $i++)
         if($max_height < $size[1])
             $max_height = $size[1];
 
-        echo '<div class="item">';
+        $item_html .= '<div class="item">';
         if ($row['bn_url'][0] == '#')
             $banner .= '<a href="'.$row['bn_url'].'">';
         else if ($row['bn_url'] && $row['bn_url'] != 'http://') {
             $banner .= '<a href="'.G5_SHOP_URL.'/bannerhit.php?bn_id='.$row['bn_id'].'"'.$bn_new_win.'>';
         }
-        echo $banner.'<img src="'.G5_DATA_URL.'/banner/'.$row['bn_id'].'" width="'.$size[0].'" alt="'.get_text($row['bn_alt']).'"'.$bn_border.'>';
+        $item_html .= $banner.'<img src="'.G5_DATA_URL.'/banner/'.$row['bn_id'].'" width="'.$size[0].'" alt="'.get_text($row['bn_alt']).'"'.$bn_border.'>';
         if($banner)
-            echo '</a>';
-        echo '</div>';
-       
+            $item_html .= '</a>';
+        $item_html .= '</div>';
     }
+    
+    $banner_style = $max_height ? 'style="min-height:'.($max_height + 25).'px"' : '';
+    if ($i==0) echo '<div id="main_bn" '.$banner_style.'><div class="main_banner_owl owl-carousel">'.PHP_EOL;
+    
+    echo $item_html;
 }
 
 if ($i > 0) {

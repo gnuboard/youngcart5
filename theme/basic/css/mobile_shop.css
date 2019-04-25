@@ -587,6 +587,19 @@ a.btn_b03:hover, .btn_b03:hover {}
 a.btn_admin {display:inline-block;background:#e8180c;color:#fff;text-decoration:none;vertical-align:middle} /* 관리자 전용 버튼 */
 a.btn_admin:focus, a.btn_admin:hover {}
 
+.is_community .btn_top {position:relative;height:50px;margin:0;padding:10px 15px;line-height:30px;background:#fff;color:#333;text-align:right;
+-webkit-box-shadow:0 0 10px rgba(181, 181, 181, 0.4);
+-moz-box-shadow:0 0 10px rgba(181, 181, 181, 0.4);
+box-shadow:0 0 10px rgba(181, 181, 181, 0.4);
+}
+.is_community a.btn_admin {display:inline-block;color:#d13f4a;font-size:1.4em;background:transparent;text-decoration:none;vertical-align:middle}
+.is_community .btn_bo_user > li {display:inline-block;float:none;text-align:center;margin-left:5px}
+.is_community .all_chk.chk_box input[type="checkbox"] + label span{top:2px;left:0}
+.is_community a.btn,.is_community .btn {line-height:35px;width:30px;height:35px;padding:0 5px;text-align:center;font-weight:bold;border:0;font-size:1.4em}
+.is_community .more_opt{right:40px}
+.is_community .chk_box input[type="checkbox"] + label {padding-left:20px;color:#676e70}
+.is_community .all_chk {padding:10px 15px;}
+
 /* 기본테이블 */
 .tbl_wrap {margin:0 0 10px}
 .tbl_wrap table {width:100%;border-collapse:collapse;border-spacing:0}
