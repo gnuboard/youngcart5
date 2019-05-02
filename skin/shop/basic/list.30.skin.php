@@ -2,14 +2,19 @@
 if (!defined('_GNUBOARD_')) exit; // 개별 페이지 접근 불가
 
 // add_stylesheet('css 구문', 출력순서); 숫자가 작을 수록 먼저 출력됨
-add_stylesheet('<link rel="stylesheet" href="'.G5_SHOP_CSS_URL.'/style.css">', 0);
+add_stylesheet('<link rel="stylesheet" href="'.G5_SHOP_SKIN_URL.'/style.css">', 0);
 ?>
 
 <!-- 상품진열 30 시작 { -->
 <?php
-for ($i=1; $row=sql_fetch_array($result); $i++) {
+$i=0;
+foreach((array) $list as $row){
+
+    if( empty($row) ) continue;
+    $i++;
 
     $item_link_href = shop_item_url($row['it_id']);
+    $star_score = $row['it_use_avg'] ? (int) get_star($row['it_use_avg']) : '';
 
     if ($list_mod >= 2) { // 1줄 이미지 : 2개 이상
         if ($i%$list_mod == 0) $sct_last = ' sct_last'; // 줄 마지막
@@ -35,7 +40,7 @@ for ($i=1; $row=sql_fetch_array($result); $i++) {
     $list_width = $list_real_width - $list_right_pad - $list_left_pad;
     $list_height = $this->img_height - $list_top_pad - $list_bottom_pad;
 
-    echo "<li class=\"sct_li{$sct_last}\" style=\"padding:{$list_top_pad}px {$list_right_pad}px {$list_bottom_pad}px {$list_left_pad}px;width:{$list_width}px;height:{$list_height}px\">\n";
+    echo "<li class=\"sct_li{$sct_last}\" data-css=\"nocss\" style=\"padding:{$list_top_pad}px {$list_right_pad}px {$list_bottom_pad}px {$list_left_pad}px;width:{$list_width}px;height:{$list_height}px\">\n";
 
     if ($this->href) {
         echo "<div class=\"sct_img\"><a href=\"{$item_link_href}\" class=\"sct_a\">\n";
@@ -78,7 +83,7 @@ for ($i=1; $row=sql_fetch_array($result); $i++) {
         echo "<div class=\"sct_cost\">\n";
 
         if ($this->view_it_cust_price && $row['it_cust_price']) {
-            echo "<strike>".display_price($row['it_cust_price'])."</strike>\n";
+           echo "<span class=\"sct_dict\">".display_price($row['it_cust_price'])."</span>\n";
         }
 
         if ($this->view_it_price) {

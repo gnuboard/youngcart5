@@ -8,9 +8,7 @@ add_stylesheet('<link rel="stylesheet" href="'.G5_SHOP_SKIN_URL.'/style.css">', 
 <!-- 쇼핑몰 커뮤니티 시작 { -->
 <aside id="scomm">
     <h2>커뮤니티</h2>
-
     <ul>
-
     <?php
     $hsql = " select bo_table, bo_subject from {$g5['board_table']} order by gr_id, bo_table ";
     $hresult = sql_query($hsql);
@@ -23,6 +21,5 @@ add_stylesheet('<link rel="stylesheet" href="'.G5_SHOP_SKIN_URL.'/style.css">', 
         echo '<li id="scomm_empty">커뮤니티 준비 중</li>'.PHP_EOL;
     ?>
     </ul>
-
 </aside>
 <!-- } 쇼핑몰 커뮤니티 끝 -->

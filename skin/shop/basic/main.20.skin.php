@@ -27,6 +27,7 @@ foreach((array) $list as $row){
 
     $sct_last = '';
     $item_link_href = shop_item_url($row['it_id']);
+    $star_score = $row['it_use_avg'] ? (int) get_star($row['it_use_avg']) : '';
 
     if($i>1 && $i%$this->list_mod == 0)
         $sct_last = ' sct_last'; // 줄 마지막
@@ -45,7 +46,7 @@ foreach((array) $list as $row){
         echo "<ul class=\"sct_ul\">\n";
     }
 
-    echo "<li class=\"sct_li{$sct_last}\" style=\"width:{$this->img_width}px\">";
+    echo "<li class=\"sct_li{$sct_last}\">";
 
     if ($this->href) {
         echo "<div class=\"sct_img\"><a href=\"{$item_link_href}\" class=\"sct_a\">\n";
@@ -59,16 +60,12 @@ foreach((array) $list as $row){
         echo "</a></div>\n";
     }
 
-    if ($this->view_it_icon) {
-        echo "<div class=\"sct_icon\">".item_icon($row)."</div>\n";
-    }
-
     if ($this->view_it_id) {
         echo "<div class=\"sct_id\">&lt;".stripslashes($row['it_id'])."&gt;</div>\n";
     }
 
     if ($this->href) {
-        echo "<div class=\"sct_txt\"><a href=\"{$this->href}{$row['it_id']}\" class=\"sct_a\">\n";
+        echo "<div class=\"sct_txt\"><a href=\"{$item_link_href}\" class=\"sct_a\">\n";
     }
 
     if ($this->view_it_name) {
@@ -88,7 +85,7 @@ foreach((array) $list as $row){
         echo "<div class=\"sct_cost\">\n";
 
         if ($this->view_it_cust_price && $row['it_cust_price']) {
-            echo "<strike>".display_price($row['it_cust_price'])."</strike>\n";
+            echo "<span class=\"sct_dict\">".display_price($row['it_cust_price'])."</span>\n";
         }
 
         if ($this->view_it_price) {
@@ -104,12 +101,16 @@ foreach((array) $list as $row){
         $sns_url  = $item_link_href;
         $sns_title = get_text($row['it_name']).' | '.get_text($config['cf_title']);
         echo "<div class=\"sct_sns\" style=\"top:{$sns_top}px\">";
-        echo get_sns_share_link('facebook', $sns_url, $sns_title, G5_SHOP_SKIN_URL.'/img/sns_fb_s.png');
-        echo get_sns_share_link('twitter', $sns_url, $sns_title, G5_SHOP_SKIN_URL.'/img/sns_twt_s.png');
-        echo get_sns_share_link('googleplus', $sns_url, $sns_title, G5_SHOP_SKIN_URL.'/img/sns_goo_s.png');
+        echo get_sns_share_link('facebook', $sns_url, $sns_title, G5_SHOP_SKIN_URL.'/img/facebook.png');
+        echo get_sns_share_link('twitter', $sns_url, $sns_title, G5_SHOP_SKIN_URL.'/img/twitter.png');
+        echo get_sns_share_link('googleplus', $sns_url, $sns_title, G5_SHOP_SKIN_URL.'/img/gplus.png');
         echo "</div>\n";
     }
-
+	
+	if ($this->view_it_icon) {
+        echo "<div class=\"sct_icon\">".item_icon($row)."</div>\n";
+    }
+	
     echo "</li>\n";
 }
 
@@ -247,7 +248,9 @@ if($i == 1) echo "<p class=\"sct_noitem\">등록된 상품이 없습니다.</p>\
         else
             return methods.init.apply(this, arguments);
     }
+}(jQuery));
 
+$(function() {
     $("#smt_<?php echo $this->type; ?>").topRolling();
     // 기본 설정값을 변경하려면 아래처럼 사용
     //$("#smt_<?php echo $this->type; ?>").topRolling({ interval: 2000, duration: 800 });
@@ -272,7 +275,6 @@ if($i == 1) echo "<p class=\"sct_noitem\">등록된 상품이 없습니다.</p>\
             $(this).data("stop", true);
         }
     });
-
-}(jQuery));
+});
 </script>
 <!-- } 상품진열 20 끝 -->

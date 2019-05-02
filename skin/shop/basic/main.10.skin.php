@@ -14,6 +14,7 @@ foreach((array) $list as $row){
     $i++;
 
     $item_link_href = shop_item_url($row['it_id']);
+    $star_score = $row['it_use_avg'] ? (int) get_star($row['it_use_avg']) : '';
 
     if ($this->list_mod >= 2) { // 1줄 이미지 : 2개 이상
         if ($i%$this->list_mod == 0) $sct_last = 'sct_last'; // 줄 마지막
@@ -22,12 +23,12 @@ foreach((array) $list as $row){
     } else { // 1줄 이미지 : 1개
         $sct_last = 'sct_clear';
     }
-
+    
     if ($i == 1) {
         if ($this->css) {
             echo "<ul class=\"{$this->css}\">\n";
         } else {
-            echo "<ul class=\"sct sct_10\">\n";
+            echo "<ul class=\"sct smt_40 owl-carousel\">\n";
         }
     }
 
@@ -47,24 +48,17 @@ foreach((array) $list as $row){
         echo "</a>\n";
     }
 
-
-    if ($this->view_sns) {
-        $sns_top = $this->img_height + 10;
-        $sns_url  = $item_link_href;
-        $sns_title = get_text($row['it_name']).' | '.get_text($config['cf_title']);
-        echo "<div class=\"sct_sns\">";
-        echo get_sns_share_link('facebook', $sns_url, $sns_title, G5_SHOP_SKIN_URL.'/img/facebook.png');
-        echo get_sns_share_link('twitter', $sns_url, $sns_title, G5_SHOP_SKIN_URL.'/img/twitter.png');
-        echo get_sns_share_link('googleplus', $sns_url, $sns_title, G5_SHOP_SKIN_URL.'/img/gplus.png');
-        echo "</div>\n";
-    }
-
     echo "</div>\n";
 
     if ($this->view_it_id) {
         echo "<div class=\"sct_id\">&lt;".stripslashes($row['it_id'])."&gt;</div>\n";
     }
-
+	
+	// 사용후기 평점표시
+	if ($this->view_star && $star_score) {
+        echo "<div class=\"sct_star\"><span class=\"sound_only\">고객평점</span><img src=\"".G5_SHOP_URL."/img/s_star".$star_score.".png\" alt=\"별점 ".$star_score."점\" class=\"sit_star\"></div>\n";
+    }
+	
     if ($this->href) {
         echo "<div class=\"sct_txt\"><a href=\"{$item_link_href}\">\n";
     }
@@ -77,17 +71,9 @@ foreach((array) $list as $row){
         echo "</a></div>\n";
     }
 
-    if ($this->view_it_basic && $row['it_basic']) {
-        echo "<div class=\"sct_basic\">".stripslashes($row['it_basic'])."</div>\n";
-    }
-
     if ($this->view_it_cust_price || $this->view_it_price) {
 
         echo "<div class=\"sct_cost\">\n";
-
-        if ($this->view_it_cust_price && $row['it_cust_price']) {
-            echo "<span class=\"sct_discount\">".display_price($row['it_cust_price'])."</span>\n";
-        }
 
         if ($this->view_it_price) {
             echo display_price(get_price($row), $row['it_tel_inq'])."\n";
@@ -97,12 +83,6 @@ foreach((array) $list as $row){
 
     }
 
-    if ($this->view_it_icon) {
-        echo "<div class=\"sct_icon\">".item_icon($row)."</div>\n";
-    }
-
-
-    
     echo "</li>\n";
 }
 
