@@ -26,6 +26,7 @@ $mshop_categories = get_shop_category_array(true);
         <li class="gnb_1dli" style="z-index:<?php echo $gnb_zindex; ?>">
             <a href="<?php echo $row['url']; ?>" class="gnb_1da"><?php echo $row['ca_name']; ?><?php if ($count) echo '<i class="fa fa-angle-right" aria-hidden="true"></i>'; ?></a>
             <?php
+            $j=0;
             foreach($cate1 as $key=>$cate2) {
             if( empty($cate2) || $key === 'text' ) continue;
             
