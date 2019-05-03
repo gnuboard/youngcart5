@@ -37,8 +37,6 @@ include_once(G5_THEME_SHOP_PATH.'/shop.head.php');
     ?>
 </section>
 <!-- } 히트상품 끝 -->
-<?php } ?>
-
 <script>
 //히트상품
 $(function(){    
@@ -53,6 +51,7 @@ $(function(){
 	})
 });
 </script>
+<?php } ?>
 
 <?php if($default['de_type3_list_use']) { ?>
 <!-- 최신상품 시작 { -->
