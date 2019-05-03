@@ -11,9 +11,9 @@ $admin = get_admin("super");
 <div id="ft">
     <h2><?php echo $config['cf_title']; ?> 정보</h2>
     <div id="ft_company">
-        <a href="<?php echo G5_BBS_URL; ?>/content.php?co_id=company">회사소개</a>
-        <a href="<?php echo G5_BBS_URL; ?>/content.php?co_id=privacy">개인정보</a>
-        <a href="<?php echo G5_BBS_URL; ?>/content.php?co_id=provision">이용약관</a>
+        <a href="<?php echo get_pretty_url('content', 'company'); ?>">회사소개</a>
+        <a href="<?php echo get_pretty_url('content', 'privacy'); ?>">개인정보</a>
+        <a href="<?php echo get_pretty_url('content', 'provision'); ?>">이용약관</a>
 
     </div>
     <div id="ft_logo"><a href="<?php echo G5_SHOP_URL; ?>/"><img src="<?php echo G5_DATA_URL; ?>/common/mobile_logo_img2" alt="<?php echo $config['cf_title']; ?> 메인"></a></div>

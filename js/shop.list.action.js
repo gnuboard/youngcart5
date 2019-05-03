@@ -22,7 +22,7 @@ jQuery(function ($) {
         }
 
         $.post(
-            g5_theme_shop_url + "/ajax.action.php",
+            g5_shop_url + "/ajax.action.php",
             { it_id: it_id, action : "wish_update" },
             function(error) {
                 if(error != "OK") {
@@ -127,7 +127,7 @@ jQuery(function ($) {
 
     // 5.4 버전의 기본테마의 사이드바의 장바구니를 새로고침합니다.
     mainCart.update_cart_side = function(){
-        var ajax_url = g5_theme_shop_url || g5_shop_url;
+        var ajax_url = g5_shop_url || g5_shop_url;
 
         $.ajax({
             url: ajax_url + "/ajax.action.php",
@@ -152,7 +152,7 @@ jQuery(function ($) {
     }
 
     mainCart.update_wish_side = function(){
-        var ajax_url = g5_theme_shop_url || g5_shop_url;
+        var ajax_url = g5_shop_url || g5_shop_url;
         
         if (typeof g5_is_member == "undefined" || ! g5_is_member) {
             return false;
@@ -206,7 +206,7 @@ jQuery(function ($) {
         $("li.sct_li").not($sct_li).removeClass(overclass);
 
         $.ajax({
-            url: g5_theme_shop_url+"/ajax.action.php",
+            url: g5_shop_url+"/ajax.action.php",
             type: "POST",
             data: {
                 "it_id" : it_id,

@@ -441,6 +441,7 @@ CREATE TABLE IF NOT EXISTS `g5_shop_item` (
   `it_skin` varchar(255) NOT NULL DEFAULT '',
   `it_mobile_skin` varchar(255) NOT NULL DEFAULT '',
   `it_name` varchar(255) NOT NULL DEFAULT '',
+  `it_seo_title` varchar(200) NOT NULL DEFAULT '',
   `it_maker` varchar(255) NOT NULL DEFAULT '',
   `it_origin` varchar(255) NOT NULL DEFAULT '',
   `it_brand` varchar(255) NOT NULL DEFAULT '',
@@ -526,6 +527,7 @@ CREATE TABLE IF NOT EXISTS `g5_shop_item` (
   PRIMARY KEY (`it_id`),
   KEY `ca_id` (`ca_id`),
   KEY `it_name` (`it_name`),
+  KEY `it_seo_title` (`it_seo_title`),
   KEY `it_order` (`it_order`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
