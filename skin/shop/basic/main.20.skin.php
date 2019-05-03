@@ -114,12 +114,12 @@ foreach((array) $list as $row){
     echo "</li>\n";
 }
 
-if ($i > 1) {
+if ($i >= 1) {
     echo "</ul>\n";
     echo "</div>\n";
 }
 
-if($i == 1) echo "<p class=\"sct_noitem\">등록된 상품이 없습니다.</p>\n";
+if($i == 0) echo "<p class=\"sct_noitem\">등록된 상품이 없습니다.</p>\n";
 ?>
 
 <script>
