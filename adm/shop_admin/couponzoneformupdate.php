@@ -11,6 +11,26 @@ check_admin_token();
 
 $_POST = array_map('trim', $_POST);
 
+$check_sanitize_keys = array(
+'cz_subject',       // 쿠폰이름
+'cz_type',          // 발행쿠폰타입
+'cz_start',         // 사용시작일
+'cz_end',           // 사용종료일
+'cz_period',        // 쿠폰사용기한
+'cz_point',         // 쿠폰교환 포인트
+'cp_method',        // 발급쿠폰종류
+'cp_target',        // 적용상품
+'cp_price',         // 할인금액
+'cp_type',          // 할인금액타입
+'cp_trunc',         // 절사금액
+'cp_minimum',       // 최소주문금액
+'cp_maximum',       // 최대할인금액
+);
+
+foreach( $check_sanitize_keys as $key ){
+    $$key = $_POST[$key] = isset($_POST[$key]) ? strip_tags($_POST[$key]) : '';
+}
+
 if(!$_POST['cz_subject'])
     alert('쿠폰이름을 입력해 주십시오.');
 
@@ -51,6 +71,10 @@ if(!$_POST['cp_price']) {
         alert('할인비율을 입력해 주십시오.');
     else
         alert('할인금액을 입력해 주십시오.');
+}
+
+if( (int) $_POST['cp_price'] < 0 ){
+    alert('할인금액 또는 할인비율은 음수를 입력할수 없습니다.');
 }
 
 if($_POST['cp_type'] && ($_POST['cp_price'] < 1 || $_POST['cp_price'] > 99))

@@ -48,7 +48,7 @@ add_stylesheet('<link rel="stylesheet" href="'.$member_skin_url.'/style.css">', 
         <p>비회원으로 주문하시는 경우 포인트는 지급하지 않습니다.</p>
 
         <div id="guest_privacy">
-            <?php echo $default['de_guest_privacy']; ?>
+            <?php echo conv_content($default['de_guest_privacy'], $config['cf_editor']); ?>
         </div>
 		
 		<div class="chk_box">
