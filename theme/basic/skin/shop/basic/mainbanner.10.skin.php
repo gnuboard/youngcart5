@@ -51,7 +51,7 @@ for ($i=0; $row=sql_fetch_array($result); $i++)
     }
     
     $banner_style = $max_height ? 'style="min-height:'.($max_height + 25).'px"' : '';
-    if ($i==0) echo '<div id="main_bn" '.$banner_style.'><div class="main_banner_owl owl-carousel">'.PHP_EOL;
+    if ($i==0) echo '<div id="main_bn"><div class="main_image_area"><div class="main_banner_owl owl-carousel">'.PHP_EOL;
     
     echo $item_html;
 }
@@ -60,16 +60,22 @@ if ($i > 0) {
     echo '</div>'.PHP_EOL;
 	
 	echo '<div class="btn_wr"><a href="#" class="pager-prev"><i class="fa fa-angle-left"></i></a><div id="slide-counter"></div><a href="#" class="pager-next"><i class="fa fa-angle-right"></i></a> </div>'.PHP_EOL;
+
+    echo '</div>'.PHP_EOL;
+    
+    echo '<div class="main_owl_pager">'.PHP_EOL;
         echo '<div class="owl_pager">
     <ul class="carousel-custom-dots owl-dots">';
 		$k = 0;
 		foreach( $main_banners as $row ){
-			echo '<li class="owl-dot"><a data-slide-index="'.$k.'" href="#">'.get_text($row['bn_alt']).'</a></li>'.PHP_EOL;
+            $alt_title = $row['bn_alt'] ? cut_str(get_text($row['bn_alt']), 12, '') : '&nbsp;';
+			echo '<li class="owl-dot"><a data-slide-index="'.$k.'" href="#">'.$alt_title.'</a></li>'.PHP_EOL;
 			$k++;
 			}
 		
     echo '</ul>
     </div>'.PHP_EOL;
+    echo '</div>'.PHP_EOL;
     echo '</div>'.PHP_EOL;
 ?>
 

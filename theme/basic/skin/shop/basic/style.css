@@ -87,10 +87,11 @@
 #main_bn:after {display:block;visibility:hidden;clear:both;content:""}
 #main_bn .slide-wrap {padding:0;margin:0}
 #main_bn .slide-wrap img {max-width:100%;height:auto}
-#main_bn .owl_pager {position:absolute;bottom:0px;left:0;width:100%;background:#fff;border-top:1px solid #e3e5e8}
+#main_bn .main_image_area{position:relative}
+#main_bn .owl_pager {position:relative;width:100%;background:#fff;border-top:1px solid #e3e5e8}
 #main_bn .owl_pager ul:after {display:block;visibility:hidden;clear:both;content:""}
-#main_bn .owl_pager li {float:left;position:relative;width:20%;border-left:1px solid #e3e5e8;text-align:center;line-height:45px;font-size:1.2em}
-#main_bn .owl_pager li:first-child {border-left:0}
+#main_bn .owl_pager li {float:left;position:relative;width:20%;border-left:1px solid #e3e5e8;text-align:center;line-height:45px;height:45px;font-size:1.2em}
+#main_bn .owl_pager li:first-child, #main_bn .owl_pager li:nth-child(5n+1) {border-left:0}
 #main_bn .owl_pager li a {display:block}
 #main_bn .owl_pager li a:after {content:"";position:absolute;top:0;left:0;width:100%;height:2px;background:#e3e5e8}
 #main_bn .owl_pager li.active a {color:#3a8afd}
