@@ -603,6 +603,8 @@ if($all_fields) {
 
 if( function_exists('shop_seo_title_update') ) shop_seo_title_update($it_id);
 
+run_event('shop_admin_itemformupdate', $it_id, $w);
+
 $qstr = "$qstr&amp;sca=$sca&amp;page=$page";
 
 if ($w == "u") {

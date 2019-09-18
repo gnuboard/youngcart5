@@ -409,6 +409,8 @@ function get_it_image($it_id, $width, $height=0, $anchor=false, $img_id='', $img
     if(!$row['it_id'])
         return '';
 
+    $filename = $thumb = $img = '';
+
     for($i=1;$i<=10; $i++) {
         $file = G5_DATA_PATH.'/item/'.$row['it_img'.$i];
         if(is_file($file) && $row['it_img'.$i]) {
@@ -451,7 +453,7 @@ function get_it_image($it_id, $width, $height=0, $anchor=false, $img_id='', $img
     if($anchor)
         $img = $img = '<a href="'.shop_item_url($it_id).'">'.$img.'</a>';
 
-    return $img;
+    return run_replace('get_it_image_tag', $img, $thumb, $it_id, $width, $height, $anchor, $img_id, $img_alt, $is_crop);
 }
 
 
@@ -2554,6 +2556,29 @@ function is_inicis_order_pay($type){
     }
 
     return false;
+}
+
+function get_item_images_info($it, $size=array(), $image_width, $image_height){
+    
+    if( !(is_array($it) && $it) ) return array();
+    $images = array();
+
+    for($i=1; $i<=10; $i++) {
+        if(!$it['it_img'.$i]) continue;
+        $file = G5_DATA_PATH.'/item/'.$it['it_img'.$i];
+        if( $is_exists = run_replace('is_exists_item_file', is_file($file), $it, $i) ){
+            $thumb = get_it_thumbnail($it['it_img'.$i], $image_width, $image_height);
+            $attr = (isset($size[0]) && isset($size[1]) && $size[0] && $size[1]) ? 'width="'.$size[0].'" height="'.$size[1].'" ' : '';
+            $imageurl = G5_DATA_URL.'/item/'.$it['it_img'.$i];
+            $infos = array(
+                'thumb'=>$thumb,
+                'imageurl'=>$imageurl,
+                'imagehtml'=>'<img src="'.$imageurl.'" '.$attr.' alt="'.get_text($it['it_name']).'" id="largeimage_'.$i.'">',
+                );
+            $images[$i] = run_replace('get_image_by_item', $infos, $it, $i, $size);
+        }
+    }
+    return $images; 
 }
 
 //결제방식 이름을 체크하여 치환 대상인 문자열은 따로 리턴합니다.
