@@ -456,11 +456,14 @@ function get_it_image($it_id, $width, $height=0, $anchor=false, $img_id='', $img
     return run_replace('get_it_image_tag', $img, $thumb, $it_id, $width, $height, $anchor, $img_id, $img_alt, $is_crop);
 }
 
-
 // 상품이미지 썸네일 생성
 function get_it_thumbnail($img, $width, $height=0, $id='', $is_crop=false)
 {
     $str = '';
+
+    if ( $replace_tag = run_replace('get_it_thumbnail_tag', $str, $img, $width, $height, $id, $is_crop) ){
+        return $replace_tag;
+    }
 
     $file = G5_DATA_PATH.'/item/'.$img;
     if(is_file($file))
