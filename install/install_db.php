@@ -319,6 +319,7 @@ if($g5_install || !$result) {
         // 게시판 테이블 생성
         $file = file("../".G5_ADMIN_DIR."/sql_write.sql");
         $file = get_db_create_replace($file);
+
         $sql = implode($file, "\n");
 
         $create_table = $table_prefix.'write_' . $tmp_bo_table[$i];
