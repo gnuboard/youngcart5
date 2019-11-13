@@ -80,6 +80,73 @@ function add_pretty_shop_url($url, $folder, $no='', $query_string='', $action=''
     return implode('/', $segments).$add_query;
 }
 
+function shop_short_url_clean($string_url, $url, $page_name, $array_page_names){
+	
+	global $config, $g5;
+	
+	if( $config['cf_bbs_rewrite'] && stripos($string_url, G5_SHOP_URL) !== false && in_array($page_name, array('item', 'list', 'listtype')) ){
+		
+		parse_str($url['query'], $vars);
+		
+		$allow_param_keys = array('it_id'=>'', 'ca_id'=>'', 'type'=>'');
+
+        $s = array('shop_dir'=>G5_SHOP_DIR);
+
+        foreach( $allow_param_keys as $key=>$v ){
+            if( !isset($vars[$key]) || empty($vars[$key]) ) continue;
+			
+			$key_value = $vars[$key];
+
+			if( $key === 'ca_id' ){
+				$key_value = 'list-'.$vars[$key];
+			} else if ( $key === 'type' ){
+				$key_value = 'type-'.$vars[$key];
+			}
+
+            $s[$key] = $key_value;
+        }
+
+        if( $config['cf_bbs_rewrite'] > 1 && $page_name === 'item' && (isset($s['it_id']) && $s['it_id']) ){
+            $get_item = get_shop_item($s['it_id'], true);
+            
+            if( $get_item['it_seo_title'] ){
+                unset($s['it_id']);
+                $s['it_seo_title'] = urlencode($get_item['it_seo_title']).'/';
+            }
+        }
+
+        $fragment = isset($url['fragment']) ? '#'.$url['fragment'] : '';
+
+        $host = G5_URL;
+
+        if( isset($url['host']) ){
+
+            $array_file_paths = run_replace('url_clean_page_paths', array('/'.G5_SHOP_DIR.'/item.php', '/'.G5_SHOP_DIR.'/list.php', '/'.G5_SHOP_DIR.'/listtype.php'));
+
+            $str_path = isset($url['path']) ? $url['path'] : '';
+            $http = (isset($_SERVER['HTTPS']) && $_SERVER['HTTPS']=='on') ? 'https://' : 'http://';
+            $port = (isset($url['port']) && ($url['port']!==80 || $url['port']!==443)) ? ':'.$url['port'] : '';
+            $host = $http.$url['host'].$port.str_replace($array_file_paths, '', $str_path);
+        }
+
+        $add_param = '';
+
+        if( $result = array_diff_key($vars, $allow_param_keys ) ){
+            $add_param = '?'.http_build_query($result,'','&amp;');
+        }
+
+        if( $add_qry ){
+            $add_param .= $add_param ? '&amp;'.$add_qry : '?'.$add_qry;
+        }
+
+        while(list($k,$v) = each($s)) $return_url .= '/'.$v;
+
+        return $host.$return_url.$add_param.$fragment;
+	}
+
+	return $string_url;
+}
+
 function add_shop_nginx_conf_rules($rules, $get_path_url, $base_path, $return_string=false){
 
     $add_rules = array();
