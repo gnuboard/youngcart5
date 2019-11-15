@@ -430,10 +430,32 @@
 
 /* 상품 목록 현재 위치 */
 #sct_location {display:inline-block;float:right;padding:12px 0;position:absolute;right:0;top:12px}
-#sct_location .go_home {display:inline-block;font-size:1.4em;color:#a2a2a2;line-height:26px;text-decoration:none;vertical-align:bottom}
-#sct_location i {vertical-align:middle;font-size:1.2em;color:#a2a2a2;display:inline-block;margin:0 5px}
-#sct_location select {border:1px solid #d3d3d3;height:26px;padding:0 5px}
-.view_location {float:left !important;position:inherit !important;top:inherit !important}
+#sct_location .go_home {display:inline-block;font-size:1.4em;color:#a2a2a2;line-height:17px;text-decoration:none;vertical-align:top;padding:0 12px}
+#sct_location i.dividing-line {vertical-align:top;font-size:1.2em;color:#a2a2a2;display:inline-block;margin:0;line-height:17px}
+#sct_location select {float:left;border:1px solid #d3d3d3;height:26px;padding:0 5px;margin:0 12px}
+#sct_location.is_right select{float:right}
+#sct_location.view_location{display:block;float:none!important;position:relative;top:0;left:0}
+#sct_location.view_location:after{display:block;visibility:hidden;clear:both;content:""}
+.view_location .go_home{float:left}
+.view_location i.dividing-line{float:left}
+.view_location .shop_select_to_html.shop_hover_selectbox{float:left}
+.shop_select_to_html{position:relative;display:inline-block}
+.shop_select_to_html span{padding:10px 20px 15px}
+.shop_select_to_html .menulist{position:absolute;top:20px;display:none;opacity:0;transition:all .2s ease-in-out}
+.view_location .shop_select_to_html .menulist{left:0}
+.is_right .shop_select_to_html .menulist{right:0}
+.shop_select_to_html:hover .category_title,.shop_select_to_html:hover .category_title i{color:#69aa6f}
+.shop_select_to_html:hover .menulist{display:block;opacity:1;transition:all .2s ease-in-out}
+.shop_select_to_html .menulist{background-color:#fff;border-radius:5px;box-shadow:0 0 0 1px rgba(68,88,112,0.11);box-sizing:border-box;margin-top:4px;overflow:hidden;padding:6px 0;-webkit-transition:all .2s cubic-bezier(0.5,0,0,1.25),opacity .15s ease-out;transition:all .2s cubic-bezier(0.5,0,0,1.25),opacity .15s ease-out;z-index:9;white-space:nowrap;width:auto}
+.shop_select_to_html .menulist ul.wide{display:inline-block!important;width:146px;vertical-align:top;min-height:360px}
+.shop_select_to_html .menulist ul.left-border{border-left:1px dashed #e6e9ed}
+.shop_select_to_html .option{font-weight:400;line-height:40px;list-style:none;min-height:40px;outline:none;text-align:left;-webkit-transition:all .2s;transition:all .2s}
+.shop_select_to_html .option:hover,.shop_select_to_html .option.focus,.shop_select_to_html .option.selected.focus{background-color:#f6f7f9}
+.shop_select_to_html .option.selected,.shop_select_to_html .option.selected a{font-weight:700;color:#69aa6f}
+.shop_select_to_html .option.disabled{background-color:transparent;color:#90a1b5;cursor:default}
+.shop_select_to_html .option a{display:block;padding-left:28px;padding-right:49px}
+.shop_select_to_html .category_title{color:#4F4F4F;font-size:1.1em}
+.shop_select_to_html .category_title i{margin-left:5px;color:#a2a2a2}
 
 .sct_here {font-weight:bold}
 .sct_bg {padding-right:15px !important;background:url('img/sct_bg_toright.gif') right 50% no-repeat}
@@ -482,7 +504,7 @@
 
 /* 상품 상세보기 */
 #sit {margin:0 0 10px}
-.sit_admin {text-align:right}
+.sit_admin {position:absolute;right:0;top:2px;text-align:right}
 .sit_admin a {line-height:35px;padding:0 10px}
 .sit_empty {padding:60px 0;text-align:center}
 
