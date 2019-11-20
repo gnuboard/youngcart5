@@ -583,7 +583,7 @@ if($od['od_pg'] == 'lg') {
 	                if ($misu_price == 0 && $od['od_receipt_price'] && ($od['od_settle_case'] == '무통장' || $od['od_settle_case'] == '계좌이체' || $od['od_settle_case'] == '가상계좌')) {
 	            ?>
 	            <li>
-	                <strong>현금영수증</strong>
+	                <strong class="letter-2px">현금영수증</strong>
 	                <span>
 	                <?php
 	                if ($od['od_cash'])
@@ -619,7 +619,7 @@ if($od['od_pg'] == 'lg') {
 	                else
 	                {
 	                ?>
-	                    <a href="javascript:;" onclick="window.open('<?php echo G5_SHOP_URL; ?>/taxsave.php?od_id=<?php echo $od_id; ?>', 'taxsave', 'width=550,height=400,scrollbars=1,menus=0');" class="btn_frmline">현금영수증을 발급하시려면 클릭하십시오.</a>
+	                    <a href="javascript:;" onclick="window.open('<?php echo G5_SHOP_URL; ?>/taxsave.php?od_id=<?php echo $od_id; ?>', 'taxsave', 'width=550,height=400,scrollbars=1,menus=0');" class="btn_frmline is-long-text">현금영수증을 발급하시려면 클릭하십시오.</a>
 	                <?php } ?>
 	                </span>
 	            </li>

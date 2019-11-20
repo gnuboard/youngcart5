@@ -984,6 +984,8 @@ margin-top:-150px;border:1px solid #dde7e9;border-radius:3px;background:#fff;ove
 #sod_fin_pay li>span, #sod_fin_pay li>strong {display:inline-block;float:left}
 #sod_fin_pay li>strong {margin-right:10px;width:50px}
 #sod_fin_pay li>span {width:238px}
+#sod_fin_pay li .letter-2px{letter-spacing:-2px}
+a.btn_frmline.is-long-text{height:auto;width:160px}
 
 #sod_fin_orderer, #sod_fin_receiver, #sod_fin_dvr {margin:0 0 20px}
 #sod_fin_orderer .tbl_wrap, #sod_fin_receiver .tbl_wrap, #sod_fin_dvr .tbl_wrap {padding:20px}
