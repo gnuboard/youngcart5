@@ -618,6 +618,12 @@ if($is_kakaopay_use) {
             $checked = '';
         }
 
+		//이니시스 PAYCO
+		if($default['de_pg_service'] == 'inicis') {
+			echo '<li><input type="radio" id="od_settle_inicis_payco" data-case="inicis_payco" name="od_settle_case" value="inicis_payco" '.$checked.'> <label for="od_settle_inicis_payco" class="inicis_payco PAYCO lb_icon">PAYCO</label></li>'.PHP_EOL;
+			$checked = '';
+		}
+
         echo '</ul>';
 
         $temp_point = 0;
@@ -1304,6 +1310,11 @@ function pay_approval()
                 paymethod = "wcard";
                 f.P_RESERVED.value = f.P_RESERVED.value.replace("&useescrow=Y", "")+"&d_lpay=Y";
                 //f.DEF_RESERVED.value = f.DEF_RESERVED.value.replace("&useescrow=Y", "");
+                f.P_SKIP_TERMS.value = "Y"; //약관을 skip 해야 제대로 실행됨
+                break;
+			case "inicis_payco":
+                paymethod = "wcard";
+                f.P_RESERVED.value = f.P_RESERVED.value.replace("&useescrow=Y", "")+"&d_payco=Y";
                 f.P_SKIP_TERMS.value = "Y"; //약관을 skip 해야 제대로 실행됨
                 break;
         }

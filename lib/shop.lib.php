@@ -2581,7 +2581,7 @@ function is_inicis_order_pay($type){
         }
     }
 
-    if( in_array($type, array('삼성페이', 'lpay') ) ){
+    if( in_array($type, array('삼성페이', 'lpay', 'inicis_payco') ) ){
         return true;
     }
 

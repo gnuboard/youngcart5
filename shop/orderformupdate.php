@@ -401,7 +401,7 @@ else if ($od_settle_case == "신용카드")
     if($od_misu == 0)
         $od_status      = '입금';
 }
-else if ($od_settle_case == "간편결제" || ($od_settle_case == "lpay" && $default['de_pg_service'] === 'inicis') )
+else if ($od_settle_case == "간편결제" || (($od_settle_case == "lpay" || $od_settle_case == "inicis_payco") && $default['de_pg_service'] === 'inicis') )
 {
     switch($default['de_pg_service']) {
         case 'lg':

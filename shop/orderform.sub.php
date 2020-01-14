@@ -631,6 +631,12 @@ if($is_kakaopay_use) {
                     $checked = '';
                 }
 
+				//이니시스 PAYCO
+				if($default['de_pg_service'] == 'inicis') {
+					echo '<input type="radio" id="od_settle_inicis_payco" data-case="inicis_payco" name="od_settle_case" value="inicis_payco" '.$checked.'> <label for="od_settle_inicis_payco" class="inicis_payco PAYCO lb_icon">PAYCO</label>'.PHP_EOL;
+                    $checked = '';
+				}
+
                 $temp_point = 0;
                 // 회원이면서 포인트사용이면
                 if ($is_member && $config['cf_use_point'])
@@ -1443,8 +1449,12 @@ function forderform_check(f)
                 f.gopaymethod.value = "Card";
                 f.acceptmethod.value = f.acceptmethod.value.replace(":useescrow", "");
                 break;
-            case "간편결제":
-                f.gopaymethod.value = "Kpay";
+			case "간편결제":
+				f.gopaymethod.value = "Kpay";
+				break;
+            case "inicis_payco":
+                f.gopaymethod.value = "onlypayco";
+				f.acceptmethod.value = f.acceptmethod.value+":cardonly";
                 break;
             case "lpay":
                 f.gopaymethod.value = "onlylpay";
