@@ -69,7 +69,12 @@ if ($od_status) {
 }
 
 if ($od_settle_case) {
-    $where[] = " od_settle_case = '$od_settle_case' ";
+
+	if( $od_settle_case === '간편결제' ){
+		$where[] = " od_settle_case in ('간편결제', 'samsungpay', 'lpay', 'inicis_payco') ";
+	} else {
+		$where[] = " od_settle_case = '$od_settle_case' ";
+	}
 }
 
 if ($od_misu) {
