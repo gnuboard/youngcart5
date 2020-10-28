@@ -182,8 +182,11 @@ a.btn_submit{background:#ff4081;color:#fff}
 .btn_add01 button {margin:0}
 
 
+
+
 .td_mng a.btn,.td_mng a{display:inline-block;height:26px;line-height:26px;border:0;border-radius:3px;padding:0 8px;margin:1px;font-weight:normal}
-.td_mng button,.td_mng button.btn{height:26px;border:0;border-radius:3px;padding:0 8px;margin:1px;border:0;font-weight:normal}
+.td_mng button,.td_mng button.btn{height:26px;border:0;border-radius:3px;padding:0 8px;margin:1px;font-weight:normal}
+
 .btn{height:30px;border:0;border-radius:5px;padding:0 10px;font-weight:bold;font-size:1.09em;vertical-align:middle}
 a.btn{display:inline-block;height:30px;line-height:30px;border:0;border-radius:5px;padding:0 10px;font-weight:bold;font-size:1.09em;vertical-align:middle}
 .btn_submit{background:#ff4081;color:#fff}
