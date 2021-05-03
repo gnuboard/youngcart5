@@ -1,6 +1,10 @@
 <?php
 include_once('./_common.php');
 
+if(isset($config['cf_bbs_rewrite']) && $config['cf_bbs_rewrite'] > 1){
+    $config['cf_bbs_rewrite'] = 1;
+}
+
 
 
 ob_start();
